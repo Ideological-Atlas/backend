@@ -53,7 +53,8 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertIn("password", cm.exception.detail)
         self.assertEqual(cm.exception.detail["password"][0].code, "password_too_short")
 
-    def test_create_method_username_logic(self):
+    @patch("core.models.user.User.trigger_email_verification")
+    def test_create_method_username_logic(self, mock_trigger):
         data_auto = self.data.copy()
         data_auto["email"] = "auto@test.com"
 
@@ -61,6 +62,7 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertTrue(serializer.is_valid(), serializer.errors)
         user = serializer.save()
         self.assertIsNotNone(user.username)
+        mock_trigger.assert_called()
 
         data_custom = self.data.copy()
         data_custom["email"] = "custom@test.com"
@@ -70,6 +72,7 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertTrue(serializer.is_valid(), serializer.errors)
         user = serializer.save()
         self.assertEqual(user.username, "custom_user")
+        self.assertEqual(mock_trigger.call_count, 2)
 
 
 class VerificationSerializerTestCase(SerializerTestBase):
