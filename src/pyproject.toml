@@ -37,7 +37,8 @@ dev = [
     "coverage==7.13.1",
     "factory-boy==3.3.3",
     "freezegun==1.5.5",
-    "tblib==3.0.0"
+    "tblib==3.0.0",
+    "types-pytz==2025.2.0.20251108"
 ]
 
 [tool.coverage.run]
