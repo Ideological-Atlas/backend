@@ -26,5 +26,8 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 @task_postrun.connect
 def close_db_connections(**kwargs):
+    if app.conf.task_always_eager:
+        return
+
     for conn in connections.all():
         conn.close_if_unusable_or_obsolete()
