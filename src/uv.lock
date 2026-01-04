@@ -318,6 +318,15 @@ wheels = [
 ]
 
 [[package]]
+name = "django-environ"
+version = "0.12.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d6/04/65d2521842c42f4716225f20d8443a50804920606aec018188bbee30a6b0/django_environ-0.12.0.tar.gz", hash = "sha256:227dc891453dd5bde769c3449cf4a74b6f2ee8f7ab2361c93a07068f4179041a", size = 56804, upload-time = "2025-01-13T17:03:37.74Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/83/b3/0a3bec4ecbfee960f39b1842c2f91e4754251e0a6ed443db9fe3f666ba8f/django_environ-0.12.0-py2.py3-none-any.whl", hash = "sha256:92fb346a158abda07ffe6eb23135ce92843af06ecf8753f43adf9d2366dcc0ca", size = 19957, upload-time = "2025-01-13T17:03:32.918Z" },
+]
+
+[[package]]
 name = "django-extensions"
 version = "4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -568,6 +577,84 @@ sdist = { url = "https://files.pythonhosted.org/packages/ff/e7/685de97986c916a6d
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0f/1c/e5fd8f973d4f375adb21565739498e2e9a1e54c858a97b9a8ccfdc81da9b/identify-2.6.15-py2.py3-none-any.whl", hash = "sha256:1181ef7608e00704db228516541eb83a88a9f94433a8c80bb9b5bd54b1d81757", size = 99183, upload-time = "2025-10-02T17:43:39.137Z" },
 ]
+
+[[package]]
+name = "ideologicalatlas-backend"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "boto3" },
+    { name = "celery" },
+    { name = "django" },
+    { name = "django-axes" },
+    { name = "django-cors-headers" },
+    { name = "django-debug-toolbar" },
+    { name = "django-environ" },
+    { name = "django-extensions" },
+    { name = "django-filter" },
+    { name = "django-model-utils" },
+    { name = "django-simple-history" },
+    { name = "django-storages" },
+    { name = "django-unfold" },
+    { name = "djangorestframework" },
+    { name = "djangorestframework-simplejwt" },
+    { name = "drf-spectacular" },
+    { name = "flower" },
+    { name = "gunicorn" },
+    { name = "ipython" },
+    { name = "psycopg" },
+    { name = "requests" },
+    { name = "types-requests" },
+    { name = "uvicorn" },
+    { name = "whitenoise" },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "coverage" },
+    { name = "factory-boy" },
+    { name = "freezegun" },
+    { name = "httpx" },
+    { name = "pre-commit" },
+    { name = "tblib" },
+    { name = "types-pytz" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "boto3", specifier = "==1.42.21" },
+    { name = "celery", specifier = "==5.6.1" },
+    { name = "coverage", marker = "extra == 'dev'", specifier = "==7.13.1" },
+    { name = "django", specifier = "==6.0" },
+    { name = "django-axes", specifier = "==8.1.0" },
+    { name = "django-cors-headers", specifier = "==4.9.0" },
+    { name = "django-debug-toolbar", specifier = "==6.1.0" },
+    { name = "django-environ", specifier = "==0.12.0" },
+    { name = "django-extensions", specifier = "==4.1" },
+    { name = "django-filter", specifier = "==25.2" },
+    { name = "django-model-utils", specifier = "==5.0.0" },
+    { name = "django-simple-history", specifier = "==3.11.0" },
+    { name = "django-storages", specifier = "==1.14.6" },
+    { name = "django-unfold", specifier = "==0.75.0" },
+    { name = "djangorestframework", specifier = "==3.16.1" },
+    { name = "djangorestframework-simplejwt", specifier = "==5.5.1" },
+    { name = "drf-spectacular", specifier = "==0.29.0" },
+    { name = "factory-boy", marker = "extra == 'dev'", specifier = "==3.3.3" },
+    { name = "flower", specifier = "==2.0.1" },
+    { name = "freezegun", marker = "extra == 'dev'", specifier = "==1.5.5" },
+    { name = "gunicorn", specifier = "==23.0.0" },
+    { name = "httpx", marker = "extra == 'dev'", specifier = "==0.28.1" },
+    { name = "ipython", specifier = "==9.8.0" },
+    { name = "pre-commit", marker = "extra == 'dev'", specifier = "==4.5.1" },
+    { name = "psycopg", specifier = "==3.3.2" },
+    { name = "requests", specifier = "==2.32.5" },
+    { name = "tblib", marker = "extra == 'dev'", specifier = "==3.0.0" },
+    { name = "types-pytz", marker = "extra == 'dev'", specifier = "==2025.2.0.20251108" },
+    { name = "types-requests", specifier = "==2.32.4.20250913" },
+    { name = "uvicorn", specifier = "==0.40.0" },
+    { name = "whitenoise", specifier = "==6.11.0" },
+]
+provides-extras = ["dev"]
 
 [[package]]
 name = "idna"
@@ -969,82 +1056,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/90/76/437d71068094df072
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/4b/359f28a903c13438ef59ebeee215fb25da53066db67b305c125f1c6d2a25/sqlparse-0.5.5-py3-none-any.whl", hash = "sha256:12a08b3bf3eec877c519589833aed092e2444e68240a3577e8e26148acc7b1ba", size = 46138, upload-time = "2025-12-19T07:17:46.573Z" },
 ]
-
-[[package]]
-name = "src"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "boto3" },
-    { name = "celery" },
-    { name = "django" },
-    { name = "django-axes" },
-    { name = "django-cors-headers" },
-    { name = "django-debug-toolbar" },
-    { name = "django-extensions" },
-    { name = "django-filter" },
-    { name = "django-model-utils" },
-    { name = "django-simple-history" },
-    { name = "django-storages" },
-    { name = "django-unfold" },
-    { name = "djangorestframework" },
-    { name = "djangorestframework-simplejwt" },
-    { name = "drf-spectacular" },
-    { name = "flower" },
-    { name = "gunicorn" },
-    { name = "ipython" },
-    { name = "psycopg" },
-    { name = "requests" },
-    { name = "types-requests" },
-    { name = "uvicorn" },
-    { name = "whitenoise" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "coverage" },
-    { name = "factory-boy" },
-    { name = "freezegun" },
-    { name = "httpx" },
-    { name = "pre-commit" },
-    { name = "tblib" },
-    { name = "types-pytz" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "boto3", specifier = "==1.42.21" },
-    { name = "celery", specifier = "==5.6.1" },
-    { name = "coverage", marker = "extra == 'dev'", specifier = "==7.13.1" },
-    { name = "django", specifier = "==6.0" },
-    { name = "django-axes", specifier = "==8.1.0" },
-    { name = "django-cors-headers", specifier = "==4.9.0" },
-    { name = "django-debug-toolbar", specifier = "==6.1.0" },
-    { name = "django-extensions", specifier = "==4.1" },
-    { name = "django-filter", specifier = "==25.2" },
-    { name = "django-model-utils", specifier = "==5.0.0" },
-    { name = "django-simple-history", specifier = "==3.11.0" },
-    { name = "django-storages", specifier = "==1.14.6" },
-    { name = "django-unfold", specifier = "==0.75.0" },
-    { name = "djangorestframework", specifier = "==3.16.1" },
-    { name = "djangorestframework-simplejwt", specifier = "==5.5.1" },
-    { name = "drf-spectacular", specifier = "==0.29.0" },
-    { name = "factory-boy", marker = "extra == 'dev'", specifier = "==3.3.3" },
-    { name = "flower", specifier = "==2.0.1" },
-    { name = "freezegun", marker = "extra == 'dev'", specifier = "==1.5.5" },
-    { name = "gunicorn", specifier = "==23.0.0" },
-    { name = "httpx", marker = "extra == 'dev'", specifier = "==0.28.1" },
-    { name = "ipython", specifier = "==9.8.0" },
-    { name = "pre-commit", marker = "extra == 'dev'", specifier = "==4.5.1" },
-    { name = "psycopg", specifier = "==3.3.2" },
-    { name = "requests", specifier = "==2.32.5" },
-    { name = "tblib", marker = "extra == 'dev'", specifier = "==3.0.0" },
-    { name = "types-pytz", marker = "extra == 'dev'", specifier = "==2025.2.0.20251108" },
-    { name = "types-requests", specifier = "==2.32.4.20250913" },
-    { name = "uvicorn", specifier = "==0.40.0" },
-    { name = "whitenoise", specifier = "==6.11.0" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "stack-data"

@@ -8,7 +8,7 @@ SITE_NAME = PROJECT_NAME
 UNFOLD = {
     "SITE_TITLE": SITE_NAME,
     "SITE_HEADER": SITE_NAME,
-    "SITE_SUBHEADER": env.get("PROJECT_SUBHEADER"),
+    "SITE_SUBHEADER": env("PROJECT_SUBHEADER", default=""),
     "SITE_URL": f"/{ADMIN_PATH}/",
     "SITE_LOGO": lambda request: static("logo/logo.png"),
     "SITE_ICON": lambda request: static("logo/logo.png"),

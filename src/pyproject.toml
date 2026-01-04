@@ -1,7 +1,10 @@
 [project]
-name = "src"
+name = "ideologicalatlas-backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "Backend API for Ideological Atlas Project"
+authors = [
+    {name = "Ideological Atlas Team", email = "support@ideologicalatlas.com"}
+]
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -11,6 +14,7 @@ dependencies = [
     "django-axes==8.1.0",
     "django-cors-headers==4.9.0",
     "django-debug-toolbar==6.1.0",
+    "django-environ==0.12.0",
     "django-extensions==4.1",
     "django-filter==25.2",
     "django-model-utils==5.0.0",

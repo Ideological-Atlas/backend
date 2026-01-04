@@ -1,23 +1,26 @@
 import multiprocessing
-import os
 import sys
 from os.path import abspath, dirname, join
 
+import environ
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-env = os.environ
+BASE_DIR = dirname(dirname(abspath(__file__)))
+PROJECT_ROOT = dirname(dirname(abspath(__file__)))
 
-PROJECT_NAME = env.get("PROJECT_NAME")
+env = environ.Env()
+environ.Env.read_env(join(PROJECT_ROOT, ".env"))
+
+PROJECT_NAME = env("PROJECT_NAME", default="ideologicalatlas")
+
 if "test" in sys.argv[1:]:
     try:
         multiprocessing.set_start_method("fork")
     except RuntimeError:
         pass
 
-BASE_DIR = dirname(dirname(abspath(__file__)))
 APPS_DIR = f"{BASE_DIR}/../apps"
-PROJECT_ROOT = dirname(dirname(abspath(__file__)))
 SITE_ROOT = dirname(PROJECT_ROOT)
 SITE_ID = 1
 
@@ -25,11 +28,11 @@ sys.path.insert(0, PROJECT_ROOT)
 sys.path.insert(0, join(SITE_ROOT, "apps"))
 sys.path.insert(0, join(SITE_ROOT, "tests"))
 
-DEBUG = env.get("DEBUG", "False") == "True"
-DEBUG_SQL = env.get("DEBUG_SQL", "True") == "True"
-PRODUCTION = env.get("PRODUCTION", "True") == "True"
-ADMIN_PATH = env.get("ADMIN_PATH", "admin")
-ENVIRONMENT = env.get("ENVIRONMENT", "unknown")
+DEBUG = env.bool("DEBUG", False)
+DEBUG_SQL = env.bool("DEBUG_SQL", True)
+PRODUCTION = env.bool("PRODUCTION", True)
+ADMIN_PATH = env("ADMIN_PATH", default="admin")
+ENVIRONMENT = env("ENVIRONMENT", default="unknown")
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
@@ -113,11 +116,11 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env.get("POSTGRES_DB"),
-        "USER": env.get("POSTGRES_USER"),
-        "PASSWORD": env.get("POSTGRES_PASSWORD"),
-        "HOST": env.get("POSTGRES_HOST"),
-        "PORT": "",
+        "NAME": env("POSTGRES_DB", default="postgres"),
+        "USER": env("POSTGRES_USER", default="postgres"),
+        "PASSWORD": env("POSTGRES_PASSWORD", default=""),
+        "HOST": env("POSTGRES_HOST", default="postgres"),
+        "PORT": env("POSTGRES_PORT", default=""),
         "DISABLE_SERVER_SIDE_CURSORS": True,
         "TEST": {
             "NAME": "testing_database",
