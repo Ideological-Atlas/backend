@@ -31,6 +31,8 @@ jobs:
       POSTGRES_PORT: 5432
       DJANGO_SECRET_KEY: 'secret-key-for-tests'
       UV_PROJECT_ENVIRONMENT: /home/runner/work/backend/backend/src/.venv
+      NOTIFICATIONS_SERVICE_URL: "http://localhost:8000"
+      NOTIFICATIONS_API_KEY: "dummy-test-key"
 
     steps:
       - name: Checkout Code
