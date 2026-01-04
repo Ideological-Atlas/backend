@@ -3,6 +3,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.utils.translation import gettext_lazy as _
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -14,7 +15,11 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-from backend.settings import ADMIN_PATH, PRODUCTION
+from backend.settings import ADMIN_PATH, PRODUCTION, PROJECT_NAME
+
+admin.site.site_header = _(PROJECT_NAME)
+admin.site.site_title = _(PROJECT_NAME)
+admin.site.index_title = _("Panel de control")
 
 urlpatterns = (
     [
@@ -45,4 +50,5 @@ if not PRODUCTION:
             name="redoc",
         ),
         path("__debug__/", include("debug_toolbar.urls")),
+        path("silk/", include("silk.urls", namespace="silk")),
     ]

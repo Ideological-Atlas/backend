@@ -12,7 +12,7 @@ PROJECT_ROOT = dirname(dirname(abspath(__file__)))
 env = environ.Env()
 environ.Env.read_env(join(PROJECT_ROOT, ".env"))
 
-PROJECT_NAME = env("PROJECT_NAME", default="ideologicalatlas")
+PROJECT_NAME = env("PROJECT_NAME", default="")
 
 if "test" in sys.argv[1:]:
     try:
@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "rest_framework_simplejwt",
     "axes",
+    "silk",
 ]
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -82,6 +83,7 @@ DJANGO_APPS = [
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + INTERNAL_APPS
 
 MIDDLEWARE = [
+    "silk.middleware.SilkyMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
