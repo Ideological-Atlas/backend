@@ -1,9 +1,10 @@
 from .base import env
 
 SECRET_KEY = env.get("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = env.get("BACKEND_ALLOWED_HOSTS", "").split(",")
-CORS_ALLOWED_ORIGINS = env.get("CORS_ALLOWED_ORIGINS", "").split(",")
-CSRF_TRUSTED_ORIGINS = env.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+ALLOWED_HOSTS = [h for h in env.get("BACKEND_ALLOWED_HOSTS", "").split(",") if h]
+CORS_ALLOWED_ORIGINS = [o for o in env.get("CORS_ALLOWED_ORIGINS", "").split(",") if o]
+CSRF_TRUSTED_ORIGINS = [o for o in env.get("CSRF_TRUSTED_ORIGINS", "").split(",") if o]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
