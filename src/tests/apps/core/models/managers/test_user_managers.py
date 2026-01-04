@@ -17,12 +17,12 @@ class UserManagerTestCase(TestCase):
             (
                 "No Staff",
                 {"is_staff": False, "is_superuser": True},
-                "El superusuario debe tener is_staff=True.",
+                "Superuser must have is_staff=True.",
             ),
             (
                 "No Super",
                 {"is_staff": True, "is_superuser": False},
-                "El superusuario debe tener is_superuser=True.",
+                "Superuser must have is_superuser=True.",
             ),
         ]
 
