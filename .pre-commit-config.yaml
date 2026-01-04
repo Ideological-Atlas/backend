@@ -73,3 +73,9 @@ repos:
     rev: v8.30.0
     hooks:
       - id: gitleaks
+
+  - repo: https://github.com/returntocorp/semgrep
+    rev: 'v1.146.0'
+    hooks:
+      - id: semgrep
+        args: ['--config=p/django', '--config=p/python', '--config=p/secrets']
