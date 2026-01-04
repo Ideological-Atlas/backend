@@ -31,7 +31,7 @@ class RegisterViewTestCase(APITestBase):
         mock_post.assert_called_once()
 
     def test_post_create_user_400_bad_request(self):
-        self.client.credentials()  # Logout
+        self.client.credentials()
 
         collision_email = "collision@test.com"
         UserFactory(email=collision_email)
@@ -41,7 +41,7 @@ class RegisterViewTestCase(APITestBase):
             (
                 "foo@foopass.com",
                 "foo@foopassword",
-                "password",  # CAMBIADO: Antes era non_field_errors
+                "password",
                 "password_too_similar",
             ),
             ("foo@foopass.com", "short", "password", "password_too_short"),

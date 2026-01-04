@@ -33,6 +33,7 @@ jobs:
       UV_PROJECT_ENVIRONMENT: /home/runner/work/backend/backend/src/.venv
       NOTIFICATIONS_SERVICE_URL: "http://localhost:8000"
       NOTIFICATIONS_API_KEY: "dummy-test-key"
+      PRE_COMMIT_HOME: ${{ github.workspace }}/.cache/pre-commit
 
     steps:
       - name: Checkout Code
@@ -45,27 +46,38 @@ jobs:
           enable-cache: true
 
       - name: Set up Python
+        id: setup-python
         uses: actions/setup-python@v5
         with:
           python-version: "3.14"
+
+      - name: Restore Pre-commit Cache
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: ${{ env.PRE_COMMIT_HOME }}
+          key: pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-
 
       - name: Install Dependencies
         run: |
           cd src
           uv sync --extra dev
 
-      - name: Cache Pre-commit hooks
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: |
-            pre-commit-${{ runner.os }}-
-
       - name: Run Pre-commit
         run: |
           cd src
+          # Instalamos hooks explícitamente para asegurar que se descargan en PRE_COMMIT_HOME
+          uv run pre-commit install-hooks --config ../.pre-commit-config.yaml
           uv run pre-commit run --all-files --config ../.pre-commit-config.yaml --show-diff-on-failure
+
+      - name: Save Pre-commit Cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ${{ env.PRE_COMMIT_HOME }}
+          key: pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
 
       - name: Run Tests with Coverage
         run: |

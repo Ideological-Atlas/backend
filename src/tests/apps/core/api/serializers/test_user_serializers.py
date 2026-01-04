@@ -26,12 +26,14 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertEqual(user.email, self.data["email"])
         mock_trigger.assert_called_once()
 
-    def test_create_sets_preferred_language(self):
+    @patch("core.models.user.User.trigger_email_verification")
+    def test_create_sets_preferred_language(self, mock_trigger):
         with translation.override("en"):
             serializer = RegisterSerializer(data=self.data)
             self.assertTrue(serializer.is_valid())
             user = serializer.save()
             self.assertEqual(user.preferred_language, "en")
+            mock_trigger.assert_called_once()
 
     @patch("core.models.user.User.trigger_email_verification")
     @patch("core.api.serializers.user_serializers.get_language")
