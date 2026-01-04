@@ -1,0 +1,10 @@
+branchName: '${issue.number}-${issue.title}'
+branches:
+  - label: bug
+    prefix: fix/
+  - label: enhancement
+    prefix: feature/
+  - label: chore
+    prefix: chore/
+  - label: '*'
+    prefix: other/

@@ -1,0 +1,96 @@
+name: CI Pipeline
+
+on:
+  push:
+
+jobs:
+  quality-assurance:
+    name: Quality & Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: backend
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password123
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      POSTGRES_DB: backend
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      DJANGO_SECRET_KEY: 'secret-key-for-tests'
+      UV_PROJECT_ENVIRONMENT: /home/runner/work/backend/backend/src/.venv
+      NOTIFICATIONS_SERVICE_URL: "http://localhost:8000"
+      NOTIFICATIONS_API_KEY: "dummy-test-key"
+      PRE_COMMIT_HOME: ${{ github.workspace }}/.cache/pre-commit
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Restore Pre-commit Cache
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: ${{ env.PRE_COMMIT_HOME }}
+          key: pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-
+
+      - name: Install Dependencies
+        run: |
+          cd src
+          uv sync --extra dev
+
+      - name: Run Pre-commit
+        run: |
+          cd src
+          # Instalamos hooks explícitamente para asegurar que se descargan en PRE_COMMIT_HOME
+          uv run pre-commit install-hooks --config ../.pre-commit-config.yaml
+          uv run pre-commit run --all-files --config ../.pre-commit-config.yaml --show-diff-on-failure
+
+      - name: Save Pre-commit Cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ${{ env.PRE_COMMIT_HOME }}
+          key: pre-commit-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+
+      - name: Run Tests with Coverage
+        run: |
+          cd src
+          uv run coverage run manage.py test --parallel=auto --failfast
+          uv run coverage combine
+          uv run coverage xml
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: Ideological-Atlas/backend
+          files: ./src/coverage.xml
+          fail_ci_if_error: true
+          verbose: true

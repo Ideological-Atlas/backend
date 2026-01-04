@@ -1,0 +1,4 @@
+from ..base import env
+
+NOTIFICATIONS_SERVICE_URL = env("NOTIFICATIONS_SERVER", default="")
+NOTIFICATIONS_API_KEY = env("NOTIFICATIONS_API_KEY", default="")

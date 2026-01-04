@@ -1,0 +1,182 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: ${PROJECT_NAME}_postgres
+    hostname: postgres
+    restart: always
+    env_file: .env
+    healthcheck:
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    volumes:
+      - db_data:/var/lib/postgresql
+    networks:
+      - app_network
+    ports:
+      - "${POSTGRES_EXTERNAL_PORT}:5432"
+    logging: &default-logging
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "2"
+
+  broker:
+    image: rabbitmq:4-management
+    container_name: ${PROJECT_NAME}_broker
+    hostname: broker
+    env_file: .env
+    healthcheck:
+      test: rabbitmq-diagnostics check_running
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    ports:
+      - "${BROKER_PORT_2}:15672"
+      - "${BROKER_PORT}:5672"
+    networks:
+      - app_network
+    logging: *default-logging
+
+  minio:
+    image: minio/minio
+    container_name: ${PROJECT_NAME}_minio
+    hostname: minio
+    restart: always
+    volumes:
+      - minio_data:/data
+    env_file: .env
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: curl -f http://127.0.0.1:9000/minio/health/live
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    ports:
+      - "${MINIO_PORT}:9000"
+      - "${MINIO_CONSOLE_PORT}:9001"
+    networks:
+      - app_network
+    logging: *default-logging
+
+  backend:
+    container_name: ${PROJECT_NAME}_backend
+    hostname: backend
+    restart: always
+    image: ${PROJECT_NAME}_backend_image
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    command: sh /scripts/post_deploy.sh
+    volumes:
+      - ./src:/src/
+      - logs_data:/src/logs
+    env_file: .env
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      broker:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    networks:
+      - app_network
+    logging: *default-logging
+
+  worker:
+    container_name: ${PROJECT_NAME}_worker
+    hostname: worker
+    image: ${PROJECT_NAME}_backend_image
+    restart: always
+    env_file: .env
+    environment:
+      WORKER_NAME: default_worker
+    command: sh /scripts/run_worker.sh
+    volumes:
+      - ./src:/src
+      - logs_data:/src/logs
+    healthcheck:
+      test: celery -A backend.celery_backend inspect ping -d default_worker@worker
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      backend:
+        condition: service_started
+      broker:
+        condition: service_healthy
+    networks:
+      - app_network
+    logging: *default-logging
+
+  beat:
+    container_name: ${PROJECT_NAME}_beat
+    hostname: beat
+    image: ${PROJECT_NAME}_backend_image
+    restart: always
+    env_file: .env
+    environment:
+      WORKER_NAME: beat_worker
+    command: sh /scripts/run_beat.sh
+    volumes:
+      - ./src:/src
+      - logs_data:/src/logs
+    healthcheck:
+      test: pidof celery || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      broker:
+        condition: service_healthy
+      worker:
+        condition: service_started
+    networks:
+      - app_network
+    logging: *default-logging
+
+  flower:
+    container_name: ${PROJECT_NAME}_flower
+    image: ${PROJECT_NAME}_backend_image
+    hostname: flower
+    restart: always
+    env_file: .env
+    command: sh /scripts/run_flower.sh
+    healthcheck:
+      test: wget --spider -q http://127.0.0.1:5555/$\{FLOWER_URL_PREFIX\}/
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      broker:
+        condition: service_healthy
+    volumes:
+      - ./src:/src
+    networks:
+      - app_network
+    ports:
+      - "${FLOWER_PORT}:5555"
+    logging: *default-logging
+
+networks:
+  app_network:
+    name: ${PROJECT_NAME}_network
+    driver: bridge
+
+volumes:
+  logs_data:
+    name: ${PROJECT_NAME}_logs_data
+  db_data:
+    name: ${PROJECT_NAME}_db_data
+  minio_data:
+    name: ${PROJECT_NAME}_minio_data

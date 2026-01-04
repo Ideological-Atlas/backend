@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-04 18:46+0100\n"
+"PO-Revision-Date: 2026-01-03 01:45+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/core/admin/user_admin.py:14
+msgid "Base info"
+msgstr "Información básica"
+
+#: apps/core/admin/user_admin.py:16
+msgid "Personal info"
+msgstr "Información personal"
+
+#: apps/core/admin/user_admin.py:25
+msgid "Permissions"
+msgstr "Permisos"
+
+#: apps/core/admin/user_admin.py:38
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: apps/core/admin/user_admin.py:75
+msgid "Send verification email"
+msgstr "Enviar correo de verificación"
+
+#: apps/core/admin/user_admin.py:81
+msgid "Verification emails process started for selected users."
+msgstr ""
+"Se ha iniciado el proceso de envío de correos de verificación para los "
+"usuarios seleccionados."
+
+#: apps/core/api/serializers/user_serializers.py:53
+msgid "Password of the user"
+msgstr "Contraseña del usuario"
+
+#: apps/core/api/serializers/user_serializers.py:55
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: apps/core/api/views/user_views.py:19
+msgid "Register new user"
+msgstr "Registrar nuevo usuario"
+
+#: apps/core/api/views/user_views.py:20
+msgid "Creates a new user account and triggers the verification email process."
+msgstr ""
+"Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
+"correo."
+
+#: apps/core/api/views/user_views.py:29
+msgid "Get or update current profile"
+msgstr "Obtener o actualizar perfil actual"
+
+#: apps/core/api/views/user_views.py:31
+msgid ""
+"Retrieve the profile information of the currently authenticated user or "
+"update their details."
+msgstr ""
+"Recupera la información del perfil del usuario autenticado o actualiza sus "
+"detalles."
+
+#: apps/core/api/views/user_views.py:45
+msgid "Verify user account"
+msgstr "Verificar cuenta de usuario"
+
+#: apps/core/api/views/user_views.py:46
+msgid "Marks a user as verified using their unique UUID."
+msgstr "Marca a un usuario como verificado usando su UUID único."
+
+#: apps/core/api/views/user_views.py:50
+msgid "The UUID of the user to verify"
+msgstr "El UUID del usuario a verificar"
+
+#: apps/core/models/managers/user_managers.py:20
+msgid "The Email must be set"
+msgstr "Debe establecerse el correo electrónico"
+
+#: apps/core/models/managers/user_managers.py:39
+#: tests/apps/core/models/managers/test_user_managers.py:21
+msgid "Superuser must have is_staff=True."
+msgstr "El superusuario debe tener is_staff=True."
+
+#: apps/core/models/managers/user_managers.py:41
+#: tests/apps/core/models/managers/test_user_managers.py:26
+msgid "Superuser must have is_superuser=True."
+msgstr "El superusuario debe tener is_superuser=True."
+
+#: apps/core/models/user.py:16
+msgid "email address"
+msgstr "dirección de correo electrónico"
+
+#: apps/core/models/user.py:21
+msgid "Is verified"
+msgstr "Está verificado"
+
+#: apps/core/models/user.py:22
+msgid "Field that shows if the user is verified or not."
+msgstr "Campo que muestra si el usuario está verificado o no."
+
+#: apps/core/models/user.py:28
+msgid "User"
+msgstr "Usuario"
+
+#: apps/core/models/user.py:29 backend/settings/apps_config/unfold.py:15
+msgid "Users"
+msgstr "Usuarios"
+
+#: backend/settings/apps_config/drf.py:21
+#, fuzzy
+#| msgid ""
+#| "Complete documentation of the Ideological Atlas API. Here you can explore "
+#| "the available endpoints, authentication methods, and data structures."
+msgid ""
+"Here you can explore the available endpoints, authentication methods, and "
+"data structures."
+msgstr ""
+"Documentación completa de la API de Ideological Atlas. Aquí puedes explorar "
+"los endpoints disponibles, métodos de autenticación y estructuras de datos."
+
+#: backend/settings/apps_config/drf.py:36
+msgid "Operations related to user management and profile."
+msgstr "Operaciones relacionadas con la gestión de usuarios y perfiles."
+
+#: backend/settings/apps_config/drf.py:40
+msgid "Authentication and token management."
+msgstr "Autenticación y gestión de tokens."
+
+#: backend/settings/apps_config/unfold.py:11
+msgid "Users and groups"
+msgstr "Usuarios y grupos"
+
+#: backend/settings/apps_config/unfold.py:20
+msgid "Groups"
+msgstr "Grupos"
+
+#: backend/settings/apps_config/unfold.py:31
+msgid "Monitoring & Dev"
+msgstr "Monitorización y Desarrollo"
+
+#: backend/settings/apps_config/unfold.py:35
+msgid "Silk Profiler"
+msgstr "Perfilador Silk"
+
+#: backend/settings/apps_config/unfold.py:40
+msgid "API Schema (Swagger)"
+msgstr "Esquema de API (Swagger)"
+
+#: backend/settings/apps_config/unfold.py:45
+msgid "API Documentation (Redoc)"
+msgstr "Documentación de API (Redoc)"
+
+#: backend/settings/base.py:46
+msgid "Spanish"
+msgstr "Español"
+
+#: backend/settings/base.py:47
+msgid "English"
+msgstr "Inglés"
+
+#: backend/urls.py:22
+msgid "Panel de control"
+msgstr "Panel de control"
