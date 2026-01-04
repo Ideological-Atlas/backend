@@ -6,10 +6,11 @@ services:
     restart: always
     env_file: .env
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
       interval: 5s
       timeout: 5s
       retries: 5
+      start_period: 10s
     volumes:
       - db_data:/var/lib/postgresql
     networks:
@@ -28,10 +29,11 @@ services:
     hostname: broker
     env_file: .env
     healthcheck:
-      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      test: rabbitmq-diagnostics check_running
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 20s
     ports:
       - "${BROKER_PORT_2}:15672"
       - "${BROKER_PORT}:5672"
@@ -51,6 +53,11 @@ services:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
     command: server /data --console-address ":9001"
+    healthcheck:
+      test: curl -f http://127.0.0.1:9000/minio/health/live
+      interval: 30s
+      timeout: 20s
+      retries: 3
     ports:
       - "${MINIO_PORT}:9000"
       - "${MINIO_CONSOLE_PORT}:9001"
@@ -79,7 +86,7 @@ services:
       broker:
         condition: service_healthy
       minio:
-        condition: service_started
+        condition: service_healthy
     networks:
       - app_network
     logging: *default-logging
@@ -96,6 +103,12 @@ services:
     volumes:
       - ./src:/src
       - logs_data:/src/logs
+    healthcheck:
+      test: celery -A backend.celery_backend inspect ping -d default_worker@worker
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     depends_on:
       backend:
         condition: service_started
@@ -117,6 +130,11 @@ services:
     volumes:
       - ./src:/src
       - logs_data:/src/logs
+    healthcheck:
+      test: pidof celery || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
     depends_on:
       broker:
         condition: service_healthy
@@ -133,6 +151,12 @@ services:
     restart: always
     env_file: .env
     command: sh /scripts/run_flower.sh
+    healthcheck:
+      test: wget --spider -q http://127.0.0.1:5555/$\{FLOWER_URL_PREFIX\}/
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     depends_on:
       broker:
         condition: service_healthy
