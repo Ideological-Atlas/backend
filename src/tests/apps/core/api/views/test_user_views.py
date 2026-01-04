@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from core.api.api_test_helpers import APITestBase, APITestBaseNeedAuthorized
 from core.factories import UserFactory
 from core.models import User
@@ -15,12 +17,18 @@ class RegisterViewTestCase(APITestBase):
             "password": "ThisIsARealValidPassword",
         }
 
-    def test_post_create_user_201_created(self):
+    @patch("core.tasks.notifications.requests.post")
+    def test_post_create_user_201_created(self, mock_post):
+        mock_post.return_value.ok = True
+        mock_post.return_value.json.return_value = {"status": "queued"}
+
         self.client.credentials()  # Logout
         initial_count = User.objects.count()
         response = self.client.post(self.url, data=self.sent_data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(User.objects.count(), initial_count + 1)
+
+        mock_post.assert_called_once()
 
     def test_post_create_user_400_bad_request(self):
         self.client.credentials()  # Logout
