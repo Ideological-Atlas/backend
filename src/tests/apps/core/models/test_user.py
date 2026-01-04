@@ -20,15 +20,11 @@ class UserModelTestCase(TestCase):
     def test_str_representation(self):
         self.assertEqual(str(self.user), self.user.username)
 
-    # CORRECCIÓN: Parcheamos 'core.tasks.send_email_notification.delay'
-    # porque el import ahora es local dentro de la función.
     @patch("core.tasks.send_email_notification.delay")
     def test_trigger_email_verification(self, mock_send):
-        # Case 1: Success
         self.user.trigger_email_verification(language="en")
         mock_send.assert_called_once()
 
-        # Case 2: Already verified (logs warning, early return)
         mock_send.reset_mock()
         self.user.is_verified = True
         self.user.trigger_email_verification()

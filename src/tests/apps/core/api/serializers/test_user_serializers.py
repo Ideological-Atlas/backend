@@ -33,13 +33,15 @@ class RegisterSerializerTestCase(SerializerTestBase):
             user = serializer.save()
             self.assertEqual(user.preferred_language, "en")
 
+    @patch("core.models.user.User.trigger_email_verification")
     @patch("core.api.serializers.user_serializers.get_language")
-    def test_create_fallback_language(self, mock_get_language):
+    def test_create_fallback_language(self, mock_get_language, mock_trigger):
         mock_get_language.return_value = None
         serializer = RegisterSerializer(data=self.data)
         self.assertTrue(serializer.is_valid())
         user = serializer.save()
         self.assertEqual(user.preferred_language, "es")
+        mock_trigger.assert_called_once()
 
     def test_validate_password_errors(self):
         self.data["password"] = "123"  # nosec
