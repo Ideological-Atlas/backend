@@ -2,11 +2,13 @@ from io import StringIO
 from unittest.mock import MagicMock, patch
 
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import TestCase, override_settings
 
 
+@override_settings(AWS_S3_ENDPOINT_URL="http://fake-minio:9000")
 class InitMinioCommandTestCase(TestCase):
-    def call_command(self, *args, **kwargs):
+    @staticmethod
+    def call_command(*args, **kwargs):
         out = StringIO()
         kwargs["stdout"] = out
         call_command("init_minio", *args, **kwargs)
@@ -35,7 +37,7 @@ class InitMinioCommandTestCase(TestCase):
         self.call_command()
         mock_bucket.create.assert_not_called()
 
-    @patch("django.conf.settings.AWS_S3_ENDPOINT_URL", None)
+    @override_settings(AWS_S3_ENDPOINT_URL=None)
     def test_init_minio_no_url(self):
         output = self.call_command()
         self.assertIn("S3 Endpoint not configured", output)

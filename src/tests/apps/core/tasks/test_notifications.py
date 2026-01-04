@@ -16,12 +16,10 @@ class NotificationsTestCase(TestCase):
 
     @patch("core.tasks.notifications.requests.post")
     def test_send_email_retry_logic(self, mock_post):
-        # Caso 1: RequestException (red)
         mock_post.side_effect = RequestException("Net")
         with self.assertRaises(RequestException):
             send_email_notification(to_email="a@b.com", template_name="t")
 
-        # Caso 2: Response not OK (500)
         mock_post.side_effect = None
         mock_post.return_value.ok = False
         mock_post.return_value.raise_for_status.side_effect = RequestException("500")

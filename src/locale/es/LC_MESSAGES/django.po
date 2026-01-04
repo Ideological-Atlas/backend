@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 01:39+0100\n"
+"POT-Creation-Date: 2026-01-04 13:09+0100\n"
 "PO-Revision-Date: 2026-01-03 01:45+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,13 +40,15 @@ msgstr "Enviar correo de verificación"
 
 #: apps/core/admin/user_admin.py:81
 msgid "Verification emails process started for selected users."
-msgstr "Se ha iniciado el proceso de envío de correos de verificación para los usuarios seleccionados."
+msgstr ""
+"Se ha iniciado el proceso de envío de correos de verificación para los "
+"usuarios seleccionados."
 
-#: apps/core/api/serializers/user_serializers.py:44
+#: apps/core/api/serializers/user_serializers.py:53
 msgid "Password of the user"
 msgstr "Contraseña del usuario"
 
-#: apps/core/api/serializers/user_serializers.py:46
+#: apps/core/api/serializers/user_serializers.py:55
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -55,26 +57,32 @@ msgid "The Email must be set"
 msgstr "Debe establecerse el correo electrónico"
 
 #: apps/core/models/managers/user_managers.py:39
+#: tests/apps/core/models/managers/test_user_managers.py:21
 msgid "Superuser must have is_staff=True."
 msgstr "El superusuario debe tener is_staff=True."
 
 #: apps/core/models/managers/user_managers.py:41
+#: tests/apps/core/models/managers/test_user_managers.py:26
 msgid "Superuser must have is_superuser=True."
 msgstr "El superusuario debe tener is_superuser=True."
 
-#: apps/core/models/user.py:18
+#: apps/core/models/user.py:16
+msgid "email address"
+msgstr ""
+
+#: apps/core/models/user.py:21
 msgid "Is verified"
 msgstr "Está verificado"
 
-#: apps/core/models/user.py:19
+#: apps/core/models/user.py:22
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:25
+#: apps/core/models/user.py:28
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:26
+#: apps/core/models/user.py:29
 msgid "Users"
 msgstr "Usuarios"
 

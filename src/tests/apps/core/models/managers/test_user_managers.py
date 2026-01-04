@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 from core.models import User
 from django.test import TestCase
+from django.utils.translation import gettext_lazy as _
 
 
 class UserManagerTestCase(TestCase):
@@ -17,18 +18,18 @@ class UserManagerTestCase(TestCase):
             (
                 "No Staff",
                 {"is_staff": False, "is_superuser": True},
-                "Superuser must have is_staff=True.",
+                _("Superuser must have is_staff=True."),
             ),
             (
                 "No Super",
                 {"is_staff": True, "is_superuser": False},
-                "Superuser must have is_superuser=True.",
+                _("Superuser must have is_superuser=True."),
             ),
         ]
 
         for name, kwargs, msg in cases:
             with self.subTest(name):
-                with self.assertRaisesMessage(ValueError, msg):
+                with self.assertRaisesMessage(ValueError, str(msg)):
                     User.objects.create_superuser(
                         "admin@t.com", "pass", "admin", **kwargs
                     )
