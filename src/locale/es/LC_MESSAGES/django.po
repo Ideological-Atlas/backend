@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 01:39+0100\n"
+"PO-Revision-Date: 2026-01-03 01:45+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/core/admin/user_admin.py:14
+msgid "Base info"
+msgstr "Información básica"
+
+#: apps/core/admin/user_admin.py:16
+msgid "Personal info"
+msgstr "Información personal"
+
+#: apps/core/admin/user_admin.py:25
+msgid "Permissions"
+msgstr "Permisos"
+
+#: apps/core/admin/user_admin.py:38
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: apps/core/admin/user_admin.py:75
+msgid "Send verification email"
+msgstr "Enviar correo de verificación"
+
+#: apps/core/admin/user_admin.py:81
+msgid "Verification emails process started for selected users."
+msgstr "Se ha iniciado el proceso de envío de correos de verificación para los usuarios seleccionados."
+
+#: apps/core/api/serializers/user_serializers.py:44
+msgid "Password of the user"
+msgstr "Contraseña del usuario"
+
+#: apps/core/api/serializers/user_serializers.py:46
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: apps/core/models/managers/user_managers.py:20
+msgid "The Email must be set"
+msgstr "Debe establecerse el correo electrónico"
+
+#: apps/core/models/managers/user_managers.py:39
+msgid "Superuser must have is_staff=True."
+msgstr "El superusuario debe tener is_staff=True."
+
+#: apps/core/models/managers/user_managers.py:41
+msgid "Superuser must have is_superuser=True."
+msgstr "El superusuario debe tener is_superuser=True."
+
+#: apps/core/models/user.py:18
+msgid "Is verified"
+msgstr "Está verificado"
+
+#: apps/core/models/user.py:19
+msgid "Field that shows if the user is verified or not."
+msgstr "Campo que muestra si el usuario está verificado o no."
+
+#: apps/core/models/user.py:25
+msgid "User"
+msgstr "Usuario"
+
+#: apps/core/models/user.py:26
+msgid "Users"
+msgstr "Usuarios"
+
+#: backend/settings/base.py:43
+msgid "Spanish"
+msgstr "Español"
+
+#: backend/settings/base.py:44
+msgid "English"
+msgstr "Inglés"
