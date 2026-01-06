@@ -5,7 +5,6 @@ try:
 except ImportError:
     pass
 
-import django
 from celery import Celery
 from celery.signals import task_postrun
 from django.conf import settings
@@ -15,9 +14,7 @@ from . import celery_config
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 
-django.setup()
-
-app = Celery("backend", fixups=[])
+app = Celery("backend")
 
 app.config_from_object(celery_config)
 CELERY_TIMEZONE = "Europe/Madrid"

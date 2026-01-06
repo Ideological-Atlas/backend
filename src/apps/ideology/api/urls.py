@@ -1,0 +1,47 @@
+from django.urls import path
+from ideology.api import views
+
+app_name = "ideology"
+
+urlpatterns = [
+    path(
+        "structure/complexities/",
+        views.AbstractionComplexityListView.as_view(),
+        name="complexity-list",
+    ),
+    path(
+        "structure/sections/<str:complexity_uuid>/",
+        views.SectionListByComplexityView.as_view(),
+        name="section-list-by-complexity",
+    ),
+    path(
+        "structure/sections/<str:section_uuid>/axes/",
+        views.AxisListBySectionView.as_view(),
+        name="axis-list-by-section",
+    ),
+    path(
+        "structure/conditioners/<str:complexity_uuid>/",
+        views.ConditionerListByComplexityView.as_view(),
+        name="conditioner-list-by-complexity",
+    ),
+    path(
+        "answers/axis/<str:uuid>/",
+        views.UpsertAxisAnswerView.as_view(),
+        name="upsert-axis-answer",
+    ),
+    path(
+        "answers/axis/<str:section_uuid>/list/",
+        views.UserAxisAnswerListBySectionView.as_view(),
+        name="user-axis-answers-by-section",
+    ),
+    path(
+        "answers/conditioner/<str:uuid>/",
+        views.UpsertConditionerAnswerView.as_view(),
+        name="upsert-conditioner-answer",
+    ),
+    path(
+        "answers/conditioner/<str:complexity_uuid>/list/",
+        views.UserConditionerAnswerListByComplexityView.as_view(),
+        name="user-conditioner-answers-by-complexity",
+    ),
+]

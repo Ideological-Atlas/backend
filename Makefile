@@ -1,6 +1,6 @@
 ifneq ("$(wildcard .env)","")
-    include .env
-    export
+	include .env
+	export
 endif
 
 # --- Configuration ---
@@ -49,6 +49,8 @@ down-up: down up-logs ## Recreate services
 
 complete-build: build down-up ## Full rebuild cycle
 
+complete-build-dev: build down-up install-dev-dependencies ## Full rebuild cycle with dev dependencies
+
 # --- Development & Logs ---
 .PHONY: logs celery-logs flower-logs all-logs bash shell
 
@@ -86,9 +88,9 @@ messages: ## Extract and compile translations
 	@$(PYTHON) compilemessages -v 3
 
 # --- Quality Assurance & Testing ---
-.PHONY: test fast-test test-recreate install-test-dependencies clean-coverage coverage-report coverage-combine
+.PHONY: test fast-test test-recreate install-dev-dependencies clean-coverage coverage-report coverage-combine
 
-install-test-dependencies: ## Sync test dependencies
+install-dev-dependencies: ## Sync dev dependencies
 	@$(EXEC) uv sync --extra dev
 
 clean-coverage: ## Clean previous coverage results
@@ -96,20 +98,20 @@ clean-coverage: ## Clean previous coverage results
 	@$(EXEC) rm -f .coverage.*
 
 coverage-combine: ## Merge coverage files from parallel execution
-	@$(EXEC) coverage combine || true
+	@$(EXEC) uv run coverage combine || true
 
 coverage-report: coverage-combine ## Generate XML and console coverage reports
-	@$(EXEC) coverage xml
-	@$(EXEC) coverage report
+	@$(EXEC) uv run coverage xml
+	@$(EXEC) uv run coverage report
 
-test: clean-coverage install-test-dependencies ## Run tests
-	@$(EXEC) coverage run manage.py test --parallel=$(TEST_WORKERS) --keepdb
+test: clean-coverage install-dev-dependencies ## Run tests
+	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --keepdb
 	@$(MAKE) coverage-report
 
 fast-test: clean-coverage ## Run tests with failfast
-	@$(EXEC) coverage run manage.py test --parallel=$(TEST_WORKERS) --keepdb --failfast
+	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --keepdb --failfast
 	@$(MAKE) coverage-report
 
 test-recreate: ## Run tests recreating database
-	@$(EXEC) coverage run manage.py test --parallel=$(TEST_WORKERS) --noinput
+	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --noinput
 	@$(MAKE) coverage-report

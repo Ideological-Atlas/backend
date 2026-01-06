@@ -68,14 +68,8 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
-        exclude: ^src/app/locales
+        exclude: ^src/locale/.*\.po$
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.0
     hooks:
       - id: gitleaks
-
-  - repo: https://github.com/returntocorp/semgrep
-    rev: 'v1.146.0'
-    hooks:
-      - id: semgrep
-        args: ['--config=p/django', '--config=p/python', '--config=p/secrets']

@@ -6,23 +6,95 @@ from ..base import ADMIN_PATH, PRODUCTION, PROJECT_NAME, env
 
 SITE_NAME = PROJECT_NAME
 
+LINKS = {
+    "users": reverse_lazy("admin:core_user_changelist"),
+    "groups": reverse_lazy("admin:auth_group_changelist"),
+    # Core Ideology
+    "ideology": reverse_lazy("admin:ideology_ideology_changelist"),
+    "association": reverse_lazy("admin:ideology_ideologyassociation_changelist"),
+    "religion": reverse_lazy("admin:ideology_religion_changelist"),
+    "tag": reverse_lazy("admin:ideology_tag_changelist"),
+    "reference": reverse_lazy("admin:ideology_ideologyreference_changelist"),
+    # Structure
+    "complexity": reverse_lazy(
+        "admin:ideology_ideologyabstractioncomplexity_changelist"
+    ),
+    "section": reverse_lazy("admin:ideology_ideologysection_changelist"),
+    "conditioner": reverse_lazy("admin:ideology_ideologyconditioner_changelist"),
+    "axis": reverse_lazy("admin:ideology_ideologyaxis_changelist"),
+    # Data / Answers
+    "completed": reverse_lazy("admin:ideology_completedanswer_changelist"),
+    "axis_ans": reverse_lazy("admin:ideology_axisanswer_changelist"),
+    "cond_ans": reverse_lazy("admin:ideology_conditioneranswer_changelist"),
+}
+
 SIDEBAR_NAVIGATION = [
     {
-        "title": _("Users and groups"),
+        "title": _("Access Control"),
+        "separator": True,
+        "items": [
+            {"title": _("Users"), "icon": "person", "link": LINKS["users"]},
+            {"title": _("Groups"), "icon": "lock", "link": LINKS["groups"]},
+        ],
+    },
+    {
+        "title": _("Ideological Atlas"),
+        "separator": True,
+        "items": [
+            {"title": _("Ideologies"), "icon": "flag", "link": LINKS["ideology"]},
+            {
+                "title": _("Associations"),
+                "icon": "share_location",
+                "link": LINKS["association"],
+            },
+            {
+                "title": _("Religions"),
+                "icon": "temple_buddhist",
+                "link": LINKS["religion"],
+            },
+            {"title": _("Tags"), "icon": "label", "link": LINKS["tag"]},
+            {
+                "title": _("References"),
+                "icon": "library_books",
+                "link": LINKS["reference"],
+            },
+        ],
+    },
+    {
+        "title": _("Test Structure"),
+        "separator": True,
+        "items": [
+            {"title": _("Complexities"), "icon": "layers", "link": LINKS["complexity"]},
+            {
+                "title": _("Sections"),
+                "icon": "dashboard_customize",
+                "link": LINKS["section"],
+            },
+            {"title": _("Conditioners"), "icon": "tune", "link": LINKS["conditioner"]},
+            {"title": _("Axes"), "icon": "linear_scale", "link": LINKS["axis"]},
+        ],
+    },
+    {
+        "title": _("User Data"),
         "separator": True,
         "items": [
             {
-                "title": _("Users"),
-                "icon": "person",
-                "link": reverse_lazy("admin:core_user_changelist"),
+                "title": _("Completed Tests"),
+                "icon": "assignment_turned_in",
+                "link": LINKS["completed"],
             },
             {
-                "title": _("Groups"),
-                "icon": "group",
-                "link": reverse_lazy("admin:auth_group_changelist"),
+                "title": _("Axis Answers"),
+                "icon": "analytics",
+                "link": LINKS["axis_ans"],
+            },
+            {
+                "title": _("Conditioner Answers"),
+                "icon": "fact_check",
+                "link": LINKS["cond_ans"],
             },
         ],
-    }
+    },
 ]
 
 if not PRODUCTION:
@@ -67,7 +139,8 @@ UNFOLD = {
     "SHOW_LANGUAGES": True,
     "SIDEBAR": {
         "show_search": True,
-        "show_all_applications": True,
+        "show_all_applications": False,
         "navigation": SIDEBAR_NAVIGATION,
     },
+    "THEME": "dark",
 }

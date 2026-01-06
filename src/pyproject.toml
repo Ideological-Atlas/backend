@@ -9,16 +9,17 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "boto3==1.42.21",
-    "celery==5.6.1",
+    "celery==5.6.2",
     "django==6.0",
     "django-axes==8.1.0",
+    "django-cities-light==3.10.2",
     "django-cors-headers==4.9.0",
     "django-debug-toolbar==6.1.0",
     "django-environ==0.12.0",
     "django-extensions==4.1",
     "django-filter==25.2",
     "django-model-utils==5.0.0",
-    "django-silk==5.3.2",
+    "django-silk==5.4.3",
     "django-simple-history==3.11.0",
     "django-storages==1.14.6",
     "django-unfold==0.75.0",
@@ -28,6 +29,7 @@ dependencies = [
     "flower==2.0.1",
     "gunicorn==23.0.0",
     "ipython==9.8.0",
+    "pillow==12.1.0",
     "psycopg==3.3.2",
     "requests==2.32.5",
     "types-requests==2.32.4.20250913",
@@ -51,7 +53,8 @@ branch = true
 source = ["apps"]
 omit = [
     "*/tests/*",
-    "*/__init__.py"
+    "*/__init__.py",
+    "*/factories/*"
 ]
 concurrency = ["multiprocessing"]
 parallel = true

@@ -17,8 +17,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 RUN groupadd -r django && useradd -r -g django -u 1000 django
 
 # Create directory structure
-# We create /app/.venv specifically to store dependencies outside the /src volume mount
-RUN mkdir -p /app/static /app/.venv /src/logs /src/media /home/django /scripts && \
+RUN mkdir -p /app/static /src/logs /src/media /home/django /scripts && \
     chown -R django:django /src /app /home/django /scripts
 
 WORKDIR /src
@@ -26,18 +25,12 @@ WORKDIR /src
 # Install uv globally
 RUN pip install --no-cache-dir uv
 
-# Configure uv to use our dedicated venv path instead of system python
-ENV UV_PROJECT_ENVIRONMENT=/app/.venv
-# Ensure binaries from our venv take precedence
-ENV PATH="/app/.venv/bin:$PATH"
+# Install dependencies (system-wide)
+COPY src/pyproject.toml src/uv.lock /src/
+RUN uv export --frozen --no-dev --format requirements-txt | uv pip install --system -r /dev/stdin
 
 # Switch to non-root user
 USER django
-
-# Copy dependencies first (cached layer)
-COPY --chown=django:django src/pyproject.toml src/uv.lock /src/
-# Sync dependencies into /app/.venv
-RUN uv sync --frozen --no-dev
 
 # Copy application code
 COPY --chown=django:django src/ /src/

@@ -28,6 +28,7 @@ urlpatterns = (
         path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh"),
         path("api/token/verify/", TokenVerifyView.as_view(), name="token-verify"),
         path("api/", include("core.api.urls", "core")),
+        path("api/", include("ideology.api.urls", "ideology")),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
