@@ -1,11 +1,12 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from core.factories.user_factories import VerifiedUserFactory
 from ideology.factories.ideology_conditioner_factory import IdeologyConditionerFactory
 from ideology.factories.ideology_factory import IdeologyFactory
 from ideology.models import ConditionerAnswer
 
 
-class ConditionerAnswerFactory(factory.django.DjangoModelFactory):
+class ConditionerAnswerFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = ConditionerAnswer
 

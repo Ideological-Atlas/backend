@@ -107,9 +107,9 @@ class MeDetailViewTestCase(APITestBaseNeedAuthorized):
 
 class VerifyUserViewTestCase(APITestBase):
     def setUp(self):
-        super().setUp()
         self.target_user = UserFactory(is_verified=False)
         self.url = reverse("core:verify_user", kwargs={"uuid": self.target_user.uuid})
+        super().setUp()
 
     def test_verify_user_200_ok(self):
         self.client.credentials()

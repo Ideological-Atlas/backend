@@ -1,9 +1,10 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.factories.ideology_section_factory import IdeologySectionFactory
 from ideology.models import IdeologyAxis
 
 
-class IdeologyAxisFactory(factory.django.DjangoModelFactory):
+class IdeologyAxisFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologyAxis
 

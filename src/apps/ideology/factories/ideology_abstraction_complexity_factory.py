@@ -1,10 +1,11 @@
 import random
 
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.models import IdeologyAbstractionComplexity
 
 
-class IdeologyAbstractionComplexityFactory(factory.django.DjangoModelFactory):
+class IdeologyAbstractionComplexityFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologyAbstractionComplexity
         django_get_or_create = ("complexity",)
@@ -15,9 +16,6 @@ class IdeologyAbstractionComplexityFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def add_sections(self, create, extracted, **kwargs):
-        """
-        Usage: IdeologyAbstractionComplexityFactory(add_sections__total=2)
-        """
         if not create:
             return
 

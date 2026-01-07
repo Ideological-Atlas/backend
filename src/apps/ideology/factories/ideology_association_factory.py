@@ -1,4 +1,5 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from core.factories.country_factories import CountryFactory
 from core.factories.region_factories import RegionFactory
 from ideology.factories.ideology_factory import IdeologyFactory
@@ -6,7 +7,7 @@ from ideology.factories.religion_factory import ReligionFactory
 from ideology.models import IdeologyAssociation
 
 
-class IdeologyAssociationFactory(factory.django.DjangoModelFactory):
+class IdeologyAssociationFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologyAssociation
 

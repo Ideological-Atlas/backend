@@ -46,6 +46,8 @@ LANGUAGES = [
     ("es", _("Spanish")),
     ("en", _("English")),
 ]
+MODELTRANSLATION_DEFAULT_LANGUAGE = "es"
+MODELTRANSLATION_LANGUAGES = ("es", "en")
 LOCALE_PATHS = ("locale",)
 
 STATIC_URL = "/static/"
@@ -58,6 +60,7 @@ MEDIA_ROOT = join(BASE_DIR, "../media")
 
 INTERNAL_APPS = ["core", "ideology"]
 THIRD_PARTY_APPS = [
+    "modeltranslation",
     "unfold",
     "unfold.contrib.simple_history",
     "storages",

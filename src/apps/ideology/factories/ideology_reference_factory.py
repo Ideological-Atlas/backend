@@ -1,9 +1,10 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.factories.ideology_factory import IdeologyFactory
 from ideology.models import IdeologyReference
 
 
-class IdeologyReferenceFactory(factory.django.DjangoModelFactory):
+class IdeologyReferenceFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologyReference
 

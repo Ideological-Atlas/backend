@@ -1,11 +1,12 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.factories.ideology_abstraction_complexity_factory import (
     IdeologyAbstractionComplexityFactory,
 )
 from ideology.models import IdeologyConditioner
 
 
-class IdeologyConditionerFactory(factory.django.DjangoModelFactory):
+class IdeologyConditionerFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologyConditioner
 

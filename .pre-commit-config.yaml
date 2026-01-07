@@ -68,7 +68,7 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
-        exclude: ^src/locale/.*\.po$
+        exclude: ^src/locale/.*\.po$|^src/apps/ideology/fixtures/initial_ideology_data\.json$
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.0
     hooks:

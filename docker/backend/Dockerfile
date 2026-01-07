@@ -27,7 +27,14 @@ RUN pip install --no-cache-dir uv
 
 # Install dependencies (system-wide)
 COPY src/pyproject.toml src/uv.lock /src/
-RUN uv export --frozen --no-dev --format requirements-txt | uv pip install --system -r /dev/stdin
+
+# Allow de dependencies dev if required
+ARG INSTALL_DEV=FALSE
+RUN if [ "$INSTALL_DEV" = "TRUE" ]; then \
+        uv export --frozen --format requirements-txt --extra dev | uv pip install --system -r /dev/stdin; \
+    else \
+        uv export --frozen --no-dev --format requirements-txt | uv pip install --system -r /dev/stdin; \
+    fi
 
 # Switch to non-root user
 USER django

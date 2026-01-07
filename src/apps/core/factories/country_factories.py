@@ -11,13 +11,11 @@ class CountryFactory(factory.django.DjangoModelFactory):
         django_get_or_create = ("code2",)
 
     name = factory.Sequence(lambda n: f"Country {n}")
-
     code2 = factory.Sequence(
         lambda n: (
             string.ascii_uppercase[n // 26 % 26] + string.ascii_uppercase[n % 26]
         )
     )
-
     code3 = factory.Sequence(
         lambda n: (
             string.ascii_uppercase[n // 676 % 26]
@@ -25,6 +23,5 @@ class CountryFactory(factory.django.DjangoModelFactory):
             + string.ascii_uppercase[n % 26]
         )
     )
-
     continent = "EU"
     slug = factory.LazyAttribute(lambda o: slugify(o.name))

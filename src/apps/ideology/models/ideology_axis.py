@@ -48,6 +48,15 @@ class IdeologyAxis(TimeStampedUUIDModel):
             "Optional. A conditioner that determines if this axis is relevant."
         ),
     )
+    condition_values = models.JSONField(
+        default=list,
+        blank=True,
+        null=True,
+        verbose_name=_("Trigger Values"),
+        help_text=_(
+            "List of values that make this axis visible (e.g. ['Spain']). Must match values in the conditioner."
+        ),
+    )
 
     class Meta:
         verbose_name = _("Ideology Axis")

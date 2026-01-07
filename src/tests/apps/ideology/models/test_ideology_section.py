@@ -17,6 +17,9 @@ class IdeologySectionModelTestCase(TestCase):
         self.assertEqual(str(sec1), "Eco (Basic)")
 
         sec2 = IdeologySectionFactory(
-            name="Soc", abstraction_complexity=abs_comp, conditioned_by=cond
+            name="Soc",
+            abstraction_complexity=abs_comp,
+            conditioned_by=cond,
+            condition_values=["Value A"],
         )
-        self.assertEqual(str(sec2), f"Soc (Basic) [Condition: {cond.name}]")
+        self.assertEqual(str(sec2), f"Soc (Basic) [If {cond.name} IN ['Value A']]")

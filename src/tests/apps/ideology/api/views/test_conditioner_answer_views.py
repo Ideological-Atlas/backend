@@ -11,38 +11,39 @@ from ideology.factories import (
 from rest_framework import status
 
 
-class ConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
+class UpsertConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
         self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
         self.conditioner = IdeologyConditionerFactory(
             abstraction_complexity=self.complexity
         )
-
         self.url = reverse(
             "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
         )
-        self.upsert_url = self.url
-        self.list_url = reverse(
+        super().setUp()
+
+    def test_upsert_flow_create_and_update(self):
+        response = self.client.post(self.url, data={"answer": "A"})
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        response = self.client.post(self.url, data={"answer": "B"})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+class UserConditionerAnswerListByComplexityViewTestCase(APITestBaseNeedAuthorized):
+    def setUp(self):
+        self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
+        self.conditioner = IdeologyConditionerFactory(
+            abstraction_complexity=self.complexity
+        )
+        self.url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
             kwargs={"complexity_uuid": self.complexity.uuid},
         )
-
         super().setUp()
-
-    def test_upsert_flow(self):
-        steps = [
-            ("Create", {"answer": "A"}, status.HTTP_201_CREATED),
-            ("Update", {"answer": "B"}, status.HTTP_200_OK),
-        ]
-
-        for action, data, expected_status in steps:
-            with self.subTest(action=action):
-                response = self.client.post(self.upsert_url, data=data)
-                self.assertEqual(response.status_code, expected_status)
 
     def test_list_answers(self):
         ConditionerAnswerFactory(user=self.user, conditioner=self.conditioner)
-        response = self.client.get(self.list_url)
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
 

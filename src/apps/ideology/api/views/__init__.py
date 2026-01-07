@@ -2,6 +2,10 @@ from .axis_answer_views import (
     UpsertAxisAnswerView,
     UserAxisAnswerListBySectionView,
 )
+from .completed_answer_views import (
+    LatestCompletedAnswerView,
+    GenerateCompletedAnswerView,
+)
 from .conditioner_answer_views import (
     UpsertConditionerAnswerView,
     UserConditionerAnswerListByComplexityView,

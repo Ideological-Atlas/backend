@@ -46,6 +46,15 @@ class IdeologySection(TimeStampedUUIDModel):
             "Optional. Specifies a conditioner that determines the visibility or applicability of this section."
         ),
     )
+    condition_values = models.JSONField(
+        default=list,
+        blank=True,
+        null=True,
+        verbose_name=_("Trigger Values"),
+        help_text=_(
+            "List of values that make this section visible (e.g. ['Spain']). Must match values in the conditioner."
+        ),
+    )
 
     class Meta:
         verbose_name = _("Ideology Section")
@@ -54,6 +63,8 @@ class IdeologySection(TimeStampedUUIDModel):
 
     def __str__(self):
         cond_str = (
-            f" [Condition: {self.conditioned_by.name}]" if self.conditioned_by else ""
+            f" [If {self.conditioned_by.name} IN {self.condition_values}]"
+            if self.conditioned_by
+            else ""
         )
         return f"{self.name} ({self.abstraction_complexity.name}){cond_str}"

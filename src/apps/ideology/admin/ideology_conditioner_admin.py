@@ -19,7 +19,7 @@ class IdeologyConditionerAdmin(ModelAdmin):
             {
                 "fields": ("accepted_values",),
                 "description": _(
-                    "Only required if type is Categorical. Enter values separated by commas."
+                    'Only required if type is Categorical. Enter a JSON list of strings, e.g., ["Option A", "Option B"]'
                 ),
             },
         ),

@@ -44,4 +44,14 @@ urlpatterns = [
         views.UserConditionerAnswerListByComplexityView.as_view(),
         name="user-conditioner-answers-by-complexity",
     ),
+    path(
+        "answers/completed/latest/",
+        views.LatestCompletedAnswerView.as_view(),
+        name="completed-answer-latest",
+    ),
+    path(
+        "answers/completed/generate/",
+        views.GenerateCompletedAnswerView.as_view(),
+        name="completed-answer-generate",
+    ),
 ]

@@ -1,13 +1,14 @@
 import random
 
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.factories.ideology_abstraction_complexity_factory import (
     IdeologyAbstractionComplexityFactory,
 )
 from ideology.models import IdeologySection
 
 
-class IdeologySectionFactory(factory.django.DjangoModelFactory):
+class IdeologySectionFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = IdeologySection
 
@@ -18,10 +19,6 @@ class IdeologySectionFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def add_axes(self, create, extracted, **kwargs):
-        """
-        Usage: IdeologySectionFactory(add_axes__total=5)
-        Creates axes linked to this section.
-        """
         if not create:
             return
 

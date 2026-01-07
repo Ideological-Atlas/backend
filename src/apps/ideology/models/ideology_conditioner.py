@@ -1,5 +1,4 @@
 from core.models import TimeStampedUUIDModel
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ideology.models import IdeologyAbstractionComplexity
@@ -40,13 +39,13 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         verbose_name=_("Abstraction Complexity"),
         help_text=_("The complexity level that groups these conditioners."),
     )
-    accepted_values = ArrayField(
-        models.CharField(max_length=128),
+    accepted_values = models.JSONField(
+        default=list,
         blank=True,
         null=True,
         verbose_name=_("Accepted Values"),
         help_text=_(
-            "List of valid options if the type is 'Categorical' (comma-separated in admin). Leave empty for other types."
+            "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']."
         ),
     )
 

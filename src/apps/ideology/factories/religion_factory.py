@@ -1,8 +1,9 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.models import Religion
 
 
-class ReligionFactory(factory.django.DjangoModelFactory):
+class ReligionFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = Religion
         django_get_or_create = ("name",)

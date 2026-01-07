@@ -1,8 +1,9 @@
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.models import Tag
 
 
-class TagFactory(factory.django.DjangoModelFactory):
+class TagFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = Tag
         django_get_or_create = ("name",)

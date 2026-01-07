@@ -2,6 +2,7 @@ from .axis_answer_serializers import (
     AxisAnswerReadSerializer,
     AxisAnswerUpsertSerializer,
 )
+from .completed_answer_serializers import CompletedAnswerSerializer
 from .conditioner_answer_serializers import (
     ConditionerAnswerReadSerializer,
     ConditionerAnswerUpsertSerializer,

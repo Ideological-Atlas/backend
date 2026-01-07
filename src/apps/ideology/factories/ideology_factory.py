@@ -1,10 +1,11 @@
 import random
 
 import factory
+from core.factories import TimeStampedUUIDModelFactory
 from ideology.models import Ideology
 
 
-class IdeologyFactory(factory.django.DjangoModelFactory):
+class IdeologyFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = Ideology
         django_get_or_create = ("name",)
@@ -17,11 +18,6 @@ class IdeologyFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def add_tags(self, create, extracted, **kwargs):
-        """
-        Usage:
-            IdeologyFactory(add_tags__total=3)
-            IdeologyFactory(add_tags=[tag1, tag2])
-        """
         if not create:
             return
 
@@ -47,10 +43,6 @@ class IdeologyFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def add_associations(self, create, extracted, **kwargs):
-        """
-        Usage: IdeologyFactory(add_associations__total=2)
-        Creates random Country associations by default.
-        """
         if not create:
             return
 
