@@ -11,6 +11,7 @@ SHELL_PLUS_IMPORTS = []
 if not PRODUCTION:
     SHELL_PLUS_IMPORTS += [
         "from core.factories import *",
+        "from ideology.factories import *",
     ]
 
 try:

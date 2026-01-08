@@ -4,3 +4,4 @@ from .user_serializers import (
     SimpleUserSerializer,
     UserVerificationSerializer,
 )
+from .geo_serializers import CountrySerializer, RegionSerializer

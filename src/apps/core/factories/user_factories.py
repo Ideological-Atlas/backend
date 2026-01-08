@@ -1,10 +1,10 @@
+from core.factories import TimeStampedUUIDModelFactory
 from django.contrib.auth import get_user_model
 from factory import Faker, PostGenerationMethodCall
-from factory.django import DjangoModelFactory
 from factory.fuzzy import FuzzyText
 
 
-class UserFactory(DjangoModelFactory):
+class UserFactory(TimeStampedUUIDModelFactory):
     class Meta:
         model = get_user_model()
         django_get_or_create = ("email", "username")

@@ -1,7 +1,3 @@
-"""
-With this file we can encapsulate all the needed exceptions we can have in our API
-"""
-
 from rest_framework import status
 from rest_framework.exceptions import APIException
 

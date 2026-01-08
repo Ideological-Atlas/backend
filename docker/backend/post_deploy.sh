@@ -14,6 +14,9 @@ dockerize -wait tcp://minio:9000 -timeout 30s
 python3 manage.py makemigrations --no-input
 python3 manage.py migrate --no-input
 
+# Load fixtures
+python3 manage.py loaddata initial_ideology_data
+
 # Custom commands
 python3 manage.py init_minio
 

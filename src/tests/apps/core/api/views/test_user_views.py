@@ -22,7 +22,7 @@ class RegisterViewTestCase(APITestBase):
         mock_post.return_value.ok = True
         mock_post.return_value.json.return_value = {"status": "queued"}
 
-        self.client.credentials()  # Logout
+        self.client.credentials()
         initial_count = User.objects.count()
         response = self.client.post(self.url, data=self.sent_data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -107,9 +107,9 @@ class MeDetailViewTestCase(APITestBaseNeedAuthorized):
 
 class VerifyUserViewTestCase(APITestBase):
     def setUp(self):
-        super().setUp()
         self.target_user = UserFactory(is_verified=False)
         self.url = reverse("core:verify_user", kwargs={"uuid": self.target_user.uuid})
+        super().setUp()
 
     def test_verify_user_200_ok(self):
         self.client.credentials()

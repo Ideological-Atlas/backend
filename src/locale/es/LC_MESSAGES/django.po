@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-04 18:46+0100\n"
-"PO-Revision-Date: 2026-01-03 01:45+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-01-09 00:26+0100\n"
+"PO-Revision-Date: 2026-01-09 12:30+0100\n"
+"Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -52,21 +51,45 @@ msgstr "Contraseña del usuario"
 msgid "Username"
 msgstr "Nombre de usuario"
 
+#: apps/core/api/views/geo_views.py:13
+msgid "List all countries"
+msgstr "Listar todos los países"
+
+#: apps/core/api/views/geo_views.py:14
+msgid "List available countries from the database."
+msgstr "Listar los países disponibles en la base de datos."
+
+#: apps/core/api/views/geo_views.py:17 apps/core/api/views/geo_views.py:41
+msgid "Search by name"
+msgstr "Buscar por nombre"
+
+#: apps/core/api/views/geo_views.py:31
+msgid "List regions"
+msgstr "Listar regiones"
+
+#: apps/core/api/views/geo_views.py:32
+msgid "List regions, optionally filtered by country."
+msgstr "Listar regiones, opcionalmente filtradas por país."
+
+#: apps/core/api/views/geo_views.py:36
+msgid "Filter by Country ID"
+msgstr "Filtrar por ID de país"
+
 #: apps/core/api/views/user_views.py:19
 msgid "Register new user"
 msgstr "Registrar nuevo usuario"
 
-#: apps/core/api/views/user_views.py:20
+#: apps/core/api/views/user_views.py:21
 msgid "Creates a new user account and triggers the verification email process."
 msgstr ""
 "Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
 "correo."
 
-#: apps/core/api/views/user_views.py:29
+#: apps/core/api/views/user_views.py:31
 msgid "Get or update current profile"
 msgstr "Obtener o actualizar perfil actual"
 
-#: apps/core/api/views/user_views.py:31
+#: apps/core/api/views/user_views.py:33
 msgid ""
 "Retrieve the profile information of the currently authenticated user or "
 "update their details."
@@ -74,15 +97,15 @@ msgstr ""
 "Recupera la información del perfil del usuario autenticado o actualiza sus "
 "detalles."
 
-#: apps/core/api/views/user_views.py:45
+#: apps/core/api/views/user_views.py:47
 msgid "Verify user account"
 msgstr "Verificar cuenta de usuario"
 
-#: apps/core/api/views/user_views.py:46
+#: apps/core/api/views/user_views.py:48
 msgid "Marks a user as verified using their unique UUID."
 msgstr "Marca a un usuario como verificado usando su UUID único."
 
-#: apps/core/api/views/user_views.py:50
+#: apps/core/api/views/user_views.py:52
 msgid "The UUID of the user to verify"
 msgstr "El UUID del usuario a verificar"
 
@@ -112,25 +135,843 @@ msgstr "Está verificado"
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:28
+#: apps/core/models/user.py:28 apps/ideology/models/axis_answer.py:27
+#: apps/ideology/models/conditioner_answer.py:25
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:29 backend/settings/apps_config/unfold.py:15
+#: apps/core/models/user.py:29 backend/settings/apps_config/unfold.py:36
 msgid "Users"
 msgstr "Usuarios"
 
+#: apps/ideology/admin/axis_answer_admin.py:20
+#: apps/ideology/admin/conditioner_answer_admin.py:25
+msgid "Subject"
+msgstr "Sujeto"
+
+#: apps/ideology/admin/ideology_admin.py:11
+msgid "Association"
+msgstr "Asociación"
+
+#: apps/ideology/admin/ideology_admin.py:12
+#: backend/settings/apps_config/unfold.py:46
+msgid "Associations"
+msgstr "Asociaciones"
+
+#: apps/ideology/admin/ideology_admin.py:19
+msgid "Reference"
+msgstr "Referencia"
+
+#: apps/ideology/admin/ideology_admin.py:20
+#: backend/settings/apps_config/unfold.py:57
+msgid "References"
+msgstr "Referencias"
+
+#: apps/ideology/admin/ideology_admin.py:34
+msgid "General Info"
+msgstr "Información general"
+
+#: apps/ideology/admin/ideology_admin.py:40
+msgid "Descriptions"
+msgstr "Descripciones"
+
+#: apps/ideology/admin/ideology_admin.py:51
+msgid "System"
+msgstr "Sistema"
+
+#: apps/ideology/admin/ideology_admin.py:59
+msgid "Associations count"
+msgstr "Recuento de asociaciones"
+
+#: apps/ideology/admin/ideology_conditioner_admin.py:18
+msgid "Configuration"
+msgstr "Configuración"
+
+#: apps/ideology/admin/ideology_conditioner_admin.py:22
+msgid ""
+"Only required if type is Categorical. Enter a JSON list of strings, e.g., "
+"[\"Option A\", \"Option B\"]"
+msgstr ""
+"Solo es necesario si el tipo es Categórico. Introduzca una lista JSON de "
+"cadenas, ej., [\"Opción A\", \"Opción B\"]"
+
+#: apps/ideology/admin/tag_admin.py:20
+msgid "Usage Count"
+msgstr "Recuento de uso"
+
+#: apps/ideology/api/views/axis_answer_views.py:17
+msgid "Upsert axis answer"
+msgstr "Insertar/Actualizar respuesta de eje"
+
+#: apps/ideology/api/views/axis_answer_views.py:19
+msgid ""
+"Creates or updates the user's answer for a specific axis defined by UUID in "
+"URL."
+msgstr ""
+"Crea o actualiza la respuesta del usuario para un eje específico definido "
+"por UUID en la URL."
+
+#: apps/ideology/api/views/axis_answer_views.py:47
+msgid "List user axis answers by section"
+msgstr "Listar respuestas de eje del usuario por sección"
+
+#: apps/ideology/api/views/axis_answer_views.py:49
+msgid ""
+"Returns the user's axis answers filtered by a specific ideology section."
+msgstr ""
+"Devuelve las respuestas de eje del usuario filtradas por una sección "
+"ideológica específica."
+
+#: apps/ideology/api/views/base_views.py:55
+#, python-brace-format
+msgid "{model} not found"
+msgstr "{model} no encontrado"
+
+#: apps/ideology/api/views/completed_answer_views.py:16
+msgid "Get latest completed answer"
+msgstr "Obtener última respuesta completada"
+
+#: apps/ideology/api/views/completed_answer_views.py:18
+msgid ""
+"Returns the latest completed answer for the authenticated user as a single "
+"object. Returns 404 if no answer exists."
+msgstr ""
+"Devuelve la última respuesta completada del usuario autenticado como un "
+"objeto único. Devuelve 404 si no existe ninguna respuesta."
+
+#: apps/ideology/api/views/completed_answer_views.py:37
+msgid "Generate completed answer snapshot"
+msgstr "Generar instantánea de respuesta completada"
+
+#: apps/ideology/api/views/completed_answer_views.py:39
+msgid ""
+"Triggers the calculation of the user's current results, saves it as a "
+"CompletedAnswer, and returns the structured data."
+msgstr ""
+"Inicia el cálculo de los resultados actuales del usuario, lo guarda como una "
+"Respuesta Completada y devuelve los datos estructurados."
+
+#: apps/ideology/api/views/conditioner_answer_views.py:17
+msgid "Upsert conditioner answer"
+msgstr "Insertar/Actualizar respuesta de condicionador"
+
+#: apps/ideology/api/views/conditioner_answer_views.py:19
+msgid ""
+"Creates or updates the user's answer for a specific conditioner defined by "
+"UUID in URL."
+msgstr ""
+"Crea o actualiza la respuesta del usuario para un condicionador específico "
+"definido por UUID en la URL."
+
+#: apps/ideology/api/views/conditioner_answer_views.py:47
+msgid "List user conditioner answers by complexity"
+msgstr "Listar respuestas de condicionador del usuario por complejidad"
+
+#: apps/ideology/api/views/conditioner_answer_views.py:49
+msgid ""
+"Returns the user's conditioner answers filtered by abstraction complexity."
+msgstr ""
+"Devuelve las respuestas de condicionador del usuario filtradas por "
+"complejidad de abstracción."
+
+#: apps/ideology/api/views/ideology_abstraction_complexity_views.py:11
+msgid "List all abstraction complexities"
+msgstr "Listar todas las complejidades de abstracción"
+
+#: apps/ideology/api/views/ideology_abstraction_complexity_views.py:12
+msgid "Returns a list of all available complexity levels for the test."
+msgstr ""
+"Devuelve una lista de todos los niveles de complejidad disponibles para el "
+"test."
+
+#: apps/ideology/api/views/ideology_axis_views.py:11
+msgid "List axes by section"
+msgstr "Listar ejes por sección"
+
+#: apps/ideology/api/views/ideology_axis_views.py:13
+msgid ""
+"Returns all axes (including their conditioners) for a specific section UUID."
+msgstr ""
+"Devuelve todos los ejes (incluyendo sus condicionadores) para un UUID de "
+"sección específico."
+
+#: apps/ideology/api/views/ideology_conditioner_views.py:11
+msgid "List conditioners by complexity"
+msgstr "Listar condicionadores por complejidad"
+
+#: apps/ideology/api/views/ideology_conditioner_views.py:13
+msgid ""
+"Returns all ideology conditioners associated with a specific abstraction "
+"complexity UUID."
+msgstr ""
+"Devuelve todos los condicionadores ideológicos asociados con un UUID de "
+"complejidad de abstracción específico."
+
+#: apps/ideology/api/views/ideology_section_views.py:11
+msgid "List sections by complexity"
+msgstr "Listar secciones por complejidad"
+
+#: apps/ideology/api/views/ideology_section_views.py:13
+msgid ""
+"Returns all sections associated with a specific abstraction complexity UUID."
+msgstr ""
+"Devuelve todas las secciones asociadas con un UUID de complejidad de "
+"abstracción específico."
+
+#: apps/ideology/api/views/ideology_views.py:24
+msgid "List all ideologies"
+msgstr "Listar todas las ideologías"
+
+#: apps/ideology/api/views/ideology_views.py:26
+msgid ""
+"Returns a paginated list of ideologies. Supports filtering by related "
+"entities and text search."
+msgstr ""
+"Devuelve una lista paginada de ideologías. Admite filtrado por entidades "
+"relacionadas y búsqueda de texto."
+
+#: apps/ideology/api/views/ideology_views.py:31
+msgid "Search by name or descriptions"
+msgstr "Buscar por nombre o descripciones"
+
+#: apps/ideology/api/views/ideology_views.py:37
+msgid "Filter by Country ID (Integer)"
+msgstr "Filtrar por ID de país (Entero)"
+
+#: apps/ideology/api/views/ideology_views.py:43
+msgid "Filter by Region ID (Integer)"
+msgstr "Filtrar por ID de región (Entero)"
+
+#: apps/ideology/api/views/ideology_views.py:49
+msgid "Filter by Religion UUID"
+msgstr "Filtrar por UUID de religión"
+
+#: apps/ideology/api/views/ideology_views.py:54
+msgid "Filter by Tag UUID"
+msgstr "Filtrar por UUID de etiqueta"
+
+#: apps/ideology/api/views/ideology_views.py:74
+msgid "Get ideology details"
+msgstr "Obtener detalles de la ideología"
+
+#: apps/ideology/api/views/ideology_views.py:76
+msgid ""
+"Returns details of a specific ideology including its definition values (axis "
+"and conditioners)."
+msgstr ""
+"Devuelve detalles de una ideología específica incluyendo sus valores de "
+"definición (ejes y condicionadores)."
+
+#: apps/ideology/models/axis_answer.py:16
+#: apps/ideology/models/conditioner_answer.py:14
+#: apps/ideology/models/ideology.py:91
+#: apps/ideology/models/ideology_association.py:12
+#: apps/ideology/models/ideology_reference.py:12
+#: apps/ideology/models/ideology_tag.py:19
+msgid "Ideology"
+msgstr "Ideología"
+
+#: apps/ideology/models/axis_answer.py:18
+msgid ""
+"The ideology defined by this position. Leave empty if this is a user's "
+"result."
+msgstr ""
+"La ideología definida por esta posición. Déjelo vacío si es el resultado de "
+"un usuario."
+
+#: apps/ideology/models/axis_answer.py:29
+msgid ""
+"The user who obtained this result. Leave empty if this is defining an "
+"ideology."
+msgstr ""
+"El usuario que obtuvo este resultado. Déjelo vacío si está definiendo una "
+"ideología."
+
+#: apps/ideology/models/axis_answer.py:36
+msgid "Axis"
+msgstr "Eje"
+
+#: apps/ideology/models/axis_answer.py:37
+msgid "The specific axis being measured."
+msgstr "El eje específico que se está midiendo."
+
+#: apps/ideology/models/axis_answer.py:44
+msgid "Position Value"
+msgstr "Valor de posición"
+
+#: apps/ideology/models/axis_answer.py:46
+msgid ""
+"The position on the axis. Must be between -100 (Extreme Left) and 100 "
+"(Extreme Right)."
+msgstr ""
+"La posición en el eje. Debe estar entre -100 (Extrema Izquierda) y 100 "
+"(Extrema Derecha)."
+
+#: apps/ideology/models/axis_answer.py:55
+msgid "Left Margin Tolerance"
+msgstr "Tolerancia del margen izquierdo"
+
+#: apps/ideology/models/axis_answer.py:57
+msgid ""
+"Positive magnitude of deviation allowed towards the left. (Value - Margin "
+"Left >= -100)"
+msgstr ""
+"Magnitud positiva de desviación permitida hacia la izquierda. (Valor - "
+"Margen Izquierdo >= -100)"
+
+#: apps/ideology/models/axis_answer.py:66
+msgid "Right Margin Tolerance"
+msgstr "Tolerancia del margen derecho"
+
+#: apps/ideology/models/axis_answer.py:68
+msgid ""
+"Positive magnitude of deviation allowed towards the right. (Value + Margin "
+"Right <= 100)"
+msgstr ""
+"Magnitud positiva de desviación permitida hacia la derecha. (Valor + Margen "
+"Derecho <= 100)"
+
+#: apps/ideology/models/axis_answer.py:73
+msgid "Axis Answer"
+msgstr "Respuesta de eje"
+
+#: apps/ideology/models/axis_answer.py:74
+#: backend/settings/apps_config/unfold.py:87
+msgid "Axis Answers"
+msgstr "Respuestas de eje"
+
+#: apps/ideology/models/axis_answer.py:112
+#, python-brace-format
+msgid ""
+"Lower bound error: Position ({val}) minus Left Margin ({marg}) is less than "
+"-100"
+msgstr ""
+"Error de límite inferior: La posición ({val}) menos el margen izquierdo "
+"({marg}) es menor que -100"
+
+#: apps/ideology/models/axis_answer.py:120
+#, python-brace-format
+msgid ""
+"Upper bound error: Position ({val}) plus Right Margin ({marg}) is greater "
+"than 100"
+msgstr ""
+"Error de límite superior: La posición ({val}) más el margen derecho ({marg}) "
+"es mayor que 100"
+
+#: apps/ideology/models/completed_answer.py:11
+msgid "Completed By"
+msgstr "Completado por"
+
+#: apps/ideology/models/completed_answer.py:12
+msgid "The user who submitted this set of answers."
+msgstr "El usuario que envió este conjunto de respuestas."
+
+#: apps/ideology/models/completed_answer.py:16
+msgid "Answers Data"
+msgstr "Datos de respuestas"
+
+#: apps/ideology/models/completed_answer.py:18
+msgid ""
+"Structured JSON containing the full set of answers provided by the user."
+msgstr ""
+"JSON estructurado que contiene el conjunto completo de respuestas "
+"proporcionadas por el usuario."
+
+#: apps/ideology/models/completed_answer.py:23
+msgid "Completed Answer"
+msgstr "Respuesta completada"
+
+#: apps/ideology/models/completed_answer.py:24
+msgid "Completed Answers"
+msgstr "Respuestas completadas"
+
+#: apps/ideology/models/conditioner_answer.py:16
+msgid ""
+"The ideology defined by this answer. Leave empty if this is a user's answer."
+msgstr ""
+"La ideología definida por esta respuesta. Déjelo vacío si es la respuesta de "
+"un usuario."
+
+#: apps/ideology/models/conditioner_answer.py:27
+msgid ""
+"The user who provided this answer. Leave empty if this is defining an "
+"ideology."
+msgstr ""
+"El usuario que proporcionó esta respuesta. Déjelo vacío si está definiendo "
+"una ideología."
+
+#: apps/ideology/models/conditioner_answer.py:34
+msgid "Conditioner"
+msgstr "Condicionador"
+
+#: apps/ideology/models/conditioner_answer.py:35
+msgid "The question or variable being answered."
+msgstr "La pregunta o variable que se está respondiendo."
+
+#: apps/ideology/models/conditioner_answer.py:39
+msgid "Answer"
+msgstr "Respuesta"
+
+#: apps/ideology/models/conditioner_answer.py:41
+msgid ""
+"The value chosen. Must match one of the 'accepted_values' defined in the "
+"conditioner."
+msgstr ""
+"El valor elegido. Debe coincidir con uno de los 'valores aceptados' "
+"definidos en el condicionador."
+
+#: apps/ideology/models/conditioner_answer.py:46
+msgid "Conditioner Answer"
+msgstr "Respuesta de condicionador"
+
+#: apps/ideology/models/conditioner_answer.py:47
+#: backend/settings/apps_config/unfold.py:92
+msgid "Conditioner Answers"
+msgstr "Respuestas de condicionador"
+
+#: apps/ideology/models/ideology.py:11
+#: apps/ideology/models/ideology_abstraction_complexity.py:10
+#: apps/ideology/models/ideology_axis.py:17
+#: apps/ideology/models/ideology_conditioner.py:17
+#: apps/ideology/models/ideology_reference.py:17
+#: apps/ideology/models/ideology_section.py:11
+#: apps/ideology/models/religion.py:10 apps/ideology/models/tag.py:11
+msgid "Name"
+msgstr "Nombre"
+
+#: apps/ideology/models/ideology.py:12
+msgid "Ideology Name"
+msgstr "Nombre de la ideología"
+
+#: apps/ideology/models/ideology.py:18
+msgid "Supporter description"
+msgstr "Descripción de partidario"
+
+#: apps/ideology/models/ideology.py:19
+msgid "Ideology Description from the point of view of a supporter"
+msgstr "Descripción de la ideología desde el punto de vista de un partidario"
+
+#: apps/ideology/models/ideology.py:24
+msgid "Detractor description"
+msgstr "Descripción de detractor"
+
+#: apps/ideology/models/ideology.py:25
+msgid "Ideology Description the point of view of a detractor"
+msgstr "Descripción de la ideología desde el punto de vista de un detractor"
+
+#: apps/ideology/models/ideology.py:30
+msgid "Neutral description"
+msgstr "Descripción neutral"
+
+#: apps/ideology/models/ideology.py:31
+msgid "Ideology Description the point of view of a neutral"
+msgstr "Descripción de la ideología desde el punto de vista neutral"
+
+#: apps/ideology/models/ideology.py:37
+msgid "Flag"
+msgstr "Bandera"
+
+#: apps/ideology/models/ideology.py:38
+msgid "Ideology Flag Image"
+msgstr "Imagen de la bandera de la ideología"
+
+#: apps/ideology/models/ideology.py:44
+msgid "Background"
+msgstr "Fondo"
+
+#: apps/ideology/models/ideology.py:45
+msgid "Ideology Background Image"
+msgstr "Imagen de fondo de la ideología"
+
+#: apps/ideology/models/ideology.py:51
+msgid "Color"
+msgstr "Color"
+
+#: apps/ideology/models/ideology.py:52
+msgid "Ideology Color Image"
+msgstr "Color de la ideología"
+
+#: apps/ideology/models/ideology.py:59
+msgid "Associated Countries"
+msgstr "Países asociados"
+
+#: apps/ideology/models/ideology.py:60
+msgid "Countries where this ideology is explicitly present."
+msgstr "Países donde esta ideología está explícitamente presente."
+
+#: apps/ideology/models/ideology.py:68
+msgid "Associated Regions"
+msgstr "Regiones asociadas"
+
+#: apps/ideology/models/ideology.py:69
+msgid "Specific regions where this ideology is explicitly present."
+msgstr ""
+"Regiones específicas donde esta ideología está explícitamente presente."
+
+#: apps/ideology/models/ideology.py:77
+msgid "Associated Religions"
+msgstr "Religiones asociadas"
+
+#: apps/ideology/models/ideology.py:78
+msgid "Religions linked to this ideology."
+msgstr "Religiones vinculadas a esta ideología."
+
+#: apps/ideology/models/ideology.py:86 apps/ideology/models/tag.py:23
+#: backend/settings/apps_config/unfold.py:55
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: apps/ideology/models/ideology.py:87
+msgid "Tags associated with this ideology."
+msgstr "Etiquetas asociadas con esta ideología."
+
+#: apps/ideology/models/ideology.py:92
+#: backend/settings/apps_config/unfold.py:44
+msgid "Ideologies"
+msgstr "Ideologías"
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:12
+msgid ""
+"The label for this level of abstraction (e.g., 'Concrete', 'Theoretical', "
+"'Metaphysical')."
+msgstr ""
+"La etiqueta para este nivel de abstracción (ej: 'Concreto', 'Teórico', "
+"'Metafísico')."
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:18
+#: apps/ideology/models/ideology_axis.py:23
+#: apps/ideology/models/ideology_conditioner.py:23
+#: apps/ideology/models/ideology_reference.py:25
+#: apps/ideology/models/ideology_section.py:19
+#: apps/ideology/models/religion.py:16 apps/ideology/models/tag.py:17
+msgid "Description"
+msgstr "Descripción"
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:20
+msgid ""
+"Detailed explanation of the characteristics that define this complexity "
+"level."
+msgstr ""
+"Explicación detallada de las características que definen este nivel de "
+"complejidad."
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:25
+msgid "Complexity Score"
+msgstr "Puntuación de complejidad"
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:27
+msgid ""
+"A numerical value used to rank and order the levels of abstraction (e.g., 1 "
+"for lowest, 10 for highest)."
+msgstr ""
+"Un valor numérico utilizado para clasificar y ordenar los niveles de "
+"abstracción (ej: 1 para el más bajo, 10 para el más alto)."
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:32
+msgid "Ideology Abstraction Complexity"
+msgstr "Complejidad de abstracción ideológica"
+
+#: apps/ideology/models/ideology_abstraction_complexity.py:33
+msgid "Ideology Abstraction Complexities"
+msgstr "Complejidades de abstracción ideológica"
+
+#: apps/ideology/models/ideology_association.py:13
+msgid "The ideology being contextualized."
+msgstr "La ideología que se está contextualizando."
+
+#: apps/ideology/models/ideology_association.py:21
+msgid "Country"
+msgstr "País"
+
+#: apps/ideology/models/ideology_association.py:22
+msgid "The country where this ideology is present or relevant."
+msgstr "El país donde esta ideología está presente o es relevante."
+
+#: apps/ideology/models/ideology_association.py:30
+msgid "Region"
+msgstr "Región"
+
+#: apps/ideology/models/ideology_association.py:31
+msgid "The specific region within a country (optional)."
+msgstr "La región específica dentro de un país (opcional)."
+
+#: apps/ideology/models/ideology_association.py:39
+#: apps/ideology/models/religion.py:21
+msgid "Religion"
+msgstr "Religión"
+
+#: apps/ideology/models/ideology_association.py:40
+msgid "The religion associated with this ideology in this context."
+msgstr "La religión asociada con esta ideología en este contexto."
+
+#: apps/ideology/models/ideology_association.py:44
+msgid "Ideology Association"
+msgstr "Asociación ideológica"
+
+#: apps/ideology/models/ideology_association.py:45
+msgid "Ideology Associations"
+msgstr "Asociaciones ideológicas"
+
+#: apps/ideology/models/ideology_axis.py:12
+msgid "Section"
+msgstr "Sección"
+
+#: apps/ideology/models/ideology_axis.py:13
+msgid "The thematic section this axis belongs to."
+msgstr "La sección temática a la que pertenece este eje."
+
+#: apps/ideology/models/ideology_axis.py:18
+msgid "Internal name of the axis (e.g., 'Economic Freedom')."
+msgstr "Nombre interno del eje (ej: 'Libertad económica')."
+
+#: apps/ideology/models/ideology_axis.py:24
+msgid "Explanation of what this axis measures."
+msgstr "Explicación de lo que mide este eje."
+
+#: apps/ideology/models/ideology_axis.py:28
+msgid "Left Label (0%)"
+msgstr "Etiqueta izquierda (0%)"
+
+#: apps/ideology/models/ideology_axis.py:30
+msgid ""
+"Label for the start or minimum value of the axis (e.g., 'Total Control')."
+msgstr "Etiqueta para el inicio o valor mínimo del eje (ej: 'Control total')."
+
+#: apps/ideology/models/ideology_axis.py:35
+msgid "Right Label (100%)"
+msgstr "Etiqueta derecha (100%)"
+
+#: apps/ideology/models/ideology_axis.py:37
+msgid "Label for the end or maximum value of the axis (e.g., 'Total Liberty')."
+msgstr "Etiqueta para el final o valor máximo del eje (ej: 'Libertad total')."
+
+#: apps/ideology/models/ideology_axis.py:46
+#: apps/ideology/models/ideology_section.py:44
+msgid "Conditioned By"
+msgstr "Condicionado por"
+
+#: apps/ideology/models/ideology_axis.py:48
+msgid "Optional. A conditioner that determines if this axis is relevant."
+msgstr "Opcional. Un condicionador que determina si este eje es relevante."
+
+#: apps/ideology/models/ideology_axis.py:55
+#: apps/ideology/models/ideology_section.py:53
+msgid "Trigger Values"
+msgstr "Valores desencadenantes"
+
+#: apps/ideology/models/ideology_axis.py:57
+msgid ""
+"List of values that make this axis visible (e.g. ['Spain']). Must match "
+"values in the conditioner."
+msgstr ""
+"Lista de valores que hacen visible este eje (ej. ['España']). Debe coincidir "
+"con los valores en el condicionador."
+
+#: apps/ideology/models/ideology_axis.py:62
+msgid "Ideology Axis"
+msgstr "Eje ideológico"
+
+#: apps/ideology/models/ideology_axis.py:63
+msgid "Ideology Axes"
+msgstr "Ejes ideológicos"
+
+#: apps/ideology/models/ideology_conditioner.py:9
+msgid "Boolean (Yes/No)"
+msgstr "Booleano (Sí/No)"
+
+#: apps/ideology/models/ideology_conditioner.py:10
+msgid "Categorical (Selection)"
+msgstr "Categórico (Selección)"
+
+#: apps/ideology/models/ideology_conditioner.py:11
+msgid "Scale (Numeric Range)"
+msgstr "Escala (Rango numérico)"
+
+#: apps/ideology/models/ideology_conditioner.py:12
+msgid "Numeric Value"
+msgstr "Valor numérico"
+
+#: apps/ideology/models/ideology_conditioner.py:13
+msgid "Free Text"
+msgstr "Texto libre"
+
+#: apps/ideology/models/ideology_conditioner.py:18
+msgid "The name of the conditioner or variable."
+msgstr "El nombre del condicionador o variable."
+
+#: apps/ideology/models/ideology_conditioner.py:25
+msgid ""
+"Detailed explanation of what this conditioner measures or defines within an "
+"ideology."
+msgstr ""
+"Explicación detallada de lo que este condicionador mide o define dentro de "
+"una ideología."
+
+#: apps/ideology/models/ideology_conditioner.py:32
+msgid "Type"
+msgstr "Tipo"
+
+#: apps/ideology/models/ideology_conditioner.py:33
+msgid "Defines the format of the data expected for this conditioner."
+msgstr "Define el formato de los datos esperados para este condicionador."
+
+#: apps/ideology/models/ideology_conditioner.py:39
+#: apps/ideology/models/ideology_section.py:35
+msgid "Abstraction Complexity"
+msgstr "Complejidad de abstracción"
+
+#: apps/ideology/models/ideology_conditioner.py:40
+msgid "The complexity level that groups these conditioners."
+msgstr "El nivel de complejidad que agrupa estos condicionadores."
+
+#: apps/ideology/models/ideology_conditioner.py:46
+msgid "Accepted Values"
+msgstr "Valores aceptados"
+
+#: apps/ideology/models/ideology_conditioner.py:48
+msgid ""
+"List of valid options if the type is 'Categorical'. Format: ['Option A', "
+"'Option B']."
+msgstr ""
+"Lista de opciones válidas si el tipo es 'Categórico'. Formato: ['Opción A', "
+"'Opción B']."
+
+#: apps/ideology/models/ideology_conditioner.py:53
+msgid "Ideology Conditioner"
+msgstr "Condicionador ideológico"
+
+#: apps/ideology/models/ideology_conditioner.py:54
+msgid "Ideology Conditioners"
+msgstr "Condicionadores ideológicos"
+
+#: apps/ideology/models/ideology_reference.py:13
+msgid "The ideology supported or explained by this reference."
+msgstr "La ideología apoyada o explicada por esta referencia."
+
+#: apps/ideology/models/ideology_reference.py:19
+msgid ""
+"The title or source name (e.g., Book Title, Article Headline, Author Name)."
+msgstr ""
+"El título o nombre de la fuente (ej: Título del libro, Titular del artículo, "
+"Nombre del autor)."
+
+#: apps/ideology/models/ideology_reference.py:26
+msgid "Contextual details or specific quotes relevant to the ideology."
+msgstr ""
+"Detalles contextuales o citas específicas relevantes para la ideología."
+
+#: apps/ideology/models/ideology_reference.py:31
+msgid "URL"
+msgstr "URL"
+
+#: apps/ideology/models/ideology_reference.py:32
+msgid "Direct link to the source material, if available online."
+msgstr "Enlace directo al material fuente, si está disponible en línea."
+
+#: apps/ideology/models/ideology_reference.py:36
+msgid "Ideology reference"
+msgstr "Referencia ideológica"
+
+#: apps/ideology/models/ideology_reference.py:37
+msgid "Ideology references"
+msgstr "Referencias ideológicas"
+
+#: apps/ideology/models/ideology_section.py:13
+msgid ""
+"The title of the thematic section (e.g., 'Economics', 'Social Structure')."
+msgstr ""
+"El título de la sección temática (ej: 'Economía', 'Estructura social')."
+
+#: apps/ideology/models/ideology_section.py:20
+msgid "A summary of the topics and concepts covered in this section."
+msgstr "Un resumen de los temas y conceptos cubiertos en esta sección."
+
+#: apps/ideology/models/ideology_section.py:26
+msgid "Icon"
+msgstr "Icono"
+
+#: apps/ideology/models/ideology_section.py:28
+msgid ""
+"Visual representation for this section. SVG or PNG formats are recommended."
+msgstr ""
+"Representación visual para esta sección. Se recomiendan formatos SVG o PNG."
+
+#: apps/ideology/models/ideology_section.py:36
+msgid "The complexity level that groups these sections."
+msgstr "El nivel de complejidad que agrupa estas secciones."
+
+#: apps/ideology/models/ideology_section.py:46
+msgid ""
+"Optional. Specifies a conditioner that determines the visibility or "
+"applicability of this section."
+msgstr ""
+"Opcional. Especifica un condicionador que determina la visibilidad o "
+"aplicabilidad de esta sección."
+
+#: apps/ideology/models/ideology_section.py:55
+msgid ""
+"List of values that make this section visible (e.g. ['Spain']). Must match "
+"values in the conditioner."
+msgstr ""
+"Lista de valores que hacen visible esta sección (ej. ['España']). Debe "
+"coincidir con los valores en el condicionador."
+
+#: apps/ideology/models/ideology_section.py:60
+msgid "Ideology Section"
+msgstr "Sección ideológica"
+
+#: apps/ideology/models/ideology_section.py:61
+msgid "Ideology Sections"
+msgstr "Secciones ideológicas"
+
+#: apps/ideology/models/ideology_tag.py:12 apps/ideology/models/tag.py:22
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: apps/ideology/models/ideology_tag.py:13
+msgid "The specific tag to associate with the ideology."
+msgstr "La etiqueta específica para asociar con la ideología."
+
+#: apps/ideology/models/ideology_tag.py:20
+msgid "The ideology to which this tag belongs."
+msgstr "La ideología a la que pertenece esta etiqueta."
+
+#: apps/ideology/models/ideology_tag.py:24
+msgid "Ideology tag"
+msgstr "Etiqueta de ideología"
+
+#: apps/ideology/models/ideology_tag.py:25
+msgid "Ideology tags"
+msgstr "Etiquetas de ideología"
+
+#: apps/ideology/models/religion.py:11
+msgid "The name of the religion or belief system."
+msgstr "El nombre de la religión o sistema de creencias."
+
+#: apps/ideology/models/religion.py:17
+msgid "Brief description of the religion's core tenets."
+msgstr "Breve descripción de los principios fundamentales de la religión."
+
+#: apps/ideology/models/religion.py:22
+#: backend/settings/apps_config/unfold.py:51
+msgid "Religions"
+msgstr "Religiones"
+
+#: apps/ideology/models/tag.py:12
+msgid "The name of the tag."
+msgstr "El nombre de la etiqueta."
+
+#: apps/ideology/models/tag.py:18
+msgid "The description of the tag."
+msgstr "La descripción de la etiqueta."
+
 #: backend/settings/apps_config/drf.py:21
-#, fuzzy
-#| msgid ""
-#| "Complete documentation of the Ideological Atlas API. Here you can explore "
-#| "the available endpoints, authentication methods, and data structures."
 msgid ""
 "Here you can explore the available endpoints, authentication methods, and "
 "data structures."
 msgstr ""
-"Documentación completa de la API de Ideological Atlas. Aquí puedes explorar "
-"los endpoints disponibles, métodos de autenticación y estructuras de datos."
+"Aquí puedes explorar los endpoints disponibles, métodos de autenticación y "
+"estructuras de datos."
 
 #: backend/settings/apps_config/drf.py:36
 msgid "Operations related to user management and profile."
@@ -140,27 +981,59 @@ msgstr "Operaciones relacionadas con la gestión de usuarios y perfiles."
 msgid "Authentication and token management."
 msgstr "Autenticación y gestión de tokens."
 
-#: backend/settings/apps_config/unfold.py:11
-msgid "Users and groups"
-msgstr "Usuarios y grupos"
+#: backend/settings/apps_config/unfold.py:33
+msgid "Access Control"
+msgstr "Control de acceso"
 
-#: backend/settings/apps_config/unfold.py:20
+#: backend/settings/apps_config/unfold.py:37
 msgid "Groups"
 msgstr "Grupos"
 
-#: backend/settings/apps_config/unfold.py:31
+#: backend/settings/apps_config/unfold.py:41
+msgid "Ideological Atlas"
+msgstr "Atlas Ideológico"
+
+#: backend/settings/apps_config/unfold.py:64
+msgid "Test Structure"
+msgstr "Estructura del test"
+
+#: backend/settings/apps_config/unfold.py:67
+msgid "Complexities"
+msgstr "Complejidades"
+
+#: backend/settings/apps_config/unfold.py:69
+msgid "Sections"
+msgstr "Secciones"
+
+#: backend/settings/apps_config/unfold.py:73
+msgid "Conditioners"
+msgstr "Condicionadores"
+
+#: backend/settings/apps_config/unfold.py:74
+msgid "Axes"
+msgstr "Ejes"
+
+#: backend/settings/apps_config/unfold.py:78
+msgid "User Data"
+msgstr "Datos de usuario"
+
+#: backend/settings/apps_config/unfold.py:82
+msgid "Completed Tests"
+msgstr "Tests completados"
+
+#: backend/settings/apps_config/unfold.py:103
 msgid "Monitoring & Dev"
 msgstr "Monitorización y Desarrollo"
 
-#: backend/settings/apps_config/unfold.py:35
+#: backend/settings/apps_config/unfold.py:107
 msgid "Silk Profiler"
 msgstr "Perfilador Silk"
 
-#: backend/settings/apps_config/unfold.py:40
+#: backend/settings/apps_config/unfold.py:112
 msgid "API Schema (Swagger)"
 msgstr "Esquema de API (Swagger)"
 
-#: backend/settings/apps_config/unfold.py:45
+#: backend/settings/apps_config/unfold.py:117
 msgid "API Documentation (Redoc)"
 msgstr "Documentación de API (Redoc)"
 

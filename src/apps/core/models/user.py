@@ -60,3 +60,88 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             context={"user_uuid": str(self.uuid)},
         )
         logger.debug("Email verification was sent to '%s'", self)
+
+    def generate_completed_answer(self):
+        from ideology.models import (
+            AxisAnswer,
+            CompletedAnswer,
+            ConditionerAnswer,
+            IdeologyAbstractionComplexity,
+        )
+
+        axis_answers = (
+            AxisAnswer.objects.filter(user=self)
+            .select_related(
+                "axis", "axis__section", "axis__section__abstraction_complexity"
+            )
+            .order_by("axis__section__name")
+        )
+
+        conditioner_answers = (
+            ConditionerAnswer.objects.filter(user=self)
+            .select_related("conditioner", "conditioner__abstraction_complexity")
+            .order_by("conditioner__name")
+        )
+
+        complexities = IdeologyAbstractionComplexity.objects.all().order_by(
+            "complexity"
+        )
+
+        structured_data = []
+
+        for complexity in complexities:
+            complexity_data = {
+                "level": complexity.name,
+                "complexity": complexity.complexity,
+                "sections": [],
+                "conditioners": [],
+            }
+
+            complexity_axes = [
+                axis_answer
+                for axis_answer in axis_answers
+                if axis_answer.axis.section.abstraction_complexity_id == complexity.id
+            ]
+
+            sections_map = {}
+            for complexity_axis in complexity_axes:
+                section_name = complexity_axis.axis.section.name
+                if section_name not in sections_map:
+                    sections_map[section_name] = {
+                        "name": section_name,
+                        "description": complexity_axis.axis.section.description,
+                        "axes": [],
+                    }
+
+                sections_map[section_name]["axes"].append(
+                    {
+                        "name": complexity_axis.axis.name,
+                        "value": int(complexity_axis.value),
+                        "left_label": complexity_axis.axis.left_label,
+                        "right_label": complexity_axis.axis.right_label,
+                    }
+                )
+
+            complexity_data["sections"] = list(sections_map.values())
+
+            complexity_conditioners = [
+                complexity_conditioner
+                for complexity_conditioner in conditioner_answers
+                if complexity_conditioner.conditioner.abstraction_complexity_id
+                == complexity.id
+            ]
+
+            for conditioner in complexity_conditioners:
+                complexity_data["conditioners"].append(
+                    {
+                        "name": conditioner.conditioner.name,
+                        "answer": conditioner.answer,
+                        "type": conditioner.conditioner.type,
+                    }
+                )
+
+            structured_data.append(complexity_data)
+
+        return CompletedAnswer.objects.create(
+            completed_by=self, answers=structured_data
+        )

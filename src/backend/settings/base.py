@@ -46,6 +46,8 @@ LANGUAGES = [
     ("es", _("Spanish")),
     ("en", _("English")),
 ]
+MODELTRANSLATION_DEFAULT_LANGUAGE = "es"
+MODELTRANSLATION_LANGUAGES = ("es", "en")
 LOCALE_PATHS = ("locale",)
 
 STATIC_URL = "/static/"
@@ -56,8 +58,9 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = join(BASE_DIR, "../media")
 
-INTERNAL_APPS = ["core"]
+INTERNAL_APPS = ["core", "ideology"]
 THIRD_PARTY_APPS = [
+    "modeltranslation",
     "unfold",
     "unfold.contrib.simple_history",
     "storages",
@@ -70,7 +73,9 @@ THIRD_PARTY_APPS = [
     "rest_framework_simplejwt",
     "axes",
     "silk",
+    "cities_light",
 ]
+
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -79,6 +84,10 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django.contrib.postgres",
+    "django.contrib.humanize",
+    "django.contrib.sitemaps",
+    "django.contrib.admindocs",
 ]
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + INTERNAL_APPS
 

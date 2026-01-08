@@ -73,6 +73,8 @@ services:
     build:
       context: .
       dockerfile: docker/backend/Dockerfile
+      args:
+        INSTALL_DEV: ${DEBUG}
     command: sh /scripts/post_deploy.sh
     volumes:
       - ./src:/src/
