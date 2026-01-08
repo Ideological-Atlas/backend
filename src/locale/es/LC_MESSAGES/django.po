@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-08 23:59+0100\n"
-"PO-Revision-Date: 2026-01-09 12:00+0100\n"
+"POT-Creation-Date: 2026-01-09 00:26+0100\n"
+"PO-Revision-Date: 2026-01-09 12:30+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -50,6 +50,30 @@ msgstr "Contraseña del usuario"
 #: apps/core/api/serializers/user_serializers.py:55
 msgid "Username"
 msgstr "Nombre de usuario"
+
+#: apps/core/api/views/geo_views.py:13
+msgid "List all countries"
+msgstr "Listar todos los países"
+
+#: apps/core/api/views/geo_views.py:14
+msgid "List available countries from the database."
+msgstr "Listar los países disponibles en la base de datos."
+
+#: apps/core/api/views/geo_views.py:17 apps/core/api/views/geo_views.py:41
+msgid "Search by name"
+msgstr "Buscar por nombre"
+
+#: apps/core/api/views/geo_views.py:31
+msgid "List regions"
+msgstr "Listar regiones"
+
+#: apps/core/api/views/geo_views.py:32
+msgid "List regions, optionally filtered by country."
+msgstr "Listar regiones, opcionalmente filtradas por país."
+
+#: apps/core/api/views/geo_views.py:36
+msgid "Filter by Country ID"
+msgstr "Filtrar por ID de país"
 
 #: apps/core/api/views/user_views.py:19
 msgid "Register new user"
@@ -293,6 +317,50 @@ msgid ""
 msgstr ""
 "Devuelve todas las secciones asociadas con un UUID de complejidad de "
 "abstracción específico."
+
+#: apps/ideology/api/views/ideology_views.py:24
+msgid "List all ideologies"
+msgstr "Listar todas las ideologías"
+
+#: apps/ideology/api/views/ideology_views.py:26
+msgid ""
+"Returns a paginated list of ideologies. Supports filtering by related "
+"entities and text search."
+msgstr ""
+"Devuelve una lista paginada de ideologías. Admite filtrado por entidades "
+"relacionadas y búsqueda de texto."
+
+#: apps/ideology/api/views/ideology_views.py:31
+msgid "Search by name or descriptions"
+msgstr "Buscar por nombre o descripciones"
+
+#: apps/ideology/api/views/ideology_views.py:37
+msgid "Filter by Country ID (Integer)"
+msgstr "Filtrar por ID de país (Entero)"
+
+#: apps/ideology/api/views/ideology_views.py:43
+msgid "Filter by Region ID (Integer)"
+msgstr "Filtrar por ID de región (Entero)"
+
+#: apps/ideology/api/views/ideology_views.py:49
+msgid "Filter by Religion UUID"
+msgstr "Filtrar por UUID de religión"
+
+#: apps/ideology/api/views/ideology_views.py:54
+msgid "Filter by Tag UUID"
+msgstr "Filtrar por UUID de etiqueta"
+
+#: apps/ideology/api/views/ideology_views.py:74
+msgid "Get ideology details"
+msgstr "Obtener detalles de la ideología"
+
+#: apps/ideology/api/views/ideology_views.py:76
+msgid ""
+"Returns details of a specific ideology including its definition values (axis "
+"and conditioners)."
+msgstr ""
+"Devuelve detalles de una ideología específica incluyendo sus valores de "
+"definición (ejes y condicionadores)."
 
 #: apps/ideology/models/axis_answer.py:16
 #: apps/ideology/models/conditioner_answer.py:14

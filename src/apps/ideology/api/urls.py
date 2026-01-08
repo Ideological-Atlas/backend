@@ -25,6 +25,16 @@ urlpatterns = [
         name="conditioner-list-by-complexity",
     ),
     path(
+        "ideologies/",
+        views.IdeologyListView.as_view(),
+        name="ideology-list",
+    ),
+    path(
+        "ideologies/<str:uuid>/",
+        views.IdeologyDetailView.as_view(),
+        name="ideology-detail",
+    ),
+    path(
         "answers/axis/<str:uuid>/",
         views.UpsertAxisAnswerView.as_view(),
         name="upsert-axis-answer",

@@ -11,4 +11,14 @@ urlpatterns = [
         core_views.VerifyUserView.as_view(),
         name="verify_user",
     ),
+    path(
+        "geography/countries/",
+        core_views.CountryListView.as_view(),
+        name="country-list",
+    ),
+    path(
+        "geography/regions/",
+        core_views.RegionListView.as_view(),
+        name="region-list",
+    ),
 ]
