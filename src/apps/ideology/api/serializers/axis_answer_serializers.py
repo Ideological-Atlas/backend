@@ -1,16 +1,12 @@
-from decimal import Decimal
-
 from core.helpers import UUIDModelSerializerMixin
 from ideology.models import AxisAnswer
 from rest_framework import serializers
 
 
 class AxisAnswerUpsertSerializer(serializers.Serializer):
-    value = serializers.DecimalField(
-        max_digits=6,
-        decimal_places=4,
-        min_value=Decimal("-1.0"),
-        max_value=Decimal("1.0"),
+    value = serializers.IntegerField(
+        min_value=-100,
+        max_value=100,
     )
 
 

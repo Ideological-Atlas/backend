@@ -22,12 +22,12 @@ class UpsertAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
         super().setUp()
 
     def test_upsert_flow_create_and_update(self):
-        response = self.client.post(self.url, data={"value": 0.5})
+        response = self.client.post(self.url, data={"value": 50})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(float(response.data["value"]), 0.5)
-        response = self.client.post(self.url, data={"value": 0.9})
+        self.assertEqual(int(response.data["value"]), 50)
+        response = self.client.post(self.url, data={"value": 90})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(float(response.data["value"]), 0.9)
+        self.assertEqual(int(response.data["value"]), 90)
 
     def test_upsert_not_found(self):
         fake_uuid = uuid.uuid4()
@@ -40,7 +40,6 @@ class UserAxisAnswerListBySectionViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
         self.section = IdeologySectionFactory(add_axes__total=0)
         self.axis = IdeologyAxisFactory(section=self.section)
-
         self.url = reverse(
             "ideology:user-axis-answers-by-section",
             kwargs={"section_uuid": self.section.uuid},
@@ -54,15 +53,15 @@ class UserAxisAnswerListBySectionViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(len(response.data["results"]), 1)
 
     def test_get_queryset_direct(self):
-        answer = AxisAnswerFactory(user=self.user, axis=self.axis)
+        axis_answer = AxisAnswerFactory(user=self.user, axis=self.axis)
         view = UserAxisAnswerListBySectionView()
         view.request = MagicMock()
         view.request.user = self.user
         view.kwargs = {"section_uuid": self.section.uuid}
 
-        qs = view.get_queryset()
-        self.assertEqual(qs.count(), 1)
-        self.assertEqual(qs.first(), answer)
+        queryset = view.get_queryset()
+        self.assertEqual(queryset.count(), 1)
+        self.assertEqual(queryset.first(), axis_answer)
 
     def test_swagger_fake_view_queryset(self):
         view = UserAxisAnswerListBySectionView()

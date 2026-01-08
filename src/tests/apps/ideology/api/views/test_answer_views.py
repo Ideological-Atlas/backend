@@ -27,8 +27,8 @@ class AxisAnswerViewTestCase(APITestBaseNeedAuthorized):
 
     def test_upsert_flow_and_list(self):
         steps = [
-            ("Create", {"value": 0.5}, status.HTTP_201_CREATED, 0.5, 1),
-            ("Update", {"value": 0.9}, status.HTTP_200_OK, 0.9, 1),
+            ("Create", {"value": 50}, status.HTTP_201_CREATED, 50, 1),
+            ("Update", {"value": 90}, status.HTTP_200_OK, 90, 1),
         ]
 
         for action, data, expected_status, expected_val, expected_count in steps:
@@ -36,7 +36,7 @@ class AxisAnswerViewTestCase(APITestBaseNeedAuthorized):
                 response = self.client.post(self.upsert_url, data=data)
                 self.assertEqual(response.status_code, expected_status)
                 self.assertEqual(AxisAnswer.objects.count(), expected_count)
-                self.assertEqual(float(response.data["value"]), expected_val)
+                self.assertEqual(int(response.data["value"]), expected_val)
 
         with self.subTest(action="List"):
             response = self.client.get(self.list_url)

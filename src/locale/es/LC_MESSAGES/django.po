@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-07 01:04+0100\n"
-"PO-Revision-Date: 2026-01-05 17:35+0100\n"
+"POT-Creation-Date: 2026-01-08 23:59+0100\n"
+"PO-Revision-Date: 2026-01-09 12:00+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -111,7 +111,7 @@ msgstr "Está verificado"
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:28 apps/ideology/models/axis_answer.py:28
+#: apps/core/models/user.py:28 apps/ideology/models/axis_answer.py:27
 #: apps/ideology/models/conditioner_answer.py:25
 msgid "User"
 msgstr "Usuario"
@@ -204,26 +204,28 @@ msgid "{model} not found"
 msgstr "{model} no encontrado"
 
 #: apps/ideology/api/views/completed_answer_views.py:16
-#, fuzzy
-#| msgid "Completed Answer"
 msgid "Get latest completed answer"
-msgstr "Respuesta completada"
+msgstr "Obtener última respuesta completada"
 
 #: apps/ideology/api/views/completed_answer_views.py:18
 msgid ""
 "Returns the latest completed answer for the authenticated user as a single "
 "object. Returns 404 if no answer exists."
 msgstr ""
+"Devuelve la última respuesta completada del usuario autenticado como un "
+"objeto único. Devuelve 404 si no existe ninguna respuesta."
 
-#: apps/ideology/api/views/completed_answer_views.py:34
+#: apps/ideology/api/views/completed_answer_views.py:37
 msgid "Generate completed answer snapshot"
-msgstr ""
+msgstr "Generar instantánea de respuesta completada"
 
-#: apps/ideology/api/views/completed_answer_views.py:36
+#: apps/ideology/api/views/completed_answer_views.py:39
 msgid ""
 "Triggers the calculation of the user's current results, saves it as a "
 "CompletedAnswer, and returns the structured data."
 msgstr ""
+"Inicia el cálculo de los resultados actuales del usuario, lo guarda como una "
+"Respuesta Completada y devuelve los datos estructurados."
 
 #: apps/ideology/api/views/conditioner_answer_views.py:17
 msgid "Upsert conditioner answer"
@@ -292,7 +294,7 @@ msgstr ""
 "Devuelve todas las secciones asociadas con un UUID de complejidad de "
 "abstracción específico."
 
-#: apps/ideology/models/axis_answer.py:17
+#: apps/ideology/models/axis_answer.py:16
 #: apps/ideology/models/conditioner_answer.py:14
 #: apps/ideology/models/ideology.py:91
 #: apps/ideology/models/ideology_association.py:12
@@ -301,7 +303,7 @@ msgstr ""
 msgid "Ideology"
 msgstr "Ideología"
 
-#: apps/ideology/models/axis_answer.py:19
+#: apps/ideology/models/axis_answer.py:18
 msgid ""
 "The ideology defined by this position. Leave empty if this is a user's "
 "result."
@@ -309,7 +311,7 @@ msgstr ""
 "La ideología definida por esta posición. Déjelo vacío si es el resultado de "
 "un usuario."
 
-#: apps/ideology/models/axis_answer.py:30
+#: apps/ideology/models/axis_answer.py:29
 msgid ""
 "The user who obtained this result. Leave empty if this is defining an "
 "ideology."
@@ -317,56 +319,76 @@ msgstr ""
 "El usuario que obtuvo este resultado. Déjelo vacío si está definiendo una "
 "ideología."
 
-#: apps/ideology/models/axis_answer.py:37
+#: apps/ideology/models/axis_answer.py:36
 msgid "Axis"
 msgstr "Eje"
 
-#: apps/ideology/models/axis_answer.py:38
+#: apps/ideology/models/axis_answer.py:37
 msgid "The specific axis being measured."
 msgstr "El eje específico que se está midiendo."
 
-#: apps/ideology/models/axis_answer.py:47
+#: apps/ideology/models/axis_answer.py:44
 msgid "Position Value"
 msgstr "Valor de posición"
 
-#: apps/ideology/models/axis_answer.py:49
+#: apps/ideology/models/axis_answer.py:46
 msgid ""
-"The position on the axis. Must be between -1.0 (Extreme Left) and 1.0 "
+"The position on the axis. Must be between -100 (Extreme Left) and 100 "
 "(Extreme Right)."
 msgstr ""
-"La posición en el eje. Debe estar entre -1.0 (Extrema Izquierda) y 1.0 "
+"La posición en el eje. Debe estar entre -100 (Extrema Izquierda) y 100 "
 "(Extrema Derecha)."
 
-#: apps/ideology/models/axis_answer.py:60
+#: apps/ideology/models/axis_answer.py:55
 msgid "Left Margin Tolerance"
 msgstr "Tolerancia del margen izquierdo"
 
-#: apps/ideology/models/axis_answer.py:62
+#: apps/ideology/models/axis_answer.py:57
 msgid ""
-"Acceptable deviation towards the left side for this ideology definition."
+"Positive magnitude of deviation allowed towards the left. (Value - Margin "
+"Left >= -100)"
 msgstr ""
-"Desviación aceptable hacia el lado izquierdo para la definición de esta "
-"ideología."
+"Magnitud positiva de desviación permitida hacia la izquierda. (Valor - "
+"Margen Izquierdo >= -100)"
 
-#: apps/ideology/models/axis_answer.py:73
+#: apps/ideology/models/axis_answer.py:66
 msgid "Right Margin Tolerance"
 msgstr "Tolerancia del margen derecho"
 
-#: apps/ideology/models/axis_answer.py:75
+#: apps/ideology/models/axis_answer.py:68
 msgid ""
-"Acceptable deviation towards the right side for this ideology definition."
+"Positive magnitude of deviation allowed towards the right. (Value + Margin "
+"Right <= 100)"
 msgstr ""
-"Desviación aceptable hacia el lado derecho para la definición de esta "
-"ideología."
+"Magnitud positiva de desviación permitida hacia la derecha. (Valor + Margen "
+"Derecho <= 100)"
 
-#: apps/ideology/models/axis_answer.py:80
+#: apps/ideology/models/axis_answer.py:73
 msgid "Axis Answer"
 msgstr "Respuesta de eje"
 
-#: apps/ideology/models/axis_answer.py:81
+#: apps/ideology/models/axis_answer.py:74
 #: backend/settings/apps_config/unfold.py:87
 msgid "Axis Answers"
 msgstr "Respuestas de eje"
+
+#: apps/ideology/models/axis_answer.py:112
+#, python-brace-format
+msgid ""
+"Lower bound error: Position ({val}) minus Left Margin ({marg}) is less than "
+"-100"
+msgstr ""
+"Error de límite inferior: La posición ({val}) menos el margen izquierdo "
+"({marg}) es menor que -100"
+
+#: apps/ideology/models/axis_answer.py:120
+#, python-brace-format
+msgid ""
+"Upper bound error: Position ({val}) plus Right Margin ({marg}) is greater "
+"than 100"
+msgstr ""
+"Error de límite superior: La posición ({val}) más el margen derecho ({marg}) "
+"es mayor que 100"
 
 #: apps/ideology/models/completed_answer.py:11
 msgid "Completed By"

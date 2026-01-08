@@ -13,9 +13,9 @@ class AxisAnswerFactory(TimeStampedUUIDModelFactory):
         model = AxisAnswer
 
     axis = factory.SubFactory(IdeologyAxisFactory)
-    value = factory.LazyFunction(lambda: round(random.uniform(-1.0, 1.0), 4))  # nosec
-    margin_left = 0.1
-    margin_right = 0.1
+    value = factory.LazyFunction(lambda: random.randint(-90, 90))  # nosec
+    margin_left = 10
+    margin_right = 10
 
     user = factory.SubFactory(VerifiedUserFactory)
     ideology = None

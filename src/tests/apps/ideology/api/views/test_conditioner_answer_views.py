@@ -48,15 +48,17 @@ class UserConditionerAnswerListByComplexityViewTestCase(APITestBaseNeedAuthorize
         self.assertEqual(len(response.data["results"]), 1)
 
     def test_get_queryset_direct(self):
-        answer = ConditionerAnswerFactory(user=self.user, conditioner=self.conditioner)
+        conditioner_answer = ConditionerAnswerFactory(
+            user=self.user, conditioner=self.conditioner
+        )
         view = UserConditionerAnswerListByComplexityView()
         view.request = MagicMock()
         view.request.user = self.user
         view.kwargs = {"complexity_uuid": self.complexity.uuid}
 
-        qs = view.get_queryset()
-        self.assertEqual(qs.count(), 1)
-        self.assertEqual(qs.first(), answer)
+        queryset = view.get_queryset()
+        self.assertEqual(queryset.count(), 1)
+        self.assertEqual(queryset.first(), conditioner_answer)
 
     def test_swagger_fake_view_queryset(self):
         view = UserConditionerAnswerListByComplexityView()

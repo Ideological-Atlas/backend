@@ -71,7 +71,7 @@ class UserModelTestCase(TestCase):
                     axis = IdeologyAxisFactory(
                         section=section, name=f"Axis-{section.name}-{axis_index}"
                     )
-                    AxisAnswerFactory(user=self.user, axis=axis, value=0.5)
+                    AxisAnswerFactory(user=self.user, axis=axis, value=50)
 
             if level >= 2:
                 number_of_conditioners = random.randint(5, 10)  # nosec

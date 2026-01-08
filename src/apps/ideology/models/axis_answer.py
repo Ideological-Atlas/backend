@@ -1,6 +1,5 @@
-from decimal import Decimal
-
 from core.models import TimeStampedUUIDModel, User
+from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -37,42 +36,36 @@ class AxisAnswer(TimeStampedUUIDModel):
         verbose_name=_("Axis"),
         help_text=_("The specific axis being measured."),
     )
-    value = models.DecimalField(
-        max_digits=6,
-        decimal_places=4,
+    value = models.IntegerField(
         validators=[
-            MinValueValidator(Decimal("-1.0")),
-            MaxValueValidator(Decimal("1.0")),
+            MinValueValidator(-100),
+            MaxValueValidator(100),
         ],
         verbose_name=_("Position Value"),
         help_text=_(
-            "The position on the axis. Must be between -1.0 (Extreme Left) and 1.0 (Extreme Right)."
+            "The position on the axis. Must be between -100 (Extreme Left) and 100 (Extreme Right)."
         ),
     )
-    margin_left = models.DecimalField(
-        max_digits=6,
-        decimal_places=4,
-        default=Decimal("0.0"),
+    margin_left = models.IntegerField(
+        default=0,
         validators=[
-            MinValueValidator(Decimal("0.0")),
-            MaxValueValidator(Decimal("2.0")),
+            MinValueValidator(0),
+            MaxValueValidator(200),
         ],
         verbose_name=_("Left Margin Tolerance"),
         help_text=_(
-            "Acceptable deviation towards the left side for this ideology definition."
+            "Positive magnitude of deviation allowed towards the left. (Value - Margin Left >= -100)"
         ),
     )
-    margin_right = models.DecimalField(
-        max_digits=6,
-        decimal_places=4,
-        default=Decimal("0.0"),
+    margin_right = models.IntegerField(
+        default=0,
         validators=[
-            MinValueValidator(Decimal("0.0")),
-            MaxValueValidator(Decimal("2.0")),
+            MinValueValidator(0),
+            MaxValueValidator(200),
         ],
         verbose_name=_("Right Margin Tolerance"),
         help_text=_(
-            "Acceptable deviation towards the right side for this ideology definition."
+            "Positive magnitude of deviation allowed towards the right. (Value + Margin Right <= 100)"
         ),
     )
 
@@ -98,7 +91,39 @@ class AxisAnswer(TimeStampedUUIDModel):
                 ),
                 name="axis_answer_owner_xor_constraint",
             ),
+            models.CheckConstraint(
+                condition=models.Q(value__gte=models.F("margin_left") - 100),
+                name="axis_answer_lower_bound_check",
+            ),
+            models.CheckConstraint(
+                condition=models.Q(value__lte=100 - models.F("margin_right")),
+                name="axis_answer_upper_bound_check",
+            ),
         ]
+
+    def clean(self):
+        super().clean()
+
+        if self.value is not None:
+            if self.margin_left is not None:
+                if (self.value - self.margin_left) < -100:
+                    raise ValidationError(
+                        _(
+                            "Lower bound error: Position ({val}) minus Left Margin ({marg}) is less than -100"
+                        ).format(val=self.value, marg=self.margin_left)
+                    )
+
+            if self.margin_right is not None:
+                if (self.value + self.margin_right) > 100:
+                    raise ValidationError(
+                        _(
+                            "Upper bound error: Position ({val}) plus Right Margin ({marg}) is greater than 100"
+                        ).format(val=self.value, marg=self.margin_right)
+                    )
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         owner = self.ideology.name if self.ideology else self.user.username

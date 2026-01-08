@@ -12,15 +12,13 @@ class LatestCompletedAnswerViewTestCase(APITestBaseNeedAuthorized):
     url = reverse("ideology:completed-answer-latest")
 
     def test_get_latest_completed_answer_success(self):
-        old_answer = CompletedAnswerFactory(completed_by=self.user)
-        old_answer.created = "2020-01-01T00:00:00Z"
-        old_answer.save()
-        new_answer = CompletedAnswerFactory(completed_by=self.user)
+        CompletedAnswerFactory(completed_by=self.user, created="2020-01-01T00:00:00Z")
+        new_completed_answer = CompletedAnswerFactory(completed_by=self.user)
         CompletedAnswerFactory()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIsInstance(response.data, dict)
-        self.assertEqual(response.data["uuid"], new_answer.uuid.hex)
+        self.assertEqual(response.data["uuid"], new_completed_answer.uuid.hex)
 
     def test_get_latest_404_if_none_exists(self):
         response = self.client.get(self.url)

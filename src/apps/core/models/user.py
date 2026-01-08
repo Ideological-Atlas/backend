@@ -116,7 +116,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
                 sections_map[section_name]["axes"].append(
                     {
                         "name": complexity_axis.axis.name,
-                        "value": float(complexity_axis.value),
+                        "value": int(complexity_axis.value),
                         "left_label": complexity_axis.axis.left_label,
                         "right_label": complexity_axis.axis.right_label,
                     }

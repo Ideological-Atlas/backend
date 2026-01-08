@@ -5,9 +5,9 @@ from ideology.api.serializers import AxisAnswerUpsertSerializer
 class AxisAnswerSerializerTestCase(SerializerTestBase):
     def test_validation(self):
         cases = [
-            ("Valid", {"axis_uuid": "123", "value": 0.5}, True),
-            ("Invalid Range High", {"axis_uuid": "123", "value": 1.5}, False),
-            ("Invalid Range Low", {"axis_uuid": "123", "value": -1.5}, False),
+            ("Valid", {"axis_uuid": "123", "value": 50}, True),
+            ("Invalid Range High", {"axis_uuid": "123", "value": 150}, False),
+            ("Invalid Range Low", {"axis_uuid": "123", "value": -150}, False),
         ]
 
         for name, data, is_valid in cases:
