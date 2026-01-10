@@ -32,12 +32,28 @@ SPECTACULAR_SETTINGS = {
     },
     "TAGS": [
         {
-            "name": "users",
-            "description": _("Operations related to user management and profile."),
+            "name": "auth",
+            "description": _("Authentication, registration and token management."),
         },
         {
-            "name": "auth",
-            "description": _("Authentication and token management."),
+            "name": "users",
+            "description": _("User profile and verification operations."),
+        },
+        {
+            "name": "geography",
+            "description": _("Countries and regions data."),
+        },
+        {
+            "name": "structure",
+            "description": _("Test structure definition (axes, conditioners, etc)."),
+        },
+        {
+            "name": "ideologies",
+            "description": _("Ideologies catalog and details."),
+        },
+        {
+            "name": "answers",
+            "description": _("User answers and results processing."),
         },
     ],
     "COMPONENT_SPLIT_REQUEST": True,
