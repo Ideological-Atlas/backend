@@ -98,7 +98,7 @@ class GoogleLoginView(GenericAPIView):
         token = serializer.validated_data["token"]
 
         try:
-            user, _ = User.objects.get_or_create_from_google_token(token)
+            user, created = User.objects.get_or_create_from_google_token(token)
 
             if not user.is_active:
                 raise api_exceptions.ForbiddenException(_("User account is disabled."))

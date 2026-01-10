@@ -2,6 +2,7 @@ from core.factories import UserFactory
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, InternalError, transaction
 from django.test import TestCase
+from django.utils import translation
 from ideology.factories import AxisAnswerFactory, IdeologyAxisFactory, IdeologyFactory
 from ideology.models import AxisAnswer
 
@@ -42,16 +43,17 @@ class AxisAnswerModelTestCase(TestCase):
             },
         ]
 
-        for case in test_cases:
-            with self.subTest(msg=case["msg"]):
-                with self.assertRaises(ValidationError) as context_manager:
-                    AxisAnswerFactory(
-                        axis=axis,
-                        value=case["value"],
-                        margin_left=case["margin_left"],
-                        margin_right=case["margin_right"],
-                    )
-                self.assertIn(case["error_text"], str(context_manager.exception))
+        with translation.override("en"):
+            for case in test_cases:
+                with self.subTest(msg=case["msg"]):
+                    with self.assertRaises(ValidationError) as context_manager:
+                        AxisAnswerFactory(
+                            axis=axis,
+                            value=case["value"],
+                            margin_left=case["margin_left"],
+                            margin_right=case["margin_right"],
+                        )
+                    self.assertIn(case["error_text"], str(context_manager.exception))
 
     def test_margin_bounds_validation_clean_valid(self):
         axis = IdeologyAxisFactory()

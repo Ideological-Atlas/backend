@@ -21,11 +21,11 @@ class CustomUserManager(BaseUserManager):
     def get_or_create(self, defaults=None, **kwargs):
         defaults = defaults or {}
 
-        if not defaults.get("username"):
+        if not kwargs.get("username") and not defaults.get("username"):
             defaults["username"] = self._generate_unique_username()
         return self.get_queryset().get_or_create(defaults=defaults, **kwargs)
 
-    def create_user(self, email, password, username, **extra_fields):
+    def create_user(self, email, password, username=None, **extra_fields):
         if not email:
             raise ValueError(_("The Email must be set"))
 
@@ -40,7 +40,7 @@ class CustomUserManager(BaseUserManager):
         logger.info("User with mail '%s' registered", email)
         return user
 
-    def create_superuser(self, email, password, username, **extra_fields):
+    def create_superuser(self, email, password, username=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)

@@ -4,11 +4,13 @@ from core.api.api_test_helpers import SerializerTestBase
 from core.api.serializers import (
     MeSerializer,
     RegisterSerializer,
+    UserSetPasswordSerializer,
     UserVerificationSerializer,
 )
 from core.exceptions import api_exceptions
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.factories import UserFactory
+from core.models import User
 from django.utils import translation
 from rest_framework.exceptions import ValidationError
 
@@ -16,7 +18,7 @@ from rest_framework.exceptions import ValidationError
 class RegisterSerializerTestCase(SerializerTestBase):
     def setUp(self):
         super().setUp()
-        self.data = {"email": "new@test.com", "password": "StrongPassword1!"}
+        self.data = {"email": "new@test.com", "password": "StrongPassword1!"}  # nosec
 
     @patch("core.models.user.User.trigger_email_verification")
     def test_create_flow(self, mock_trigger):
@@ -24,6 +26,7 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertTrue(serializer.is_valid())
         user = serializer.save()
         self.assertEqual(user.email, self.data["email"])
+        self.assertEqual(user.auth_provider, User.AuthProvider.INTERNAL)
         mock_trigger.assert_called_once()
 
     @patch("core.models.user.User.trigger_email_verification")
@@ -99,11 +102,14 @@ class VerificationSerializerTestCase(SerializerTestBase):
 
 
 class MeSerializerTestCase(SerializerTestBase):
-    def test_fields(self):
+    def test_fields_structure(self):
         serializer = MeSerializer(self.user)
-        self.assertTrue(serializer.data["username"])
-        self.assertIn("uuid", serializer.data)
-        self.assertIn("preferred_language", serializer.data)
+        data = serializer.data
+        self.assertTrue(data["username"])
+        self.assertIn("uuid", data)
+        self.assertIn("preferred_language", data)
+        self.assertIn("auth_provider", data)
+        self.assertNotIn("has_password", data)
 
     def test_update_preferred_language(self):
         data = {"preferred_language": "fr"}
@@ -112,3 +118,21 @@ class MeSerializerTestCase(SerializerTestBase):
         serializer.save()
         self.user.refresh_from_db()
         self.assertEqual(self.user.preferred_language, "fr")
+
+
+class UserSetPasswordSerializerTestCase(SerializerTestBase):
+    def test_set_password_success(self):
+        new_pass = "NewStrongPassword1!"  # nosec
+        data = {"new_password": new_pass}
+        serializer = UserSetPasswordSerializer(self.user, data=data)
+        self.assertTrue(serializer.is_valid())
+        serializer.save()
+
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password(new_pass))
+
+    def test_set_password_weak_fails(self):
+        data = {"new_password": "123"}  # nosec
+        serializer = UserSetPasswordSerializer(self.user, data=data)
+        self.assertFalse(serializer.is_valid())
+        self.assertIn("new_password", serializer.errors)
