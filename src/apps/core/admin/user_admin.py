@@ -11,7 +11,10 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     actions = ["send_verification_email"]
 
     fieldsets = (
-        (_("Base info"), {"fields": ("username", "email", "password", "uuid")}),
+        (
+            _("Base info"),
+            {"fields": ("username", "email", "password", "uuid", "auth_provider")},
+        ),
         (
             _("Personal info"),
             {
@@ -54,12 +57,14 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "uuid",
         "username",
         "email",
+        "auth_provider",
         "first_name",
         "last_name",
         "is_staff",
         "is_verified",
     ]
     list_filter = [
+        "auth_provider",
         "is_staff",
         "is_superuser",
         "is_active",
@@ -69,7 +74,15 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
     search_fields = ["username", "first_name", "last_name", "email", "id", "uuid"]
-    readonly_fields = ["date_joined", "last_login", "uuid", "id", "created", "modified"]
+    readonly_fields = [
+        "date_joined",
+        "last_login",
+        "uuid",
+        "id",
+        "created",
+        "modified",
+        "auth_provider",
+    ]
     ordering = ["created"]
 
     @admin.action(description=_("Send verification email"))
