@@ -1,3 +1,4 @@
+from core.api.views import auth_views
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
@@ -9,11 +10,6 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
 
 from backend.settings import ADMIN_PATH, PRODUCTION, PROJECT_NAME
 
@@ -24,9 +20,21 @@ admin.site.index_title = _("Panel de control")
 urlpatterns = (
     [
         path("i18n/", include("django.conf.urls.i18n")),
-        path("api/token/login/", TokenObtainPairView.as_view(), name="login"),
-        path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh"),
-        path("api/token/verify/", TokenVerifyView.as_view(), name="token-verify"),
+        path(
+            "api/token/login/",
+            auth_views.AuthTokenObtainPairView.as_view(),
+            name="login",
+        ),
+        path(
+            "api/token/refresh/",
+            auth_views.AuthTokenRefreshView.as_view(),
+            name="refresh",
+        ),
+        path(
+            "api/token/verify/",
+            auth_views.AuthTokenVerifyView.as_view(),
+            name="token-verify",
+        ),
         path("api/", include("core.api.urls", "core")),
         path("api/", include("ideology.api.urls", "ideology")),
     ]

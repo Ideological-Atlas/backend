@@ -12,6 +12,9 @@ logger = logging.getLogger(__name__)
 
 
 class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
+    class AuthProvider(models.TextChoices):
+        INTERNAL = "internal", _("Internal")
+        GOOGLE = "google", _("Google")
 
     email = models.EmailField(_("email address"), unique=True)
     preferred_language = models.CharField(max_length=10, default="es")
@@ -20,6 +23,14 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         default=False,
         verbose_name=_("Is verified"),
         help_text=_("Field that shows if the user is verified or not."),
+    )
+
+    auth_provider = models.CharField(
+        max_length=20,
+        choices=AuthProvider.choices,
+        default=AuthProvider.INTERNAL,
+        verbose_name=_("Auth Provider"),
+        help_text=_("The provider used for the user authentication/registration."),
     )
 
     objects = CustomUserManager()

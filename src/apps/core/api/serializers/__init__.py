@@ -3,5 +3,7 @@ from .user_serializers import (
     RegisterSerializer,
     SimpleUserSerializer,
     UserVerificationSerializer,
+    GoogleLoginSerializer,
+    UserSetPasswordSerializer,
 )
 from .geo_serializers import CountrySerializer, RegionSerializer

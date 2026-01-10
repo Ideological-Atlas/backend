@@ -1,29 +1,10 @@
-from core.api.serializers import (
-    MeSerializer,
-    RegisterSerializer,
-    UserVerificationSerializer,
-)
-from core.helpers import UUIUpdateView
-from core.models import User
+from core.api.serializers import MeSerializer, UserSetPasswordSerializer
 from django.utils.translation import gettext_lazy as _
-from drf_spectacular.utils import OpenApiParameter, extend_schema
-from rest_framework.generics import (
-    CreateAPIView,
-    RetrieveUpdateAPIView,
-)
-from rest_framework.permissions import AllowAny, IsAuthenticated
-
-
-@extend_schema(
-    tags=["users"],
-    summary=_("Register new user"),
-    description=_(
-        "Creates a new user account and triggers the verification email process."
-    ),
-)
-class RegisterView(CreateAPIView):
-    permission_classes = [AllowAny]
-    serializer_class = RegisterSerializer
+from drf_spectacular.utils import extend_schema
+from rest_framework import status
+from rest_framework.generics import RetrieveUpdateAPIView, UpdateAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 
 @extend_schema(
@@ -44,18 +25,25 @@ class MeDetailView(RetrieveUpdateAPIView):
 
 @extend_schema(
     tags=["users"],
-    summary=_("Verify user account"),
-    description=_("Marks a user as verified using their unique UUID."),
-    parameters=[
-        OpenApiParameter(
-            name="uuid",
-            description=_("The UUID of the user to verify"),
-            required=True,
-            location=OpenApiParameter.PATH,
-        )
-    ],
+    summary=_("Set user password"),
+    description=_(
+        "Allows an authenticated user (e.g., logged in via Google) to set a password "
+        "so they can use standard login in the future."
+    ),
+    responses={200: MeSerializer},
 )
-class VerifyUserView(UUIUpdateView):
-    permission_classes = [AllowAny]
-    serializer_class = UserVerificationSerializer
-    queryset = User.objects.all()
+class UserSetPasswordView(UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserSetPasswordSerializer
+
+    def get_object(self):
+        return self.request.user
+
+    def update(self, request, *args, **kwargs):
+        user = self.get_object()
+        serializer = self.get_serializer(user, data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        serializer.save()
+
+        return Response(MeSerializer(user).data, status=status.HTTP_200_OK)

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-09 00:26+0100\n"
-"PO-Revision-Date: 2026-01-09 12:30+0100\n"
+"POT-Creation-Date: 2026-01-10 19:14+0100\n"
+"PO-Revision-Date: 2026-01-10 19:30+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -43,13 +43,67 @@ msgstr ""
 "Se ha iniciado el proceso de envío de correos de verificación para los "
 "usuarios seleccionados."
 
-#: apps/core/api/serializers/user_serializers.py:53
+#: apps/core/api/serializers/user_serializers.py:54
 msgid "Password of the user"
 msgstr "Contraseña del usuario"
 
-#: apps/core/api/serializers/user_serializers.py:55
+#: apps/core/api/serializers/user_serializers.py:56
 msgid "Username"
 msgstr "Nombre de usuario"
+
+#: apps/core/api/serializers/user_serializers.py:97
+msgid "Google ID Token provided by the frontend."
+msgstr "Token de ID de Google proporcionado por el frontend."
+
+#: apps/core/api/views/auth_views.py:28
+msgid "Obtain Token Pair (Login)"
+msgstr "Obtener par de tokens (Iniciar sesión)"
+
+#: apps/core/api/views/auth_views.py:33
+msgid "Refresh Token"
+msgstr "Refrescar token"
+
+#: apps/core/api/views/auth_views.py:38
+msgid "Verify Token"
+msgstr "Verificar token"
+
+#: apps/core/api/views/auth_views.py:45
+msgid "Register new user"
+msgstr "Registrar nuevo usuario"
+
+#: apps/core/api/views/auth_views.py:47
+msgid "Creates a new user account and triggers the verification email process."
+msgstr ""
+"Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
+"correo."
+
+#: apps/core/api/views/auth_views.py:57
+msgid "Verify user account"
+msgstr "Verificar cuenta de usuario"
+
+#: apps/core/api/views/auth_views.py:58
+msgid "Marks a user as verified using their unique UUID."
+msgstr "Marca a un usuario como verificado usando su UUID único."
+
+#: apps/core/api/views/auth_views.py:62
+msgid "The UUID of the user to verify"
+msgstr "El UUID del usuario a verificar"
+
+#: apps/core/api/views/auth_views.py:76
+msgid "Login with Google"
+msgstr "Iniciar sesión con Google"
+
+#: apps/core/api/views/auth_views.py:78
+msgid ""
+"Validates a Google ID Token. Registers the user if they don't exist "
+"(verified automatically) and returns JWT tokens."
+msgstr ""
+"Valida un token de ID de Google. Registra al usuario si no existe "
+"(verificado automáticamente) y devuelve tokens JWT."
+
+#: apps/core/api/views/auth_views.py:104
+msgid "User account is disabled."
+msgstr "La cuenta de usuario está deshabilitada."
 
 #: apps/core/api/views/geo_views.py:13
 msgid "List all countries"
@@ -75,21 +129,11 @@ msgstr "Listar regiones, opcionalmente filtradas por país."
 msgid "Filter by Country ID"
 msgstr "Filtrar por ID de país"
 
-#: apps/core/api/views/user_views.py:19
-msgid "Register new user"
-msgstr "Registrar nuevo usuario"
-
-#: apps/core/api/views/user_views.py:21
-msgid "Creates a new user account and triggers the verification email process."
-msgstr ""
-"Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
-"correo."
-
-#: apps/core/api/views/user_views.py:31
+#: apps/core/api/views/user_views.py:12
 msgid "Get or update current profile"
 msgstr "Obtener o actualizar perfil actual"
 
-#: apps/core/api/views/user_views.py:33
+#: apps/core/api/views/user_views.py:14
 msgid ""
 "Retrieve the profile information of the currently authenticated user or "
 "update their details."
@@ -97,50 +141,70 @@ msgstr ""
 "Recupera la información del perfil del usuario autenticado o actualiza sus "
 "detalles."
 
-#: apps/core/api/views/user_views.py:47
-msgid "Verify user account"
-msgstr "Verificar cuenta de usuario"
+#: apps/core/api/views/user_views.py:28
+msgid "Set user password"
+msgstr "Establecer contraseña de usuario"
 
-#: apps/core/api/views/user_views.py:48
-msgid "Marks a user as verified using their unique UUID."
-msgstr "Marca a un usuario como verificado usando su UUID único."
+#: apps/core/api/views/user_views.py:30
+msgid ""
+"Allows an authenticated user (e.g., logged in via Google) to set a password "
+"so they can use standard login in the future."
+msgstr ""
+"Permite a un usuario autenticado (ej. conectado vía Google) establecer una "
+"contraseña para usar el inicio de sesión estándar en el futuro."
 
-#: apps/core/api/views/user_views.py:52
-msgid "The UUID of the user to verify"
-msgstr "El UUID del usuario a verificar"
-
-#: apps/core/models/managers/user_managers.py:20
+#: apps/core/models/managers/user_managers.py:30
 msgid "The Email must be set"
 msgstr "Debe establecerse el correo electrónico"
 
-#: apps/core/models/managers/user_managers.py:39
+#: apps/core/models/managers/user_managers.py:49
 #: tests/apps/core/models/managers/test_user_managers.py:21
 msgid "Superuser must have is_staff=True."
 msgstr "El superusuario debe tener is_staff=True."
 
-#: apps/core/models/managers/user_managers.py:41
+#: apps/core/models/managers/user_managers.py:51
 #: tests/apps/core/models/managers/test_user_managers.py:26
 msgid "Superuser must have is_superuser=True."
 msgstr "El superusuario debe tener is_superuser=True."
 
+#: apps/core/models/managers/user_managers.py:61
+msgid "Google token has no email."
+msgstr "El token de Google no tiene correo electrónico."
+
 #: apps/core/models/user.py:16
+msgid "Internal"
+msgstr "Interno"
+
+#: apps/core/models/user.py:17
+msgid "Google"
+msgstr "Google"
+
+#: apps/core/models/user.py:19
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: apps/core/models/user.py:21
+#: apps/core/models/user.py:24
 msgid "Is verified"
 msgstr "Está verificado"
 
-#: apps/core/models/user.py:22
+#: apps/core/models/user.py:25
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:28 apps/ideology/models/axis_answer.py:27
+#: apps/core/models/user.py:32
+msgid "Auth Provider"
+msgstr "Proveedor de autenticación"
+
+#: apps/core/models/user.py:33
+msgid "The provider used for the user authentication/registration."
+msgstr "El proveedor utilizado para la autenticación/registro del usuario."
+
+#: apps/core/models/user.py:39 apps/ideology/models/axis_answer.py:27
 #: apps/ideology/models/conditioner_answer.py:25
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:29 backend/settings/apps_config/unfold.py:36
+#: apps/core/models/user.py:40 backend/settings/apps_config/unfold.py:36
 msgid "Users"
 msgstr "Usuarios"
 
@@ -974,12 +1038,28 @@ msgstr ""
 "estructuras de datos."
 
 #: backend/settings/apps_config/drf.py:36
-msgid "Operations related to user management and profile."
-msgstr "Operaciones relacionadas con la gestión de usuarios y perfiles."
+msgid "Authentication, registration and token management."
+msgstr "Autenticación, registro y gestión de tokens."
 
 #: backend/settings/apps_config/drf.py:40
-msgid "Authentication and token management."
-msgstr "Autenticación y gestión de tokens."
+msgid "User profile and verification operations."
+msgstr "Perfil de usuario y operaciones de verificación."
+
+#: backend/settings/apps_config/drf.py:44
+msgid "Countries and regions data."
+msgstr "Datos de países y regiones."
+
+#: backend/settings/apps_config/drf.py:48
+msgid "Test structure definition (axes, conditioners, etc)."
+msgstr "Definición de la estructura del test (ejes, condicionadores, etc)."
+
+#: backend/settings/apps_config/drf.py:52
+msgid "Ideologies catalog and details."
+msgstr "Catálogo y detalles de ideologías."
+
+#: backend/settings/apps_config/drf.py:56
+msgid "User answers and results processing."
+msgstr "Respuestas de usuarios y procesamiento de resultados."
 
 #: backend/settings/apps_config/unfold.py:33
 msgid "Access Control"
@@ -1045,6 +1125,6 @@ msgstr "Español"
 msgid "English"
 msgstr "Inglés"
 
-#: backend/urls.py:22
+#: backend/urls.py:18
 msgid "Panel de control"
 msgstr "Panel de control"
