@@ -1,6 +1,8 @@
+import uuid
+
 from core.factories import TimeStampedUUIDModelFactory
 from django.contrib.auth import get_user_model
-from factory import Faker, PostGenerationMethodCall
+from factory import Faker, LazyFunction, PostGenerationMethodCall
 from factory.fuzzy import FuzzyText
 
 
@@ -18,7 +20,9 @@ class UserFactory(TimeStampedUUIDModelFactory):
     is_active = True
     is_superuser = False
     is_verified = False
+    verification_uuid = LazyFunction(uuid.uuid4)
 
 
 class VerifiedUserFactory(UserFactory):
     is_verified = True
+    verification_uuid = None

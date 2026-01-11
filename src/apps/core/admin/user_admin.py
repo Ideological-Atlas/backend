@@ -13,7 +13,16 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     fieldsets = (
         (
             _("Base info"),
-            {"fields": ("username", "email", "password", "uuid", "auth_provider")},
+            {
+                "fields": (
+                    "username",
+                    "email",
+                    "password",
+                    "uuid",
+                    "verification_uuid",
+                    "auth_provider",
+                )
+            },
         ),
         (
             _("Personal info"),
@@ -73,11 +82,20 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
-    search_fields = ["username", "first_name", "last_name", "email", "id", "uuid"]
+    search_fields = [
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "id",
+        "uuid",
+        "verification_uuid",
+    ]
     readonly_fields = [
         "date_joined",
         "last_login",
         "uuid",
+        "verification_uuid",
         "id",
         "created",
         "modified",

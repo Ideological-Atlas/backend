@@ -88,6 +88,7 @@ class RegisterViewTestCase(APITestBase):
 
         new_user = User.objects.get(email="foo@foo.com")
         self.assertEqual(new_user.auth_provider, User.AuthProvider.INTERNAL)
+        self.assertIsNotNone(new_user.verification_uuid)
 
         mock_post.assert_called_once()
 
@@ -181,22 +182,26 @@ class GoogleLoginViewTestCase(APITestBase):
 
 
 class VerifyUserViewTestCase(APITestBase):
-    def setUp(self):
-        self.target_user = UserFactory(is_verified=False)
-        self.url = reverse("core:verify_user", kwargs={"uuid": self.target_user.uuid})
-        super().setUp()
-
     def test_verify_user_200_ok(self):
+        target_user = UserFactory(is_verified=False)
+        url = reverse(
+            "core:verify_user",
+            kwargs={"verification_uuid": target_user.verification_uuid},
+        )
         self.client.credentials()
-        response = self.client.patch(self.url)
+        response = self.client.patch(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.target_user.refresh_from_db()
-        self.assertTrue(self.target_user.is_verified)
+        target_user.refresh_from_db()
+        self.assertTrue(target_user.is_verified)
+        self.assertIsNone(target_user.verification_uuid)
 
     def test_verify_user_already_verified_403_forbidden(self):
+        UserFactory(is_verified=True, verification_uuid=None)
+        url = reverse(
+            "core:verify_user",
+            kwargs={"verification_uuid": "12345678-1234-5678-1234-567812345678"},
+        )
         self.client.credentials()
-        self.target_user.is_verified = True
-        self.target_user.save()
 
-        response = self.client.patch(self.url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        response = self.client.patch(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

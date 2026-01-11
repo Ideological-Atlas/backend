@@ -106,11 +106,11 @@ class RegisterView(CreateAPIView):
 @extend_schema(
     tags=["auth"],
     summary=_("Verify user account"),
-    description=_("Marks a user as verified using their unique UUID."),
+    description=_("Marks a user as verified using their secret verification token."),
     parameters=[
         OpenApiParameter(
             name="uuid",
-            description=_("The UUID of the user to verify"),
+            description=_("The verification UUID sent via email"),
             required=True,
             location=OpenApiParameter.PATH,
         )
@@ -120,6 +120,7 @@ class VerifyUserView(UUIUpdateView):
     permission_classes = [AllowAny]
     serializer_class = UserVerificationSerializer
     queryset = User.objects.all()
+    lookup_field = "verification_uuid"
 
 
 @extend_schema(

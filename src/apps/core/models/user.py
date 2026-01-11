@@ -25,6 +25,14 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         help_text=_("Field that shows if the user is verified or not."),
     )
 
+    verification_uuid = models.UUIDField(
+        null=True,
+        blank=True,
+        unique=True,
+        verbose_name=_("Verification UUID"),
+        help_text=_("Secret token used for email verification."),
+    )
+
     auth_provider = models.CharField(
         max_length=20,
         choices=AuthProvider.choices,
@@ -49,6 +57,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
 
         logger.info("User '%s' was verified", self)
         self.is_verified = True
+        self.verification_uuid = None
         self.save()
 
     def trigger_email_verification(self, language: str | None = None):
@@ -68,7 +77,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             to_email=self.email,
             template_name="register",
             language=target_language,
-            context={"user_uuid": str(self.uuid)},
+            context={"user_uuid": str(self.verification_uuid)},
         )
         logger.debug("Email verification was sent to '%s'", self)
 

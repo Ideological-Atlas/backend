@@ -1,3 +1,4 @@
+import uuid
 from unittest.mock import Mock, patch
 
 from core.models import User
@@ -8,15 +9,27 @@ from django.utils.translation import gettext_lazy as _
 
 class UserManagerTestCase(TestCase):
     def test_create_user_validations(self):
-        u = User.objects.create_user("ok@test.com", "pass", "user_ok")
-        self.assertEqual(u.email, "ok@test.com")
-        self.assertEqual(u.auth_provider, User.AuthProvider.INTERNAL)
+        user = User.objects.create_user("ok@test.com", "pass", "user_ok")
+        self.assertEqual(user.email, "ok@test.com")
+        self.assertEqual(user.auth_provider, User.AuthProvider.INTERNAL)
+        self.assertIsNotNone(user.verification_uuid)
 
         with self.assertRaises(ValueError):
             User.objects.create_user("", "pass", "user_fail")
 
+    def test_create_user_google_provider_skips_verification_uuid(self):
+        user = User.objects.create_user(
+            "google@test.com",
+            "pass",
+            "user_google",
+            auth_provider=User.AuthProvider.GOOGLE,
+        )
+        self.assertEqual(user.email, "google@test.com")
+        self.assertEqual(user.auth_provider, User.AuthProvider.GOOGLE)
+        self.assertIsNone(user.verification_uuid)
+
     def test_create_superuser_validations(self):
-        cases = [
+        scenarios = [
             (
                 "No Staff",
                 {"is_staff": False, "is_superuser": True},
@@ -29,42 +42,45 @@ class UserManagerTestCase(TestCase):
             ),
         ]
 
-        for name, kwargs, msg in cases:
+        for name, kwargs, message in scenarios:
             with self.subTest(name):
-                with self.assertRaisesMessage(ValueError, str(msg)):
+                with self.assertRaisesMessage(ValueError, str(message)):
                     User.objects.create_superuser(
                         "admin@t.com", "pass", "admin", **kwargs
                     )
 
     @patch("core.models.managers.user_managers.uuid.uuid4")
     def test_username_generation_collision(self, mock_uuid):
-        User.objects.create(email="old@test.com", username="1111111111")
+        original_username = "1111111111"
+        User.objects.create(email="old@test.com", username=original_username)
 
-        class MockHex:
-            def __init__(self, h):
-                self.hex = h
+        collision_uuid = uuid.UUID("11111111-1111-1111-1111-111111111111")
+        success_uuid = uuid.UUID("22222222-2222-2222-2222-222222222222")
+        verification_token = uuid.UUID("00000000-0000-0000-0000-000000000000")
 
-        mock_uuid.side_effect = [MockHex("1111111111"), MockHex("2222222222")]
+        mock_uuid.side_effect = [collision_uuid, success_uuid, verification_token]
 
         user = User.objects.create_user(
             email="new@test.com", password="pwd", username=None  # nosec
         )
-        self.assertEqual(user.username, "2222222222")
+
+        self.assertEqual(user.username, success_uuid.hex[:10])
+        self.assertEqual(user.verification_uuid, verification_token)
 
     def test_get_or_create_generates_username_if_missing(self):
-        user1, _ = User.objects.get_or_create(
+        user_one, _ = User.objects.get_or_create(
             email="u1@test.com", username="explicit_user"
         )
-        self.assertEqual(user1.username, "explicit_user")
+        self.assertEqual(user_one.username, "explicit_user")
 
-        user2, _ = User.objects.get_or_create(
+        user_two, _ = User.objects.get_or_create(
             email="u2@test.com", defaults={"username": "default_user"}
         )
-        self.assertEqual(user2.username, "default_user")
+        self.assertEqual(user_two.username, "default_user")
 
-        user3, _ = User.objects.get_or_create(email="u3@test.com")
-        self.assertIsNotNone(user3.username)
-        self.assertEqual(len(user3.username), 10)
+        user_three, _ = User.objects.get_or_create(email="u3@test.com")
+        self.assertIsNotNone(user_three.username)
+        self.assertEqual(len(user_three.username), 10)
 
     @patch("core.tasks.send_email_notification.delay")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")

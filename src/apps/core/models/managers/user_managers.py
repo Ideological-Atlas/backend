@@ -35,6 +35,9 @@ class CustomUserManager(BaseUserManager):
         if not username:
             username = self._generate_unique_username()
 
+        if extra_fields.get("auth_provider") != "google":
+            extra_fields.setdefault("verification_uuid", uuid.uuid4())
+
         user = self.model(email=email, username=username, **extra_fields)
         user.set_password(password)
         user.save()
@@ -45,6 +48,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
+        extra_fields.setdefault("is_verified", True)
 
         if not extra_fields.get("is_staff"):
             raise ValueError(_("Superuser must have is_staff=True."))
