@@ -101,9 +101,18 @@ class CustomUserManager(BaseUserManager):
         )
 
         if created:
+            from core.tasks import send_email_notification
+
             user.set_unusable_password()
             user.save()
             logger.info("User '%s' registered via Google", email)
+
+            send_email_notification.delay(
+                to_email=user.email,
+                template_name="register_google",
+                language=user.preferred_language,
+                context={"user_uuid": str(user.uuid), "name": user.first_name},
+            )
 
         if not user.is_verified:
             user.is_verified = True

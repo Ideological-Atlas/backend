@@ -66,8 +66,11 @@ class UserManagerTestCase(TestCase):
         self.assertIsNotNone(user3.username)
         self.assertEqual(len(user3.username), 10)
 
+    @patch("core.tasks.send_email_notification.delay")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_get_or_create_from_google_id_token_jwt_success(self, mock_verify):
+    def test_get_or_create_from_google_id_token_jwt_success(
+        self, mock_verify, mock_send
+    ):
         mock_verify.return_value = {
             "email": "jwt@test.com",
             "given_name": "JWT",
@@ -81,10 +84,15 @@ class UserManagerTestCase(TestCase):
         self.assertEqual(user.auth_provider, User.AuthProvider.GOOGLE)
         self.assertTrue(user.is_verified)
 
+        mock_send.assert_called_once()
+        self.assertEqual(mock_send.call_args.kwargs["template_name"], "register_google")
+        self.assertEqual(mock_send.call_args.kwargs["to_email"], "jwt@test.com")
+
+    @patch("core.tasks.send_email_notification.delay")
     @patch("core.models.managers.user_managers.requests.get")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
     def test_get_or_create_from_google_access_token_success(
-        self, mock_verify, mock_requests
+        self, mock_verify, mock_requests, mock_send
     ):
         mock_verify.side_effect = ValueError("Wrong number of segments")
         mock_response = Mock()
@@ -104,6 +112,7 @@ class UserManagerTestCase(TestCase):
         self.assertEqual(user.email, "access@test.com")
         mock_verify.assert_called_once()
         mock_requests.assert_called_once()
+        mock_send.assert_called_once()
 
     @patch("core.models.managers.user_managers.requests.get")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")

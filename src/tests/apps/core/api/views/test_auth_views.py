@@ -136,8 +136,9 @@ class RegisterViewTestCase(APITestBase):
 class GoogleLoginViewTestCase(APITestBase):
     url = reverse("core:google-login")
 
+    @patch("core.tasks.send_email_notification.delay")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_success(self, mock_verify):
+    def test_google_login_success(self, mock_verify, mock_send_email):
         self.client.credentials()
         mock_verify.return_value = {
             "email": "g@gmail.com",
@@ -153,6 +154,8 @@ class GoogleLoginViewTestCase(APITestBase):
         self.assertIn("user", response.data)
         self.assertEqual(response.data["user"]["email"], "g@gmail.com")
         self.assertEqual(response.data["user"]["auth_provider"], "google")
+
+        mock_send_email.assert_called_once()
 
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
     def test_google_login_invalid_token(self, mock_verify):
