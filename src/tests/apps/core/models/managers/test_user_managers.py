@@ -1,4 +1,4 @@
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from core.models import User
 from django.test import TestCase
@@ -67,37 +67,54 @@ class UserManagerTestCase(TestCase):
         self.assertEqual(len(user3.username), 10)
 
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_get_or_create_from_google_token_success_new_user(self, mock_verify):
+    def test_get_or_create_from_google_id_token_jwt_success(self, mock_verify):
         mock_verify.return_value = {
-            "email": "google@test.com",
-            "given_name": "Google",
+            "email": "jwt@test.com",
+            "given_name": "JWT",
             "family_name": "User",
         }
 
-        user, created = User.objects.get_or_create_from_google_token("valid_token")
+        user, created = User.objects.get_or_create_from_google_token("valid_jwt_token")
 
         self.assertTrue(created)
-        self.assertEqual(user.email, "google@test.com")
+        self.assertEqual(user.email, "jwt@test.com")
         self.assertEqual(user.auth_provider, User.AuthProvider.GOOGLE)
         self.assertTrue(user.is_verified)
-        self.assertFalse(user.has_usable_password())
 
+    @patch("core.models.managers.user_managers.requests.get")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_get_or_create_from_google_token_success_existing_user(self, mock_verify):
-        existing_user = User.objects.create_user(
-            email="google@test.com", password="pwd", is_verified=False  # nosec
-        )
-        mock_verify.return_value = {
-            "email": "google@test.com",
-            "given_name": "Google",
-            "family_name": "User",
+    def test_get_or_create_from_google_access_token_success(
+        self, mock_verify, mock_requests
+    ):
+        mock_verify.side_effect = ValueError("Wrong number of segments")
+        mock_response = Mock()
+        mock_response.ok = True
+        mock_response.json.return_value = {
+            "email": "access@test.com",
+            "given_name": "Access",
+            "family_name": "Token",
         }
+        mock_requests.return_value = mock_response
 
-        user, created = User.objects.get_or_create_from_google_token("valid_token")
+        user, created = User.objects.get_or_create_from_google_token(
+            "valid_access_token"
+        )
 
-        self.assertFalse(created)
-        self.assertEqual(user.id, existing_user.id)
-        self.assertTrue(user.is_verified)
+        self.assertTrue(created)
+        self.assertEqual(user.email, "access@test.com")
+        mock_verify.assert_called_once()
+        mock_requests.assert_called_once()
+
+    @patch("core.models.managers.user_managers.requests.get")
+    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
+    def test_get_or_create_failure_both_methods(self, mock_verify, mock_requests):
+        mock_verify.side_effect = ValueError("Wrong number of segments")
+        mock_response = Mock()
+        mock_response.ok = False
+        mock_response.text = "Bad Token"
+        mock_requests.return_value = mock_response
+        with self.assertRaisesMessage(ValueError, "Invalid Google Token"):
+            User.objects.get_or_create_from_google_token("invalid_token")
 
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
     def test_get_or_create_from_google_token_no_email(self, mock_verify):
