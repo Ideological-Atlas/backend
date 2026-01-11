@@ -69,12 +69,38 @@ class AuthTokenVerifyView(TokenVerifyView):
     tags=["auth"],
     summary=_("Register new user"),
     description=_(
-        "Creates a new user account and triggers the verification email process."
+        "Creates a new user account, triggers verification email, and logs the user in automatically."
     ),
+    responses={
+        201: inline_serializer(
+            name="RegisterResponse",
+            fields={
+                "access": serializers.CharField(),
+                "refresh": serializers.CharField(),
+                "user": MeSerializer(),
+            },
+        )
+    },
 )
 class RegisterView(CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = RegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        refresh = RefreshToken.for_user(user)
+
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "user": MeSerializer(user).data,
+            },
+            status=status.HTTP_201_CREATED,
+        )
 
 
 @extend_schema(

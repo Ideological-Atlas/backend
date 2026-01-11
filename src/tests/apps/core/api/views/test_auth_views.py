@@ -71,7 +71,7 @@ class RegisterViewTestCase(APITestBase):
         }
 
     @patch("core.tasks.notifications.requests.post")
-    def test_post_create_user_201_created(self, mock_post):
+    def test_post_create_user_201_created_and_logged_in(self, mock_post):
         mock_post.return_value.ok = True
         mock_post.return_value.json.return_value = {"status": "queued"}
 
@@ -80,6 +80,11 @@ class RegisterViewTestCase(APITestBase):
         response = self.client.post(self.url, data=self.sent_data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(User.objects.count(), initial_count + 1)
+
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["email"], "foo@foo.com")
 
         new_user = User.objects.get(email="foo@foo.com")
         self.assertEqual(new_user.auth_provider, User.AuthProvider.INTERNAL)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-10 19:14+0100\n"
+"POT-Creation-Date: 2026-01-11 16:41+0100\n"
 "PO-Revision-Date: 2026-01-10 19:30+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/core/admin/user_admin.py:14
+#: apps/core/admin/user_admin.py:15
 msgid "Base info"
 msgstr "Información básica"
 
-#: apps/core/admin/user_admin.py:16
+#: apps/core/admin/user_admin.py:19
 msgid "Personal info"
 msgstr "Información personal"
 
-#: apps/core/admin/user_admin.py:25
+#: apps/core/admin/user_admin.py:28
 msgid "Permissions"
 msgstr "Permisos"
 
-#: apps/core/admin/user_admin.py:38
+#: apps/core/admin/user_admin.py:41
 msgid "Important dates"
 msgstr "Fechas importantes"
 
-#: apps/core/admin/user_admin.py:75
+#: apps/core/admin/user_admin.py:88
 msgid "Send verification email"
 msgstr "Enviar correo de verificación"
 
-#: apps/core/admin/user_admin.py:81
+#: apps/core/admin/user_admin.py:94
 msgid "Verification emails process started for selected users."
 msgstr ""
 "Se ha iniciado el proceso de envío de correos de verificación para los "
@@ -55,45 +55,50 @@ msgstr "Nombre de usuario"
 msgid "Google ID Token provided by the frontend."
 msgstr "Token de ID de Google proporcionado por el frontend."
 
-#: apps/core/api/views/auth_views.py:28
+#: apps/core/api/views/auth_views.py:30
 msgid "Obtain Token Pair (Login)"
 msgstr "Obtener par de tokens (Iniciar sesión)"
 
-#: apps/core/api/views/auth_views.py:33
+#: apps/core/api/views/auth_views.py:58
 msgid "Refresh Token"
 msgstr "Refrescar token"
 
-#: apps/core/api/views/auth_views.py:38
+#: apps/core/api/views/auth_views.py:63
 msgid "Verify Token"
 msgstr "Verificar token"
 
-#: apps/core/api/views/auth_views.py:45
+#: apps/core/api/views/auth_views.py:70
 msgid "Register new user"
 msgstr "Registrar nuevo usuario"
 
-#: apps/core/api/views/auth_views.py:47
-msgid "Creates a new user account and triggers the verification email process."
+#: apps/core/api/views/auth_views.py:72
+#, fuzzy
+#| msgid ""
+#| "Creates a new user account and triggers the verification email process."
+msgid ""
+"Creates a new user account, triggers verification email, and logs the user "
+"in automatically."
 msgstr ""
 "Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
 "correo."
 
-#: apps/core/api/views/auth_views.py:57
+#: apps/core/api/views/auth_views.py:108
 msgid "Verify user account"
 msgstr "Verificar cuenta de usuario"
 
-#: apps/core/api/views/auth_views.py:58
+#: apps/core/api/views/auth_views.py:109
 msgid "Marks a user as verified using their unique UUID."
 msgstr "Marca a un usuario como verificado usando su UUID único."
 
-#: apps/core/api/views/auth_views.py:62
+#: apps/core/api/views/auth_views.py:113
 msgid "The UUID of the user to verify"
 msgstr "El UUID del usuario a verificar"
 
-#: apps/core/api/views/auth_views.py:76
+#: apps/core/api/views/auth_views.py:127
 msgid "Login with Google"
 msgstr "Iniciar sesión con Google"
 
-#: apps/core/api/views/auth_views.py:78
+#: apps/core/api/views/auth_views.py:129
 msgid ""
 "Validates a Google ID Token. Registers the user if they don't exist "
 "(verified automatically) and returns JWT tokens."
@@ -101,7 +106,7 @@ msgstr ""
 "Valida un token de ID de Google. Registra al usuario si no existe "
 "(verificado automáticamente) y devuelve tokens JWT."
 
-#: apps/core/api/views/auth_views.py:104
+#: apps/core/api/views/auth_views.py:155
 msgid "User account is disabled."
 msgstr "La cuenta de usuario está deshabilitada."
 
@@ -153,21 +158,21 @@ msgstr ""
 "Permite a un usuario autenticado (ej. conectado vía Google) establecer una "
 "contraseña para usar el inicio de sesión estándar en el futuro."
 
-#: apps/core/models/managers/user_managers.py:30
+#: apps/core/models/managers/user_managers.py:31
 msgid "The Email must be set"
 msgstr "Debe establecerse el correo electrónico"
 
-#: apps/core/models/managers/user_managers.py:49
-#: tests/apps/core/models/managers/test_user_managers.py:21
+#: apps/core/models/managers/user_managers.py:50
+#: tests/apps/core/models/managers/test_user_managers.py:23
 msgid "Superuser must have is_staff=True."
 msgstr "El superusuario debe tener is_staff=True."
 
-#: apps/core/models/managers/user_managers.py:51
-#: tests/apps/core/models/managers/test_user_managers.py:26
+#: apps/core/models/managers/user_managers.py:52
+#: tests/apps/core/models/managers/test_user_managers.py:28
 msgid "Superuser must have is_superuser=True."
 msgstr "El superusuario debe tener is_superuser=True."
 
-#: apps/core/models/managers/user_managers.py:61
+#: apps/core/models/managers/user_managers.py:88
 msgid "Google token has no email."
 msgstr "El token de Google no tiene correo electrónico."
 
