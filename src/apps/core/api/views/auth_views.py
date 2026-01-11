@@ -25,9 +25,34 @@ from rest_framework_simplejwt.views import (
 logger = logging.getLogger(__name__)
 
 
-@extend_schema(tags=["auth"], summary=_("Obtain Token Pair (Login)"))
+@extend_schema(
+    tags=["auth"],
+    summary=_("Obtain Token Pair (Login)"),
+    responses={
+        200: inline_serializer(
+            name="TokenObtainPairResponse",
+            fields={
+                "access": serializers.CharField(),
+                "refresh": serializers.CharField(),
+                "user": MeSerializer(),
+            },
+        )
+    },
+)
 class AuthTokenObtainPairView(TokenObtainPairView):
-    pass
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+
+        try:
+            user = User.objects.get(username=request.data.get("username"))
+        except User.DoesNotExist:
+            try:
+                user = User.objects.get(email=request.data.get("username"))
+            except User.DoesNotExist:
+                return response
+
+        response.data["user"] = MeSerializer(user).data
+        return response
 
 
 @extend_schema(tags=["auth"], summary=_("Refresh Token"))

@@ -5,6 +5,59 @@ from core.factories import UserFactory
 from core.models import User
 from django.urls import reverse
 from rest_framework import status
+from rest_framework.response import Response
+
+
+class AuthTokenObtainPairViewTestCase(APITestBase):
+    url = reverse("login")
+
+    def test_login_returns_user_data(self):
+        self.client.credentials()
+
+        password = "strong_password_123"  # nosec
+        user = UserFactory(password=password)
+
+        response = self.client.post(
+            self.url, data={"username": user.username, "password": password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
+
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["uuid"], user.uuid.hex)
+        self.assertEqual(response.data["user"]["username"], user.username)
+
+    def test_login_email_auth_returns_user_data(self):
+        self.client.credentials()
+        password = "strong_password_123"  # nosec
+        user = UserFactory(password=password)
+
+        response = self.client.post(
+            self.url, data={"username": user.email, "password": password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["email"], user.email)
+
+    @patch("rest_framework_simplejwt.views.TokenObtainPairView.post")
+    def test_login_user_lookup_fails_gracefully(self, mock_super_post):
+        self.client.credentials()
+
+        mock_super_post.return_value = Response(
+            {"access": "fake_access", "refresh": "fake_refresh"},
+            status=status.HTTP_200_OK,
+        )
+
+        response = self.client.post(
+            self.url, data={"username": "ghost_user", "password": "any"}  # nosec
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["access"], "fake_access")
+        self.assertNotIn("user", response.data)
 
 
 class RegisterViewTestCase(APITestBase):
