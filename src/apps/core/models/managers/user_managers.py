@@ -1,6 +1,7 @@
 import logging
 import uuid
 
+import requests
 from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
@@ -52,16 +53,42 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, username, **extra_fields)
 
     def get_or_create_from_google_token(self, token: str):
-        id_info = id_token.verify_oauth2_token(
-            token, google_requests.Request(), settings.GOOGLE_CLIENT_ID
-        )
+        try:
+            id_info = id_token.verify_oauth2_token(
+                token, google_requests.Request(), settings.GOOGLE_CLIENT_ID
+            )
+            user_data = {
+                "email": id_info.get("email"),
+                "given_name": id_info.get("given_name", ""),
+                "family_name": id_info.get("family_name", ""),
+            }
+        except ValueError:
+            try:
+                response = requests.get(
+                    "https://www.googleapis.com/oauth2/v3/userinfo",
+                    headers={"Authorization": f"Bearer {token}"},
+                    timeout=5,
+                )
+                if not response.ok:
+                    logger.warning("Google UserInfo failed: %s", response.text)
+                    raise ValueError("Invalid Google Token.")
 
-        email = id_info.get("email")
+                google_info = response.json()
+                user_data = {
+                    "email": google_info.get("email"),
+                    "given_name": google_info.get("given_name", ""),
+                    "family_name": google_info.get("family_name", ""),
+                }
+            except Exception as exc:
+                logger.error("Error verifying Access Token: %s", exc)
+                raise ValueError("Invalid Google Token.") from exc
+
+        email = user_data.get("email")
         if not email:
             raise ValueError(_("Google token has no email."))
 
-        first_name = id_info.get("given_name", "")
-        last_name = id_info.get("family_name", "")
+        first_name = user_data.get("given_name", "")
+        last_name = user_data.get("family_name", "")
 
         user, created = self.get_or_create(
             email=email,
