@@ -1,6 +1,6 @@
 from core.api.permissions import IsVerified
 from core.exceptions.api_exceptions import NotFoundException
-from django.db import models
+from django.db import models, transaction
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers, status
 from rest_framework.generics import CreateAPIView
@@ -58,9 +58,11 @@ class BaseUpsertAnswerView(CreateAPIView):
         lookup_kwargs = {"user": request.user, self.reference_field: reference_obj}
 
         target_manager = getattr(self.target_model, "objects")  # type: ignore
-        self.created_object, created = target_manager.update_or_create(
-            **lookup_kwargs, defaults={self.target_value_key: input_value}
-        )
+
+        with transaction.atomic():
+            self.created_object, created = target_manager.update_or_create(
+                **lookup_kwargs, defaults={self.target_value_key: input_value}
+            )
 
         read_serializer = self.get_serializer(self.created_object)
 

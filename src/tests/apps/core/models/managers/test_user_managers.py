@@ -93,7 +93,10 @@ class UserManagerTestCase(TestCase):
             "family_name": "User",
         }
 
-        user, created = User.objects.get_or_create_from_google_token("valid_jwt_token")
+        with self.captureOnCommitCallbacks(execute=True):
+            user, created = User.objects.get_or_create_from_google_token(
+                "valid_jwt_token"
+            )
 
         self.assertTrue(created)
         self.assertEqual(user.email, "jwt@test.com")
@@ -120,9 +123,10 @@ class UserManagerTestCase(TestCase):
         }
         mock_requests.return_value = mock_response
 
-        user, created = User.objects.get_or_create_from_google_token(
-            "valid_access_token"
-        )
+        with self.captureOnCommitCallbacks(execute=True):
+            user, created = User.objects.get_or_create_from_google_token(
+                "valid_access_token"
+            )
 
         self.assertTrue(created)
         self.assertEqual(user.email, "access@test.com")

@@ -152,7 +152,8 @@ class GoogleLoginViewTestCase(APITestBase):
             "family_name": "U",
         }
 
-        response = self.client.post(self.url, data={"token": "valid_google_token"})
+        with self.captureOnCommitCallbacks(execute=True):
+            response = self.client.post(self.url, data={"token": "valid_google_token"})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn("refresh", response.data)

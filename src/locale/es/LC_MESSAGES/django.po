@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-11 16:41+0100\n"
+"POT-Creation-Date: 2026-01-11 22:43+0100\n"
 "PO-Revision-Date: 2026-01-10 19:30+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,23 +21,23 @@ msgstr ""
 msgid "Base info"
 msgstr "Información básica"
 
-#: apps/core/admin/user_admin.py:19
+#: apps/core/admin/user_admin.py:28
 msgid "Personal info"
 msgstr "Información personal"
 
-#: apps/core/admin/user_admin.py:28
+#: apps/core/admin/user_admin.py:37
 msgid "Permissions"
 msgstr "Permisos"
 
-#: apps/core/admin/user_admin.py:41
+#: apps/core/admin/user_admin.py:50
 msgid "Important dates"
 msgstr "Fechas importantes"
 
-#: apps/core/admin/user_admin.py:88
+#: apps/core/admin/user_admin.py:106
 msgid "Send verification email"
 msgstr "Enviar correo de verificación"
 
-#: apps/core/admin/user_admin.py:94
+#: apps/core/admin/user_admin.py:112
 msgid "Verification emails process started for selected users."
 msgstr ""
 "Se ha iniciado el proceso de envío de correos de verificación para los "
@@ -72,33 +72,30 @@ msgid "Register new user"
 msgstr "Registrar nuevo usuario"
 
 #: apps/core/api/views/auth_views.py:72
-#, fuzzy
-#| msgid ""
-#| "Creates a new user account and triggers the verification email process."
 msgid ""
 "Creates a new user account, triggers verification email, and logs the user "
 "in automatically."
 msgstr ""
-"Crea una nueva cuenta de usuario e inicia el proceso de verificación por "
-"correo."
+"Crea una nueva cuenta de usuario, activa el correo de verificación y conecta "
+"al usuario automáticamente."
 
 #: apps/core/api/views/auth_views.py:108
 msgid "Verify user account"
 msgstr "Verificar cuenta de usuario"
 
 #: apps/core/api/views/auth_views.py:109
-msgid "Marks a user as verified using their unique UUID."
-msgstr "Marca a un usuario como verificado usando su UUID único."
+msgid "Marks a user as verified using their secret verification token."
+msgstr "Marca a un usuario como verificado usando su token de verificación secreto."
 
 #: apps/core/api/views/auth_views.py:113
-msgid "The UUID of the user to verify"
-msgstr "El UUID del usuario a verificar"
+msgid "The verification UUID sent via email"
+msgstr "El UUID de verificación enviado por correo electrónico"
 
-#: apps/core/api/views/auth_views.py:127
+#: apps/core/api/views/auth_views.py:128
 msgid "Login with Google"
 msgstr "Iniciar sesión con Google"
 
-#: apps/core/api/views/auth_views.py:129
+#: apps/core/api/views/auth_views.py:130
 msgid ""
 "Validates a Google ID Token. Registers the user if they don't exist "
 "(verified automatically) and returns JWT tokens."
@@ -106,7 +103,7 @@ msgstr ""
 "Valida un token de ID de Google. Registra al usuario si no existe "
 "(verificado automáticamente) y devuelve tokens JWT."
 
-#: apps/core/api/views/auth_views.py:155
+#: apps/core/api/views/auth_views.py:156
 msgid "User account is disabled."
 msgstr "La cuenta de usuario está deshabilitada."
 
@@ -162,17 +159,17 @@ msgstr ""
 msgid "The Email must be set"
 msgstr "Debe establecerse el correo electrónico"
 
-#: apps/core/models/managers/user_managers.py:50
-#: tests/apps/core/models/managers/test_user_managers.py:23
+#: apps/core/models/managers/user_managers.py:54
+#: tests/apps/core/models/managers/test_user_managers.py:36
 msgid "Superuser must have is_staff=True."
 msgstr "El superusuario debe tener is_staff=True."
 
-#: apps/core/models/managers/user_managers.py:52
-#: tests/apps/core/models/managers/test_user_managers.py:28
+#: apps/core/models/managers/user_managers.py:56
+#: tests/apps/core/models/managers/test_user_managers.py:41
 msgid "Superuser must have is_superuser=True."
 msgstr "El superusuario debe tener is_superuser=True."
 
-#: apps/core/models/managers/user_managers.py:88
+#: apps/core/models/managers/user_managers.py:92
 msgid "Google token has no email."
 msgstr "El token de Google no tiene correo electrónico."
 
@@ -197,19 +194,27 @@ msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
 #: apps/core/models/user.py:32
+msgid "Verification UUID"
+msgstr "UUID de Verificación"
+
+#: apps/core/models/user.py:33
+msgid "Secret token used for email verification."
+msgstr "Token secreto utilizado para la verificación por correo electrónico."
+
+#: apps/core/models/user.py:40
 msgid "Auth Provider"
 msgstr "Proveedor de autenticación"
 
-#: apps/core/models/user.py:33
+#: apps/core/models/user.py:41
 msgid "The provider used for the user authentication/registration."
 msgstr "El proveedor utilizado para la autenticación/registro del usuario."
 
-#: apps/core/models/user.py:39 apps/ideology/models/axis_answer.py:27
+#: apps/core/models/user.py:47 apps/ideology/models/axis_answer.py:27
 #: apps/ideology/models/conditioner_answer.py:25
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:40 backend/settings/apps_config/unfold.py:36
+#: apps/core/models/user.py:48 backend/settings/apps_config/unfold.py:36
 msgid "Users"
 msgstr "Usuarios"
 

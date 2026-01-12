@@ -3,7 +3,7 @@ import logging
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
-from django.db import models
+from django.db import models, transaction
 from django.utils.translation import gettext_lazy as _
 
 from .abstract import TimeStampedUUIDModel
@@ -29,6 +29,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         null=True,
         blank=True,
         unique=True,
+        db_index=True,
         verbose_name=_("Verification UUID"),
         help_text=_("Secret token used for email verification."),
     )
@@ -56,9 +57,11 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             raise UserAlreadyVerifiedException(self)
 
         logger.info("User '%s' was verified", self)
-        self.is_verified = True
-        self.verification_uuid = None
-        self.save()
+
+        with transaction.atomic():
+            self.is_verified = True
+            self.verification_uuid = None
+            self.save()
 
     def trigger_email_verification(self, language: str | None = None):
         from core.tasks import send_email_notification
@@ -77,7 +80,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             to_email=self.email,
             template_name="register",
             language=target_language,
-            context={"user_uuid": str(self.verification_uuid)},
+            context={"verification_token": self.verification_uuid.hex},
         )
         logger.debug("Email verification was sent to '%s'", self)
 
@@ -89,79 +92,81 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             IdeologyAbstractionComplexity,
         )
 
-        axis_answers = (
-            AxisAnswer.objects.filter(user=self)
-            .select_related(
-                "axis", "axis__section", "axis__section__abstraction_complexity"
+        with transaction.atomic():
+            axis_answers = (
+                AxisAnswer.objects.filter(user=self)
+                .select_related(
+                    "axis", "axis__section", "axis__section__abstraction_complexity"
+                )
+                .order_by("axis__section__name")
             )
-            .order_by("axis__section__name")
-        )
 
-        conditioner_answers = (
-            ConditionerAnswer.objects.filter(user=self)
-            .select_related("conditioner", "conditioner__abstraction_complexity")
-            .order_by("conditioner__name")
-        )
+            conditioner_answers = (
+                ConditionerAnswer.objects.filter(user=self)
+                .select_related("conditioner", "conditioner__abstraction_complexity")
+                .order_by("conditioner__name")
+            )
 
-        complexities = IdeologyAbstractionComplexity.objects.all().order_by(
-            "complexity"
-        )
+            complexities = IdeologyAbstractionComplexity.objects.all().order_by(
+                "complexity"
+            )
 
-        structured_data = []
+            structured_data = []
 
-        for complexity in complexities:
-            complexity_data = {
-                "level": complexity.name,
-                "complexity": complexity.complexity,
-                "sections": [],
-                "conditioners": [],
-            }
+            for complexity in complexities:
+                complexity_data = {
+                    "level": complexity.name,
+                    "complexity": complexity.complexity,
+                    "sections": [],
+                    "conditioners": [],
+                }
 
-            complexity_axes = [
-                axis_answer
-                for axis_answer in axis_answers
-                if axis_answer.axis.section.abstraction_complexity_id == complexity.id
-            ]
+                complexity_axes = [
+                    axis_answer
+                    for axis_answer in axis_answers
+                    if axis_answer.axis.section.abstraction_complexity_id
+                    == complexity.id
+                ]
 
-            sections_map = {}
-            for complexity_axis in complexity_axes:
-                section_name = complexity_axis.axis.section.name
-                if section_name not in sections_map:
-                    sections_map[section_name] = {
-                        "name": section_name,
-                        "description": complexity_axis.axis.section.description,
-                        "axes": [],
-                    }
+                sections_map = {}
+                for complexity_axis in complexity_axes:
+                    section_name = complexity_axis.axis.section.name
+                    if section_name not in sections_map:
+                        sections_map[section_name] = {
+                            "name": section_name,
+                            "description": complexity_axis.axis.section.description,
+                            "axes": [],
+                        }
 
-                sections_map[section_name]["axes"].append(
-                    {
-                        "name": complexity_axis.axis.name,
-                        "value": int(complexity_axis.value),
-                        "left_label": complexity_axis.axis.left_label,
-                        "right_label": complexity_axis.axis.right_label,
-                    }
-                )
+                    sections_map[section_name]["axes"].append(
+                        {
+                            "name": complexity_axis.axis.name,
+                            "value": int(complexity_axis.value),
+                            "left_label": complexity_axis.axis.left_label,
+                            "right_label": complexity_axis.axis.right_label,
+                        }
+                    )
 
-            complexity_data["sections"] = list(sections_map.values())
+                complexity_data["sections"] = list(sections_map.values())
 
-            complexity_conditioners = [
-                complexity_conditioner
-                for complexity_conditioner in conditioner_answers
-                if complexity_conditioner.conditioner.abstraction_complexity_id
-                == complexity.id
-            ]
+                complexity_conditioners = [
+                    complexity_conditioner
+                    for complexity_conditioner in conditioner_answers
+                    if complexity_conditioner.conditioner.abstraction_complexity_id
+                    == complexity.id
+                ]
 
-            for conditioner in complexity_conditioners:
-                complexity_data["conditioners"].append(
-                    {
-                        "name": conditioner.conditioner.name,
-                        "answer": conditioner.answer,
-                        "type": conditioner.conditioner.type,
-                    }
-                )
+                for conditioner in complexity_conditioners:
+                    complexity_data["conditioners"].append(
+                        {
+                            "name": conditioner.conditioner.name,
+                            "answer": conditioner.answer,
+                            "type": conditioner.conditioner.type,
+                        }
+                    )
 
-            structured_data.append(complexity_data)
+                structured_data.append(complexity_data)
 
-        return CompletedAnswer.objects.create(
-            completed_by=self, answers=structured_data
-        )
+            return CompletedAnswer.objects.create(
+                completed_by=self, answers=structured_data
+            )
