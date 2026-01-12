@@ -4,6 +4,7 @@ import uuid
 import requests
 from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager
+from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
@@ -35,16 +36,21 @@ class CustomUserManager(BaseUserManager):
         if not username:
             username = self._generate_unique_username()
 
-        user = self.model(email=email, username=username, **extra_fields)
-        user.set_password(password)
-        user.save()
-        logger.info("User with mail '%s' registered", email)
-        return user
+        if extra_fields.get("auth_provider") != "google":
+            extra_fields.setdefault("verification_uuid", uuid.uuid4())
+
+        with transaction.atomic():
+            user = self.model(email=email, username=username, **extra_fields)
+            user.set_password(password)
+            user.save()
+            logger.info("User with mail '%s' registered", email)
+            return user
 
     def create_superuser(self, email, password, username=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
+        extra_fields.setdefault("is_verified", True)
 
         if not extra_fields.get("is_staff"):
             raise ValueError(_("Superuser must have is_staff=True."))
@@ -90,23 +96,32 @@ class CustomUserManager(BaseUserManager):
         first_name = user_data.get("given_name", "")
         last_name = user_data.get("family_name", "")
 
-        user, created = self.get_or_create(
-            email=email,
-            defaults={
-                "first_name": first_name,
-                "last_name": last_name,
-                "is_verified": True,
-                "auth_provider": self.model.AuthProvider.GOOGLE,
-            },
-        )
+        with transaction.atomic():
+            user, created = self.get_or_create(
+                email=email,
+                defaults={
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "is_verified": True,
+                    "auth_provider": self.model.AuthProvider.GOOGLE,
+                    "verification_uuid": uuid.uuid4(),
+                },
+            )
 
-        if created:
-            user.set_unusable_password()
-            user.save()
-            logger.info("User '%s' registered via Google", email)
+            if created:
+                from core.tasks import send_email_notification
 
-        if not user.is_verified:
-            user.is_verified = True
-            user.save()
+                logger.info("User '%s' registered via Google", email)
+                transaction.on_commit(
+                    lambda: send_email_notification.delay(
+                        to_email=user.email,
+                        template_name="register_google",
+                        language=user.preferred_language,
+                        context={
+                            "verification_token": user.verification_uuid.hex,
+                            "name": user.first_name,
+                        },
+                    )
+                )
 
-        return user, created
+            return user, created

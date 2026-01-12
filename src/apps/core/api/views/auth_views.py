@@ -25,9 +25,34 @@ from rest_framework_simplejwt.views import (
 logger = logging.getLogger(__name__)
 
 
-@extend_schema(tags=["auth"], summary=_("Obtain Token Pair (Login)"))
+@extend_schema(
+    tags=["auth"],
+    summary=_("Obtain Token Pair (Login)"),
+    responses={
+        200: inline_serializer(
+            name="TokenObtainPairResponse",
+            fields={
+                "access": serializers.CharField(),
+                "refresh": serializers.CharField(),
+                "user": MeSerializer(),
+            },
+        )
+    },
+)
 class AuthTokenObtainPairView(TokenObtainPairView):
-    pass
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+
+        try:
+            user = User.objects.get(username=request.data.get("username"))
+        except User.DoesNotExist:
+            try:
+                user = User.objects.get(email=request.data.get("username"))
+            except User.DoesNotExist:
+                return response
+
+        response.data["user"] = MeSerializer(user).data
+        return response
 
 
 @extend_schema(tags=["auth"], summary=_("Refresh Token"))
@@ -44,22 +69,48 @@ class AuthTokenVerifyView(TokenVerifyView):
     tags=["auth"],
     summary=_("Register new user"),
     description=_(
-        "Creates a new user account and triggers the verification email process."
+        "Creates a new user account, triggers verification email, and logs the user in automatically."
     ),
+    responses={
+        201: inline_serializer(
+            name="RegisterResponse",
+            fields={
+                "access": serializers.CharField(),
+                "refresh": serializers.CharField(),
+                "user": MeSerializer(),
+            },
+        )
+    },
 )
 class RegisterView(CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = RegisterSerializer
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        refresh = RefreshToken.for_user(user)
+
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "user": MeSerializer(user).data,
+            },
+            status=status.HTTP_201_CREATED,
+        )
+
 
 @extend_schema(
     tags=["auth"],
     summary=_("Verify user account"),
-    description=_("Marks a user as verified using their unique UUID."),
+    description=_("Marks a user as verified using their secret verification token."),
     parameters=[
         OpenApiParameter(
             name="uuid",
-            description=_("The UUID of the user to verify"),
+            description=_("The verification UUID sent via email"),
             required=True,
             location=OpenApiParameter.PATH,
         )
@@ -69,6 +120,7 @@ class VerifyUserView(UUIUpdateView):
     permission_classes = [AllowAny]
     serializer_class = UserVerificationSerializer
     queryset = User.objects.all()
+    lookup_field = "verification_uuid"
 
 
 @extend_schema(

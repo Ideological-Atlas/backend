@@ -5,6 +5,59 @@ from core.factories import UserFactory
 from core.models import User
 from django.urls import reverse
 from rest_framework import status
+from rest_framework.response import Response
+
+
+class AuthTokenObtainPairViewTestCase(APITestBase):
+    url = reverse("login")
+
+    def test_login_returns_user_data(self):
+        self.client.credentials()
+
+        password = "strong_password_123"  # nosec
+        user = UserFactory(password=password)
+
+        response = self.client.post(
+            self.url, data={"username": user.username, "password": password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
+
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["uuid"], user.uuid.hex)
+        self.assertEqual(response.data["user"]["username"], user.username)
+
+    def test_login_email_auth_returns_user_data(self):
+        self.client.credentials()
+        password = "strong_password_123"  # nosec
+        user = UserFactory(password=password)
+
+        response = self.client.post(
+            self.url, data={"username": user.email, "password": password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["email"], user.email)
+
+    @patch("rest_framework_simplejwt.views.TokenObtainPairView.post")
+    def test_login_user_lookup_fails_gracefully(self, mock_super_post):
+        self.client.credentials()
+
+        mock_super_post.return_value = Response(
+            {"access": "fake_access", "refresh": "fake_refresh"},
+            status=status.HTTP_200_OK,
+        )
+
+        response = self.client.post(
+            self.url, data={"username": "ghost_user", "password": "any"}  # nosec
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["access"], "fake_access")
+        self.assertNotIn("user", response.data)
 
 
 class RegisterViewTestCase(APITestBase):
@@ -18,7 +71,7 @@ class RegisterViewTestCase(APITestBase):
         }
 
     @patch("core.tasks.notifications.requests.post")
-    def test_post_create_user_201_created(self, mock_post):
+    def test_post_create_user_201_created_and_logged_in(self, mock_post):
         mock_post.return_value.ok = True
         mock_post.return_value.json.return_value = {"status": "queued"}
 
@@ -28,8 +81,14 @@ class RegisterViewTestCase(APITestBase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(User.objects.count(), initial_count + 1)
 
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
+        self.assertIn("user", response.data)
+        self.assertEqual(response.data["user"]["email"], "foo@foo.com")
+
         new_user = User.objects.get(email="foo@foo.com")
         self.assertEqual(new_user.auth_provider, User.AuthProvider.INTERNAL)
+        self.assertIsNotNone(new_user.verification_uuid)
 
         mock_post.assert_called_once()
 
@@ -83,8 +142,9 @@ class RegisterViewTestCase(APITestBase):
 class GoogleLoginViewTestCase(APITestBase):
     url = reverse("core:google-login")
 
+    @patch("core.tasks.send_email_notification.delay")
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_success(self, mock_verify):
+    def test_google_login_success(self, mock_verify, mock_send_email):
         self.client.credentials()
         mock_verify.return_value = {
             "email": "g@gmail.com",
@@ -92,7 +152,8 @@ class GoogleLoginViewTestCase(APITestBase):
             "family_name": "U",
         }
 
-        response = self.client.post(self.url, data={"token": "valid_google_token"})
+        with self.captureOnCommitCallbacks(execute=True):
+            response = self.client.post(self.url, data={"token": "valid_google_token"})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn("refresh", response.data)
@@ -100,6 +161,8 @@ class GoogleLoginViewTestCase(APITestBase):
         self.assertIn("user", response.data)
         self.assertEqual(response.data["user"]["email"], "g@gmail.com")
         self.assertEqual(response.data["user"]["auth_provider"], "google")
+
+        mock_send_email.assert_called_once()
 
     @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
     def test_google_login_invalid_token(self, mock_verify):
@@ -120,22 +183,26 @@ class GoogleLoginViewTestCase(APITestBase):
 
 
 class VerifyUserViewTestCase(APITestBase):
-    def setUp(self):
-        self.target_user = UserFactory(is_verified=False)
-        self.url = reverse("core:verify_user", kwargs={"uuid": self.target_user.uuid})
-        super().setUp()
-
     def test_verify_user_200_ok(self):
+        target_user = UserFactory(is_verified=False)
+        url = reverse(
+            "core:verify_user",
+            kwargs={"verification_uuid": target_user.verification_uuid},
+        )
         self.client.credentials()
-        response = self.client.patch(self.url)
+        response = self.client.patch(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.target_user.refresh_from_db()
-        self.assertTrue(self.target_user.is_verified)
+        target_user.refresh_from_db()
+        self.assertTrue(target_user.is_verified)
+        self.assertIsNone(target_user.verification_uuid)
 
     def test_verify_user_already_verified_403_forbidden(self):
+        UserFactory(is_verified=True, verification_uuid=None)
+        url = reverse(
+            "core:verify_user",
+            kwargs={"verification_uuid": "12345678-1234-5678-1234-567812345678"},
+        )
         self.client.credentials()
-        self.target_user.is_verified = True
-        self.target_user.save()
 
-        response = self.client.patch(self.url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        response = self.client.patch(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

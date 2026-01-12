@@ -28,7 +28,8 @@ class MaintenanceTasksTestCase(TestCase):
             created=now - timedelta(days=30)
         )
 
-        delete_unverified_users()
+        with self.captureOnCommitCallbacks(execute=True):
+            delete_unverified_users()
 
         mock_send.assert_called_once()
         self.assertEqual(mock_send.call_args.kwargs["to_email"], "del@test.com")
