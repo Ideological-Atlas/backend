@@ -11,7 +11,7 @@ class AxisAnswerUpsertSerializer(serializers.Serializer):
 
 
 class AxisAnswerReadSerializer(UUIDModelSerializerMixin):
-    axis_uuid = serializers.CharField(source="axis.uuid", read_only=True)
+    axis_uuid = serializers.UUIDField(source="axis.uuid", format="hex", read_only=True)
 
     class Meta:
         model = AxisAnswer

@@ -1,3 +1,5 @@
+import uuid
+
 from core.api.api_test_helpers import SerializerTestBase
 from ideology.api.serializers import AxisAnswerUpsertSerializer
 
@@ -5,9 +7,17 @@ from ideology.api.serializers import AxisAnswerUpsertSerializer
 class AxisAnswerSerializerTestCase(SerializerTestBase):
     def test_validation(self):
         cases = [
-            ("Valid", {"axis_uuid": "123", "value": 50}, True),
-            ("Invalid Range High", {"axis_uuid": "123", "value": 150}, False),
-            ("Invalid Range Low", {"axis_uuid": "123", "value": -150}, False),
+            ("Valid", {"axis_uuid": uuid.uuid4().hex, "value": 50}, True),
+            (
+                "Invalid Range High",
+                {"axis_uuid": uuid.uuid4().hex, "value": 150},
+                False,
+            ),
+            (
+                "Invalid Range Low",
+                {"axis_uuid": uuid.uuid4().hex, "value": -150},
+                False,
+            ),
         ]
 
         for name, data, is_valid in cases:
