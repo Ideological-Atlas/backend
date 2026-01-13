@@ -4,6 +4,7 @@ from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.db import models, transaction
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 from .abstract import TimeStampedUUIDModel
@@ -90,6 +91,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             CompletedAnswer,
             ConditionerAnswer,
             IdeologyAbstractionComplexity,
+            IdeologyConditioner,
         )
 
         with transaction.atomic():
@@ -103,7 +105,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
 
             conditioner_answers = (
                 ConditionerAnswer.objects.filter(user=self)
-                .select_related("conditioner", "conditioner__abstraction_complexity")
+                .select_related("conditioner")
                 .order_by("conditioner__name")
             )
 
@@ -149,19 +151,24 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
 
                 complexity_data["sections"] = list(sections_map.values())
 
+                relevant_conditioner_ids = IdeologyConditioner.objects.filter(
+                    Q(section_rules__section__abstraction_complexity=complexity)
+                    | Q(axis_rules__axis__section__abstraction_complexity=complexity)
+                ).values_list("id", flat=True)
+
                 complexity_conditioners = [
-                    complexity_conditioner
-                    for complexity_conditioner in conditioner_answers
-                    if complexity_conditioner.conditioner.abstraction_complexity_id
-                    == complexity.id
+                    conditioner_answer
+                    for conditioner_answer in conditioner_answers
+                    if conditioner_answer.conditioner_id
+                    in set(relevant_conditioner_ids)
                 ]
 
-                for conditioner in complexity_conditioners:
+                for complexity_conditioner in complexity_conditioners:
                     complexity_data["conditioners"].append(
                         {
-                            "name": conditioner.conditioner.name,
-                            "answer": conditioner.answer,
-                            "type": conditioner.conditioner.type,
+                            "name": complexity_conditioner.conditioner.name,
+                            "answer": complexity_conditioner.answer,
+                            "type": complexity_conditioner.conditioner.type,
                         }
                     )
 

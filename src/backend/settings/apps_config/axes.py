@@ -4,7 +4,7 @@ AXES_ENABLED = True
 AXES_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = timedelta(minutes=10)
 AXES_RESET_ON_SUCCESS = True
-AXES_LOCKOUT_PARAMETERS = ["ip_address", "username", "email"]
+AXES_LOCKOUT_PARAMETERS = ["ip_address", "username"]
 
 AXES_CLIENT_IP_CALLABLE = None
 AXES_CLIENT_STR_CALLABLE = None
