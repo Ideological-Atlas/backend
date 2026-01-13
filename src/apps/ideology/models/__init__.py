@@ -11,3 +11,5 @@ from .conditioner_answer import ConditionerAnswer
 from .axis_answer import AxisAnswer
 from .completed_answer import CompletedAnswer
 from .ideology_association import IdeologyAssociation
+from .ideology_section_conditioner import IdeologySectionConditioner
+from .ideology_axis_conditioner import IdeologyAxisConditioner

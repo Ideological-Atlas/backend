@@ -2,7 +2,7 @@ from core.helpers import handle_storage
 from core.models import TimeStampedUUIDModel
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models import IdeologyAbstractionComplexity, IdeologyConditioner
+from ideology.models import IdeologyAbstractionComplexity
 
 
 class IdeologySection(TimeStampedUUIDModel):
@@ -35,25 +35,13 @@ class IdeologySection(TimeStampedUUIDModel):
         verbose_name=_("Abstraction Complexity"),
         help_text=_("The complexity level that groups these sections."),
     )
-    conditioned_by = models.ForeignKey(
-        IdeologyConditioner,
-        on_delete=models.SET_NULL,
-        null=True,
+    conditioners = models.ManyToManyField(
+        "ideology.IdeologyConditioner",
+        through="ideology.IdeologySectionConditioner",
+        related_name="conditioned_sections",
         blank=True,
-        related_name="dependent_sections",
-        verbose_name=_("Conditioned By"),
-        help_text=_(
-            "Optional. Specifies a conditioner that determines the visibility or applicability of this section."
-        ),
-    )
-    condition_values = models.JSONField(
-        default=list,
-        blank=True,
-        null=True,
-        verbose_name=_("Trigger Values"),
-        help_text=_(
-            "List of values that make this section visible (e.g. ['Spain']). Must match values in the conditioner."
-        ),
+        verbose_name=_("Conditioners"),
+        help_text=_("Conditioners that determine the visibility of this section."),
     )
 
     class Meta:
@@ -62,9 +50,4 @@ class IdeologySection(TimeStampedUUIDModel):
         ordering = ["abstraction_complexity", "name"]
 
     def __str__(self):
-        cond_str = (
-            f" [If {self.conditioned_by.name} IN {self.condition_values}]"
-            if self.conditioned_by
-            else ""
-        )
-        return f"{self.name} ({self.abstraction_complexity.name}){cond_str}"
+        return f"{self.name} ({self.abstraction_complexity.name})"

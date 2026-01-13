@@ -1,7 +1,7 @@
 from core.models import TimeStampedUUIDModel
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models import IdeologyConditioner, IdeologySection
+from ideology.models import IdeologySection
 
 
 class IdeologyAxis(TimeStampedUUIDModel):
@@ -37,25 +37,13 @@ class IdeologyAxis(TimeStampedUUIDModel):
             "Label for the end or maximum value of the axis (e.g., 'Total Liberty')."
         ),
     )
-    conditioned_by = models.ForeignKey(
-        IdeologyConditioner,
-        on_delete=models.SET_NULL,
-        null=True,
+    conditioners = models.ManyToManyField(
+        "ideology.IdeologyConditioner",
+        through="ideology.IdeologyAxisConditioner",
+        related_name="conditioned_axes",
         blank=True,
-        related_name="dependent_axes",
-        verbose_name=_("Conditioned By"),
-        help_text=_(
-            "Optional. A conditioner that determines if this axis is relevant."
-        ),
-    )
-    condition_values = models.JSONField(
-        default=list,
-        blank=True,
-        null=True,
-        verbose_name=_("Trigger Values"),
-        help_text=_(
-            "List of values that make this axis visible (e.g. ['Spain']). Must match values in the conditioner."
-        ),
+        verbose_name=_("Conditioners"),
+        help_text=_("Conditioners that determine if this axis is relevant."),
     )
 
     class Meta:

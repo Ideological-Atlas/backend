@@ -1343,10 +1343,6 @@
   {
     "fields": {
       "abstraction_complexity": 1,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.829Z",
       "description": "Secci\u00f3n: General",
       "description_en": "Section: General",
@@ -1364,10 +1360,6 @@
   {
     "fields": {
       "abstraction_complexity": 2,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.842Z",
       "description": "Secci\u00f3n: Alineamiento General",
       "description_en": "Section: General Alignment",
@@ -1385,10 +1377,6 @@
   {
     "fields": {
       "abstraction_complexity": 3,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.848Z",
       "description": "Secci\u00f3n: Posicionamiento",
       "description_en": "Section: Positioning",
@@ -1406,10 +1394,6 @@
   {
     "fields": {
       "abstraction_complexity": 4,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.863Z",
       "description": "Secci\u00f3n: Econom\u00eda y Trabajo",
       "description_en": "Section: Economy and Labor",
@@ -1427,10 +1411,6 @@
   {
     "fields": {
       "abstraction_complexity": 4,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.886Z",
       "description": "Secci\u00f3n: Minor\u00edas y Religi\u00f3n",
       "description_en": "Section: Minorities and Religion",
@@ -1448,10 +1428,6 @@
   {
     "fields": {
       "abstraction_complexity": 4,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.908Z",
       "description": "Secci\u00f3n: Estado y Territorio",
       "description_en": "Section: State and Territory",
@@ -1469,10 +1445,6 @@
   {
     "fields": {
       "abstraction_complexity": 4,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.930Z",
       "description": "Secci\u00f3n: Geopol\u00edtica y Bloques",
       "description_en": "Section: Geopolitics and Blocs",
@@ -1490,10 +1462,6 @@
   {
     "fields": {
       "abstraction_complexity": 4,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.952Z",
       "description": "Secci\u00f3n: Sociedad y Futuro",
       "description_en": "Section: Society and Future",
@@ -1511,10 +1479,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.977Z",
       "description": "Secci\u00f3n: Fiscalidad",
       "description_en": "Section: Taxation",
@@ -1532,10 +1496,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.010Z",
       "description": "Secci\u00f3n: Mercado Laboral y Trabajo Garantizado",
       "description_en": "Section: Labor Market and Guaranteed Work",
@@ -1553,10 +1513,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.042Z",
       "description": "Secci\u00f3n: Minor\u00edas y Etnias",
       "description_en": "Section: Minorities and Ethnicities",
@@ -1574,10 +1530,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.076Z",
       "description": "Secci\u00f3n: Religi\u00f3n y Creencia",
       "description_en": "Section: Religion and Belief",
@@ -1595,10 +1547,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.109Z",
       "description": "Secci\u00f3n: Bienestar y Subsidios",
       "description_en": "Section: Welfare and Subsidies",
@@ -1616,10 +1564,6 @@
   {
     "fields": {
       "abstraction_complexity": 5,
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.141Z",
       "description": "Secci\u00f3n: Salud",
       "description_en": "Section: Health",
@@ -1636,10 +1580,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.837Z",
       "description": "Eje entre Pol\u00edticas buenas y Pol\u00edticas malas.",
       "description_en": "Axis between Good policies and Bad policies.",
@@ -1662,10 +1602,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.844Z",
       "description": "Eje entre Progresista y Conservador.",
       "description_en": "Axis between Progressive and Conservative.",
@@ -1688,10 +1624,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.850Z",
       "description": "Eje entre Dirigismo y Acracia.",
       "description_en": "Axis between Dirigisme and Acracy.",
@@ -1714,10 +1646,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.852Z",
       "description": "Eje entre Intervencionismo y Libre Mercado.",
       "description_en": "Axis between Interventionism and Free Market.",
@@ -1740,10 +1668,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.854Z",
       "description": "Eje entre Progresismo y Conservadurismo.",
       "description_en": "Axis between Progressivism and Conservatism.",
@@ -1766,10 +1690,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.856Z",
       "description": "Eje entre Todo subsidiado y Nada subsidiado.",
       "description_en": "Axis between Fully Subsidized and Zero Subsidies.",
@@ -1792,10 +1712,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.865Z",
       "description": "Eje entre Pleno empleo estatal y Mercado laboral libre.",
       "description_en": "Axis between [EN] Pleno empleo estatal and [EN] Mercado laboral libre.",
@@ -1818,10 +1734,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.867Z",
       "description": "Eje entre Propiedad colectiva y Propiedad privada absoluta.",
       "description_en": "Axis between [EN] Propiedad colectiva and [EN] Propiedad privada absoluta.",
@@ -1844,10 +1756,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.870Z",
       "description": "Eje entre Redistribuci\u00f3n total y Abolici\u00f3n de impuestos.",
       "description_en": "Axis between [EN] Redistribuci\u00f3n total and [EN] Abolici\u00f3n de impuestos.",
@@ -1870,10 +1778,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.872Z",
       "description": "Eje entre Planificaci\u00f3n central y Orden espont\u00e1neo.",
       "description_en": "Axis between [EN] Planificaci\u00f3n central and [EN] Orden espont\u00e1neo.",
@@ -1896,10 +1800,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.874Z",
       "description": "Eje entre Sindicaci\u00f3n obligatoria y Prohibici\u00f3n de sindicatos.",
       "description_en": "Axis between [EN] Sindicaci\u00f3n obligatoria and [EN] Prohibici\u00f3n de sindicatos.",
@@ -1922,10 +1822,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.876Z",
       "description": "Eje entre Salario regulado y Libertad de sueldo.",
       "description_en": "Axis between [EN] Salario regulado and [EN] Libertad de sueldo.",
@@ -1948,10 +1844,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.878Z",
       "description": "Eje entre Autarqu\u00eda y Apertura total.",
       "description_en": "Axis between [EN] Autarqu\u00eda and [EN] Apertura total.",
@@ -1974,10 +1866,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.880Z",
       "description": "Eje entre Renta B\u00e1sica Universal y Cero ayudas sociales.",
       "description_en": "Axis between [EN] Renta B\u00e1sica Universal and [EN] Cero ayudas sociales.",
@@ -2000,10 +1888,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.882Z",
       "description": "Eje entre Monopolio monetario estatal y Banca libre / Cripto.",
       "description_en": "Axis between [EN] Monopolio monetario estatal and [EN] Banca libre / Cripto.",
@@ -2026,10 +1910,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.884Z",
       "description": "Eje entre Precios fijados y Precios de mercado.",
       "description_en": "Axis between [EN] Precios fijados and [EN] Precios de mercado.",
@@ -2052,10 +1932,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.888Z",
       "description": "Eje entre Autodeterminaci\u00f3n \u00e9tnica y Estado naci\u00f3n unitario.",
       "description_en": "Axis between [EN] Autodeterminaci\u00f3n \u00e9tnica and [EN] Estado naci\u00f3n unitario.",
@@ -2078,10 +1954,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.890Z",
       "description": "Eje entre Acci\u00f3n afirmativa y Igualdad ante la ley ciega.",
       "description_en": "Axis between [EN] Acci\u00f3n afirmativa and [EN] Igualdad ante la ley ciega.",
@@ -2104,10 +1976,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.892Z",
       "description": "Eje entre Teocracia y Ate\u00edsmo de estado.",
       "description_en": "Axis between [EN] Teocracia and [EN] Ate\u00edsmo de estado.",
@@ -2130,10 +1998,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.894Z",
       "description": "Eje entre Secesionismo y Integridad territorial.",
       "description_en": "Axis between [EN] Secesionismo and [EN] Integridad territorial.",
@@ -2156,10 +2020,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.896Z",
       "description": "Eje entre Reparaciones hist\u00f3ricas y Rechazo a la responsabilidad colectiva.",
       "description_en": "Axis between [EN] Reparaciones hist\u00f3ricas and [EN] Rechazo a la responsabilidad colectiva.",
@@ -2182,10 +2042,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.898Z",
       "description": "Eje entre Protecci\u00f3n ling\u00fc\u00edstica activa y Idioma \u00fanico oficial.",
       "description_en": "Axis between [EN] Protecci\u00f3n ling\u00fc\u00edstica activa and [EN] Idioma \u00fanico oficial.",
@@ -2208,10 +2064,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.900Z",
       "description": "Eje entre Jurisdicci\u00f3n religiosa y Ley civil \u00fanica.",
       "description_en": "Axis between [EN] Jurisdicci\u00f3n religiosa and [EN] Ley civil \u00fanica.",
@@ -2234,10 +2086,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.902Z",
       "description": "Eje entre Multiculturalismo y Asimilacionismo.",
       "description_en": "Axis between [EN] Multiculturalismo and [EN] Asimilacionismo.",
@@ -2260,10 +2108,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.904Z",
       "description": "Eje entre Libertad de culto total y Prohibici\u00f3n de religi\u00f3n.",
       "description_en": "Axis between [EN] Libertad de culto total and [EN] Prohibici\u00f3n de religi\u00f3n.",
@@ -2286,10 +2130,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.906Z",
       "description": "Eje entre Discriminaci\u00f3n positiva y Meritocracia pura.",
       "description_en": "Axis between [EN] Discriminaci\u00f3n positiva and [EN] Meritocracia pura.",
@@ -2312,10 +2152,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.910Z",
       "description": "Eje entre Centralismo total y Acracia.",
       "description_en": "Axis between [EN] Centralismo total and [EN] Acracia.",
@@ -2338,10 +2174,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.912Z",
       "description": "Eje entre Federalismo y Estado unitario.",
       "description_en": "Axis between [EN] Federalismo and [EN] Estado unitario.",
@@ -2364,19 +2196,6 @@
   },
   {
     "fields": {
-      "condition_values": [
-        "Espa\u00f1a",
-        "Reino Unido"
-      ],
-      "condition_values_en": [
-        "Spain",
-        "United Kingdom"
-      ],
-      "condition_values_es": [
-        "Espa\u00f1a",
-        "Reino Unido"
-      ],
-      "conditioned_by": 1,
       "created": "2026-01-06T23:02:28.914Z",
       "description": "Eje entre Monarqu\u00eda y Rep\u00fablica. [Si: Espa\u00f1a, Reino Unido]",
       "description_en": "Axis between Monarchy and Republic. [If: Spain, United Kingdom]",
@@ -2399,16 +2218,30 @@
   },
   {
     "fields": {
+      "axis": 29,
       "condition_values": [
+        "Espa\u00f1a",
         "Reino Unido"
       ],
       "condition_values_en": [
+        "Spain",
         "United Kingdom"
       ],
       "condition_values_es": [
+        "Espa\u00f1a",
         "Reino Unido"
       ],
-      "conditioned_by": 1,
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.914Z",
+      "modified": "2026-01-06T23:02:28.914Z",
+      "name": "Rule for Monarqu\u00eda vs Rep\u00fablica",
+      "uuid": "b98c7df0ca98468b8c2b20ed399c732d"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10001
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.916Z",
       "description": "Eje entre Soberan\u00eda regional total y Control central. [Si: Reino Unido]",
       "description_en": "Axis between [EN] Soberan\u00eda regional total and [EN] Control central. [If: United Kingdom]",
@@ -2431,16 +2264,27 @@
   },
   {
     "fields": {
+      "axis": 30,
       "condition_values": [
-        "Espa\u00f1a"
+        "Reino Unido"
       ],
       "condition_values_en": [
-        "Spain"
+        "United Kingdom"
       ],
       "condition_values_es": [
-        "Espa\u00f1a"
+        "Reino Unido"
       ],
-      "conditioned_by": 1,
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.916Z",
+      "modified": "2026-01-06T23:02:28.916Z",
+      "name": "Rule for Soberan\u00eda regional total vs Control central",
+      "uuid": "9bd50ddf020d4ccba7c570a155c0a5df"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10002
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.918Z",
       "description": "Eje entre Confederalismo y Estado centralista. [Si: Espa\u00f1a]",
       "description_en": "Axis between [EN] Confederalismo and [EN] Estado centralista. [If: Spain]",
@@ -2463,10 +2307,27 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
+      "axis": 31,
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [
+        "Spain"
+      ],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.918Z",
+      "modified": "2026-01-06T23:02:28.918Z",
+      "name": "Rule for Confederalismo vs Estado centralista",
+      "uuid": "c9aa07254c64429e88a8ece23cc949b5"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10003
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.920Z",
       "description": "Eje entre Prohibici\u00f3n de armas y Derecho a armarse.",
       "description_en": "Axis between [EN] Prohibici\u00f3n de armas and [EN] Derecho a armarse.",
@@ -2489,10 +2350,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.922Z",
       "description": "Eje entre Estado policial y Abolici\u00f3n de la polic\u00eda.",
       "description_en": "Axis between [EN] Estado policial and [EN] Abolici\u00f3n de la polic\u00eda.",
@@ -2515,10 +2372,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.924Z",
       "description": "Eje entre Prisi\u00f3n permanente y Abolicionismo penal.",
       "description_en": "Axis between [EN] Prisi\u00f3n permanente and [EN] Abolicionismo penal.",
@@ -2541,10 +2394,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.926Z",
       "description": "Eje entre Ciudadan\u00eda universal y Nacionalismo excluyente.",
       "description_en": "Axis between [EN] Ciudadan\u00eda universal and [EN] Nacionalismo excluyente.",
@@ -2567,10 +2416,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.928Z",
       "description": "Eje entre Planificaci\u00f3n administrativa y Simplificaci\u00f3n radical.",
       "description_en": "Axis between [EN] Planificaci\u00f3n administrativa and [EN] Simplificaci\u00f3n radical.",
@@ -2593,16 +2438,6 @@
   },
   {
     "fields": {
-      "condition_values": [
-        "Espa\u00f1a"
-      ],
-      "condition_values_en": [
-        "Spain"
-      ],
-      "condition_values_es": [
-        "Espa\u00f1a"
-      ],
-      "conditioned_by": 1,
       "created": "2026-01-06T23:02:28.932Z",
       "description": "Eje entre UE Federal y Soberan\u00eda Nacional. [Si: Espa\u00f1a]",
       "description_en": "Axis between Federal EU and National Sovereignty. [If: Spain]",
@@ -2625,16 +2460,27 @@
   },
   {
     "fields": {
+      "axis": 37,
       "condition_values": [
-        "Reino Unido"
+        "Espa\u00f1a"
       ],
       "condition_values_en": [
-        "United Kingdom"
+        "Spain"
       ],
       "condition_values_es": [
-        "Reino Unido"
+        "Espa\u00f1a"
       ],
-      "conditioned_by": 1,
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.932Z",
+      "modified": "2026-01-06T23:02:28.932Z",
+      "name": "Rule for UE Federal vs Soberan\u00eda Nacional",
+      "uuid": "1ae60f5a956043149140b9c5d3f04329"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10004
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.934Z",
       "description": "Eje entre Commonwealth y Aislamiento total. [Si: Reino Unido]",
       "description_en": "Axis between Commonwealth and Total Isolation. [If: United Kingdom]",
@@ -2657,19 +2503,27 @@
   },
   {
     "fields": {
+      "axis": 38,
       "condition_values": [
-        "Espa\u00f1a",
         "Reino Unido"
       ],
       "condition_values_en": [
-        "Spain",
         "United Kingdom"
       ],
       "condition_values_es": [
-        "Espa\u00f1a",
         "Reino Unido"
       ],
-      "conditioned_by": 1,
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.934Z",
+      "modified": "2026-01-06T23:02:28.934Z",
+      "name": "Rule for Commonwealth vs Aislamiento total",
+      "uuid": "d4769576284244049d02eaa0db837d68"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10005
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.936Z",
       "description": "Eje entre Reclamaci\u00f3n territorial y Estatus actual. [Si: Espa\u00f1a, Reino Unido]",
       "description_en": "Axis between Territorial Claim and Current Status. [If: Spain, United Kingdom]",
@@ -2692,10 +2546,30 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
+      "axis": 39,
+      "condition_values": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "condition_values_en": [
+        "Spain",
+        "United Kingdom"
+      ],
+      "condition_values_es": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:28.936Z",
+      "modified": "2026-01-06T23:02:28.936Z",
+      "name": "Rule for Reclamaci\u00f3n territorial vs Estatus actual",
+      "uuid": "db1c49ef05c240f680dfc92e34e5bdcd"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10006
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:28.938Z",
       "description": "Eje entre Alianzas militares y Neutralidad total.",
       "description_en": "Axis between [EN] Alianzas militares and [EN] Neutralidad total.",
@@ -2718,10 +2592,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.940Z",
       "description": "Eje entre Fronteras abiertas y Muros / Cierre total.",
       "description_en": "Axis between [EN] Fronteras abiertas and [EN] Muros / Cierre total.",
@@ -2744,10 +2614,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.942Z",
       "description": "Eje entre Globalismo y Soberanismo.",
       "description_en": "Axis between [EN] Globalismo and [EN] Soberanismo.",
@@ -2770,10 +2636,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.944Z",
       "description": "Eje entre Cooperaci\u00f3n internacional obligatoria y Cero inversi\u00f3n exterior.",
       "description_en": "Axis between [EN] Cooperaci\u00f3n internacional obligatoria and [EN] Cero inversi\u00f3n exterior.",
@@ -2796,10 +2658,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.946Z",
       "description": "Eje entre Intervencionismo exterior y Aislamiento.",
       "description_en": "Axis between [EN] Intervencionismo exterior and [EN] Aislamiento.",
@@ -2822,10 +2680,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.948Z",
       "description": "Eje entre Diplomacia blanda y Realpolitik militar.",
       "description_en": "Axis between [EN] Diplomacia blanda and [EN] Realpolitik militar.",
@@ -2848,10 +2702,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.950Z",
       "description": "Eje entre Libre comercio total y Proteccionismo absoluto.",
       "description_en": "Axis between [EN] Libre comercio total and [EN] Proteccionismo absoluto.",
@@ -2874,10 +2724,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.954Z",
       "description": "Eje entre Aborto libre y Prohibici\u00f3n total.",
       "description_en": "Axis between [EN] Aborto libre and [EN] Prohibici\u00f3n total.",
@@ -2900,10 +2746,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.956Z",
       "description": "Eje entre Eutanasia legal y Ilegalidad absoluta.",
       "description_en": "Axis between [EN] Eutanasia legal and [EN] Ilegalidad absoluta.",
@@ -2926,10 +2768,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.958Z",
       "description": "Eje entre Feminismo institucional y Patriarcado tradicional.",
       "description_en": "Axis between [EN] Feminismo institucional and [EN] Patriarcado tradicional.",
@@ -2952,10 +2790,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.960Z",
       "description": "Eje entre Derechos LGBTQ+ y Valores tradicionales.",
       "description_en": "Axis between [EN] Derechos LGBTQ+ and [EN] Valores tradicionales.",
@@ -2978,10 +2812,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.962Z",
       "description": "Eje entre Legalizaci\u00f3n total y Prohibicionismo penal.",
       "description_en": "Axis between [EN] Legalizaci\u00f3n total and [EN] Prohibicionismo penal.",
@@ -3004,10 +2834,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.964Z",
       "description": "Eje entre Ecologismo radical y Productivismo ilimitado.",
       "description_en": "Axis between [EN] Ecologismo radical and [EN] Productivismo ilimitado.",
@@ -3030,10 +2856,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.967Z",
       "description": "Eje entre Energ\u00eda nuclear y Prohibici\u00f3n at\u00f3mica.",
       "description_en": "Axis between [EN] Energ\u00eda nuclear and [EN] Prohibici\u00f3n at\u00f3mica.",
@@ -3056,10 +2878,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.969Z",
       "description": "Eje entre Regulaci\u00f3n de IA y Laissez-faire tecnol\u00f3gico.",
       "description_en": "Axis between [EN] Regulaci\u00f3n de IA and [EN] Laissez-faire tecnol\u00f3gico.",
@@ -3082,10 +2900,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.971Z",
       "description": "Eje entre Transhumanismo y Bioconservadurismo.",
       "description_en": "Axis between [EN] Transhumanismo and [EN] Bioconservadurismo.",
@@ -3108,10 +2922,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.973Z",
       "description": "Eje entre Construccionismo de g\u00e9nero y Determinismo biol\u00f3gico.",
       "description_en": "Axis between [EN] Construccionismo de g\u00e9nero and [EN] Determinismo biol\u00f3gico.",
@@ -3134,10 +2944,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.979Z",
       "description": "Eje entre Redistribuci\u00f3n m\u00e1xima y Cero impuestos.",
       "description_en": "Axis between [EN] Redistribuci\u00f3n m\u00e1xima and [EN] Cero impuestos.",
@@ -3160,10 +2966,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.981Z",
       "description": "Eje entre Propiedad estatal de beneficios y Exenci\u00f3n empresarial total.",
       "description_en": "Axis between [EN] Propiedad estatal de beneficios and [EN] Exenci\u00f3n empresarial total.",
@@ -3186,10 +2988,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.983Z",
       "description": "Eje entre Impuesto al consumo elevado y Cero tasas al consumo.",
       "description_en": "Axis between [EN] Impuesto al consumo elevado and [EN] Cero tasas al consumo.",
@@ -3212,10 +3010,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.985Z",
       "description": "Eje entre Impuesto al Patrimonio y Inviolabilidad del capital.",
       "description_en": "Axis between [EN] Impuesto al Patrimonio and [EN] Inviolabilidad del capital.",
@@ -3238,10 +3032,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.988Z",
       "description": "Eje entre Socializaci\u00f3n de herencias y Herencia \u00edntegra.",
       "description_en": "Axis between [EN] Socializaci\u00f3n de herencias and [EN] Herencia \u00edntegra.",
@@ -3264,10 +3054,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.990Z",
       "description": "Eje entre Control de flujos financieros y Libre flujo de capital.",
       "description_en": "Axis between [EN] Control de flujos financieros and [EN] Libre flujo de capital.",
@@ -3290,10 +3076,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.992Z",
       "description": "Eje entre Armonizaci\u00f3n fiscal global y Para\u00edso fiscal / Competencia total.",
       "description_en": "Axis between [EN] Armonizaci\u00f3n fiscal global and [EN] Para\u00edso fiscal / Competencia total.",
@@ -3316,10 +3098,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.994Z",
       "description": "Eje entre Familismo fiscal y Individualismo fiscal.",
       "description_en": "Axis between [EN] Familismo fiscal and [EN] Individualismo fiscal.",
@@ -3342,10 +3120,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.996Z",
       "description": "Eje entre Tasa al lujo y Consumo libre.",
       "description_en": "Axis between [EN] Tasa al lujo and [EN] Consumo libre.",
@@ -3368,10 +3142,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:28.998Z",
       "description": "Eje entre Presi\u00f3n fiscal m\u00e1xima y Esfuerzo fiscal cero.",
       "description_en": "Axis between [EN] Presi\u00f3n fiscal m\u00e1xima and [EN] Esfuerzo fiscal cero.",
@@ -3394,10 +3164,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29Z",
       "description": "Eje entre Fiscalizaci\u00f3n total y Autodeclaraci\u00f3n honesta.",
       "description_en": "Axis between [EN] Fiscalizaci\u00f3n total and [EN] Autodeclaraci\u00f3n honesta.",
@@ -3420,10 +3186,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.002Z",
       "description": "Eje entre Impuestos ecol\u00f3gicos y Neutralidad impositiva.",
       "description_en": "Axis between [EN] Impuestos ecol\u00f3gicos and [EN] Neutralidad impositiva.",
@@ -3446,10 +3208,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.004Z",
       "description": "Eje entre Nacionalizaci\u00f3n del suelo y Propiedad privada total.",
       "description_en": "Axis between [EN] Nacionalizaci\u00f3n del suelo and [EN] Propiedad privada total.",
@@ -3472,10 +3230,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.006Z",
       "description": "Eje entre Pago por uso p\u00fablico y Libre circulaci\u00f3n gratuita.",
       "description_en": "Axis between [EN] Pago por uso p\u00fablico and [EN] Libre circulaci\u00f3n gratuita.",
@@ -3498,10 +3252,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.008Z",
       "description": "Eje entre Tasa tecnol\u00f3gica y Exenci\u00f3n digital.",
       "description_en": "Axis between [EN] Tasa tecnol\u00f3gica and [EN] Exenci\u00f3n digital.",
@@ -3524,10 +3274,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.012Z",
       "description": "Eje entre Trabajo Garantizado Universal y Desempleo de mercado.",
       "description_en": "Axis between [EN] Trabajo Garantizado Universal and [EN] Desempleo de mercado.",
@@ -3550,10 +3296,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.014Z",
       "description": "Eje entre Inamovilidad laboral y Despido libre y gratuito.",
       "description_en": "Axis between [EN] Inamovilidad laboral and [EN] Despido libre y gratuito.",
@@ -3576,10 +3318,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.016Z",
       "description": "Eje entre Negociaci\u00f3n colectiva obligatoria y Negociaci\u00f3n individual pura.",
       "description_en": "Axis between [EN] Negociaci\u00f3n colectiva obligatoria and [EN] Negociaci\u00f3n individual pura.",
@@ -3602,10 +3340,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.018Z",
       "description": "Eje entre Reducci\u00f3n de jornada estatal y Libertad horaria total.",
       "description_en": "Axis between [EN] Reducci\u00f3n de jornada estatal and [EN] Libertad horaria total.",
@@ -3628,10 +3362,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.020Z",
       "description": "Eje entre Funcionariado universal y Externalizaci\u00f3n completa.",
       "description_en": "Axis between [EN] Funcionariado universal and [EN] Externalizaci\u00f3n completa.",
@@ -3654,10 +3384,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.022Z",
       "description": "Eje entre Bolsa p\u00fablica \u00fanica y Mercado de ETTs.",
       "description_en": "Axis between [EN] Bolsa p\u00fablica \u00fanica and [EN] Mercado de ETTs.",
@@ -3680,10 +3406,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.025Z",
       "description": "Eje entre Formaci\u00f3n estatal obligatoria y Aprendizaje libre en empresa.",
       "description_en": "Axis between [EN] Formaci\u00f3n estatal obligatoria and [EN] Aprendizaje libre en empresa.",
@@ -3706,10 +3428,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.027Z",
       "description": "Eje entre Retiro forzoso y Trabajo vitalicio voluntario.",
       "description_en": "Axis between [EN] Retiro forzoso and [EN] Trabajo vitalicio voluntario.",
@@ -3732,10 +3450,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.029Z",
       "description": "Eje entre Teletrabajo por ley y Presencialismo.",
       "description_en": "Axis between [EN] Teletrabajo por ley and [EN] Presencialismo.",
@@ -3758,10 +3472,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.031Z",
       "description": "Eje entre Cuotas de representaci\u00f3n y M\u00e9rito puro.",
       "description_en": "Axis between [EN] Cuotas de representaci\u00f3n and [EN] M\u00e9rito puro.",
@@ -3784,10 +3494,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.033Z",
       "description": "Eje entre Techo salarial estatal y Riqueza ilimitada.",
       "description_en": "Axis between [EN] Techo salarial estatal and [EN] Riqueza ilimitada.",
@@ -3810,10 +3516,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.035Z",
       "description": "Eje entre Protecci\u00f3n social total y Cero subsidios laborales.",
       "description_en": "Axis between [EN] Protecci\u00f3n social total and [EN] Cero subsidios laborales.",
@@ -3836,10 +3538,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.037Z",
       "description": "Eje entre Seguridad social \u00fanica y Seguros privados.",
       "description_en": "Axis between [EN] Seguridad social \u00fanica and [EN] Seguros privados.",
@@ -3862,10 +3560,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.039Z",
       "description": "Eje entre Tutela inspectora y Autorregulaci\u00f3n.",
       "description_en": "Axis between [EN] Tutela inspectora and [EN] Autorregulaci\u00f3n.",
@@ -3888,10 +3582,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.041Z",
       "description": "Eje entre Sindicatos de estado y Prohibici\u00f3n de asociaci\u00f3n.",
       "description_en": "Axis between [EN] Sindicatos de estado and [EN] Prohibici\u00f3n de asociaci\u00f3n.",
@@ -3914,10 +3604,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.044Z",
       "description": "Eje entre Secesi\u00f3n legal y Unidad indisoluble.",
       "description_en": "Axis between [EN] Secesi\u00f3n legal and [EN] Unidad indisoluble.",
@@ -3940,10 +3626,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.046Z",
       "description": "Eje entre Representaci\u00f3n \u00e9tnica obligatoria y Representaci\u00f3n ciega.",
       "description_en": "Axis between [EN] Representaci\u00f3n \u00e9tnica obligatoria and [EN] Representaci\u00f3n ciega.",
@@ -3966,10 +3648,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.048Z",
       "description": "Eje entre Justicia hist\u00f3rica y Amnesia institucional.",
       "description_en": "Axis between [EN] Justicia hist\u00f3rica and [EN] Amnesia institucional.",
@@ -3992,16 +3670,6 @@
   },
   {
     "fields": {
-      "condition_values": [
-        "Espa\u00f1a"
-      ],
-      "condition_values_en": [
-        "Spain"
-      ],
-      "condition_values_es": [
-        "Espa\u00f1a"
-      ],
-      "conditioned_by": 1,
       "created": "2026-01-06T23:02:29.050Z",
       "description": "Eje entre Inmersi\u00f3n ling\u00fc\u00edstica y Monoling\u00fcismo estatal. [Si: Espa\u00f1a]",
       "description_en": "Axis between Linguistic Immersion and State Monolingualism. [If: Spain]",
@@ -4024,10 +3692,27 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
+      "axis": 90,
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [
+        "Spain"
+      ],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 1,
+      "created": "2026-01-06T23:02:29.050Z",
+      "modified": "2026-01-06T23:02:29.051Z",
+      "name": "Rule for Inmersi\u00f3n ling\u00fc\u00edstica vs Monoling\u00fcismo estatal",
+      "uuid": "154f1937c24344e784927ec55363a3fd"
+    },
+    "model": "ideology.ideologyaxisconditioner",
+    "pk": 10007
+  },
+  {
+    "fields": {
       "created": "2026-01-06T23:02:29.053Z",
       "description": "Eje entre Sistemas jur\u00eddicos paralelos y Monopolio judicial.",
       "description_en": "Axis between [EN] Sistemas jur\u00eddicos paralelos and [EN] Monopolio judicial.",
@@ -4050,10 +3735,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.055Z",
       "description": "Eje entre Comunalismo territorial y Mercado de suelo.",
       "description_en": "Axis between [EN] Comunalismo territorial and [EN] Mercado de suelo.",
@@ -4076,10 +3757,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.057Z",
       "description": "Eje entre Medios \u00e9tnicos p\u00fablicos y Medios nacionales \u00fanicos.",
       "description_en": "Axis between [EN] Medios \u00e9tnicos p\u00fablicos and [EN] Medios nacionales \u00fanicos.",
@@ -4102,10 +3779,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.059Z",
       "description": "Eje entre Festivos identitarios y Calendario laico.",
       "description_en": "Axis between [EN] Festivos identitarios and [EN] Calendario laico.",
@@ -4128,10 +3801,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.061Z",
       "description": "Eje entre Cupos raciales y Cero preferencia.",
       "description_en": "Axis between [EN] Cupos raciales and [EN] Cero preferencia.",
@@ -4154,10 +3823,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.063Z",
       "description": "Eje entre Ius Sanguinis y Ius Soli / Contrato.",
       "description_en": "Axis between [EN] Ius Sanguinis and [EN] Ius Soli / Contrato.",
@@ -4180,10 +3845,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.066Z",
       "description": "Eje entre Financiaci\u00f3n identitaria y Autofinanciaci\u00f3n.",
       "description_en": "Axis between [EN] Financiaci\u00f3n identitaria and [EN] Autofinanciaci\u00f3n.",
@@ -4206,10 +3867,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.068Z",
       "description": "Eje entre Proteccionismo cultural y Cr\u00edtica cultural libre.",
       "description_en": "Axis between [EN] Proteccionismo cultural and [EN] Cr\u00edtica cultural libre.",
@@ -4232,10 +3889,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.070Z",
       "description": "Eje entre Zonas de exclusi\u00f3n \u00e9tnica y Administraci\u00f3n uniforme.",
       "description_en": "Axis between [EN] Zonas de exclusi\u00f3n \u00e9tnica and [EN] Administraci\u00f3n uniforme.",
@@ -4258,10 +3911,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.072Z",
       "description": "Eje entre Derecho al retorno y Residencia legal.",
       "description_en": "Axis between [EN] Derecho al retorno and [EN] Residencia legal.",
@@ -4284,10 +3933,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.074Z",
       "description": "Eje entre Propiedad intelectual \u00e9tnica y Libertad creativa.",
       "description_en": "Axis between [EN] Propiedad intelectual \u00e9tnica and [EN] Libertad creativa.",
@@ -4310,10 +3955,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.078Z",
       "description": "Eje entre Estado Confesional y Estado Ateo.",
       "description_en": "Axis between [EN] Estado Confesional and [EN] Estado Ateo.",
@@ -4336,10 +3977,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.080Z",
       "description": "Eje entre Dotaci\u00f3n presupuestaria al culto y Autofinanciaci\u00f3n.",
       "description_en": "Axis between [EN] Dotaci\u00f3n presupuestaria al culto and [EN] Autofinanciaci\u00f3n.",
@@ -4362,10 +3999,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.083Z",
       "description": "Eje entre Adoctrinamiento escolar y Escuela laica.",
       "description_en": "Axis between [EN] Adoctrinamiento escolar and [EN] Escuela laica.",
@@ -4388,10 +4021,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.085Z",
       "description": "Eje entre Privilegio fiscal religioso y Tributaci\u00f3n religiosa.",
       "description_en": "Axis between [EN] Privilegio fiscal religioso and [EN] Tributaci\u00f3n religiosa.",
@@ -4414,10 +4043,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.087Z",
       "description": "Eje entre Delito de blasfemia y Libertad de ofensa.",
       "description_en": "Axis between [EN] Delito de blasfemia and [EN] Libertad de ofensa.",
@@ -4440,10 +4065,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.089Z",
       "description": "Eje entre Supremac\u00eda de conciencia y Cumplimiento legal \u00fanico.",
       "description_en": "Axis between [EN] Supremac\u00eda de conciencia and [EN] Cumplimiento legal \u00fanico.",
@@ -4466,10 +4087,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.091Z",
       "description": "Eje entre Teocracia civil y Matrimonio civil obligatorio.",
       "description_en": "Axis between [EN] Teocracia civil and [EN] Matrimonio civil obligatorio.",
@@ -4492,10 +4109,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.093Z",
       "description": "Eje entre Templos p\u00fablicos y Mercado de templos.",
       "description_en": "Axis between [EN] Templos p\u00fablicos and [EN] Mercado de templos.",
@@ -4518,10 +4131,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.095Z",
       "description": "Eje entre Calendario lit\u00fargico y Calendario civil.",
       "description_en": "Axis between [EN] Calendario lit\u00fargico and [EN] Calendario civil.",
@@ -4544,10 +4153,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.097Z",
       "description": "Eje entre Juramento sagrado y Promesa laica.",
       "description_en": "Axis between [EN] Juramento sagrado and [EN] Promesa laica.",
@@ -4570,10 +4175,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.099Z",
       "description": "Eje entre Iconograf\u00eda p\u00fablica y Espacio neutro.",
       "description_en": "Axis between [EN] Iconograf\u00eda p\u00fablica and [EN] Espacio neutro.",
@@ -4596,10 +4197,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.101Z",
       "description": "Eje entre Control de sectas y Libertad espiritual total.",
       "description_en": "Axis between [EN] Control de sectas and [EN] Libertad espiritual total.",
@@ -4622,10 +4219,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.103Z",
       "description": "Eje entre Misiones estatales y Prohibici\u00f3n de proselitismo.",
       "description_en": "Axis between [EN] Misiones estatales and [EN] Prohibici\u00f3n de proselitismo.",
@@ -4648,10 +4241,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.105Z",
       "description": "Eje entre Fueros eclesi\u00e1sticos y Jurisdicci\u00f3n civil.",
       "description_en": "Axis between [EN] Fueros eclesi\u00e1sticos and [EN] Jurisdicci\u00f3n civil.",
@@ -4674,10 +4263,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.107Z",
       "description": "Eje entre Protecci\u00f3n del sentimiento y Iconoclasia.",
       "description_en": "Axis between [EN] Protecci\u00f3n del sentimiento and [EN] Iconoclasia.",
@@ -4700,10 +4285,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.111Z",
       "description": "Eje entre Asistencia universal estatal y Autosuficiencia individual.",
       "description_en": "Axis between [EN] Asistencia universal estatal and [EN] Autosuficiencia individual.",
@@ -4726,10 +4307,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.113Z",
       "description": "Eje entre Vivienda garantizada y Mercado libre.",
       "description_en": "Axis between [EN] Vivienda garantizada and [EN] Mercado libre.",
@@ -4752,10 +4329,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.115Z",
       "description": "Eje entre Cartilla de racionamiento / Bonos y Autogesti\u00f3n.",
       "description_en": "Axis between [EN] Cartilla de racionamiento / Bonos and [EN] Autogesti\u00f3n.",
@@ -4778,10 +4351,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.117Z",
       "description": "Eje entre Beneficencia p\u00fablica y Caridad privada.",
       "description_en": "Axis between [EN] Beneficencia p\u00fablica and [EN] Caridad privada.",
@@ -4804,10 +4373,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.119Z",
       "description": "Eje entre Tutela estatal de la discapacidad y Responsabilidad familiar.",
       "description_en": "Axis between [EN] Tutela estatal de la discapacidad and [EN] Responsabilidad familiar.",
@@ -4830,10 +4395,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.121Z",
       "description": "Eje entre Sistema de reparto p\u00fablico y Capitalizaci\u00f3n privada.",
       "description_en": "Axis between [EN] Sistema de reparto p\u00fablico and [EN] Capitalizaci\u00f3n privada.",
@@ -4856,10 +4417,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.123Z",
       "description": "Eje entre Natalismo subsidiado y Paternidad sin ayudas.",
       "description_en": "Axis between [EN] Natalismo subsidiado and [EN] Paternidad sin ayudas.",
@@ -4882,10 +4439,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.125Z",
       "description": "Eje entre Becas universales y Cero becas.",
       "description_en": "Axis between [EN] Becas universales and [EN] Cero becas.",
@@ -4908,10 +4461,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.128Z",
       "description": "Eje entre Transporte gratuito y Pago por servicio.",
       "description_en": "Axis between [EN] Transporte gratuito and [EN] Pago por servicio.",
@@ -4934,10 +4483,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.130Z",
       "description": "Eje entre Conectividad garantizada y Mercado de datos.",
       "description_en": "Axis between [EN] Conectividad garantizada and [EN] Mercado de datos.",
@@ -4960,10 +4505,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.132Z",
       "description": "Eje entre Suministros b\u00e1sicos por derecho y Corte por impago.",
       "description_en": "Axis between [EN] Suministros b\u00e1sicos por derecho and [EN] Corte por impago.",
@@ -4986,10 +4527,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.134Z",
       "description": "Eje entre Inserci\u00f3n obligatoria y Cero intervenci\u00f3n.",
       "description_en": "Axis between [EN] Inserci\u00f3n obligatoria and [EN] Cero intervenci\u00f3n.",
@@ -5012,10 +4549,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.136Z",
       "description": "Eje entre Cuidado estatal y Autogesti\u00f3n familiar.",
       "description_en": "Axis between [EN] Cuidado estatal and [EN] Autogesti\u00f3n familiar.",
@@ -5038,10 +4571,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.138Z",
       "description": "Eje entre ONGs paraestatales y Voluntariado puro.",
       "description_en": "Axis between [EN] ONGs paraestatales and [EN] Voluntariado puro.",
@@ -5064,10 +4593,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.140Z",
       "description": "Eje entre Igualitarismo de renta y Desigualdad natural.",
       "description_en": "Axis between [EN] Igualitarismo de renta and [EN] Desigualdad natural.",
@@ -5090,10 +4615,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.143Z",
       "description": "Eje entre Gesti\u00f3n p\u00fablica absoluta y Privatizaci\u00f3n total.",
       "description_en": "Axis between [EN] Gesti\u00f3n p\u00fablica absoluta and [EN] Privatizaci\u00f3n total.",
@@ -5116,10 +4637,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.145Z",
       "description": "Eje entre Prohibicionismo nutricional y Libertad de consumo.",
       "description_en": "Axis between [EN] Prohibicionismo nutricional and [EN] Libertad de consumo.",
@@ -5142,10 +4659,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.147Z",
       "description": "Eje entre Medicamentos como bien p\u00fablico y Patentes farmac\u00e9uticas.",
       "description_en": "Axis between [EN] Medicamentos como bien p\u00fablico and [EN] Patentes farmac\u00e9uticas.",
@@ -5168,10 +4681,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.149Z",
       "description": "Eje entre Gesti\u00f3n de colas estatal y Pago por prioridad.",
       "description_en": "Axis between [EN] Gesti\u00f3n de colas estatal and [EN] Pago por prioridad.",
@@ -5194,10 +4703,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.151Z",
       "description": "Eje entre Salud mental comunitaria y Atenci\u00f3n privada.",
       "description_en": "Axis between [EN] Salud mental comunitaria and [EN] Atenci\u00f3n privada.",
@@ -5220,10 +4725,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.153Z",
       "description": "Eje entre Est\u00e9tica asistencial y Exclusi\u00f3n est\u00e9tica.",
       "description_en": "Axis between [EN] Est\u00e9tica asistencial and [EN] Exclusi\u00f3n est\u00e9tica.",
@@ -5246,10 +4747,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.155Z",
       "description": "Eje entre Inmunizaci\u00f3n forzosa y Libertad de vacunaci\u00f3n.",
       "description_en": "Axis between [EN] Inmunizaci\u00f3n forzosa and [EN] Libertad de vacunaci\u00f3n.",
@@ -5272,10 +4769,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.157Z",
       "description": "Eje entre Expropiaci\u00f3n de \u00f3rganos y Donaci\u00f3n expl\u00edcita.",
       "description_en": "Axis between [EN] Expropiaci\u00f3n de \u00f3rganos and [EN] Donaci\u00f3n expl\u00edcita.",
@@ -5298,10 +4791,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.160Z",
       "description": "Eje entre Medicina hol\u00edstica legal y Solo medicina cient\u00edfica.",
       "description_en": "Axis between [EN] Medicina hol\u00edstica legal and [EN] Solo medicina cient\u00edfica.",
@@ -5324,10 +4813,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.162Z",
       "description": "Eje entre Protecci\u00f3n embrionaria y Investigaci\u00f3n total.",
       "description_en": "Axis between [EN] Protecci\u00f3n embrionaria and [EN] Investigaci\u00f3n total.",
@@ -5350,10 +4835,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.164Z",
       "description": "Eje entre Telemedicina y Atenci\u00f3n presencial.",
       "description_en": "Axis between [EN] Telemedicina and [EN] Atenci\u00f3n presencial.",
@@ -5376,10 +4857,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.166Z",
       "description": "Eje entre Seguro estatal obligatorio y Seguro voluntario.",
       "description_en": "Axis between [EN] Seguro estatal obligatorio and [EN] Seguro voluntario.",
@@ -5402,10 +4879,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.168Z",
       "description": "Eje entre Odontolog\u00eda p\u00fablica y Mercado dental.",
       "description_en": "Axis between [EN] Odontolog\u00eda p\u00fablica and [EN] Mercado dental.",
@@ -5428,10 +4901,6 @@
   },
   {
     "fields": {
-      "condition_values": [],
-      "condition_values_en": [],
-      "condition_values_es": [],
-      "conditioned_by": null,
       "created": "2026-01-06T23:02:29.170Z",
       "description": "Eje entre Eutanasia y Cuidados paliativos.",
       "description_en": "Axis between [EN] Eutanasia and [EN] Cuidados paliativos.",
