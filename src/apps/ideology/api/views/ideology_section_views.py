@@ -28,6 +28,8 @@ class SectionListByComplexityView(ListAPIView):
 
     def get_queryset(self):
         complexity_uuid = self.kwargs.get("complexity_uuid")
-        return IdeologySection.objects.filter(
-            abstraction_complexity__uuid=complexity_uuid
-        ).order_by("name")
+        return (
+            IdeologySection.objects.filter(abstraction_complexity__uuid=complexity_uuid)
+            .prefetch_related("condition_rules__conditioner")
+            .order_by("name")
+        )

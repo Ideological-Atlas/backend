@@ -7,16 +7,15 @@ from ideology.factories import (
     ConditionerAnswerFactory,
     IdeologyAbstractionComplexityFactory,
     IdeologyConditionerFactory,
+    IdeologySectionFactory,
 )
+from ideology.models import IdeologySectionConditioner
 from rest_framework import status
 
 
 class UpsertConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
-        self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
-        self.conditioner = IdeologyConditionerFactory(
-            abstraction_complexity=self.complexity
-        )
+        self.conditioner = IdeologyConditionerFactory()
         self.url = reverse(
             "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
         )
@@ -32,9 +31,16 @@ class UpsertConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
 class UserConditionerAnswerListByComplexityViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
         self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
-        self.conditioner = IdeologyConditionerFactory(
-            abstraction_complexity=self.complexity
+        self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
+        self.conditioner = IdeologyConditionerFactory()
+
+        IdeologySectionConditioner.objects.create(
+            section=self.section,
+            conditioner=self.conditioner,
+            name="Rule",
+            condition_values=[],
         )
+
         self.url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
             kwargs={"complexity_uuid": self.complexity.uuid},

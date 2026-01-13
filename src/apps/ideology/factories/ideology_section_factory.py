@@ -15,7 +15,6 @@ class IdeologySectionFactory(TimeStampedUUIDModelFactory):
     name = factory.Faker("word")
     description = factory.Faker("paragraph")
     abstraction_complexity = factory.SubFactory(IdeologyAbstractionComplexityFactory)
-    conditioned_by = None
 
     @factory.post_generation
     def add_axes(self, create, extracted, **kwargs):

@@ -40,6 +40,7 @@ class UserModelTestCase(TestCase):
             IdeologyConditionerFactory,
             IdeologySectionFactory,
         )
+        from ideology.models import IdeologySectionConditioner
 
         number_of_complexities = random.randint(2, 4)  # nosec
         complexities = []
@@ -77,9 +78,15 @@ class UserModelTestCase(TestCase):
                 number_of_conditioners = random.randint(5, 10)  # nosec
                 for conditioner_index in range(number_of_conditioners):
                     cond = IdeologyConditionerFactory(
-                        abstraction_complexity=complexity,
                         name=f"Cond-{level}-{conditioner_index}",
                     )
+                    if sections:
+                        IdeologySectionConditioner.objects.create(
+                            section=sections[0],
+                            conditioner=cond,
+                            name=f"Rule-{conditioner_index}",
+                        )
+
                     ConditionerAnswerFactory(
                         user=self.user, conditioner=cond, answer="Yes"
                     )

@@ -30,6 +30,6 @@ class AxisListBySectionView(ListAPIView):
         section_uuid = self.kwargs.get("section_uuid")
         return (
             IdeologyAxis.objects.filter(section__uuid=section_uuid)
-            .select_related("conditioned_by")
+            .prefetch_related("condition_rules__conditioner")
             .order_by("name")
         )

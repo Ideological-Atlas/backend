@@ -1,7 +1,6 @@
 from core.models import TimeStampedUUIDModel
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models import IdeologyAbstractionComplexity
 
 
 class IdeologyConditioner(TimeStampedUUIDModel):
@@ -32,13 +31,6 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         verbose_name=_("Type"),
         help_text=_("Defines the format of the data expected for this conditioner."),
     )
-    abstraction_complexity = models.ForeignKey(
-        IdeologyAbstractionComplexity,
-        on_delete=models.CASCADE,
-        related_name="conditioners",
-        verbose_name=_("Abstraction Complexity"),
-        help_text=_("The complexity level that groups these conditioners."),
-    )
     accepted_values = models.JSONField(
         default=list,
         blank=True,
@@ -52,7 +44,7 @@ class IdeologyConditioner(TimeStampedUUIDModel):
     class Meta:
         verbose_name = _("Ideology Conditioner")
         verbose_name_plural = _("Ideology Conditioners")
-        ordering = ["abstraction_complexity", "name"]
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

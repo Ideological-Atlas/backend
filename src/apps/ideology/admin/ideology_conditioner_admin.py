@@ -6,14 +6,12 @@ from unfold.admin import ModelAdmin
 
 @admin.register(IdeologyConditioner)
 class IdeologyConditionerAdmin(ModelAdmin):
-    list_display = ["name", "type", "abstraction_complexity"]
+    list_display = ["name", "type"]
     list_filter_submit = True
-    list_filter = ["type", "abstraction_complexity"]
+    list_filter = ["type"]
     search_fields = ["name"]
-    list_select_related = ["abstraction_complexity"]
-    autocomplete_fields = ["abstraction_complexity"]
     fieldsets = (
-        (None, {"fields": ("name", "description", "type", "abstraction_complexity")}),
+        (None, {"fields": ("name", "description", "type")}),
         (
             _("Configuration"),
             {

@@ -6,6 +6,7 @@ from ideology.factories import (
     IdeologyConditionerFactory,
     IdeologySectionFactory,
 )
+from ideology.models import IdeologySectionConditioner
 from rest_framework import status
 
 
@@ -16,9 +17,15 @@ class StructureViewsTestCase(APITestBase):
             abstraction_complexity=self.complexity, add_axes__total=0
         )
         self.axis = IdeologyAxisFactory(section=self.section)
-        self.conditioner = IdeologyConditionerFactory(
-            abstraction_complexity=self.complexity
+        self.conditioner = IdeologyConditionerFactory()
+
+        IdeologySectionConditioner.objects.create(
+            section=self.section,
+            conditioner=self.conditioner,
+            name="Test",
+            condition_values=[],
         )
+
         super().setUp()
 
     def test_endpoints_return_200_and_data(self):
@@ -45,9 +52,9 @@ class StructureViewsTestCase(APITestBase):
                 self.axis.uuid.hex,
             ),
             (
-                "conditioner-list-by-complexity",
+                "conditioner-list-aggregated-by-complexity",
                 reverse(
-                    "ideology:conditioner-list-by-complexity",
+                    "ideology:conditioner-list-aggregated-by-complexity",
                     kwargs={"complexity_uuid": self.complexity.uuid},
                 ),
                 self.conditioner.uuid.hex,

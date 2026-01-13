@@ -8,7 +8,7 @@ from ideology.factories import (
     IdeologyConditionerFactory,
     IdeologySectionFactory,
 )
-from ideology.models import AxisAnswer, ConditionerAnswer
+from ideology.models import AxisAnswer, ConditionerAnswer, IdeologySectionConditioner
 from rest_framework import status
 
 
@@ -54,9 +54,16 @@ class ConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
         super().setUp()
         self.complexity = IdeologyAbstractionComplexityFactory()
-        self.conditioner = IdeologyConditionerFactory(
-            abstraction_complexity=self.complexity
+        self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
+        self.conditioner = IdeologyConditionerFactory()
+
+        IdeologySectionConditioner.objects.create(
+            section=self.section,
+            conditioner=self.conditioner,
+            name="Link",
+            condition_values=[],
         )
+
         self.upsert_url = reverse(
             "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
         )

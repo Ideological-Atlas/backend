@@ -1,4 +1,5 @@
 from core.api.permissions import IsVerified
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
@@ -46,7 +47,7 @@ class UpsertConditionerAnswerView(BaseUpsertAnswerView):
     tags=["answers"],
     summary=_("List user conditioner answers by complexity"),
     description=_(
-        "Returns the user's conditioner answers filtered by abstraction complexity."
+        "Returns the user's conditioner answers filtered by abstraction complexity (via sections or axes)."
     ),
     parameters=[
         OpenApiParameter(
@@ -67,7 +68,17 @@ class UserConditionerAnswerListByComplexityView(ListAPIView):
             return ConditionerAnswer.objects.none()
 
         complexity_uuid = self.kwargs.get("complexity_uuid")
-        return ConditionerAnswer.objects.filter(
-            user=self.request.user,
-            conditioner__abstraction_complexity__uuid=complexity_uuid,
-        ).select_related("conditioner")
+
+        return (
+            ConditionerAnswer.objects.filter(user=self.request.user)
+            .filter(
+                Q(
+                    conditioner__section_rules__section__abstraction_complexity__uuid=complexity_uuid
+                )
+                | Q(
+                    conditioner__axis_rules__axis__section__abstraction_complexity__uuid=complexity_uuid
+                )
+            )
+            .select_related("conditioner")
+            .distinct()
+        )

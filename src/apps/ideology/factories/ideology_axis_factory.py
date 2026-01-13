@@ -13,4 +13,3 @@ class IdeologyAxisFactory(TimeStampedUUIDModelFactory):
     description = factory.Faker("sentence")
     left_label = "Left"
     right_label = "Right"
-    conditioned_by = None

@@ -20,9 +20,9 @@ urlpatterns = [
         name="axis-list-by-section",
     ),
     path(
-        "structure/conditioners/<str:complexity_uuid>/",
-        views.ConditionerListByComplexityView.as_view(),
-        name="conditioner-list-by-complexity",
+        "structure/conditioners/<str:complexity_uuid>/aggregated/",
+        views.ConditionerListAggregatedByComplexityView.as_view(),
+        name="conditioner-list-aggregated-by-complexity",
     ),
     path(
         "ideologies/",
