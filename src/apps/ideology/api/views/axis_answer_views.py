@@ -38,8 +38,14 @@ class UpsertAxisAnswerView(BaseUpsertAnswerView):
     reference_model = IdeologyAxis
 
     reference_field = "axis"
-    request_value_key = "value"
-    target_value_key = "value"
+
+    def get_defaults(self, serializer) -> dict:
+        data = serializer.validated_data
+        return {
+            "value": data["value"],
+            "margin_left": data.get("margin_left", 0),
+            "margin_right": data.get("margin_right", 0),
+        }
 
 
 @extend_schema(

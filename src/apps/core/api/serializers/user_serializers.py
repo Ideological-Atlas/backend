@@ -15,14 +15,17 @@ logger = logging.getLogger(__name__)
 
 
 class SimpleUserSerializer(UUIDModelSerializerMixin):
+
     class Meta:
         model = User
         fields = ["uuid", "username", "preferred_language"]
+        read_only_fields = ["uuid"]
 
 
 class UserVerificationSerializer(SimpleUserSerializer):
     class Meta(SimpleUserSerializer.Meta):
         fields = SimpleUserSerializer.Meta.fields + ["is_verified"]
+        read_only_fields = ["uuid", "is_verified"]
 
     def update(self, instance, validated_data):
         try:

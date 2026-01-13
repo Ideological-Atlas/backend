@@ -37,6 +37,11 @@ class BaseUpsertAnswerView(CreateAPIView):
 
         return super().get_serializer_class()
 
+    def get_defaults(self, serializer) -> dict:
+        return {
+            self.target_value_key: serializer.validated_data[self.request_value_key]
+        }
+
     def create(self, request, *args, **kwargs):
         if not self.target_model or not self.reference_model:
             raise NotImplementedError("target_model and reference_model must be set")
@@ -45,7 +50,6 @@ class BaseUpsertAnswerView(CreateAPIView):
         serializer.is_valid(raise_exception=True)
 
         uuid_value = self.kwargs.get(self.lookup_url_kwarg)
-        input_value = serializer.validated_data[self.request_value_key]
 
         reference_manager = getattr(self.reference_model, "objects")  # type: ignore
         reference_obj = reference_manager.filter(uuid=uuid_value).first()
@@ -61,7 +65,7 @@ class BaseUpsertAnswerView(CreateAPIView):
 
         with transaction.atomic():
             self.created_object, created = target_manager.update_or_create(
-                **lookup_kwargs, defaults={self.target_value_key: input_value}
+                **lookup_kwargs, defaults=self.get_defaults(serializer)
             )
 
         read_serializer = self.get_serializer(self.created_object)

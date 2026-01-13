@@ -25,9 +25,15 @@ class UpsertAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
         response = self.client.post(self.url, data={"value": 50})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(int(response.data["value"]), 50)
-        response = self.client.post(self.url, data={"value": 90})
+        self.assertEqual(int(response.data["margin_left"]), 0)
+
+        response = self.client.post(
+            self.url, data={"value": 90, "margin_left": 5, "margin_right": 5}
+        )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(int(response.data["value"]), 90)
+        self.assertEqual(int(response.data["margin_left"]), 5)
+        self.assertEqual(int(response.data["margin_right"]), 5)
 
     def test_upsert_not_found(self):
         fake_uuid = uuid.uuid4()
