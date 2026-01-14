@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from ideology.models import Ideology, IdeologyAssociation, IdeologyReference
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
 from unfold.admin import ModelAdmin, TabularInline
 
 
@@ -13,7 +14,7 @@ class IdeologyAssociationInline(TabularInline):
     tab = True
 
 
-class IdeologyReferenceInline(TabularInline):
+class IdeologyReferenceInline(TabularInline, TranslationTabularInline):
     model = IdeologyReference
     extra = 0
     verbose_name = _("Reference")
@@ -22,7 +23,7 @@ class IdeologyReferenceInline(TabularInline):
 
 
 @admin.register(Ideology)
-class IdeologyAdmin(ModelAdmin):
+class IdeologyAdmin(ModelAdmin, TabbedTranslationAdmin):
     list_display = ["name", "created", "modified", "get_association_count"]
     search_fields = ["name", "description_supporter"]
     list_filter_submit = True

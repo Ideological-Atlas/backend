@@ -9,9 +9,9 @@ class AxisAnswerAdmin(ModelAdmin):
     show_full_result_count = False
     list_per_page = 20
 
-    list_display = ["get_subject", "axis", "value", "created"]
+    list_display = ["get_subject", "axis", "value", "is_indifferent", "created"]
     list_filter_submit = True
-    list_filter = ["axis__section", "created"]
+    list_filter = ["axis__section", "is_indifferent", "created"]
     search_fields = ["user__email", "user__username", "ideology__name", "axis__name"]
     autocomplete_fields = ["user", "ideology", "axis"]
     list_select_related = ["user", "ideology", "axis"]

@@ -4,7 +4,7 @@ from core.api.permissions import IsVerified
 from core.factories import UserFactory
 from core.helpers import (
     UUIDModelSerializerMixin,
-    UUIUpdateView,
+    UUIDUpdateAPIView,
     get_admin_image,
     get_admin_path,
     get_admin_reference,
@@ -62,4 +62,4 @@ class HelpersTestCase(TestCase):
                 fields = ["uuid"]
 
         self.assertTrue(TestSerializer().fields["uuid"].read_only)
-        self.assertEqual(UUIUpdateView().lookup_field, "uuid")
+        self.assertEqual(UUIDUpdateAPIView().lookup_field, "uuid")

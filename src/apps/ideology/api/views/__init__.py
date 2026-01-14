@@ -1,4 +1,5 @@
 from .axis_answer_views import (
+    DeleteAxisAnswerView,
     UpsertAxisAnswerView,
     UserAxisAnswerListBySectionView,
 )

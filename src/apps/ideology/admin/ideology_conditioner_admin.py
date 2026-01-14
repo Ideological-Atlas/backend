@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from ideology.models import IdeologyConditioner
+from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
 
 @admin.register(IdeologyConditioner)
-class IdeologyConditionerAdmin(ModelAdmin):
+class IdeologyConditionerAdmin(ModelAdmin, TabbedTranslationAdmin):
     list_display = ["name", "type"]
     list_filter_submit = True
     list_filter = ["type"]

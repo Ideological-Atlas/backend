@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from ideology.models import IdeologyAxis, IdeologySection, IdeologySectionConditioner
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
 from unfold.admin import ModelAdmin, TabularInline
 
 
-class IdeologySectionConditionerInline(TabularInline):
+class IdeologySectionConditionerInline(TabularInline, TranslationTabularInline):
     model = IdeologySectionConditioner
     extra = 0
     autocomplete_fields = ["conditioner"]
@@ -13,7 +14,7 @@ class IdeologySectionConditionerInline(TabularInline):
     tab = True
 
 
-class AxisInline(TabularInline):
+class AxisInline(TabularInline, TranslationTabularInline):
     model = IdeologyAxis
     extra = 0
     fields = ["name", "left_label", "right_label"]
@@ -21,7 +22,7 @@ class AxisInline(TabularInline):
 
 
 @admin.register(IdeologySection)
-class IdeologySectionAdmin(ModelAdmin):
+class IdeologySectionAdmin(ModelAdmin, TabbedTranslationAdmin):
     list_display = ["name", "abstraction_complexity", "get_condition_count"]
     list_filter_submit = True
     list_filter = ["abstraction_complexity"]

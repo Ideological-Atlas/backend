@@ -1,4 +1,6 @@
 from core.api.permissions import IsVerified
+from core.helpers import UUIDDestroyAPIView
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
@@ -16,7 +18,8 @@ from .base_views import BaseUpsertAnswerView
     tags=["answers"],
     summary=_("Upsert axis answer"),
     description=_(
-        "Creates or updates the user's answer for a specific axis defined by UUID in URL."
+        "Creates or updates the user's answer for a specific axis defined by UUID in URL. "
+        "Allows marking answer as indifferent (null value)."
     ),
     request=AxisAnswerUpsertSerializer,
     responses={200: AxisAnswerReadSerializer},
@@ -33,19 +36,36 @@ from .base_views import BaseUpsertAnswerView
 class UpsertAxisAnswerView(BaseUpsertAnswerView):
     write_serializer_class = AxisAnswerUpsertSerializer
     read_serializer_class = AxisAnswerReadSerializer
-
     target_model = AxisAnswer
     reference_model = IdeologyAxis
-
     reference_field = "axis"
 
-    def get_defaults(self, serializer) -> dict:
-        data = serializer.validated_data
-        return {
-            "value": data["value"],
-            "margin_left": data.get("margin_left", 0),
-            "margin_right": data.get("margin_right", 0),
-        }
+
+@extend_schema(
+    tags=["answers"],
+    summary=_("Delete axis answer"),
+    description=_(
+        "Deletes the user's answer for the specific axis defined by UUID in URL."
+    ),
+    responses={204: None},
+    parameters=[
+        OpenApiParameter(
+            name="uuid",
+            location=OpenApiParameter.PATH,
+            description="UUID of the Axis whose answer you want to delete",
+            required=True,
+            type=str,
+        )
+    ],
+)
+class DeleteAxisAnswerView(UUIDDestroyAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+
+    def get_object(self):
+        axis_uuid = self.kwargs.get(self.lookup_field)
+        return get_object_or_404(
+            AxisAnswer, user=self.request.user, axis__uuid=axis_uuid
+        )
 
 
 @extend_schema(

@@ -40,6 +40,11 @@ urlpatterns = [
         name="upsert-axis-answer",
     ),
     path(
+        "answers/axis/<str:uuid>/delete/",
+        views.DeleteAxisAnswerView.as_view(),
+        name="delete-axis-answer",
+    ),
+    path(
         "answers/axis/<str:section_uuid>/list/",
         views.UserAxisAnswerListBySectionView.as_view(),
         name="user-axis-answers-by-section",

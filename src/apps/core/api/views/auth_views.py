@@ -7,7 +7,7 @@ from core.api.serializers import (
     UserVerificationSerializer,
 )
 from core.exceptions import api_exceptions
-from core.helpers import UUIUpdateView
+from core.helpers import UUIDUpdateAPIView
 from core.models import User
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema, inline_serializer
@@ -116,7 +116,7 @@ class RegisterView(CreateAPIView):
         )
     ],
 )
-class VerifyUserView(UUIUpdateView):
+class VerifyUserView(UUIDUpdateAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserVerificationSerializer
     queryset = User.objects.all()

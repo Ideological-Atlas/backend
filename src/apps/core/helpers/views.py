@@ -1,5 +1,9 @@
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import DestroyAPIView, UpdateAPIView
 
 
-class UUIUpdateView(UpdateAPIView):
+class UUIDUpdateAPIView(UpdateAPIView):
+    lookup_field = "uuid"
+
+
+class UUIDDestroyAPIView(DestroyAPIView):
     lookup_field = "uuid"
