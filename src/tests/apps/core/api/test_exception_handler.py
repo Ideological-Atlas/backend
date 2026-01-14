@@ -2,6 +2,7 @@ from core.api.exception_handler import custom_exception_handler
 from core.exceptions.api_exceptions import BadRequestException
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.test import TestCase
+from rest_framework.exceptions import Throttled
 from rest_framework.exceptions import ValidationError as DRFValidationError
 
 
@@ -30,6 +31,14 @@ class ExceptionHandlerTestCase(TestCase):
         self.assertIsNotNone(response)
         self.assertIn("message", response.data)
         self.assertEqual(response.data["message"], ["Standard DRF error"])
+
+    def test_handle_drf_throttled_formatting(self):
+        exc = Throttled(wait=60)
+        context: dict = {}
+        response = custom_exception_handler(exc, context)
+        self.assertIsNotNone(response)
+        self.assertIn("message", response.data)
+        self.assertIn("throttled", str(response.data["message"]).lower())
 
     def test_unhandled_exception_returns_none(self):
         exc = ZeroDivisionError("Crash")
