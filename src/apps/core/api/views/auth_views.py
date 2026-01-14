@@ -1,6 +1,7 @@
 import logging
 
 from core.api.serializers import (
+    CustomTokenObtainPairSerializer,
     GoogleLoginSerializer,
     MeSerializer,
     RegisterSerializer,
@@ -9,6 +10,7 @@ from core.api.serializers import (
 from core.exceptions import api_exceptions
 from core.helpers import UUIDUpdateAPIView
 from core.models import User
+from core.services import AuthService
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema, inline_serializer
 from rest_framework import serializers, status
@@ -40,19 +42,7 @@ logger = logging.getLogger(__name__)
     },
 )
 class AuthTokenObtainPairView(TokenObtainPairView):
-    def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
-
-        try:
-            user = User.objects.get(username=request.data.get("username"))
-        except User.DoesNotExist:
-            try:
-                user = User.objects.get(email=request.data.get("username"))
-            except User.DoesNotExist:
-                return response
-
-        response.data["user"] = MeSerializer(user).data
-        return response
+    serializer_class = CustomTokenObtainPairSerializer
 
 
 @extend_schema(tags=["auth"], summary=_("Refresh Token"))
@@ -69,7 +59,7 @@ class AuthTokenVerifyView(TokenVerifyView):
     tags=["auth"],
     summary=_("Register new user"),
     description=_(
-        "Creates a new user account, triggers verification email, and logs the user in automatically."
+        "Creates a new user account, triggers verification email via Service, and logs the user in automatically."
     ),
     responses={
         201: inline_serializer(
@@ -89,7 +79,8 @@ class RegisterView(CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = serializer.save()
+
+        user = AuthService.register_user(serializer.validated_data)
 
         refresh = RefreshToken.for_user(user)
 
@@ -165,7 +156,5 @@ class GoogleLoginView(GenericAPIView):
                 },
                 status=status.HTTP_200_OK,
             )
-
         except ValueError as e:
-            logger.warning("Google Login Error: %s", e)
             raise api_exceptions.BadRequestException(str(e))

@@ -7,7 +7,7 @@ from django.test import RequestFactory, TestCase
 class EmailOrUsernameModelBackendTestCase(TestCase):
     def setUp(self):
         self.backend = EmailOrUsernameModelBackend()
-        self.user_password = "secure_password"  # nosec
+        self.user_password = "secure_password"
         self.user = UserFactory(password=self.user_password)
         self.request = RequestFactory().get("/")
 
@@ -16,7 +16,6 @@ class EmailOrUsernameModelBackendTestCase(TestCase):
             self.request, username=self.user.username, password=self.user_password
         )
         self.assertEqual(user, self.user)
-
         user = self.backend.authenticate(
             self.request, username=self.user.email, password=self.user_password
         )
@@ -25,7 +24,6 @@ class EmailOrUsernameModelBackendTestCase(TestCase):
     def test_authenticate_kwargs_username(self):
         User = get_user_model()
         kwargs = {User.USERNAME_FIELD: self.user.username}
-
         user = self.backend.authenticate(
             self.request, password=self.user_password, **kwargs
         )
@@ -33,23 +31,19 @@ class EmailOrUsernameModelBackendTestCase(TestCase):
 
     def test_authenticate_missing_username(self):
         user = self.backend.authenticate(
-            self.request, username=None, password="password"  # nosec
+            self.request, username=None, password="password"
         )
         self.assertIsNone(user)
 
     def test_authenticate_failures(self):
         self.assertIsNone(
             self.backend.authenticate(
-                self.request, username=self.user.username, password="bad"  # nosec
+                self.request, username=self.user.username, password="bad"
             )
         )
-
         self.assertIsNone(
-            self.backend.authenticate(
-                self.request, username="ghost", password="pwd"  # nosec
-            )
+            self.backend.authenticate(self.request, username="ghost", password="pwd")
         )
-
         self.user.is_active = False
         self.user.save()
         self.assertIsNone(

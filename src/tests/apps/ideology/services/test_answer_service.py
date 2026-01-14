@@ -1,12 +1,12 @@
 from core.factories import UserFactory
 from django.test import TestCase
 from ideology.factories import (
-    AxisAnswerFactory,
-    ConditionerAnswerFactory,
     IdeologyAbstractionComplexityFactory,
     IdeologyAxisFactory,
     IdeologyConditionerFactory,
     IdeologySectionFactory,
+    UserAxisAnswerFactory,
+    UserConditionerAnswerFactory,
 )
 from ideology.models import IdeologySectionConditioner
 from ideology.services import AnswerService
@@ -27,15 +27,13 @@ class AnswerServiceTestCase(TestCase):
                 {"complexities": 2, "sections": 2, "axes": 2, "conditioners": 2},
             ),
         ]
-
         for name, config in scenarios:
             with self.subTest(name=name):
                 self._run_scenario(config)
 
     def _run_scenario(self, config):
-        self.user.axis_results.all().delete()
+        self.user.axis_answers.all().delete()
         self.user.conditioner_answers.all().delete()
-
         complexities = []
         for i in range(config["complexities"]):
             complexities.append(
@@ -43,7 +41,6 @@ class AnswerServiceTestCase(TestCase):
                     complexity=i + 1, name=f"Level-{i+1}"
                 )
             )
-
         for complexity in complexities:
             sections = []
             for j in range(config["sections"]):
@@ -54,26 +51,21 @@ class AnswerServiceTestCase(TestCase):
                         add_axes__total=0,
                     )
                 )
-
             for section in sections:
                 for k in range(config["axes"]):
                     axis = IdeologyAxisFactory(section=section, name=f"Axis-{k}")
-                    AxisAnswerFactory(user=self.user, axis=axis, value=50)
-
+                    UserAxisAnswerFactory(user=self.user, axis=axis, value=50)
                 for m in range(config["conditioners"]):
                     cond = IdeologyConditionerFactory(name=f"Cond-{m}")
                     IdeologySectionConditioner.objects.create(
                         section=section, conditioner=cond, name=f"Rule-{m}"
                     )
-                    ConditionerAnswerFactory(
+                    UserConditionerAnswerFactory(
                         user=self.user, conditioner=cond, answer="Yes"
                     )
-
         completed = AnswerService.generate_snapshot(self.user)
         data = completed.answers
-
         self.assertEqual(len(data), config["complexities"])
-
         for comp_data in data:
             self.assertEqual(len(comp_data["sections"]), config["sections"])
             expected_conditioners_per_level = (
@@ -82,6 +74,5 @@ class AnswerServiceTestCase(TestCase):
             self.assertEqual(
                 len(comp_data["conditioners"]), expected_conditioners_per_level
             )
-
             for sect_data in comp_data["sections"]:
                 self.assertEqual(len(sect_data["axes"]), config["axes"])

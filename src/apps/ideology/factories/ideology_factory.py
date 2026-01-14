@@ -20,7 +20,6 @@ class IdeologyFactory(TimeStampedUUIDModelFactory):
     def add_tags(self, create, extracted, **kwargs):
         if not create:
             return
-
         from ideology.factories.ideology_tag_factory import IdeologyTagFactory
         from ideology.factories.tag_factory import TagFactory
 
@@ -28,16 +27,13 @@ class IdeologyFactory(TimeStampedUUIDModelFactory):
             for tag in extracted:
                 IdeologyTagFactory(ideology=self, tag=tag)
             return
-
         min_count = kwargs.get("min", 0)
         max_count = kwargs.get("max", 3)
         total = kwargs.get("total", None)
-
         if total is not None:
             count = total
         else:
-            count = random.randint(min_count, max_count)  # nosec
-
+            count = random.randint(min_count, max_count)
         for _ in range(count):
             IdeologyTagFactory(ideology=self, tag=TagFactory())
 
@@ -45,22 +41,18 @@ class IdeologyFactory(TimeStampedUUIDModelFactory):
     def add_associations(self, create, extracted, **kwargs):
         if not create:
             return
-
         from ideology.factories.ideology_association_factory import (
             IdeologyAssociationFactory,
         )
 
         if extracted:
             return
-
         min_count = kwargs.get("min", 0)
         max_count = kwargs.get("max", 2)
         total = kwargs.get("total", None)
-
         if total is not None:
             count = total
         else:
-            count = random.randint(min_count, max_count)  # nosec
-
+            count = random.randint(min_count, max_count)
         for _ in range(count):
             IdeologyAssociationFactory(ideology=self)

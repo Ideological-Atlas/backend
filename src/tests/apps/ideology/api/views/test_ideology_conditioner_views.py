@@ -15,14 +15,12 @@ class IdeologyConditionerViewTestCase(APITestBase):
         self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
         self.conditioner = IdeologyConditionerFactory()
-
         IdeologySectionConditioner.objects.create(
             section=self.section,
             conditioner=self.conditioner,
             name="Test Rule",
             condition_values=["A"],
         )
-
         self.url = reverse(
             "ideology:conditioner-list-aggregated-by-complexity",
             kwargs={"complexity_uuid": self.complexity.uuid},

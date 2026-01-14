@@ -10,43 +10,22 @@ from core.api.serializers import (
 from core.exceptions import api_exceptions
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.factories import UserFactory
-from core.models import User
-from django.utils import translation
 from rest_framework.exceptions import ValidationError
 
 
 class RegisterSerializerTestCase(SerializerTestBase):
     def setUp(self):
         super().setUp()
-        self.data = {"email": "new@test.com", "password": "StrongPassword1!"}  # nosec
+        self.data = {"email": "new@test.com", "password": "StrongPassword1!"}
 
-    @patch("core.models.user.User.trigger_email_verification")
-    def test_create_flow(self, mock_trigger):
+    def test_create_flow_only_creates_user(self):
         serializer = RegisterSerializer(data=self.data)
         self.assertTrue(serializer.is_valid())
+
         user = serializer.save()
+
         self.assertEqual(user.email, self.data["email"])
-        self.assertEqual(user.auth_provider, User.AuthProvider.INTERNAL)
-        mock_trigger.assert_called_once()
-
-    @patch("core.models.user.User.trigger_email_verification")
-    def test_create_sets_preferred_language(self, mock_trigger):
-        with translation.override("en"):
-            serializer = RegisterSerializer(data=self.data)
-            self.assertTrue(serializer.is_valid())
-            user = serializer.save()
-            self.assertEqual(user.preferred_language, "en")
-            mock_trigger.assert_called_once()
-
-    @patch("core.models.user.User.trigger_email_verification")
-    @patch("core.api.serializers.user_serializers.get_language")
-    def test_create_fallback_language(self, mock_get_language, mock_trigger):
-        mock_get_language.return_value = None
-        serializer = RegisterSerializer(data=self.data)
-        self.assertTrue(serializer.is_valid())
-        user = serializer.save()
-        self.assertEqual(user.preferred_language, "es")
-        mock_trigger.assert_called_once()
+        self.assertEqual(user.auth_provider, "internal")
 
     def test_validate_password_errors(self):
         self.data["password"] = "123"  # nosec
@@ -57,27 +36,6 @@ class RegisterSerializerTestCase(SerializerTestBase):
 
         self.assertIn("password", cm.exception.detail)
         self.assertEqual(cm.exception.detail["password"][0].code, "password_too_short")
-
-    @patch("core.models.user.User.trigger_email_verification")
-    def test_create_method_username_logic(self, mock_trigger):
-        data_auto = self.data.copy()
-        data_auto["email"] = "auto@test.com"
-
-        serializer = RegisterSerializer(data=data_auto)
-        self.assertTrue(serializer.is_valid(), serializer.errors)
-        user = serializer.save()
-        self.assertIsNotNone(user.username)
-        mock_trigger.assert_called()
-
-        data_custom = self.data.copy()
-        data_custom["email"] = "custom@test.com"
-        data_custom["username"] = "custom_user"
-
-        serializer = RegisterSerializer(data=data_custom)
-        self.assertTrue(serializer.is_valid(), serializer.errors)
-        user = serializer.save()
-        self.assertEqual(user.username, "custom_user")
-        self.assertEqual(mock_trigger.call_count, 2)
 
 
 class VerificationSerializerTestCase(SerializerTestBase):

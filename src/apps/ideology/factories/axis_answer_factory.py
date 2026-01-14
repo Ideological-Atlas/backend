@@ -4,23 +4,15 @@ import factory
 from core.factories import TimeStampedUUIDModelFactory
 from core.factories.user_factories import VerifiedUserFactory
 from ideology.factories.ideology_axis_factory import IdeologyAxisFactory
-from ideology.factories.ideology_factory import IdeologyFactory
-from ideology.models import AxisAnswer
+from ideology.models import UserAxisAnswer
 
 
-class AxisAnswerFactory(TimeStampedUUIDModelFactory):
+class UserAxisAnswerFactory(TimeStampedUUIDModelFactory):
     class Meta:
-        model = AxisAnswer
+        model = UserAxisAnswer
 
     axis = factory.SubFactory(IdeologyAxisFactory)
-    value = factory.LazyFunction(lambda: random.randint(-90, 90))  # nosec
+    value = factory.LazyFunction(lambda: random.randint(-90, 90))
     margin_left = 10
     margin_right = 10
-
     user = factory.SubFactory(VerifiedUserFactory)
-    ideology = None
-
-    class Params:
-        trait_ideology = factory.Trait(
-            user=None, ideology=factory.SubFactory(IdeologyFactory)
-        )

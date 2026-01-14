@@ -18,14 +18,12 @@ class StructureViewsTestCase(APITestBase):
         )
         self.axis = IdeologyAxisFactory(section=self.section)
         self.conditioner = IdeologyConditionerFactory()
-
         IdeologySectionConditioner.objects.create(
             section=self.section,
             conditioner=self.conditioner,
             name="Test",
             condition_values=[],
         )
-
         super().setUp()
 
     def test_endpoints_return_200_and_data(self):
@@ -60,18 +58,14 @@ class StructureViewsTestCase(APITestBase):
                 self.conditioner.uuid.hex,
             ),
         ]
-
         for name, url, expected_uuid in endpoints:
             with self.subTest(endpoint=name):
                 response = self.client.get(url)
                 self.assertEqual(response.status_code, status.HTTP_200_OK)
-
                 data = response.data
                 if isinstance(data, dict) and "results" in data:
                     data = data["results"]
-
                 self.assertTrue(len(data) >= 1)
-
                 if expected_uuid:
                     found = any(item["uuid"] == expected_uuid for item in data)
                     self.assertTrue(found, f"UUID {expected_uuid} not found in {name}")

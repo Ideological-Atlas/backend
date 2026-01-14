@@ -39,9 +39,7 @@ class EnsureAdminCommandTestCase(TestCase):
             ),
             ("Missing Vars", {}, "Missing superuser environment variables", False),
         ]
-
         User.objects.create_superuser("e@ex.com", "123", "adm_ex")
-
         for name, env_vars, expected_msg, should_create in scenarios:
             with self.subTest(name):
                 with patch.dict(os.environ, {}, clear=True):

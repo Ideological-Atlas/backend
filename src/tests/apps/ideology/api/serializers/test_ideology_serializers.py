@@ -1,8 +1,8 @@
 from core.api.api_test_helpers import SerializerTestBase
 from ideology.api.serializers import IdeologyDetailSerializer, IdeologyListSerializer
 from ideology.factories import (
-    AxisAnswerFactory,
-    ConditionerAnswerFactory,
+    IdeologyAxisDefinitionFactory,
+    IdeologyConditionerDefinitionFactory,
     IdeologyFactory,
 )
 
@@ -21,10 +21,8 @@ class IdeologySerializerTestCase(SerializerTestBase):
         self.assertNotIn("axis_definitions", data)
 
     def test_detail_serializer_nested_data(self):
-        AxisAnswerFactory(trait_ideology=True, ideology=self.ideology, value=50)
-        ConditionerAnswerFactory(
-            trait_ideology=True, ideology=self.ideology, answer="Yes"
-        )
+        IdeologyAxisDefinitionFactory(ideology=self.ideology, value=50)
+        IdeologyConditionerDefinitionFactory(ideology=self.ideology, answer="Yes")
 
         serializer = IdeologyDetailSerializer(self.ideology)
         data = serializer.data

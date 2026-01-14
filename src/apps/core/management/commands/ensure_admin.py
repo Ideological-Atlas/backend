@@ -9,11 +9,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         User = get_user_model()
-
         username = os.environ.get("SUPERUSER_USERNAME")
         email = os.environ.get("SUPERUSER_MAIL")
         password = os.environ.get("SUPERUSER_PASSWORD")
-
         if not all([username, email, password]):
             self.stdout.write(
                 self.style.WARNING(
@@ -21,7 +19,6 @@ class Command(BaseCommand):
                 )
             )
             return
-
         if User.objects.filter(username=username).exists():
             self.stdout.write(
                 self.style.SUCCESS(f"Superuser '{username}' already exists.")

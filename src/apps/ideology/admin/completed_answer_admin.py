@@ -9,7 +9,6 @@ from unfold.contrib.forms.widgets import WysiwygWidget
 class CompletedAnswerAdmin(ModelAdmin):
     show_full_result_count = False
     list_per_page = 20
-
     list_display = ["completed_by", "created", "id"]
     list_filter_submit = True
     list_filter = ["created"]
@@ -17,7 +16,6 @@ class CompletedAnswerAdmin(ModelAdmin):
     autocomplete_fields = ["completed_by"]
     list_select_related = ["completed_by"]
     readonly_fields = ["created", "modified"]
-
     formfield_overrides = {
         JSONField: {
             "widget": WysiwygWidget,

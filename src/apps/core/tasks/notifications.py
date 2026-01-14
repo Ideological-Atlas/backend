@@ -24,28 +24,22 @@ def send_email_notification(
             "language": language,
             "context": context or {},
         }
-
         logger.debug("Sending notification to %s with payload: %s", url, payload)
-
         response = requests.post(
             url=url,
             json=payload,
             headers={"Authorization": "Bearer " + settings.NOTIFICATIONS_API_KEY},
             timeout=5,
         )
-
         if not response.ok:
             logger.error(
                 "Notification Service Error [%s]: %s",
                 response.status_code,
                 response.text,
             )
-
         response.raise_for_status()
-
         logger.info("Notification sent successfully to %s", to_email)
         return response.json()
-
     except requests.exceptions.RequestException as exc:
         logger.error("Network/Connection error sending to %s: %s", to_email, exc)
         raise self.retry(exc=exc, countdown=2**self.request.retries)

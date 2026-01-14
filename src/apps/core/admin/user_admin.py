@@ -1,4 +1,5 @@
 from core.models import User
+from core.services import AuthService
 from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -9,7 +10,6 @@ from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationFo
 @admin.register(User)
 class CustomUserAdmin(UserAdmin, ModelAdmin):
     actions = ["send_verification_email"]
-
     fieldsets = (
         (
             _("Base info"),
@@ -60,7 +60,6 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
             },
         ),
     )
-
     list_display = [
         "id",
         "uuid",
@@ -106,7 +105,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     @admin.action(description=_("Send verification email"))
     def send_verification_email(self, request, queryset):
         for user in queryset:
-            user.trigger_email_verification()
+            AuthService.trigger_verification_email(user)
         self.message_user(
             request,
             _("Verification emails process started for selected users."),

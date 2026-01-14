@@ -1,11 +1,13 @@
 from .axis_answer_serializers import (
     AxisAnswerReadSerializer,
     AxisAnswerUpsertSerializer,
+    IdeologyAxisDefinitionSerializer,
 )
 from .completed_answer_serializers import CompletedAnswerSerializer
 from .conditioner_answer_serializers import (
     ConditionerAnswerReadSerializer,
     ConditionerAnswerUpsertSerializer,
+    IdeologyConditionerDefinitionSerializer,
 )
 from .ideology_abstraction_complexity_serializers import (
     IdeologyAbstractionComplexitySerializer,

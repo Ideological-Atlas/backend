@@ -6,11 +6,11 @@ from ideology.api.serializers import (
     ConditionerAnswerReadSerializer,
     ConditionerAnswerUpsertSerializer,
 )
-from ideology.models import ConditionerAnswer, IdeologyConditioner
-from rest_framework.generics import ListAPIView
+from ideology.models import UserConditionerAnswer
+from rest_framework import status
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-
-from .base_views import BaseUpsertAnswerView
+from rest_framework.response import Response
 
 
 @extend_schema(
@@ -19,8 +19,6 @@ from .base_views import BaseUpsertAnswerView
     description=_(
         "Creates or updates the user's answer for a specific conditioner defined by UUID in URL."
     ),
-    request=ConditionerAnswerUpsertSerializer,
-    responses={200: ConditionerAnswerReadSerializer},
     parameters=[
         OpenApiParameter(
             name="uuid",
@@ -30,17 +28,18 @@ from .base_views import BaseUpsertAnswerView
             type=str,
         )
     ],
+    responses={201: ConditionerAnswerReadSerializer},
 )
-class UpsertConditionerAnswerView(BaseUpsertAnswerView):
-    write_serializer_class = ConditionerAnswerUpsertSerializer
-    read_serializer_class = ConditionerAnswerReadSerializer
+class UpsertConditionerAnswerView(CreateAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+    serializer_class = ConditionerAnswerUpsertSerializer
 
-    target_model = ConditionerAnswer
-    reference_model = IdeologyConditioner
-
-    reference_field = "conditioner"
-    request_value_key = "answer"
-    target_value_key = "answer"
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.save()
+        read_serializer = ConditionerAnswerReadSerializer(instance)
+        return Response(read_serializer.data, status=status.HTTP_201_CREATED)
 
 
 @extend_schema(
@@ -65,12 +64,12 @@ class UserConditionerAnswerListByComplexityView(ListAPIView):
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
-            return ConditionerAnswer.objects.none()
+            return UserConditionerAnswer.objects.none()
 
         complexity_uuid = self.kwargs.get("complexity_uuid")
 
         return (
-            ConditionerAnswer.objects.filter(user=self.request.user)
+            UserConditionerAnswer.objects.filter(user=self.request.user)
             .filter(
                 Q(
                     conditioner__section_rules__section__abstraction_complexity__uuid=complexity_uuid

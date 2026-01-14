@@ -36,13 +36,12 @@ class UserSetPasswordViewTestCase(APITestBaseNeedAuthorized):
     url = reverse("core:set-password")
 
     def test_set_password_success(self):
-        new_pass = "NewStrongPass1!"  # nosec
+        new_pass = "NewStrongPass1!"
         response = self.client.put(self.url, data={"new_password": new_pass})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
         self.user.refresh_from_db()
         self.assertTrue(self.user.check_password(new_pass))
 
     def test_set_password_validation_error(self):
-        response = self.client.put(self.url, data={"new_password": "123"})  # nosec
+        response = self.client.put(self.url, data={"new_password": "123"})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

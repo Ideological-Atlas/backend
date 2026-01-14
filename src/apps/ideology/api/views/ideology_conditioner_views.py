@@ -29,7 +29,6 @@ class ConditionerListAggregatedByComplexityView(ListAPIView):
 
     def get_queryset(self):
         complexity_uuid = self.kwargs.get("complexity_uuid")
-
         return (
             IdeologyConditioner.objects.filter(
                 Q(section_rules__section__abstraction_complexity__uuid=complexity_uuid)

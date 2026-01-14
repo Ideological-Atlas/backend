@@ -1,6 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from ideology.models import Ideology, IdeologyAssociation, IdeologyReference
+from ideology.models import (
+    Ideology,
+    IdeologyAssociation,
+    IdeologyAxisDefinition,
+    IdeologyConditionerDefinition,
+    IdeologyReference,
+)
 from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
 from unfold.admin import ModelAdmin, TabularInline
 
@@ -22,13 +28,36 @@ class IdeologyReferenceInline(TabularInline, TranslationTabularInline):
     tab = True
 
 
+class IdeologyAxisDefinitionInline(TabularInline):
+    model = IdeologyAxisDefinition
+    extra = 0
+    autocomplete_fields = ["axis"]
+    verbose_name = _("Axis Definition")
+    verbose_name_plural = _("Axis Definitions")
+    tab = True
+
+
+class IdeologyConditionerDefinitionInline(TabularInline):
+    model = IdeologyConditionerDefinition
+    extra = 0
+    autocomplete_fields = ["conditioner"]
+    verbose_name = _("Conditioner Definition")
+    verbose_name_plural = _("Conditioner Definitions")
+    tab = True
+
+
 @admin.register(Ideology)
 class IdeologyAdmin(ModelAdmin, TabbedTranslationAdmin):
     list_display = ["name", "created", "modified", "get_association_count"]
     search_fields = ["name", "description_supporter"]
     list_filter_submit = True
     list_filter = ["created"]
-    inlines = [IdeologyAssociationInline, IdeologyReferenceInline]
+    inlines = [
+        IdeologyAssociationInline,
+        IdeologyReferenceInline,
+        IdeologyAxisDefinitionInline,
+        IdeologyConditionerDefinitionInline,
+    ]
     readonly_fields = ["created", "modified", "uuid"]
     fieldsets = (
         (

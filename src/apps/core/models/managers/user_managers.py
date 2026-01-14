@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 
 class CustomUserManager(BaseUserManager):
-
     def _generate_unique_username(self):
         while True:
             username = f"{uuid.uuid4().hex[:10]}"
@@ -22,7 +21,6 @@ class CustomUserManager(BaseUserManager):
 
     def get_or_create(self, defaults=None, **kwargs):
         defaults = defaults or {}
-
         if not kwargs.get("username") and not defaults.get("username"):
             defaults["username"] = self._generate_unique_username()
         return self.get_queryset().get_or_create(defaults=defaults, **kwargs)
@@ -30,15 +28,11 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, username=None, **extra_fields):
         if not email:
             raise ValueError(_("The Email must be set"))
-
         email = self.normalize_email(email)
-
         if not username:
             username = self._generate_unique_username()
-
         if extra_fields.get("auth_provider") != "google":
             extra_fields.setdefault("verification_uuid", uuid.uuid4())
-
         with transaction.atomic():
             user = self.model(email=email, username=username, **extra_fields)
             user.set_password(password)
@@ -51,7 +45,6 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
         extra_fields.setdefault("is_verified", True)
-
         if not extra_fields.get("is_staff"):
             raise ValueError(_("Superuser must have is_staff=True."))
         if not extra_fields.get("is_superuser"):
@@ -78,7 +71,6 @@ class CustomUserManager(BaseUserManager):
                 if not response.ok:
                     logger.warning("Google UserInfo failed: %s", response.text)
                     raise ValueError("Invalid Google Token.")
-
                 google_info = response.json()
                 user_data = {
                     "email": google_info.get("email"),
@@ -88,14 +80,11 @@ class CustomUserManager(BaseUserManager):
             except Exception as exc:
                 logger.error("Error verifying Access Token: %s", exc)
                 raise ValueError("Invalid Google Token.") from exc
-
         email = user_data.get("email")
         if not email:
             raise ValueError(_("Google token has no email."))
-
         first_name = user_data.get("given_name", "")
         last_name = user_data.get("family_name", "")
-
         with transaction.atomic():
             user, created = self.get_or_create(
                 email=email,
@@ -107,7 +96,6 @@ class CustomUserManager(BaseUserManager):
                     "verification_uuid": uuid.uuid4(),
                 },
             )
-
             if created:
                 from core.tasks import send_email_notification
 
@@ -123,5 +111,4 @@ class CustomUserManager(BaseUserManager):
                         },
                     )
                 )
-
             return user, created

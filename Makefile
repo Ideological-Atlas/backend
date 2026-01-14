@@ -112,6 +112,6 @@ fast-test: clean-coverage ## Run tests with failfast
 	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --keepdb --failfast
 	@$(MAKE) coverage-report
 
-test-recreate: ## Run tests recreating database
+test-recreate: install-dev-dependencies ## Run tests recreating database
 	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --noinput
 	@$(MAKE) coverage-report

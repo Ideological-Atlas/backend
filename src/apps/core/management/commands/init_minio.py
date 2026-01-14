@@ -14,11 +14,9 @@ class Command(BaseCommand):
         access_key = getattr(settings, "AWS_ACCESS_KEY_ID", None)
         secret_key = getattr(settings, "AWS_SECRET_ACCESS_KEY", None)
         bucket_name = getattr(settings, "AWS_STORAGE_BUCKET_NAME", "media")
-
         if not s3_url:
             self.stdout.write(self.style.WARNING("S3 Endpoint not configured."))
             return
-
         try:
             s3 = boto3.resource(
                 "s3",
@@ -28,13 +26,10 @@ class Command(BaseCommand):
                 config=Config(signature_version="s3v4"),
                 region_name=getattr(settings, "AWS_S3_REGION_NAME", "us-east-1"),
             )
-
             bucket = s3.Bucket(bucket_name)
-
             if not bucket.creation_date:
                 bucket.create()
                 self.stdout.write(self.style.SUCCESS(f"Bucket {bucket_name} created."))
-
             policy = {
                 "Version": "2012-10-17",
                 "Statement": [

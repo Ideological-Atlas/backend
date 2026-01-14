@@ -7,7 +7,6 @@ class ExceptionsTestCase(TestCase):
     def test_api_base_exception_structure(self):
         exc = api_exceptions.ApiBaseException(message="Error", extra="1")
         self.assertEqual(exc.detail["message"], "Error")
-
         native = ValueError("Native")
         self.assertEqual(
             api_exceptions.ApiBaseException(message=native).detail["message"], "Native"

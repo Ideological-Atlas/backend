@@ -1,6 +1,6 @@
-from .axis_answer_factory import AxisAnswerFactory
+from .axis_answer_factory import UserAxisAnswerFactory
 from .completed_answer_factory import CompletedAnswerFactory
-from .conditioner_answer_factory import ConditionerAnswerFactory
+from .conditioner_answer_factory import UserConditionerAnswerFactory
 from .ideology_abstraction_complexity_factory import (
     IdeologyAbstractionComplexityFactory,
 )
@@ -13,3 +13,7 @@ from .ideology_section_factory import IdeologySectionFactory
 from .ideology_tag_factory import IdeologyTagFactory
 from .religion_factory import ReligionFactory
 from .tag_factory import TagFactory
+from .ideology_axis_definition_factory import IdeologyAxisDefinitionFactory
+from .ideology_conditioner_definition_factory import (
+    IdeologyConditionerDefinitionFactory,
+)

@@ -64,6 +64,7 @@ repos:
     rev: 1.9.2
     hooks:
       - id: bandit
+        exclude: ^src/tests/|.*/factories/.*
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
     hooks:

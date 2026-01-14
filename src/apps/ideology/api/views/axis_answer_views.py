@@ -7,11 +7,11 @@ from ideology.api.serializers import (
     AxisAnswerReadSerializer,
     AxisAnswerUpsertSerializer,
 )
-from ideology.models import AxisAnswer, IdeologyAxis
-from rest_framework.generics import ListAPIView
+from ideology.models import UserAxisAnswer
+from rest_framework import status
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-
-from .base_views import BaseUpsertAnswerView
+from rest_framework.response import Response
 
 
 @extend_schema(
@@ -21,8 +21,6 @@ from .base_views import BaseUpsertAnswerView
         "Creates or updates the user's answer for a specific axis defined by UUID in URL. "
         "Allows marking answer as indifferent (null value)."
     ),
-    request=AxisAnswerUpsertSerializer,
-    responses={200: AxisAnswerReadSerializer},
     parameters=[
         OpenApiParameter(
             name="uuid",
@@ -32,13 +30,18 @@ from .base_views import BaseUpsertAnswerView
             type=str,
         )
     ],
+    responses={201: AxisAnswerReadSerializer},
 )
-class UpsertAxisAnswerView(BaseUpsertAnswerView):
-    write_serializer_class = AxisAnswerUpsertSerializer
-    read_serializer_class = AxisAnswerReadSerializer
-    target_model = AxisAnswer
-    reference_model = IdeologyAxis
-    reference_field = "axis"
+class UpsertAxisAnswerView(CreateAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+    serializer_class = AxisAnswerUpsertSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.save()
+        read_serializer = AxisAnswerReadSerializer(instance)
+        return Response(read_serializer.data, status=status.HTTP_201_CREATED)
 
 
 @extend_schema(
@@ -64,7 +67,7 @@ class DeleteAxisAnswerView(UUIDDestroyAPIView):
     def get_object(self):
         axis_uuid = self.kwargs.get(self.lookup_field)
         return get_object_or_404(
-            AxisAnswer, user=self.request.user, axis__uuid=axis_uuid
+            UserAxisAnswer, user=self.request.user, axis__uuid=axis_uuid
         )
 
 
@@ -90,9 +93,9 @@ class UserAxisAnswerListBySectionView(ListAPIView):
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
-            return AxisAnswer.objects.none()
+            return UserAxisAnswer.objects.none()
 
         section_uuid = self.kwargs.get("section_uuid")
-        return AxisAnswer.objects.filter(
+        return UserAxisAnswer.objects.filter(
             user=self.request.user, axis__section__uuid=section_uuid
         ).select_related("axis")

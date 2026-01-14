@@ -18,13 +18,11 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
 
     email = models.EmailField(_("email address"), unique=True)
     preferred_language = models.CharField(max_length=10, default="es")
-
     is_verified = models.BooleanField(
         default=False,
         verbose_name=_("Is verified"),
         help_text=_("Field that shows if the user is verified or not."),
     )
-
     verification_uuid = models.UUIDField(
         null=True,
         blank=True,
@@ -33,7 +31,6 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         verbose_name=_("Verification UUID"),
         help_text=_("Secret token used for email verification."),
     )
-
     auth_provider = models.CharField(
         max_length=20,
         choices=AuthProvider.choices,
@@ -41,7 +38,6 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         verbose_name=_("Auth Provider"),
         help_text=_("The provider used for the user authentication/registration."),
     )
-
     objects = CustomUserManager()
 
     class Meta:
@@ -55,31 +51,8 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         if self.is_verified:
             logger.warning("User '%s' is already verified", self)
             raise UserAlreadyVerifiedException(self)
-
         logger.info("User '%s' was verified", self)
-
         with transaction.atomic():
             self.is_verified = True
             self.verification_uuid = None
             self.save()
-
-    def trigger_email_verification(self, language: str | None = None):
-        from core.tasks import send_email_notification
-
-        if self.is_verified:
-            logger.warning(
-                "Attempted to trigger email verification for already verified user '%s'",
-                self,
-            )
-            return
-
-        target_language = language or self.preferred_language
-
-        logger.debug("Triggering email verification for '%s'", self)
-        send_email_notification.delay(
-            to_email=self.email,
-            template_name="register",
-            language=target_language,
-            context={"verification_token": self.verification_uuid.hex},
-        )
-        logger.debug("Email verification was sent to '%s'", self)

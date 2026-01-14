@@ -1,3 +1,4 @@
+from typing import Any
 from unittest.mock import Mock, patch
 
 from core.exceptions.api_exceptions import NotFoundException
@@ -12,7 +13,8 @@ class MockSerializer(serializers.Serializer):
 
 class BaseViewCoverageTestCase(TestCase):
     def setUp(self):
-        self.view = BaseUpsertAnswerView()
+        # Tipamos como Any para permitir la inyeccion de Mocks en atributos que son None en la clase
+        self.view: Any = BaseUpsertAnswerView()
         self.view.request = Mock()
         self.view.request.method = "POST"
         self.view.write_serializer_class = MockSerializer
@@ -22,10 +24,8 @@ class BaseViewCoverageTestCase(TestCase):
     def test_get_serializer_class_logic(self):
         self.view.created_object = Mock()
         self.assertEqual(self.view.get_serializer_class(), MockSerializer)
-
         self.view.created_object = None
         self.assertEqual(self.view.get_serializer_class(), MockSerializer)
-
         self.view.write_serializer_class = None
         self.view.serializer_class = MockSerializer
         self.assertEqual(self.view.get_serializer_class(), MockSerializer)
@@ -36,17 +36,14 @@ class BaseViewCoverageTestCase(TestCase):
         mock_serializer.is_valid.return_value = True
         mock_serializer.validated_data = {"val": "data"}
         mock_get_serializer.return_value = mock_serializer
-
         self.view.reference_model = Mock()
         self.view.reference_model.objects.filter.return_value.first.return_value = None
         self.view.reference_model.__name__ = "RefModel"
-
         self.view.target_model = Mock()
         self.view.request_uuid_key = "uuid"
         self.view.request_value_key = "val"
         self.view.lookup_url_kwarg = "uuid"
         self.view.kwargs = {"uuid": "123"}
-
         with self.assertRaises(NotFoundException):
             self.view.create(self.view.request)
 
@@ -61,26 +58,22 @@ class BaseViewCoverageTestCase(TestCase):
         mock_serializer_instance.validated_data = {"value": "test_val"}
         mock_serializer_instance.data = {"value": "test_val"}
         mock_get_serializer.return_value = mock_serializer_instance
-
         mock_ref_obj = Mock()
         self.view.reference_model = Mock()
         self.view.reference_model.objects.filter.return_value.first.return_value = (
             mock_ref_obj
         )
-
         self.view.target_model = Mock()
         mock_created_obj = Mock()
         self.view.target_model.objects.update_or_create.return_value = (
             mock_created_obj,
             True,
         )
-
         self.view.reference_field = "ref"
         self.view.request_value_key = "value"
         self.view.target_value_key = "value"
         self.view.lookup_url_kwarg = "uuid"
         self.view.kwargs = {"uuid": "123"}
         self.view.request.user = Mock()
-
         response = self.view.create(self.view.request)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
