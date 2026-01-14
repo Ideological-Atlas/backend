@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from ideology.api.serializers import CompletedAnswerSerializer
 from ideology.models import CompletedAnswer
+from ideology.services import AnswerService
 from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -45,6 +46,6 @@ class GenerateCompletedAnswerView(APIView):
     permission_classes = [IsAuthenticated, IsVerified]
 
     def post(self, request):
-        completed_answer = request.user.generate_completed_answer()
+        completed_answer = AnswerService.generate_snapshot(user=request.user)
         serializer = CompletedAnswerSerializer(completed_answer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
