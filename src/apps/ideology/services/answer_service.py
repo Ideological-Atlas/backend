@@ -8,6 +8,7 @@ from ideology.models import (
     CompletedAnswer,
     IdeologyAbstractionComplexity,
     IdeologyAxisConditioner,
+    IdeologyConditionerConditioner,
     IdeologySectionConditioner,
     UserAxisAnswer,
     UserConditionerAnswer,
@@ -117,6 +118,25 @@ class AnswerService:
         )
         for conditioner_id, complexity_id in axis_rules:
             conditioner_to_complexity_map[conditioner_id].add(complexity_id)
+
+        recursive_rules = IdeologyConditionerConditioner.objects.values_list(
+            "target_conditioner_id", "source_conditioner_id"
+        )
+
+        changed = True
+        while changed:
+            changed = False
+            for target_id, source_id in recursive_rules:
+                if source_id in conditioner_to_complexity_map:
+                    current_complexities = conditioner_to_complexity_map[target_id]
+                    source_complexities = conditioner_to_complexity_map[source_id]
+
+                    new_complexities = source_complexities - current_complexities
+                    if new_complexities:
+                        conditioner_to_complexity_map[target_id].update(
+                            new_complexities
+                        )
+                        changed = True
 
         return conditioner_to_complexity_map
 

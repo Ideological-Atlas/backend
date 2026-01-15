@@ -40,6 +40,15 @@ class IdeologyConditioner(TimeStampedUUIDModel):
             "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']."
         ),
     )
+    conditioners = models.ManyToManyField(
+        "self",
+        through="ideology.IdeologyConditionerConditioner",
+        symmetrical=False,
+        related_name="conditioned_by",
+        blank=True,
+        verbose_name=_("Conditioners"),
+        help_text=_("Conditioners that determine the visibility of this conditioner."),
+    )
 
     class Meta:
         verbose_name = _("Ideology Conditioner")

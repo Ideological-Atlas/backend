@@ -6,6 +6,7 @@ from .models import (
     IdeologyAxis,
     IdeologyAxisConditioner,
     IdeologyConditioner,
+    IdeologyConditionerConditioner,
     IdeologyReference,
     IdeologySection,
     IdeologySectionConditioner,
@@ -61,4 +62,9 @@ class IdeologySectionConditionerTranslationOptions(TranslationOptions):
 
 @register(IdeologyAxisConditioner)
 class IdeologyAxisConditionerTranslationOptions(TranslationOptions):
+    fields = ("name", "description", "condition_values")
+
+
+@register(IdeologyConditionerConditioner)
+class IdeologyConditionerConditionerTranslationOptions(TranslationOptions):
     fields = ("name", "description", "condition_values")

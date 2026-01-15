@@ -1,11 +1,11 @@
 import random
 
 import factory
-from core.factories import TimeStampedUUIDModelFactory
+from core.factories import TimeStampedUUIDModelFactory, add_related_conditioners
 from ideology.factories.ideology_abstraction_complexity_factory import (
     IdeologyAbstractionComplexityFactory,
 )
-from ideology.models import IdeologySection
+from ideology.models import IdeologySection, IdeologySectionConditioner
 
 
 class IdeologySectionFactory(TimeStampedUUIDModelFactory):
@@ -31,3 +31,15 @@ class IdeologySectionFactory(TimeStampedUUIDModelFactory):
             count = random.randint(min_count, max_count)
         for _ in range(count):
             IdeologyAxisFactory(section=self)
+
+    @factory.post_generation
+    def add_conditioners(self, create, extracted, **kwargs):
+        add_related_conditioners(
+            obj=self,
+            create=create,
+            extracted=extracted,
+            through_model=IdeologySectionConditioner,
+            parent_field="section",
+            name_prefix="SectionRule",
+            **kwargs,
+        )
