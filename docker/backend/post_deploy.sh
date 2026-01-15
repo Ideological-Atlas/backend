@@ -17,16 +17,22 @@ python3 manage.py migrate --no-input
 # Load fixtures
 python3 manage.py loaddata initial_ideology_data
 
+# Populate Test Data (Only in Non-Prod)
+if [ "$ENVIRONMENT" != "prod" ] && [ "$ENVIRONMENT" != "production" ]; then
+    uv sync --extra dev
+    python3 manage.py populate_test_data
+fi
+
 # Custom commands
 python3 manage.py init_minio
 
-# Collect static files to serve them with nginx
+# Collect static files
 python3 manage.py collectstatic --no-input
 
-# Create the superuser safely
+# Create the superuser
 python3 manage.py ensure_admin
 
-# Start the gunicorn server
+# Start the server
 exec gunicorn backend.asgi:application \
     --workers "${DJANGO_THREADS}" \
     --worker-class uvicorn.workers.UvicornWorker \
