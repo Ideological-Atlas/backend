@@ -74,14 +74,15 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         )
 
         self.url = reverse(
-            "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
+            "ideology:upsert-conditioner-answer",
+            kwargs={"uuid": self.conditioner.uuid.hex},
         )
 
         super().setUp()
 
         self.list_url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
-            kwargs={"complexity_uuid": self.complexity.uuid},
+            kwargs={"complexity_uuid": self.complexity.uuid.hex},
         )
 
     def test_upsert_flow(self):
@@ -104,5 +105,6 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
         self.assertEqual(
-            response.data["results"][0]["conditioner_uuid"], str(self.conditioner.uuid)
+            response.data["results"][0]["conditioner_uuid"],
+            str(self.conditioner.uuid.hex),
         )

@@ -4,8 +4,8 @@ from rest_framework import serializers
 
 
 class IdeologyConditionerConditionerSerializer(UUIDModelSerializerMixin):
-    source_conditioner_uuid = serializers.CharField(
-        source="source_conditioner.uuid", read_only=True
+    source_conditioner_uuid = serializers.UUIDField(
+        source="source_conditioner.uuid", format="hex", read_only=True
     )
 
     class Meta:

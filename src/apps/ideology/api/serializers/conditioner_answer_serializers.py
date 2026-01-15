@@ -20,7 +20,9 @@ class ConditionerAnswerUpsertSerializer(serializers.Serializer):
 
 
 class ConditionerAnswerReadSerializer(UUIDModelSerializerMixin):
-    conditioner_uuid = serializers.CharField(source="conditioner.uuid", read_only=True)
+    conditioner_uuid = serializers.UUIDField(
+        source="conditioner.uuid", format="hex", read_only=True
+    )
 
     class Meta:
         model = UserConditionerAnswer
@@ -32,7 +34,9 @@ class ConditionerAnswerReadSerializer(UUIDModelSerializerMixin):
 
 
 class IdeologyConditionerDefinitionSerializer(UUIDModelSerializerMixin):
-    conditioner_uuid = serializers.CharField(source="conditioner.uuid", read_only=True)
+    conditioner_uuid = serializers.UUIDField(
+        source="conditioner.uuid", format="hex", read_only=True
+    )
 
     class Meta:
         model = IdeologyConditionerDefinition
