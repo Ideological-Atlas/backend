@@ -18,16 +18,27 @@ class AuthServiceTestCase(TestCase):
         mock_user = MagicMock(spec=User)
         mock_create.return_value = mock_user
 
-        data = {"email": "new@test.com", "password": "pass", "first_name": "Jean"}
+        data = {
+            "email": "new@test.com",
+            "password": "pass",
+            "first_name": "Jean",
+            "username": "jean_user",
+        }
 
         result = AuthService.register_user(data)
 
         self.assertEqual(result, mock_user)
         mock_create.assert_called_once()
         call_kwargs = mock_create.call_args[1]
+
+        self.assertEqual(call_kwargs["username"], "jean_user")
         self.assertEqual(call_kwargs["email"], "new@test.com")
+        self.assertEqual(call_kwargs["password"], "pass")
         self.assertEqual(call_kwargs["preferred_language"], "fr")
         self.assertEqual(call_kwargs["auth_provider"], User.AuthProvider.INTERNAL)
+
+        self.assertEqual(call_kwargs["first_name"], "Jean")
+
         mock_trigger.assert_called_once_with(mock_user)
 
     @patch("core.tasks.send_email_notification.delay")

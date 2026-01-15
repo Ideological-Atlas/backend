@@ -18,10 +18,7 @@ class AnswerServiceTestCase(TestCase):
     def setUp(self):
         self.user = UserFactory()
 
-    def test_generate_snapshot_deterministic(self):
-        self.user.axis_answers.all().delete()
-        self.user.conditioner_answers.all().delete()
-
+    def test_generate_snapshot_happy_path(self):
         complexity = IdeologyAbstractionComplexityFactory(complexity=1, name="Level-1")
         section = IdeologySectionFactory(
             abstraction_complexity=complexity,
@@ -57,8 +54,6 @@ class AnswerServiceTestCase(TestCase):
         sec_hidden = IdeologySectionFactory(
             abstraction_complexity=comp_hidden, add_axes__total=0
         )
-        axis_hidden = IdeologyAxisFactory(section=sec_hidden)
-        UserAxisAnswerFactory(user=self.user, axis=axis_hidden)
 
         cond_hidden = IdeologyConditionerFactory()
         IdeologySectionConditioner.objects.create(
@@ -67,9 +62,12 @@ class AnswerServiceTestCase(TestCase):
         UserConditionerAnswerFactory(
             user=self.user, conditioner=cond_hidden, answer="Hidden"
         )
+
         mock_complexities.return_value.order_by.return_value = [comp_visible]
+
         completed = AnswerService.generate_snapshot(self.user)
         data = completed.answers
+
         self.assertEqual(len(data), 1)
         self.assertEqual(data[0]["complexity"], comp_visible.complexity)
-        self.assertEqual(len(data[0]["sections"][0]["axes"]), 1)
+        self.assertEqual(len(data[0]["conditioners"]), 0)

@@ -1,9 +1,12 @@
+from unittest.mock import patch
+
 from core.api.exception_handler import custom_exception_handler
 from core.exceptions.api_exceptions import BadRequestException
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.test import TestCase
-from rest_framework.exceptions import Throttled
+from rest_framework.exceptions import APIException
 from rest_framework.exceptions import ValidationError as DRFValidationError
+from rest_framework.response import Response
 
 
 class ExceptionHandlerTestCase(TestCase):
@@ -32,13 +35,20 @@ class ExceptionHandlerTestCase(TestCase):
         self.assertIn("message", response.data)
         self.assertEqual(response.data["message"], ["Standard DRF error"])
 
-    def test_handle_drf_throttled_formatting(self):
-        exc = Throttled(wait=60)
+    @patch("core.api.exception_handler.drf_exception_handler")
+    def test_handle_generic_drf_exception_with_detail_field(self, mock_drf_handler):
+        mock_drf_handler.return_value = Response(
+            {"detail": "Generic Error"}, status=418
+        )
+
+        exc = APIException("Some generic error")
         context: dict = {}
         response = custom_exception_handler(exc, context)
+
         self.assertIsNotNone(response)
         self.assertIn("message", response.data)
-        self.assertIn("throttled", str(response.data["message"]).lower())
+        self.assertEqual(response.data["message"], "Generic Error")
+        self.assertNotIn("detail", response.data)
 
     def test_unhandled_exception_returns_none(self):
         exc = ZeroDivisionError("Crash")
