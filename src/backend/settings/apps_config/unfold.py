@@ -21,8 +21,8 @@ LINKS = {
     "conditioner": reverse_lazy("admin:ideology_ideologyconditioner_changelist"),
     "axis": reverse_lazy("admin:ideology_ideologyaxis_changelist"),
     "completed": reverse_lazy("admin:ideology_completedanswer_changelist"),
-    "axis_ans": reverse_lazy("admin:ideology_axisanswer_changelist"),
-    "cond_ans": reverse_lazy("admin:ideology_conditioneranswer_changelist"),
+    "axis_ans": reverse_lazy("admin:ideology_useraxisanswer_changelist"),
+    "cond_ans": reverse_lazy("admin:ideology_userconditioneranswer_changelist"),
 }
 
 SIDEBAR_NAVIGATION = [
