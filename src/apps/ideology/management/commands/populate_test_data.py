@@ -26,167 +26,239 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS("✅ Test Level populated successfully!"))
 
-    @staticmethod
-    def _set_trans(obj, **kwargs):
+    def _set_translations(self, ideology_object, **kwargs):
         with translation.override("es"):
-            for f, v in kwargs.items():
-                setattr(obj, f, f"[TEST-ES] {v}")
+            for field_name, field_value in kwargs.items():
+                setattr(ideology_object, field_name, f"[TEST-ES] {field_value}")
         with translation.override("en"):
-            for f, v in kwargs.items():
-                setattr(obj, f, f"[TEST-EN] {v}")
-        obj.save()
+            for field_name, field_value in kwargs.items():
+                setattr(ideology_object, field_name, f"[TEST-EN] {field_value}")
+        ideology_object.save()
 
-    @staticmethod
-    def _link_condition(parent, conditioner, model_class, parent_field):
-        # Pick the first valid value to trigger the condition
-        trigger_value = conditioner.accepted_values[0]
+    def _link_condition(
+        self,
+        parent_object,
+        ideology_conditioner,
+        through_model_class,
+        parent_field_name,
+    ):
+        trigger_value = ideology_conditioner.accepted_values[0]
 
-        kwargs = {
-            parent_field: parent,
-            "conditioner": conditioner,
-            "name": f"Rule_{parent.name}_{conditioner.name}",
+        creation_arguments = {
+            parent_field_name: parent_object,
+            "conditioner": ideology_conditioner,
+            "name": f"Rule_{parent_object.name}_{ideology_conditioner.name}",
             "condition_values": [trigger_value],
         }
-        model_class.objects.create(**kwargs)
+        through_model_class.objects.create(**creation_arguments)
 
     def _create_test_level(self):
-        # 0. Create Complexity
-        comp = IdeologyAbstractionComplexityFactory(complexity=99)
-        self._set_trans(comp, name="Test Level", description="Level for validation.")
+        ideology_abstraction_complexity = IdeologyAbstractionComplexityFactory(
+            complexity=99
+        )
+        self._set_translations(
+            ideology_abstraction_complexity,
+            name="Test Level",
+            description="Level for validation.",
+        )
 
-        # =========================================================================
-        # SECTION 1: No conditional, 10 questions
-        # =========================================================================
-        sec_1 = IdeologySectionFactory(abstraction_complexity=comp, add_axes__total=0)
-        self._set_trans(
-            sec_1, name="Section 1 (Basic)", description="No conditions here."
+        ideology_section_basic = IdeologySectionFactory(
+            abstraction_complexity=ideology_abstraction_complexity, add_axes__total=0
+        )
+        self._set_translations(
+            ideology_section_basic,
+            name="Section 1 (Basic)",
+            description="No conditions here.",
         )
 
         for i in range(10):
-            axis = IdeologyAxisFactory(section=sec_1)
-            self._set_trans(axis, name=f"S1 Question {i+1}")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_basic)
+            self._set_translations(ideology_axis, name=f"S1 Question {i + 1}")
 
-        # =========================================================================
-        # SECTION 2: Conditional (Selector)
-        # - 5 unconditional questions
-        # - 5 conditional questions (depend on a 2nd conditioner)
-        # =========================================================================
-
-        # Conditioner A (Selector/Categorical)
-        cond_a = IdeologyConditionerFactory(
+        ideology_conditioner_selector = IdeologyConditionerFactory(
             type=IdeologyConditioner.ConditionerType.CATEGORICAL,
             accepted_values=["Option A", "Option B", "Option C"],
         )
-        self._set_trans(
-            cond_a, name="Conditioner A (Selector)", description="Controls Section 2"
+        self._set_translations(
+            ideology_conditioner_selector,
+            name="Conditioner A (Selector)",
+            description="Controls Section 2",
         )
 
-        sec_2 = IdeologySectionFactory(abstraction_complexity=comp, add_axes__total=0)
-        self._set_trans(
-            sec_2,
+        ideology_section_conditional = IdeologySectionFactory(
+            abstraction_complexity=ideology_abstraction_complexity, add_axes__total=0
+        )
+        self._set_translations(
+            ideology_section_conditional,
             name="Section 2 (Cond A)",
             description="Visible if Cond A is Option A.",
         )
-        self._link_condition(sec_2, cond_a, IdeologySectionConditioner, "section")
+        self._link_condition(
+            ideology_section_conditional,
+            ideology_conditioner_selector,
+            IdeologySectionConditioner,
+            "section",
+        )
 
-        # 5 Unconditional Axes
         for i in range(5):
-            axis = IdeologyAxisFactory(section=sec_2)
-            self._set_trans(axis, name=f"S2 Basic Question {i+1}")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_conditional)
+            self._set_translations(ideology_axis, name=f"S2 Basic Question {i + 1}")
 
-        # Conditioner B
-        cond_b = IdeologyConditionerFactory(
+        ideology_conditioner_boolean = IdeologyConditionerFactory(
             type=IdeologyConditioner.ConditionerType.BOOLEAN
         )
-        self._set_trans(
-            cond_b, name="Conditioner B", description="Controls last 5 qs of Sec 2"
+        self._set_translations(
+            ideology_conditioner_boolean,
+            name="Conditioner B",
+            description="Controls last 5 qs of Sec 2",
         )
 
-        # 5 Conditional Axes
         for i in range(5):
-            axis = IdeologyAxisFactory(section=sec_2)
-            self._set_trans(axis, name=f"S2 Cond Question {i+1}")
-            self._link_condition(axis, cond_b, IdeologyAxisConditioner, "axis")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_conditional)
+            self._set_translations(ideology_axis, name=f"S2 Cond Question {i + 1}")
+            self._link_condition(
+                ideology_axis,
+                ideology_conditioner_boolean,
+                IdeologyAxisConditioner,
+                "axis",
+            )
 
-        # =========================================================================
-        # SECTION 3: Conditional (2 Conditions: C and D)
-        # - C is normal.
-        # - D is conditional on E.
-        # Structure:
-        #   - 3 Unconditional
-        #   - 3 Conditional on 2 conditions (F and G)
-        #   - 4 Conditional on 2 conditions (H and I), where I depends on J.
-        # =========================================================================
-
-        # Prep Conditions for Section 3
-        cond_c = IdeologyConditionerFactory(
+        ideology_conditioner_c = IdeologyConditionerFactory(
             type=IdeologyConditioner.ConditionerType.BOOLEAN
         )
-        self._set_trans(
-            cond_c, name="Conditioner C", description="Part 1 of Sec 3 lock."
+        self._set_translations(
+            ideology_conditioner_c,
+            name="Conditioner C",
+            description="Part 1 of Sec 3 lock.",
         )
 
-        cond_e = IdeologyConditionerFactory(
+        ideology_conditioner_e = IdeologyConditionerFactory(
             type=IdeologyConditioner.ConditionerType.BOOLEAN
         )
-        self._set_trans(cond_e, name="Conditioner E (Root)", description="Controls D.")
+        self._set_translations(
+            ideology_conditioner_e,
+            name="Conditioner E (Root)",
+            description="Controls D.",
+        )
 
-        cond_d = IdeologyConditionerFactory(
+        ideology_conditioner_d = IdeologyConditionerFactory(
             type=IdeologyConditioner.ConditionerType.BOOLEAN
         )
-        self._set_trans(
-            cond_d, name="Conditioner D (Nested)", description="Part 2 of Sec 3 lock."
+        self._set_translations(
+            ideology_conditioner_d,
+            name="Conditioner D (Nested)",
+            description="Part 2 of Sec 3 lock.",
         )
 
-        # Link D -> depends on E
         IdeologyConditionerConditioner.objects.create(
-            target_conditioner=cond_d,
-            source_conditioner=cond_e,
+            target_conditioner=ideology_conditioner_d,
+            source_conditioner=ideology_conditioner_e,
             name="Rule_D_needs_E",
-            condition_values=[cond_e.accepted_values[0]],
+            condition_values=[ideology_conditioner_e.accepted_values[0]],
         )
 
-        # Create Section 3
-        sec_3 = IdeologySectionFactory(abstraction_complexity=comp, add_axes__total=0)
-        self._set_trans(
-            sec_3, name="Section 3 (Complex)", description="Requires C and D(->E)."
+        ideology_section_complex = IdeologySectionFactory(
+            abstraction_complexity=ideology_abstraction_complexity, add_axes__total=0
+        )
+        self._set_translations(
+            ideology_section_complex,
+            name="Section 3 (Complex)",
+            description="Requires C and D(->E).",
         )
 
-        # Link Section 3 to C AND D
-        self._link_condition(sec_3, cond_c, IdeologySectionConditioner, "section")
-        self._link_condition(sec_3, cond_d, IdeologySectionConditioner, "section")
+        self._link_condition(
+            ideology_section_complex,
+            ideology_conditioner_c,
+            IdeologySectionConditioner,
+            "section",
+        )
+        self._link_condition(
+            ideology_section_complex,
+            ideology_conditioner_d,
+            IdeologySectionConditioner,
+            "section",
+        )
 
-        # --- S3 Group 1: 3 Unconditional Axes ---
         for i in range(3):
-            axis = IdeologyAxisFactory(section=sec_3)
-            self._set_trans(axis, name=f"S3 Basic Question {i+1}")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_complex)
+            self._set_translations(ideology_axis, name=f"S3 Basic Question {i + 1}")
 
-        # --- S3 Group 2: 3 Axes Conditional on F AND G ---
-        cond_f = IdeologyConditionerFactory(name="Conditioner F")
-        cond_g = IdeologyConditionerFactory(name="Conditioner G")
+        ideology_conditioner_f = IdeologyConditionerFactory(name="Conditioner F")
+        self._set_translations(
+            ideology_conditioner_f,
+            name="Conditioner F",
+            description="Multi condition part 1",
+        )
+
+        ideology_conditioner_g = IdeologyConditionerFactory(name="Conditioner G")
+        self._set_translations(
+            ideology_conditioner_g,
+            name="Conditioner G",
+            description="Multi condition part 2",
+        )
 
         for i in range(3):
-            axis = IdeologyAxisFactory(section=sec_3)
-            self._set_trans(axis, name=f"S3 Multi-Cond Question {i+1}")
-            self._link_condition(axis, cond_f, IdeologyAxisConditioner, "axis")
-            self._link_condition(axis, cond_g, IdeologyAxisConditioner, "axis")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_complex)
+            self._set_translations(
+                ideology_axis, name=f"S3 Multi-Cond Question {i + 1}"
+            )
+            self._link_condition(
+                ideology_axis,
+                ideology_conditioner_f,
+                IdeologyAxisConditioner,
+                "axis",
+            )
+            self._link_condition(
+                ideology_axis,
+                ideology_conditioner_g,
+                IdeologyAxisConditioner,
+                "axis",
+            )
 
-        # --- S3 Group 3: 4 Axes Conditional on H AND I (I->J) ---
-        cond_h = IdeologyConditionerFactory(name="Conditioner H")
+        ideology_conditioner_h = IdeologyConditionerFactory(name="Conditioner H")
+        self._set_translations(
+            ideology_conditioner_h,
+            name="Conditioner H",
+            description="Multi recursive part 1",
+        )
 
-        cond_j = IdeologyConditionerFactory(name="Conditioner J (Root)")
-        cond_i = IdeologyConditionerFactory(name="Conditioner I (Nested)")
+        ideology_conditioner_j = IdeologyConditionerFactory(name="Conditioner J (Root)")
+        self._set_translations(
+            ideology_conditioner_j,
+            name="Conditioner J (Root)",
+            description="Multi recursive root",
+        )
 
-        # Link I -> depends on J
+        ideology_conditioner_i = IdeologyConditionerFactory(
+            name="Conditioner I (Nested)"
+        )
+        self._set_translations(
+            ideology_conditioner_i,
+            name="Conditioner I (Nested)",
+            description="Multi recursive nested",
+        )
+
         IdeologyConditionerConditioner.objects.create(
-            target_conditioner=cond_i,
-            source_conditioner=cond_j,
+            target_conditioner=ideology_conditioner_i,
+            source_conditioner=ideology_conditioner_j,
             name="Rule_I_needs_J",
-            condition_values=[cond_j.accepted_values[0]],
+            condition_values=[ideology_conditioner_j.accepted_values[0]],
         )
 
         for i in range(4):
-            axis = IdeologyAxisFactory(section=sec_3)
-            self._set_trans(axis, name=f"S3 Recursive-Multi Question {i+1}")
-            self._link_condition(axis, cond_h, IdeologyAxisConditioner, "axis")
-            self._link_condition(axis, cond_i, IdeologyAxisConditioner, "axis")
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_complex)
+            self._set_translations(
+                ideology_axis, name=f"S3 Recursive-Multi Question {i + 1}"
+            )
+            self._link_condition(
+                ideology_axis,
+                ideology_conditioner_h,
+                IdeologyAxisConditioner,
+                "axis",
+            )
+            self._link_condition(
+                ideology_axis,
+                ideology_conditioner_i,
+                IdeologyAxisConditioner,
+                "axis",
+            )
