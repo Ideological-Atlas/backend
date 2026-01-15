@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from ideology.models import IdeologyConditioner, IdeologyConditionerConditioner
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
-from unfold.admin import ModelAdmin, TabularInline
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
+from unfold.admin import ModelAdmin, StackedInline
 
 
-class IdeologyConditionerConditionerInline(TabularInline, TranslationTabularInline):
+class IdeologyConditionerConditionerInline(StackedInline, TranslationStackedInline):
     model = IdeologyConditionerConditioner
     extra = 0
     fk_name = "target_conditioner"
@@ -17,13 +17,14 @@ class IdeologyConditionerConditionerInline(TabularInline, TranslationTabularInli
 
 @admin.register(IdeologyConditioner)
 class IdeologyConditionerAdmin(ModelAdmin, TabbedTranslationAdmin):
-    list_display = ["name", "type", "get_condition_count"]
+    list_display = ["name", "uuid", "type", "get_condition_count"]
     list_filter_submit = True
     list_filter = ["type"]
-    search_fields = ["name"]
+    search_fields = ["name", "uuid"]
+    readonly_fields = ["created", "modified", "uuid"]
     inlines = [IdeologyConditionerConditionerInline]
     fieldsets = (
-        (None, {"fields": ("name", "description", "type")}),
+        (None, {"fields": ("name", "description", "type", "uuid")}),
         (
             _("Configuration"),
             {

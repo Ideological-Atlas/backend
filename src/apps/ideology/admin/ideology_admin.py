@@ -7,11 +7,11 @@ from ideology.models import (
     IdeologyConditionerDefinition,
     IdeologyReference,
 )
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
-from unfold.admin import ModelAdmin, TabularInline
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
+from unfold.admin import ModelAdmin, StackedInline
 
 
-class IdeologyAssociationInline(TabularInline):
+class IdeologyAssociationInline(StackedInline):
     model = IdeologyAssociation
     extra = 0
     autocomplete_fields = ["country", "region", "religion"]
@@ -20,7 +20,7 @@ class IdeologyAssociationInline(TabularInline):
     tab = True
 
 
-class IdeologyReferenceInline(TabularInline, TranslationTabularInline):
+class IdeologyReferenceInline(StackedInline, TranslationStackedInline):
     model = IdeologyReference
     extra = 0
     verbose_name = _("Reference")
@@ -28,7 +28,7 @@ class IdeologyReferenceInline(TabularInline, TranslationTabularInline):
     tab = True
 
 
-class IdeologyAxisDefinitionInline(TabularInline):
+class IdeologyAxisDefinitionInline(StackedInline):
     model = IdeologyAxisDefinition
     extra = 0
     autocomplete_fields = ["axis"]
@@ -37,7 +37,7 @@ class IdeologyAxisDefinitionInline(TabularInline):
     tab = True
 
 
-class IdeologyConditionerDefinitionInline(TabularInline):
+class IdeologyConditionerDefinitionInline(StackedInline):
     model = IdeologyConditionerDefinition
     extra = 0
     autocomplete_fields = ["conditioner"]
@@ -48,8 +48,8 @@ class IdeologyConditionerDefinitionInline(TabularInline):
 
 @admin.register(Ideology)
 class IdeologyAdmin(ModelAdmin, TabbedTranslationAdmin):
-    list_display = ["name", "created", "modified", "get_association_count"]
-    search_fields = ["name", "description_supporter"]
+    list_display = ["name", "uuid", "created", "modified", "get_association_count"]
+    search_fields = ["name", "description_supporter", "uuid"]
     list_filter_submit = True
     list_filter = ["created"]
     inlines = [

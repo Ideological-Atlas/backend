@@ -6,6 +6,6 @@ from unfold.admin import ModelAdmin
 
 @admin.register(Religion)
 class ReligionAdmin(ModelAdmin, TabbedTranslationAdmin):
-    list_display = ["name", "created"]
-    search_fields = ["name"]
-    readonly_fields = ["created", "modified"]
+    list_display = ["name", "uuid", "created"]
+    search_fields = ["name", "uuid"]
+    readonly_fields = ["created", "modified", "uuid"]

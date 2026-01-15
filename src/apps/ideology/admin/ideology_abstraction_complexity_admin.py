@@ -6,6 +6,7 @@ from unfold.admin import ModelAdmin
 
 @admin.register(IdeologyAbstractionComplexity)
 class IdeologyAbstractionComplexityAdmin(ModelAdmin, TabbedTranslationAdmin):
-    list_display = ["complexity", "name", "description"]
+    list_display = ["complexity", "name", "uuid", "description"]
     ordering = ["complexity"]
-    search_fields = ["name"]
+    search_fields = ["name", "uuid"]
+    readonly_fields = ["created", "modified", "uuid"]
