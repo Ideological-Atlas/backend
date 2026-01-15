@@ -8,6 +8,7 @@ from ideology.factories import (
     IdeologySectionFactory,
 )
 from ideology.models import (
+    IdeologyAbstractionComplexity,
     IdeologyAxisConditioner,
     IdeologyConditioner,
     IdeologyConditionerConditioner,
@@ -19,6 +20,14 @@ class Command(BaseCommand):
     help = "Populates the DB with a specific complex Test Level structure."
 
     def handle(self, *args, **options):
+        if IdeologyAbstractionComplexity.objects.filter(complexity=99).exists():
+            self.stdout.write(
+                self.style.WARNING(
+                    "⚠️  Test Level (Complexity 99) already exists. Skipping population."
+                )
+            )
+            return
+
         self.stdout.write("🧪 Generating Complex Test Level...")
 
         with transaction.atomic():

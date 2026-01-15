@@ -6,7 +6,7 @@ from ideology.factories import (
     IdeologyConditionerFactory,
     IdeologySectionFactory,
 )
-from ideology.models import IdeologySectionConditioner
+from ideology.models import IdeologyConditionerConditioner, IdeologySectionConditioner
 from rest_framework import status
 
 
@@ -14,30 +14,58 @@ class IdeologyConditionerViewTestCase(APITestBase):
     def setUp(self):
         self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
-        self.conditioner = IdeologyConditionerFactory()
+
+        self.conditioner_1 = IdeologyConditionerFactory(name="C1")
         IdeologySectionConditioner.objects.create(
             section=self.section,
-            conditioner=self.conditioner,
+            conditioner=self.conditioner_1,
             name="Test Rule",
             condition_values=["A"],
         )
+
+        self.conditioner_2 = IdeologyConditionerFactory(name="C2")
+        IdeologyConditionerConditioner.objects.create(
+            target_conditioner=self.conditioner_1,
+            source_conditioner=self.conditioner_2,
+            name="C1 depends on C2",
+            condition_values=["B"],
+        )
+
+        self.conditioner_3 = IdeologyConditionerFactory(name="C3")
+        IdeologyConditionerConditioner.objects.create(
+            target_conditioner=self.conditioner_2,
+            source_conditioner=self.conditioner_3,
+            name="C2 depends on C3",
+            condition_values=["C"],
+        )
+
+        self.conditioner_noise = IdeologyConditionerFactory(name="Noise")
+
         self.url = reverse(
             "ideology:conditioner-list-aggregated-by-complexity",
             kwargs={"complexity_uuid": self.complexity.uuid},
         )
         super().setUp()
 
-    def test_list_aggregated_by_complexity(self):
+    def test_list_aggregated_by_complexity_includes_recursive_parents(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        uuid_list = [item["uuid"] for item in response.data["results"]]
-        self.assertIn(self.conditioner.uuid.hex, uuid_list)
+
+        results = response.data["results"]
+        uuid_list = [item["uuid"] for item in results]
+
+        self.assertIn(self.conditioner_1.uuid.hex, uuid_list)
+        self.assertIn(self.conditioner_2.uuid.hex, uuid_list)
+        self.assertIn(self.conditioner_3.uuid.hex, uuid_list)
+        self.assertNotIn(self.conditioner_noise.uuid.hex, uuid_list)
+        self.assertEqual(len(results), 3)
 
     def test_get_queryset_direct(self):
         view = ConditionerListAggregatedByComplexityView()
         view.kwargs = {"complexity_uuid": self.complexity.uuid}
         qs = view.get_queryset()
-        self.assertTrue(qs.filter(uuid=self.conditioner.uuid).exists())
+        self.assertTrue(qs.filter(uuid=self.conditioner_1.uuid).exists())
+        self.assertTrue(qs.filter(uuid=self.conditioner_3.uuid).exists())
 
     def test_swagger_fake_view_queryset(self):
         view = ConditionerListAggregatedByComplexityView()
