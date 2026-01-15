@@ -50,6 +50,20 @@ class ExceptionHandlerTestCase(TestCase):
         self.assertEqual(response.data["message"], "Generic Error")
         self.assertNotIn("detail", response.data)
 
+    @patch("core.api.exception_handler.drf_exception_handler")
+    def test_handle_generic_drf_exception_without_detail_field(self, mock_drf_handler):
+        mock_drf_handler.return_value = Response(
+            {"other_field": "Something"}, status=418
+        )
+
+        exc = APIException("Some generic error")
+        context: dict = {}
+        response = custom_exception_handler(exc, context)
+
+        self.assertIsNotNone(response)
+        self.assertEqual(response.data["other_field"], "Something")
+        self.assertNotIn("message", response.data)
+
     def test_unhandled_exception_returns_none(self):
         exc = ZeroDivisionError("Crash")
         context: dict = {}

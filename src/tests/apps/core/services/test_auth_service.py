@@ -60,3 +60,4 @@ class AuthServiceTestCase(TestCase):
 
         mock_send.assert_not_called()
         mock_logger.warning.assert_called()
+        self.assertIn("already verified", mock_logger.warning.call_args[0][0])

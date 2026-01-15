@@ -54,6 +54,8 @@ class AnswerServiceTestCase(TestCase):
         sec_hidden = IdeologySectionFactory(
             abstraction_complexity=comp_hidden, add_axes__total=0
         )
+        axis_hidden = IdeologyAxisFactory(section=sec_hidden)
+        UserAxisAnswerFactory(user=self.user, axis=axis_hidden)
 
         cond_hidden = IdeologyConditionerFactory()
         IdeologySectionConditioner.objects.create(
@@ -71,3 +73,5 @@ class AnswerServiceTestCase(TestCase):
         self.assertEqual(len(data), 1)
         self.assertEqual(data[0]["complexity"], comp_visible.complexity)
         self.assertEqual(len(data[0]["conditioners"]), 0)
+        section_names = [s["name"] for s in data[0]["sections"]]
+        self.assertNotIn(sec_hidden.name, section_names)

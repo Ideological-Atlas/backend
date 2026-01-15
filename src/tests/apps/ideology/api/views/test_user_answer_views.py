@@ -43,6 +43,7 @@ class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
                 self.assertEqual(response.status_code, expected_status)
                 self.assertEqual(UserAxisAnswer.objects.count(), expected_count)
                 self.assertEqual(int(response.data["value"]), expected_val)
+                self.assertIn("axis_uuid", response.data)
 
         with self.subTest(action="List"):
             response = self.client.get(self.list_url)
@@ -99,6 +100,7 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
                     UserConditionerAnswer.objects.get(user=self.user).answer,
                     expected_val,
                 )
+                self.assertIn("conditioner_uuid", response.data)
 
         with self.subTest(action="List"):
             response = self.client.get(self.list_url)
