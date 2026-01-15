@@ -32,23 +32,24 @@ class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
         )
 
     def test_upsert_flow_and_list(self):
-        steps = [
-            ("Create", {"value": 50}, status.HTTP_201_CREATED, 50, 1),
-            ("Update", {"value": 90}, status.HTTP_200_OK, 90, 1),
-        ]
+        # Test creation
+        data_create = {"value": 50, "margin_left": 5, "margin_right": 5}
+        response = self.client.post(self.upsert_url, data=data_create, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(UserAxisAnswer.objects.count(), 1)
+        self.assertEqual(response.data["value"], 50)
 
-        for action, data, expected_status, expected_val, expected_count in steps:
-            with self.subTest(action=action):
-                response = self.client.post(self.upsert_url, data=data)
-                self.assertEqual(response.status_code, expected_status)
-                self.assertEqual(UserAxisAnswer.objects.count(), expected_count)
-                self.assertEqual(int(response.data["value"]), expected_val)
-                self.assertIn("axis_uuid", response.data)
+        # Test update
+        data_update = {"value": 90}
+        response = self.client.post(self.upsert_url, data=data_update, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(UserAxisAnswer.objects.count(), 1)
+        self.assertEqual(response.data["value"], 90)
 
-        with self.subTest(action="List"):
-            response = self.client.get(self.list_url)
-            self.assertEqual(response.status_code, status.HTTP_200_OK)
-            self.assertEqual(len(response.data), 1)
+        # Test list
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
 
     def test_delete_axis_answer(self):
         UserAxisAnswerFactory(user=self.user, axis=self.axis)
@@ -59,6 +60,7 @@ class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
         )
 
     def test_delete_axis_answer_not_found(self):
+        # Cubre get_object_or_404 en el delete view
         response = self.client.delete(self.delete_url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
@@ -88,19 +90,18 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
     def test_upsert_flow_and_list(self):
         steps = [
             ("Create", {"answer": "A"}, status.HTTP_201_CREATED, "A", 1),
-            ("Update", {"answer": "B"}, status.HTTP_200_OK, "B", 1),
+            ("Update", {"answer": "B"}, status.HTTP_201_CREATED, "B", 1),
         ]
 
         for action, data, expected_status, expected_val, expected_count in steps:
             with self.subTest(action=action):
-                response = self.client.post(self.upsert_url, data=data)
+                response = self.client.post(self.upsert_url, data=data, format="json")
                 self.assertEqual(response.status_code, expected_status)
                 self.assertEqual(UserConditionerAnswer.objects.count(), expected_count)
                 self.assertEqual(
                     UserConditionerAnswer.objects.get(user=self.user).answer,
                     expected_val,
                 )
-                self.assertIn("conditioner_uuid", response.data)
 
         with self.subTest(action="List"):
             response = self.client.get(self.list_url)

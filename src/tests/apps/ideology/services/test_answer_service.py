@@ -10,7 +10,7 @@ from ideology.factories import (
     UserAxisAnswerFactory,
     UserConditionerAnswerFactory,
 )
-from ideology.models import IdeologySectionConditioner
+from ideology.models import IdeologyAxisConditioner, IdeologySectionConditioner
 from ideology.services import AnswerService
 
 
@@ -75,3 +75,20 @@ class AnswerServiceTestCase(TestCase):
         self.assertEqual(len(data[0]["conditioners"]), 0)
         section_names = [s["name"] for s in data[0]["sections"]]
         self.assertNotIn(sec_hidden.name, section_names)
+
+    def test_conditioner_linked_via_axis(self):
+        complexity = IdeologyAbstractionComplexityFactory(complexity=1)
+        section = IdeologySectionFactory(
+            abstraction_complexity=complexity, add_axes__total=0
+        )
+        axis = IdeologyAxisFactory(section=section)
+        cond = IdeologyConditionerFactory()
+
+        IdeologyAxisConditioner.objects.create(
+            axis=axis, conditioner=cond, name="AxisRule"
+        )
+        UserConditionerAnswerFactory(user=self.user, conditioner=cond, answer="Yes")
+
+        completed = AnswerService.generate_snapshot(self.user)
+        data = completed.answers
+        self.assertEqual(len(data[0]["conditioners"]), 1)

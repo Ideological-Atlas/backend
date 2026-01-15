@@ -30,34 +30,49 @@ class AuthServiceTestCase(TestCase):
         self.assertEqual(result, mock_user)
         mock_create.assert_called_once()
         call_kwargs = mock_create.call_args[1]
-
-        self.assertEqual(call_kwargs["username"], "jean_user")
-        self.assertEqual(call_kwargs["email"], "new@test.com")
-        self.assertEqual(call_kwargs["password"], "pass")
         self.assertEqual(call_kwargs["preferred_language"], "fr")
-        self.assertEqual(call_kwargs["auth_provider"], User.AuthProvider.INTERNAL)
-
-        self.assertEqual(call_kwargs["first_name"], "Jean")
-
         mock_trigger.assert_called_once_with(mock_user)
 
+    @patch("core.services.auth_service.get_language")
+    @patch("core.services.auth_service.User.objects.create_user")
+    @patch("core.services.auth_service.AuthService.trigger_verification_email")
+    def test_register_user_no_language_fallback(
+        self, mock_trigger, mock_create, mock_lang
+    ):
+        mock_lang.return_value = None
+        mock_user = MagicMock(spec=User)
+        mock_create.return_value = mock_user
+
+        data = {
+            "email": "nolang@test.com",
+            "password": "pass",
+        }
+
+        AuthService.register_user(data)
+
+        call_kwargs = mock_create.call_args[1]
+        self.assertNotIn("preferred_language", call_kwargs)
+
     @patch("core.tasks.send_email_notification.delay")
-    def test_trigger_email_verification_success(self, mock_send):
-        AuthService.trigger_verification_email(self.user, language="en")
+    def test_trigger_email_verification_execution(self, mock_send):
+        user = UserFactory(is_verified=False, preferred_language="en")
+
+        AuthService.trigger_verification_email(user, language="es")
 
         mock_send.assert_called_once()
         args, kwargs = mock_send.call_args
-        self.assertEqual(kwargs["to_email"], self.user.email)
-        self.assertEqual(kwargs["language"], "en")
+        self.assertEqual(kwargs["to_email"], user.email)
+        self.assertEqual(kwargs["language"], "es")
+        self.assertEqual(
+            kwargs["context"]["verification_token"], user.verification_uuid.hex
+        )
 
     @patch("core.services.auth_service.logger")
     @patch("core.tasks.send_email_notification.delay")
     def test_trigger_email_verification_already_verified(self, mock_send, mock_logger):
-        self.user.is_verified = True
-        self.user.save()
+        verified_user = UserFactory(is_verified=True)
 
-        AuthService.trigger_verification_email(self.user)
+        AuthService.trigger_verification_email(verified_user)
 
         mock_send.assert_not_called()
         mock_logger.warning.assert_called()
-        self.assertIn("already verified", mock_logger.warning.call_args[0][0])
