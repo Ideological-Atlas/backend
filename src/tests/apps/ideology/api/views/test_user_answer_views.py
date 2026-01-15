@@ -17,12 +17,15 @@ from rest_framework import status
 
 class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
-        super().setUp()
         self.section = IdeologySectionFactory()
         self.axis = IdeologyAxisFactory(section=self.section)
-        self.upsert_url = reverse(
+
+        self.url = reverse(
             "ideology:upsert-axis-answer", kwargs={"uuid": self.axis.uuid}
         )
+
+        super().setUp()
+
         self.delete_url = reverse(
             "ideology:delete-axis-answer", kwargs={"uuid": self.axis.uuid}
         )
@@ -31,79 +34,75 @@ class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
             kwargs={"section_uuid": self.section.uuid},
         )
 
-    def test_upsert_flow_and_list(self):
-        # Test creation
-        data_create = {"value": 50, "margin_left": 5, "margin_right": 5}
-        response = self.client.post(self.upsert_url, data=data_create, format="json")
+    def test_upsert_flow(self):
+        data = {"value": 50, "margin_left": 5, "margin_right": 5}
+        response = self.client.post(self.url, data=data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(UserAxisAnswer.objects.count(), 1)
         self.assertEqual(response.data["value"], 50)
 
-        # Test update
-        data_update = {"value": 90}
-        response = self.client.post(self.upsert_url, data=data_update, format="json")
+        data_update = {"value": 80}
+        response = self.client.post(self.url, data=data_update, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(UserAxisAnswer.objects.count(), 1)
-        self.assertEqual(response.data["value"], 90)
+        self.assertEqual(UserAxisAnswer.objects.get().value, 80)
 
-        # Test list
-        response = self.client.get(self.list_url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-
-    def test_delete_axis_answer(self):
+    def test_delete_flow(self):
         UserAxisAnswerFactory(user=self.user, axis=self.axis)
         response = self.client.delete(self.delete_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertFalse(
-            UserAxisAnswer.objects.filter(user=self.user, axis=self.axis).exists()
-        )
+        self.assertFalse(UserAxisAnswer.objects.exists())
 
-    def test_delete_axis_answer_not_found(self):
-        # Cubre get_object_or_404 en el delete view
+    def test_delete_not_found(self):
         response = self.client.delete(self.delete_url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_list_by_section(self):
+        UserAxisAnswerFactory(user=self.user, axis=self.axis)
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data["results"]), 1)
+        self.assertEqual(response.data["results"][0]["axis_uuid"], self.axis.uuid.hex)
 
 
 class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
-        super().setUp()
         self.complexity = IdeologyAbstractionComplexityFactory()
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
         self.conditioner = IdeologyConditionerFactory()
-
         IdeologySectionConditioner.objects.create(
-            section=self.section,
-            conditioner=self.conditioner,
-            name="Link",
-            condition_values=[],
+            section=self.section, conditioner=self.conditioner, name="rule"
         )
 
-        self.upsert_url = reverse(
+        self.url = reverse(
             "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
         )
+
+        super().setUp()
+
         self.list_url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
             kwargs={"complexity_uuid": self.complexity.uuid},
         )
 
-    def test_upsert_flow_and_list(self):
-        steps = [
-            ("Create", {"answer": "A"}, status.HTTP_201_CREATED, "A", 1),
-            ("Update", {"answer": "B"}, status.HTTP_201_CREATED, "B", 1),
-        ]
+    def test_upsert_flow(self):
+        data = {"answer": "Option A"}
+        response = self.client.post(self.url, data=data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(UserConditionerAnswer.objects.count(), 1)
+        self.assertEqual(response.data["answer"], "Option A")
 
-        for action, data, expected_status, expected_val, expected_count in steps:
-            with self.subTest(action=action):
-                response = self.client.post(self.upsert_url, data=data, format="json")
-                self.assertEqual(response.status_code, expected_status)
-                self.assertEqual(UserConditionerAnswer.objects.count(), expected_count)
-                self.assertEqual(
-                    UserConditionerAnswer.objects.get(user=self.user).answer,
-                    expected_val,
-                )
+        data_update = {"answer": "Option B"}
+        response = self.client.post(self.url, data=data_update, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(UserConditionerAnswer.objects.get().answer, "Option B")
 
-        with self.subTest(action="List"):
-            response = self.client.get(self.list_url)
-            self.assertEqual(response.status_code, status.HTTP_200_OK)
-            self.assertEqual(len(response.data), 1)
+    def test_list_by_complexity(self):
+        UserConditionerAnswer.objects.create(
+            user=self.user, conditioner=self.conditioner, answer="Val"
+        )
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data["results"]), 1)
+        self.assertEqual(
+            response.data["results"][0]["conditioner_uuid"], str(self.conditioner.uuid)
+        )

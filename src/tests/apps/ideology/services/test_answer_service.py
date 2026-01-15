@@ -18,48 +18,51 @@ class AnswerServiceTestCase(TestCase):
     def setUp(self):
         self.user = UserFactory()
 
-    def test_generate_snapshot_happy_path(self):
-        complexity = IdeologyAbstractionComplexityFactory(complexity=1, name="Level-1")
+    def test_conditioner_map_and_enrichment_flow(self):
+        complexity = IdeologyAbstractionComplexityFactory(complexity=1, name="C1")
         section = IdeologySectionFactory(
-            abstraction_complexity=complexity,
-            name="Sec-1",
-            add_axes__total=0,
+            abstraction_complexity=complexity, add_axes__total=0
         )
-        axis = IdeologyAxisFactory(section=section, name="Axis-1")
-        UserAxisAnswerFactory(user=self.user, axis=axis, value=50)
+        axis = IdeologyAxisFactory(section=section)
 
-        cond = IdeologyConditionerFactory(name="Cond-1")
+        cond_section = IdeologyConditionerFactory(name="CondSection")
         IdeologySectionConditioner.objects.create(
-            section=section, conditioner=cond, name="Rule-1"
+            section=section, conditioner=cond_section, name="R1"
         )
-        UserConditionerAnswerFactory(user=self.user, conditioner=cond, answer="Yes")
+        UserConditionerAnswerFactory(
+            user=self.user, conditioner=cond_section, answer="Yes"
+        )
+
+        cond_axis = IdeologyConditionerFactory(name="CondAxis")
+        IdeologyAxisConditioner.objects.create(
+            axis=axis, conditioner=cond_axis, name="R2"
+        )
+        UserConditionerAnswerFactory(
+            user=self.user, conditioner=cond_axis, answer="Maybe"
+        )
 
         completed = AnswerService.generate_snapshot(self.user)
-        data = completed.answers
+        data = completed.answers[0]
 
-        self.assertEqual(len(data), 1)
-        self.assertEqual(len(data[0]["sections"]), 1)
-        self.assertEqual(len(data[0]["conditioners"]), 1)
+        self.assertEqual(len(data["conditioners"]), 2)
+        names = sorted([c["name"] for c in data["conditioners"]])
+        self.assertEqual(names, ["CondAxis", "CondSection"])
 
     @patch("ideology.services.answer_service.IdeologyAbstractionComplexity.objects.all")
     def test_orphaned_answers_ignored(self, mock_complexities):
         comp_visible = IdeologyAbstractionComplexityFactory(complexity=1)
-        sec_visible = IdeologySectionFactory(
-            abstraction_complexity=comp_visible, add_axes__total=0
-        )
-        axis_visible = IdeologyAxisFactory(section=sec_visible)
-        UserAxisAnswerFactory(user=self.user, axis=axis_visible)
+        comp_hidden = IdeologyAbstractionComplexityFactory(complexity=99)
 
-        comp_hidden = IdeologyAbstractionComplexityFactory(complexity=2)
-        sec_hidden = IdeologySectionFactory(
-            abstraction_complexity=comp_hidden, add_axes__total=0
-        )
-        axis_hidden = IdeologyAxisFactory(section=sec_hidden)
+        IdeologySectionFactory(abstraction_complexity=comp_visible)
+        section_hidden = IdeologySectionFactory(abstraction_complexity=comp_hidden)
+
+        axis_hidden = IdeologyAxisFactory(section=section_hidden)
+
         UserAxisAnswerFactory(user=self.user, axis=axis_hidden)
 
         cond_hidden = IdeologyConditionerFactory()
         IdeologySectionConditioner.objects.create(
-            section=sec_hidden, conditioner=cond_hidden, name="HiddenRule"
+            section=section_hidden, conditioner=cond_hidden, name="HiddenRule"
         )
         UserConditionerAnswerFactory(
             user=self.user, conditioner=cond_hidden, answer="Hidden"
@@ -68,27 +71,29 @@ class AnswerServiceTestCase(TestCase):
         mock_complexities.return_value.order_by.return_value = [comp_visible]
 
         completed = AnswerService.generate_snapshot(self.user)
-        data = completed.answers
 
-        self.assertEqual(len(data), 1)
-        self.assertEqual(data[0]["complexity"], comp_visible.complexity)
-        self.assertEqual(len(data[0]["conditioners"]), 0)
-        section_names = [s["name"] for s in data[0]["sections"]]
-        self.assertNotIn(sec_hidden.name, section_names)
+        self.assertEqual(len(completed.answers), 1)
+        self.assertEqual(len(completed.answers[0]["conditioners"]), 0)
+        self.assertEqual(len(completed.answers[0]["sections"]), 0)
 
-    def test_conditioner_linked_via_axis(self):
+    def test_multiple_axes_same_section(self):
         complexity = IdeologyAbstractionComplexityFactory(complexity=1)
         section = IdeologySectionFactory(
-            abstraction_complexity=complexity, add_axes__total=0
+            abstraction_complexity=complexity, name="Economia"
         )
-        axis = IdeologyAxisFactory(section=section)
-        cond = IdeologyConditionerFactory()
 
-        IdeologyAxisConditioner.objects.create(
-            axis=axis, conditioner=cond, name="AxisRule"
-        )
-        UserConditionerAnswerFactory(user=self.user, conditioner=cond, answer="Yes")
+        axis_1 = IdeologyAxisFactory(section=section, name="Mercado")
+        axis_2 = IdeologyAxisFactory(section=section, name="Regulacion")
+
+        UserAxisAnswerFactory(user=self.user, axis=axis_1, value=10)
+        UserAxisAnswerFactory(user=self.user, axis=axis_2, value=-10)
 
         completed = AnswerService.generate_snapshot(self.user)
-        data = completed.answers
-        self.assertEqual(len(data[0]["conditioners"]), 1)
+        data = completed.answers[0]
+
+        self.assertEqual(len(data["sections"]), 1)
+        axes_list = data["sections"][0]["axes"]
+        self.assertEqual(len(axes_list), 2)
+
+        names = sorted([a["name"] for a in axes_list])
+        self.assertEqual(names, ["Mercado", "Regulacion"])

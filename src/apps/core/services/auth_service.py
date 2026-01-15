@@ -14,11 +14,7 @@ class AuthService:
         username = user_data.pop("username", None)
         email = user_data.get("email")
         password = user_data.get("password")
-
-        current_language = get_language()
-        if current_language:
-            user_data["preferred_language"] = current_language
-
+        user_data["preferred_language"] = get_language()
         user_data["auth_provider"] = User.AuthProvider.INTERNAL
 
         user = User.objects.create_user(
