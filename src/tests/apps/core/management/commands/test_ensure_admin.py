@@ -1,10 +1,8 @@
-import os
 from io import StringIO
-from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import TestCase, override_settings
 
 User = get_user_model()
 
@@ -15,42 +13,29 @@ class EnsureAdminCommandTestCase(TestCase):
         call_command("ensure_admin", stdout=out)
         return out.getvalue()
 
-    def test_ensure_admin_scenarios(self):
-        scenarios = [
-            (
-                "Create Success",
-                {
-                    "SUPERUSER_USERNAME": "adm_new",
-                    "SUPERUSER_MAIL": "n@ex.com",
-                    "SUPERUSER_PASSWORD": "123",
-                },
-                "created successfully",
-                True,
-            ),
-            (
-                "Already Exists",
-                {
-                    "SUPERUSER_USERNAME": "adm_ex",
-                    "SUPERUSER_MAIL": "e@ex.com",
-                    "SUPERUSER_PASSWORD": "123",
-                },
-                "already exists",
-                False,
-            ),
-            ("Missing Vars", {}, "Missing superuser environment variables", False),
-        ]
+    @override_settings(
+        SUPERUSER_USERNAME="adm_new",
+        SUPERUSER_EMAIL="n@ex.com",
+        SUPERUSER_PASSWORD="123",
+    )
+    def test_ensure_admin_create_success(self):
+        output = self.call_command_silent()
+        self.assertIn("created successfully", output)
+        self.assertTrue(User.objects.filter(username="adm_new").exists())
 
+    @override_settings(
+        SUPERUSER_USERNAME="adm_ex",
+        SUPERUSER_EMAIL="e@ex.com",
+        SUPERUSER_PASSWORD="123",
+    )
+    def test_ensure_admin_already_exists(self):
         User.objects.create_superuser("e@ex.com", "123", "adm_ex")
+        output = self.call_command_silent()
+        self.assertIn("already exists", output)
 
-        for name, env_vars, expected_msg, should_create in scenarios:
-            with self.subTest(name):
-                with patch.dict(os.environ, {}, clear=True):
-                    with patch.dict(os.environ, env_vars):
-                        output = self.call_command_silent()
-                        self.assertIn(expected_msg, output)
-                        if name == "Create Success":
-                            self.assertTrue(
-                                User.objects.filter(
-                                    username=env_vars["SUPERUSER_USERNAME"]
-                                ).exists()
-                            )
+    @override_settings(
+        SUPERUSER_USERNAME=None, SUPERUSER_EMAIL=None, SUPERUSER_PASSWORD=None
+    )
+    def test_ensure_admin_missing_vars(self):
+        output = self.call_command_silent()
+        self.assertIn("Missing superuser configuration", output)

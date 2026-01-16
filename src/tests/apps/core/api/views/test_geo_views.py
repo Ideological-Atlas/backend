@@ -27,14 +27,12 @@ class RegionListViewTestCase(APITestBase):
         super().setUp()
         self.country_spain = CountryFactory(name="Spain")
         self.country_france = CountryFactory(name="France")
-
         self.region_madrid = RegionFactory(name="Madrid", country=self.country_spain)
         self.region_paris = RegionFactory(name="Paris", country=self.country_france)
 
     def test_list_all_regions_no_filter(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
         results = response.data["results"]
         self.assertGreaterEqual(len(results), 2)
         names = [r["name"] for r in results]
@@ -44,7 +42,6 @@ class RegionListViewTestCase(APITestBase):
     def test_filter_regions_by_country(self):
         response = self.client.get(self.url, {"country_id": self.country_spain.pk})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
         results = response.data["results"]
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]["name"], "Madrid")

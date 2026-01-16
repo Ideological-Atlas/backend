@@ -12,7 +12,6 @@ class IdeologyAssociationFactory(TimeStampedUUIDModelFactory):
         model = IdeologyAssociation
 
     ideology = factory.SubFactory(IdeologyFactory)
-
     country = factory.SubFactory(CountryFactory)
     region = None
     religion = None
@@ -21,7 +20,6 @@ class IdeologyAssociationFactory(TimeStampedUUIDModelFactory):
         trait_region = factory.Trait(
             country=None, religion=None, region=factory.SubFactory(RegionFactory)
         )
-
         trait_religion = factory.Trait(
             country=None, region=None, religion=factory.SubFactory(ReligionFactory)
         )

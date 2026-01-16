@@ -6,7 +6,6 @@ from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.helpers import UUIDModelSerializerMixin
 from core.models import User
 from django.core.exceptions import ValidationError as DjangoValidationError
-from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 from rest_framework.serializers import ErrorDetail
@@ -15,14 +14,17 @@ logger = logging.getLogger(__name__)
 
 
 class SimpleUserSerializer(UUIDModelSerializerMixin):
+
     class Meta:
         model = User
         fields = ["uuid", "username", "preferred_language"]
+        read_only_fields = ["uuid"]
 
 
 class UserVerificationSerializer(SimpleUserSerializer):
     class Meta(SimpleUserSerializer.Meta):
         fields = SimpleUserSerializer.Meta.fields + ["is_verified"]
+        read_only_fields = ["uuid", "is_verified"]
 
     def update(self, instance, validated_data):
         try:
@@ -76,26 +78,13 @@ class RegisterSerializer(UUIDModelSerializerMixin):
 
         return super().validate(attrs)
 
-    def create(self, validated_data):  # pylint: disable=E1134, W0221
+    def create(self, validated_data):
         username = validated_data.pop("username", None)
-
-        current_language = get_language()
-        if current_language:
-            validated_data["preferred_language"] = current_language
-
-        user = User.objects.create_user(
+        return User.objects.create_user(
             username=username,
             auth_provider=User.AuthProvider.INTERNAL,
             **validated_data
-        )  # pylint: disable=W0221
-        user.trigger_email_verification()
-        return user
-
-
-class GoogleLoginSerializer(serializers.Serializer):
-    token = serializers.CharField(
-        help_text=_("Google ID Token provided by the frontend.")
-    )
+        )
 
 
 class UserSetPasswordSerializer(serializers.Serializer):

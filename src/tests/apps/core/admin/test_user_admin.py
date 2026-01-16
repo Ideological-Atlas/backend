@@ -13,15 +13,13 @@ class UserAdminTestCase(TestCase):
         self.admin = CustomUserAdmin(User, self.site)
         self.factory = RequestFactory()
 
-    @patch("core.models.user.User.trigger_email_verification")
-    def test_send_verification_email_action(self, mock_trigger):
+    @patch("core.models.User.send_verification_email")
+    def test_send_verification_email_action(self, mock_send_email):
         user1 = UserFactory()
         user2 = UserFactory()
         queryset = User.objects.filter(id__in=[user1.id, user2.id])
         request = self.factory.get("/")
         self.admin.message_user = Mock()
-
         self.admin.send_verification_email(request, queryset)
-
-        self.assertEqual(mock_trigger.call_count, 2)
+        self.assertEqual(mock_send_email.call_count, 2)
         self.admin.message_user.assert_called_once()

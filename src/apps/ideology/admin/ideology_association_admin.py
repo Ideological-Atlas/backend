@@ -5,9 +5,10 @@ from unfold.admin import ModelAdmin
 
 @admin.register(IdeologyAssociation)
 class IdeologyAssociationAdmin(ModelAdmin):
-    list_display = ["ideology", "country", "region", "religion"]
+    list_display = ["ideology", "country", "region", "religion", "uuid"]
     list_filter_submit = True
     list_filter = ["ideology", "country", "religion"]
-    search_fields = ["ideology__name", "country__name", "religion__name"]
+    search_fields = ["ideology__name", "country__name", "religion__name", "uuid"]
     autocomplete_fields = ["ideology", "country", "region", "religion"]
     list_select_related = ["ideology", "country", "region", "religion"]
+    readonly_fields = ["created", "modified", "uuid"]

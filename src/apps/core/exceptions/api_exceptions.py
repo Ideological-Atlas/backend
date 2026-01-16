@@ -10,12 +10,9 @@ class ApiBaseException(APIException):
     def __init__(self, message=None, **kwargs):
         if message is None:
             message = self.default_detail
-
         if isinstance(message, Exception):
             message = str(message)
-
         final_detail = {"message": message, "type": self.__class__.__name__, **kwargs}
-
         super().__init__(detail=final_detail)
 
 

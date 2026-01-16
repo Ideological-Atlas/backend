@@ -25,23 +25,17 @@ class VerificationRemindersTestCase(TestCase):
         u3 = create_target_user(3, email_prefix="target")
         u7 = create_target_user(7, email_prefix="target")
         u30 = create_target_user(30, email_prefix="target")
-
         create_target_user(2, email_prefix="noise")
         create_target_user(31, email_prefix="noise")
         create_target_user(3, is_verified=True, email_prefix="verified")
-
         send_verification_reminders()
-
         self.assertEqual(mock_send.call_count, 3)
-
         calls = mock_send.call_args_list
         sent_emails = [call.kwargs["to_email"] for call in calls]
         sent_templates = [call.kwargs["template_name"] for call in calls]
-
         self.assertIn(u3.email, sent_emails)
         self.assertIn(u7.email, sent_emails)
         self.assertIn(u30.email, sent_emails)
-
         self.assertIn("registration_reminder_3_days", sent_templates)
         self.assertIn("registration_reminder_7_days", sent_templates)
         self.assertIn("registration_reminder_30_days", sent_templates)

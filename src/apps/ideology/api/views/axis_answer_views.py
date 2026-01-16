@@ -1,25 +1,24 @@
 from core.api.permissions import IsVerified
+from core.helpers import UUIDDestroyAPIView
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
     AxisAnswerReadSerializer,
     AxisAnswerUpsertSerializer,
 )
-from ideology.models import AxisAnswer, IdeologyAxis
-from rest_framework.generics import ListAPIView
+from ideology.models import UserAxisAnswer
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-
-from .base_views import BaseUpsertAnswerView
 
 
 @extend_schema(
     tags=["answers"],
     summary=_("Upsert axis answer"),
     description=_(
-        "Creates or updates the user's answer for a specific axis defined by UUID in URL."
+        "Creates or updates the user's answer for a specific axis defined by UUID in URL. "
+        "Allows marking answer as indifferent (null value)."
     ),
-    request=AxisAnswerUpsertSerializer,
-    responses={200: AxisAnswerReadSerializer},
     parameters=[
         OpenApiParameter(
             name="uuid",
@@ -29,17 +28,38 @@ from .base_views import BaseUpsertAnswerView
             type=str,
         )
     ],
+    responses={201: AxisAnswerReadSerializer},
 )
-class UpsertAxisAnswerView(BaseUpsertAnswerView):
-    write_serializer_class = AxisAnswerUpsertSerializer
-    read_serializer_class = AxisAnswerReadSerializer
+class UpsertAxisAnswerView(CreateAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+    serializer_class = AxisAnswerUpsertSerializer
 
-    target_model = AxisAnswer
-    reference_model = IdeologyAxis
 
-    reference_field = "axis"
-    request_value_key = "value"
-    target_value_key = "value"
+@extend_schema(
+    tags=["answers"],
+    summary=_("Delete axis answer"),
+    description=_(
+        "Deletes the user's answer for the specific axis defined by UUID in URL."
+    ),
+    responses={204: None},
+    parameters=[
+        OpenApiParameter(
+            name="uuid",
+            location=OpenApiParameter.PATH,
+            description="UUID of the Axis whose answer you want to delete",
+            required=True,
+            type=str,
+        )
+    ],
+)
+class DeleteAxisAnswerView(UUIDDestroyAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+
+    def get_object(self):
+        axis_uuid = self.kwargs.get(self.lookup_field)
+        return get_object_or_404(
+            UserAxisAnswer, user=self.request.user, axis__uuid=axis_uuid
+        )
 
 
 @extend_schema(
@@ -64,9 +84,9 @@ class UserAxisAnswerListBySectionView(ListAPIView):
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
-            return AxisAnswer.objects.none()
+            return UserAxisAnswer.objects.none()
 
         section_uuid = self.kwargs.get("section_uuid")
-        return AxisAnswer.objects.filter(
+        return UserAxisAnswer.objects.filter(
             user=self.request.user, axis__section__uuid=section_uuid
         ).select_related("axis")

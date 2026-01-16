@@ -4,9 +4,12 @@ from .models import (
     Ideology,
     IdeologyAbstractionComplexity,
     IdeologyAxis,
+    IdeologyAxisConditioner,
     IdeologyConditioner,
+    IdeologyConditionerConditioner,
     IdeologyReference,
     IdeologySection,
+    IdeologySectionConditioner,
     Religion,
     Tag,
 )
@@ -19,12 +22,12 @@ class IdeologyTranslationOptions(TranslationOptions):
 
 @register(IdeologySection)
 class IdeologySectionTranslationOptions(TranslationOptions):
-    fields = ("name", "description", "condition_values")
+    fields = ("name", "description")
 
 
 @register(IdeologyAxis)
 class IdeologyAxisTranslationOptions(TranslationOptions):
-    fields = ("name", "description", "left_label", "right_label", "condition_values")
+    fields = ("name", "description", "left_label", "right_label")
 
 
 @register(IdeologyConditioner)
@@ -50,3 +53,18 @@ class TagTranslationOptions(TranslationOptions):
 @register(IdeologyReference)
 class IdeologyReferenceTranslationOptions(TranslationOptions):
     fields = ("description",)
+
+
+@register(IdeologySectionConditioner)
+class IdeologySectionConditionerTranslationOptions(TranslationOptions):
+    fields = ("name", "description", "condition_values")
+
+
+@register(IdeologyAxisConditioner)
+class IdeologyAxisConditionerTranslationOptions(TranslationOptions):
+    fields = ("name", "description", "condition_values")
+
+
+@register(IdeologyConditionerConditioner)
+class IdeologyConditionerConditionerTranslationOptions(TranslationOptions):
+    fields = ("name", "description", "condition_values")

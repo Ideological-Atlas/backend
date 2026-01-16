@@ -4,6 +4,7 @@ from ideology.factories import (
     IdeologyAbstractionComplexityFactory,
     IdeologyAxisFactory,
     IdeologyConditionerFactory,
+    IdeologySectionConditionerFactory,
     IdeologySectionFactory,
 )
 from rest_framework import status
@@ -16,8 +17,13 @@ class StructureViewsTestCase(APITestBase):
             abstraction_complexity=self.complexity, add_axes__total=0
         )
         self.axis = IdeologyAxisFactory(section=self.section)
-        self.conditioner = IdeologyConditionerFactory(
-            abstraction_complexity=self.complexity
+        self.conditioner = IdeologyConditionerFactory(accepted_values=["A", "B"])
+
+        IdeologySectionConditionerFactory(
+            section=self.section,
+            conditioner=self.conditioner,
+            name="Test",
+            condition_values=["A"],
         )
         super().setUp()
 
@@ -45,26 +51,22 @@ class StructureViewsTestCase(APITestBase):
                 self.axis.uuid.hex,
             ),
             (
-                "conditioner-list-by-complexity",
+                "conditioner-list-aggregated-by-complexity",
                 reverse(
-                    "ideology:conditioner-list-by-complexity",
+                    "ideology:conditioner-list-aggregated-by-complexity",
                     kwargs={"complexity_uuid": self.complexity.uuid},
                 ),
                 self.conditioner.uuid.hex,
             ),
         ]
-
         for name, url, expected_uuid in endpoints:
             with self.subTest(endpoint=name):
                 response = self.client.get(url)
                 self.assertEqual(response.status_code, status.HTTP_200_OK)
-
                 data = response.data
                 if isinstance(data, dict) and "results" in data:
                     data = data["results"]
-
                 self.assertTrue(len(data) >= 1)
-
                 if expected_uuid:
                     found = any(item["uuid"] == expected_uuid for item in data)
                     self.assertTrue(found, f"UUID {expected_uuid} not found in {name}")

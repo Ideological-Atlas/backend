@@ -14,12 +14,9 @@ def send_verification_reminders():
         7: "registration_reminder_7_days",
         30: "registration_reminder_30_days",
     }
-
     for days_ago, template_name in reminders_map.items():
         target_date = today - timedelta(days=days_ago)
-
         users = User.objects.filter(is_verified=False, created__date=target_date)
-
         for user in users:
             send_email_notification.delay(
                 to_email=user.email,

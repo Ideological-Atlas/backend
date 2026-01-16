@@ -1,9 +1,11 @@
 import logging
+from typing import Optional
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.db import models, transaction
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
 from .abstract import TimeStampedUUIDModel
@@ -18,13 +20,11 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
 
     email = models.EmailField(_("email address"), unique=True)
     preferred_language = models.CharField(max_length=10, default="es")
-
     is_verified = models.BooleanField(
         default=False,
         verbose_name=_("Is verified"),
         help_text=_("Field that shows if the user is verified or not."),
     )
-
     verification_uuid = models.UUIDField(
         null=True,
         blank=True,
@@ -33,7 +33,6 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         verbose_name=_("Verification UUID"),
         help_text=_("Secret token used for email verification."),
     )
-
     auth_provider = models.CharField(
         max_length=20,
         choices=AuthProvider.choices,
@@ -41,7 +40,6 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         verbose_name=_("Auth Provider"),
         help_text=_("The provider used for the user authentication/registration."),
     )
-
     objects = CustomUserManager()
 
     class Meta:
@@ -55,15 +53,13 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         if self.is_verified:
             logger.warning("User '%s' is already verified", self)
             raise UserAlreadyVerifiedException(self)
-
         logger.info("User '%s' was verified", self)
-
         with transaction.atomic():
             self.is_verified = True
             self.verification_uuid = None
             self.save()
 
-    def trigger_email_verification(self, language: str | None = None):
+    def send_verification_email(self, language: Optional[str] = None) -> None:
         from core.tasks import send_email_notification
 
         if self.is_verified:
@@ -73,100 +69,15 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             )
             return
 
-        target_language = language or self.preferred_language
+        target_language = language or self.preferred_language or get_language()
 
         logger.debug("Triggering email verification for '%s'", self)
-        send_email_notification.delay(
-            to_email=self.email,
-            template_name="register",
-            language=target_language,
-            context={"verification_token": self.verification_uuid.hex},
+
+        transaction.on_commit(
+            lambda: send_email_notification.delay(
+                to_email=self.email,
+                template_name="register",
+                language=target_language,
+                context={"verification_token": self.verification_uuid.hex},
+            )
         )
-        logger.debug("Email verification was sent to '%s'", self)
-
-    def generate_completed_answer(self):
-        from ideology.models import (
-            AxisAnswer,
-            CompletedAnswer,
-            ConditionerAnswer,
-            IdeologyAbstractionComplexity,
-        )
-
-        with transaction.atomic():
-            axis_answers = (
-                AxisAnswer.objects.filter(user=self)
-                .select_related(
-                    "axis", "axis__section", "axis__section__abstraction_complexity"
-                )
-                .order_by("axis__section__name")
-            )
-
-            conditioner_answers = (
-                ConditionerAnswer.objects.filter(user=self)
-                .select_related("conditioner", "conditioner__abstraction_complexity")
-                .order_by("conditioner__name")
-            )
-
-            complexities = IdeologyAbstractionComplexity.objects.all().order_by(
-                "complexity"
-            )
-
-            structured_data = []
-
-            for complexity in complexities:
-                complexity_data = {
-                    "level": complexity.name,
-                    "complexity": complexity.complexity,
-                    "sections": [],
-                    "conditioners": [],
-                }
-
-                complexity_axes = [
-                    axis_answer
-                    for axis_answer in axis_answers
-                    if axis_answer.axis.section.abstraction_complexity_id
-                    == complexity.id
-                ]
-
-                sections_map = {}
-                for complexity_axis in complexity_axes:
-                    section_name = complexity_axis.axis.section.name
-                    if section_name not in sections_map:
-                        sections_map[section_name] = {
-                            "name": section_name,
-                            "description": complexity_axis.axis.section.description,
-                            "axes": [],
-                        }
-
-                    sections_map[section_name]["axes"].append(
-                        {
-                            "name": complexity_axis.axis.name,
-                            "value": int(complexity_axis.value),
-                            "left_label": complexity_axis.axis.left_label,
-                            "right_label": complexity_axis.axis.right_label,
-                        }
-                    )
-
-                complexity_data["sections"] = list(sections_map.values())
-
-                complexity_conditioners = [
-                    complexity_conditioner
-                    for complexity_conditioner in conditioner_answers
-                    if complexity_conditioner.conditioner.abstraction_complexity_id
-                    == complexity.id
-                ]
-
-                for conditioner in complexity_conditioners:
-                    complexity_data["conditioners"].append(
-                        {
-                            "name": conditioner.conditioner.name,
-                            "answer": conditioner.answer,
-                            "type": conditioner.conditioner.type,
-                        }
-                    )
-
-                structured_data.append(complexity_data)
-
-            return CompletedAnswer.objects.create(
-                completed_by=self, answers=structured_data
-            )

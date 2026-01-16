@@ -40,7 +40,8 @@ class APITestBaseNeedAuthorized(APITestBase):
         self.client.credentials()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-        self.assertEqual(response.data["detail"].code, "not_authenticated")
+        error_field = response.data.get("message") or response.data.get("detail")
+        self.assertEqual(error_field.code, "not_authenticated")
 
 
 class SerializerTestBase(BaseTestCase):

@@ -18,17 +18,14 @@ class IdeologyAbstractionComplexityFactory(TimeStampedUUIDModelFactory):
     def add_sections(self, create, extracted, **kwargs):
         if not create:
             return
-
         from ideology.factories.ideology_section_factory import IdeologySectionFactory
 
         min_count = kwargs.get("min", 0)
         max_count = kwargs.get("max", 2)
         total = kwargs.get("total", None)
-
         if total is not None:
             count = total
         else:
-            count = random.randint(min_count, max_count)  # nosec
-
+            count = random.randint(min_count, max_count)
         for _ in range(count):
             IdeologySectionFactory(abstraction_complexity=self)

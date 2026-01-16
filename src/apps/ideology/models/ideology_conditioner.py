@@ -1,7 +1,8 @@
 from core.models import TimeStampedUUIDModel
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models import IdeologyAbstractionComplexity
+from ideology.models.managers import IdeologyConditionerManager
 
 
 class IdeologyConditioner(TimeStampedUUIDModel):
@@ -11,6 +12,7 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         SCALE = "scale", _("Scale (Numeric Range)")
         NUMERIC = "numeric", _("Numeric Value")
         TEXT = "text", _("Free Text")
+        AXIS_RANGE = "axis_range", _("Derived from Axis Range")
 
     name = models.CharField(
         max_length=128,
@@ -32,27 +34,110 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         verbose_name=_("Type"),
         help_text=_("Defines the format of the data expected for this conditioner."),
     )
-    abstraction_complexity = models.ForeignKey(
-        IdeologyAbstractionComplexity,
-        on_delete=models.CASCADE,
-        related_name="conditioners",
-        verbose_name=_("Abstraction Complexity"),
-        help_text=_("The complexity level that groups these conditioners."),
-    )
     accepted_values = models.JSONField(
         default=list,
         blank=True,
         null=True,
         verbose_name=_("Accepted Values"),
         help_text=_(
-            "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']."
+            "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']. "
+            "For 'Derived from Axis Range', this is auto-set to ['true', 'false']."
         ),
     )
+
+    source_axis = models.ForeignKey(
+        "ideology.IdeologyAxis",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="derived_conditioners",
+        verbose_name=_("Source Axis"),
+        help_text=_("Only for AXIS_RANGE type. The axis to watch."),
+    )
+    axis_min_value = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("Min Value (Inclusive)"),
+        help_text=_("Condition is met if user value >= this."),
+    )
+    axis_max_value = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("Max Value (Inclusive)"),
+        help_text=_("Condition is met if user value <= this."),
+    )
+
+    conditioners = models.ManyToManyField(
+        "self",
+        through="ideology.IdeologyConditionerConditioner",
+        symmetrical=False,
+        related_name="conditioned_by",
+        blank=True,
+        verbose_name=_("Conditioners"),
+        help_text=_("Conditioners that determine the visibility of this conditioner."),
+    )
+
+    objects = IdeologyConditionerManager()
 
     class Meta:
         verbose_name = _("Ideology Conditioner")
         verbose_name_plural = _("Ideology Conditioners")
-        ordering = ["abstraction_complexity", "name"]
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        if self.type == self.ConditionerType.AXIS_RANGE:
+            self.accepted_values = ["true", "false"]
+
+        super().clean()
+        self._validate_data_structure()
+
+        if self.type == self.ConditionerType.BOOLEAN:
+            self._validate_boolean_logic()
+        elif self.type == self.ConditionerType.CATEGORICAL:
+            self._validate_categorical_logic()
+        elif self.type == self.ConditionerType.AXIS_RANGE:
+            self._validate_axis_range_logic()
+
+    def _validate_data_structure(self):
+        if not isinstance(self.accepted_values, list):
+            raise ValidationError({"accepted_values": _("Must be a JSON list.")})
+
+    def _validate_boolean_logic(self):
+        expected = ["true", "false"]
+        if not self.accepted_values or sorted(self.accepted_values) != sorted(expected):
+            raise ValidationError(
+                {
+                    "accepted_values": _(
+                        "Boolean type must have accepted_values=['true', 'false']"
+                    )
+                }
+            )
+
+    def _validate_categorical_logic(self):
+        if not self.accepted_values:
+            raise ValidationError(
+                {
+                    "accepted_values": _(
+                        "Categorical type must define at least one accepted value."
+                    )
+                }
+            )
+        if not all(isinstance(x, str) for x in self.accepted_values):
+            raise ValidationError(
+                {"accepted_values": _("All values in the list must be strings.")}
+            )
+
+    def _validate_axis_range_logic(self):
+        if not self.source_axis:
+            raise ValidationError({"source_axis": _("Required for Axis Range type.")})
+        if self.axis_min_value is None and self.axis_max_value is None:
+            raise ValidationError(
+                _("Must specify at least min or max value for Axis Range.")
+            )
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)

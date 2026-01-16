@@ -4,7 +4,7 @@ from core.api.permissions import IsVerified
 from core.factories import UserFactory
 from core.helpers import (
     UUIDModelSerializerMixin,
-    UUIUpdateView,
+    UUIDUpdateAPIView,
     get_admin_image,
     get_admin_path,
     get_admin_reference,
@@ -23,15 +23,12 @@ class HelpersTestCase(TestCase):
         expected_url = reverse("admin:core_user_change", args=[self.user.id])
         path = get_admin_path(self.user)
         self.assertEqual(path, expected_url)
-
         ref = get_admin_reference(self.user)
         self.assertIn(f'href="{expected_url}"', ref)
-
         obj = MagicMock()
         obj.avatar.url = "http://img.com/a.jpg"
         img_tag = get_admin_image(obj, "avatar")
         self.assertIn('src="http://img.com/a.jpg"', img_tag)
-
         obj_none = MagicMock()
         obj_none.avatar = None
         self.assertIsNone(get_admin_image(obj_none, "avatar"))
@@ -48,10 +45,8 @@ class HelpersTestCase(TestCase):
     def test_permission_helper(self):
         perm = IsVerified()
         req = MagicMock()
-
         req.user.is_verified = True
         self.assertTrue(perm.has_permission(req, None))
-
         req.user.is_verified = False
         self.assertFalse(perm.has_permission(req, None))
 
@@ -62,4 +57,4 @@ class HelpersTestCase(TestCase):
                 fields = ["uuid"]
 
         self.assertTrue(TestSerializer().fields["uuid"].read_only)
-        self.assertEqual(UUIUpdateView().lookup_field, "uuid")
+        self.assertEqual(UUIDUpdateAPIView().lookup_field, "uuid")

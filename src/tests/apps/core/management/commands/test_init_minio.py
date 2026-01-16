@@ -21,7 +21,6 @@ class InitMinioCommandTestCase(TestCase):
         mock_bucket.creation_date = None
         mock_boto.return_value = mock_s3
         mock_s3.Bucket.return_value = mock_bucket
-
         output = self.call_command()
         mock_bucket.create.assert_called_once()
         self.assertIn("Public policy applied", output)
@@ -33,7 +32,6 @@ class InitMinioCommandTestCase(TestCase):
         mock_bucket.creation_date = "2024-01-01"
         mock_boto.return_value = mock_s3
         mock_s3.Bucket.return_value = mock_bucket
-
         self.call_command()
         mock_bucket.create.assert_not_called()
 

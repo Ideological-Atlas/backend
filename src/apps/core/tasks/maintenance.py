@@ -10,9 +10,7 @@ from django.utils import timezone
 @shared_task
 def delete_unverified_users():
     limit_date = timezone.now() - timedelta(days=31)
-
     users_to_delete = User.objects.filter(is_verified=False, created__lte=limit_date)
-
     for user in users_to_delete:
         with transaction.atomic():
             user.delete()

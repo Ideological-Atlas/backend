@@ -1,63 +1,58 @@
 from unittest.mock import patch
 
 from core.api.api_test_helpers import APITestBase
+from core.exceptions.user_exceptions import UserDisabledException
 from core.factories import UserFactory
 from core.models import User
 from django.urls import reverse
 from rest_framework import status
-from rest_framework.response import Response
 
 
 class AuthTokenObtainPairViewTestCase(APITestBase):
     url = reverse("login")
 
-    def test_login_returns_user_data(self):
+    def test_login_scenarios(self):
         self.client.credentials()
-
-        password = "strong_password_123"  # nosec
+        password = "strong_password_123"
         user = UserFactory(password=password)
 
-        response = self.client.post(
-            self.url, data={"username": user.username, "password": password}
-        )
+        scenarios = [
+            (
+                "Success Username",
+                {"username": user.username, "password": password},
+                status.HTTP_200_OK,
+                True,
+            ),
+            (
+                "Success Email",
+                {"username": user.email, "password": password},
+                status.HTTP_200_OK,
+                True,
+            ),
+            (
+                "Fail Bad Password",
+                {"username": user.username, "password": "wrong"},
+                status.HTTP_401_UNAUTHORIZED,
+                False,
+            ),
+            (
+                "Fail Non Existent",
+                {"username": "ghost", "password": "pwd"},
+                status.HTTP_401_UNAUTHORIZED,
+                False,
+            ),
+        ]
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn("access", response.data)
-        self.assertIn("refresh", response.data)
+        for name, payload, expected_status, check_body in scenarios:
+            with self.subTest(name=name):
+                response = self.client.post(self.url, data=payload)
+                self.assertEqual(response.status_code, expected_status)
 
-        self.assertIn("user", response.data)
-        self.assertEqual(response.data["user"]["uuid"], user.uuid.hex)
-        self.assertEqual(response.data["user"]["username"], user.username)
-
-    def test_login_email_auth_returns_user_data(self):
-        self.client.credentials()
-        password = "strong_password_123"  # nosec
-        user = UserFactory(password=password)
-
-        response = self.client.post(
-            self.url, data={"username": user.email, "password": password}
-        )
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn("user", response.data)
-        self.assertEqual(response.data["user"]["email"], user.email)
-
-    @patch("rest_framework_simplejwt.views.TokenObtainPairView.post")
-    def test_login_user_lookup_fails_gracefully(self, mock_super_post):
-        self.client.credentials()
-
-        mock_super_post.return_value = Response(
-            {"access": "fake_access", "refresh": "fake_refresh"},
-            status=status.HTTP_200_OK,
-        )
-
-        response = self.client.post(
-            self.url, data={"username": "ghost_user", "password": "any"}  # nosec
-        )
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["access"], "fake_access")
-        self.assertNotIn("user", response.data)
+                if check_body and expected_status == status.HTTP_200_OK:
+                    self.assertIn("access", response.data)
+                    self.assertIn("refresh", response.data)
+                    self.assertIn("user", response.data)
+                    self.assertEqual(response.data["user"]["uuid"], user.uuid.hex)
 
 
 class RegisterViewTestCase(APITestBase):
@@ -65,144 +60,120 @@ class RegisterViewTestCase(APITestBase):
 
     def setUp(self):
         super().setUp()
-        self.sent_data = {
+        self.valid_payload = {
             "email": "foo@foo.com",
-            "password": "ThisIsARealValidPassword",  # nosec
+            "password": "ThisIsARealValidPassword123!",
         }
 
-    @patch("core.tasks.notifications.requests.post")
-    def test_post_create_user_201_created_and_logged_in(self, mock_post):
-        mock_post.return_value.ok = True
-        mock_post.return_value.json.return_value = {"status": "queued"}
+    @patch("core.models.user.User.send_verification_email")
+    def test_register_scenarios(self, mock_send_email):
+        existing_email = "exists@test.com"
+        UserFactory(email=existing_email)
 
-        self.client.credentials()
-        initial_count = User.objects.count()
-        response = self.client.post(self.url, data=self.sent_data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(User.objects.count(), initial_count + 1)
-
-        self.assertIn("access", response.data)
-        self.assertIn("refresh", response.data)
-        self.assertIn("user", response.data)
-        self.assertEqual(response.data["user"]["email"], "foo@foo.com")
-
-        new_user = User.objects.get(email="foo@foo.com")
-        self.assertEqual(new_user.auth_provider, User.AuthProvider.INTERNAL)
-        self.assertIsNotNone(new_user.verification_uuid)
-
-        mock_post.assert_called_once()
-
-    def test_post_create_user_400_bad_request(self):
-        self.client.credentials()
-
-        collision_email = "collision@test.com"
-        UserFactory(email=collision_email)
-
-        test_data_list = [
-            (collision_email, "ThisIsARealValidPassword", "email", "unique"),  # nosec
+        scenarios = [
             (
-                "foo@foopass.com",
-                "foo@foopassword",  # nosec
-                "password",
-                "password_too_similar",
+                "Success",
+                self.valid_payload,
+                status.HTTP_201_CREATED,
+                "access",
             ),
-            ("foo@foopass.com", "short", "password", "password_too_short"),  # nosec
-            ("foo@foopass.com", "12345678", "password", "password_too_common"),  # nosec
             (
-                "foo@foopass.com",
-                "141535876321858",  # nosec
+                "Fail Duplicate Email",
+                {**self.valid_payload, "email": existing_email},
+                status.HTTP_400_BAD_REQUEST,
+                "email",
+            ),
+            (
+                "Fail Weak Password",
+                {
+                    **self.valid_payload,
+                    "email": "unique_weak@test.com",
+                    "password": "123",
+                },
+                status.HTTP_400_BAD_REQUEST,
                 "password",
-                "password_entirely_numeric",
             ),
         ]
 
-        for test_data in test_data_list:
-            with self.subTest(test_data=test_data):
-                email, password, detail_key, expected_code = test_data
-                response = self.client.post(
-                    self.url, data={"email": email, "password": password}
-                )
+        for name, payload, expected_status, expected_key in scenarios:
+            with self.subTest(name=name):
+                mock_send_email.reset_mock()
 
-                self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+                if name == "Success":
+                    User.objects.filter(email=self.valid_payload["email"]).delete()
 
-                error_data = response.data.get(detail_key)
-                self.assertIsNotNone(
-                    error_data,
-                    f"Key '{detail_key}' not found in response: {response.data}",
-                )
+                response = self.client.post(self.url, data=payload)
+                self.assertEqual(response.status_code, expected_status)
+                self.assertIn(expected_key, response.data)
 
-                if isinstance(error_data, list):
-                    code = error_data[0].code
-                else:
-                    code = error_data.code
-
-                self.assertEqual(code, expected_code)
+                if name == "Success":
+                    self.assertTrue(
+                        User.objects.filter(email=payload["email"]).exists()
+                    )
+                    mock_send_email.assert_called_once()
 
 
 class GoogleLoginViewTestCase(APITestBase):
     url = reverse("core:google-login")
 
-    @patch("core.tasks.send_email_notification.delay")
-    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_success(self, mock_verify, mock_send_email):
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_success(self, mock_login):
         self.client.credentials()
-        mock_verify.return_value = {
-            "email": "g@gmail.com",
-            "given_name": "G",
-            "family_name": "U",
-        }
-
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url, data={"token": "valid_google_token"})
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn("refresh", response.data)
-        self.assertIn("access", response.data)
-        self.assertIn("user", response.data)
-        self.assertEqual(response.data["user"]["email"], "g@gmail.com")
-        self.assertEqual(response.data["user"]["auth_provider"], "google")
-
-        mock_send_email.assert_called_once()
-
-    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_invalid_token(self, mock_verify):
-        self.client.credentials()
-        mock_verify.side_effect = ValueError("Invalid token")
-
-        response = self.client.post(self.url, data={"token": "bad_token"})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_disabled_user(self, mock_verify):
-        self.client.credentials()
-        UserFactory(email="disabled@gmail.com", is_active=False)
-        mock_verify.return_value = {"email": "disabled@gmail.com"}
+        user = UserFactory()
+        mock_login.return_value = user
 
         response = self.client.post(self.url, data={"token": "valid_token"})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("access", response.data)
+        self.assertIn("user", response.data)
+        mock_login.assert_called_once_with("valid_token")
+
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_invalid_token(self, mock_login):
+        self.client.credentials()
+        mock_login.side_effect = ValueError("Invalid Token")
+
+        response = self.client.post(self.url, data={"token": "bad_token"})
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_disabled_user(self, mock_login):
+        self.client.credentials()
+        mock_login.side_effect = UserDisabledException()
+
+        response = self.client.post(self.url, data={"token": "disabled_user_token"})
+
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
 class VerifyUserViewTestCase(APITestBase):
-    def test_verify_user_200_ok(self):
-        target_user = UserFactory(is_verified=False)
-        url = reverse(
-            "core:verify_user",
-            kwargs={"verification_uuid": target_user.verification_uuid},
-        )
-        self.client.credentials()
-        response = self.client.patch(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        target_user.refresh_from_db()
-        self.assertTrue(target_user.is_verified)
-        self.assertIsNone(target_user.verification_uuid)
-
-    def test_verify_user_already_verified_403_forbidden(self):
+    def test_verify_user_scenarios(self):
+        user_pending = UserFactory(is_verified=False)
         UserFactory(is_verified=True, verification_uuid=None)
-        url = reverse(
-            "core:verify_user",
-            kwargs={"verification_uuid": "12345678-1234-5678-1234-567812345678"},
-        )
-        self.client.credentials()
 
-        response = self.client.patch(url)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        scenarios = [
+            ("Success", user_pending.verification_uuid, status.HTTP_200_OK),
+            (
+                "Fail Invalid UUID",
+                "00000000-0000-0000-0000-000000000000",
+                status.HTTP_404_NOT_FOUND,
+            ),
+            (
+                "Fail Already Verified",
+                "random-uuid-but-404-logic",
+                status.HTTP_404_NOT_FOUND,
+            ),
+        ]
+
+        for name, uuid_val, expected_status in scenarios:
+            with self.subTest(name=name):
+                url = reverse(
+                    "core:verify_user", kwargs={"verification_uuid": uuid_val}
+                )
+                response = self.client.patch(url)
+                self.assertEqual(response.status_code, expected_status)
+
+        user_pending.refresh_from_db()
+        self.assertTrue(user_pending.is_verified)

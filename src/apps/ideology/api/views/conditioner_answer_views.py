@@ -1,15 +1,16 @@
 from core.api.permissions import IsVerified
+from core.helpers import UUIDDestroyAPIView
+from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
     ConditionerAnswerReadSerializer,
     ConditionerAnswerUpsertSerializer,
 )
-from ideology.models import ConditionerAnswer, IdeologyConditioner
-from rest_framework.generics import ListAPIView
+from ideology.models import UserConditionerAnswer
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-
-from .base_views import BaseUpsertAnswerView
 
 
 @extend_schema(
@@ -18,8 +19,6 @@ from .base_views import BaseUpsertAnswerView
     description=_(
         "Creates or updates the user's answer for a specific conditioner defined by UUID in URL."
     ),
-    request=ConditionerAnswerUpsertSerializer,
-    responses={200: ConditionerAnswerReadSerializer},
     parameters=[
         OpenApiParameter(
             name="uuid",
@@ -29,24 +28,47 @@ from .base_views import BaseUpsertAnswerView
             type=str,
         )
     ],
+    responses={201: ConditionerAnswerReadSerializer},
 )
-class UpsertConditionerAnswerView(BaseUpsertAnswerView):
-    write_serializer_class = ConditionerAnswerUpsertSerializer
-    read_serializer_class = ConditionerAnswerReadSerializer
+class UpsertConditionerAnswerView(CreateAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+    serializer_class = ConditionerAnswerUpsertSerializer
 
-    target_model = ConditionerAnswer
-    reference_model = IdeologyConditioner
 
-    reference_field = "conditioner"
-    request_value_key = "answer"
-    target_value_key = "answer"
+@extend_schema(
+    tags=["answers"],
+    summary=_("Delete conditioner answer"),
+    description=_(
+        "Deletes the user's answer for the specific conditioner defined by UUID in URL."
+    ),
+    responses={204: None},
+    parameters=[
+        OpenApiParameter(
+            name="uuid",
+            location=OpenApiParameter.PATH,
+            description="UUID of the Conditioner whose answer you want to delete",
+            required=True,
+            type=str,
+        )
+    ],
+)
+class DeleteConditionerAnswerView(UUIDDestroyAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+
+    def get_object(self):
+        conditioner_uuid = self.kwargs.get(self.lookup_field)
+        return get_object_or_404(
+            UserConditionerAnswer,
+            user=self.request.user,
+            conditioner__uuid=conditioner_uuid,
+        )
 
 
 @extend_schema(
     tags=["answers"],
     summary=_("List user conditioner answers by complexity"),
     description=_(
-        "Returns the user's conditioner answers filtered by abstraction complexity."
+        "Returns the user's conditioner answers filtered by abstraction complexity (via sections or axes)."
     ),
     parameters=[
         OpenApiParameter(
@@ -64,10 +86,20 @@ class UserConditionerAnswerListByComplexityView(ListAPIView):
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
-            return ConditionerAnswer.objects.none()
+            return UserConditionerAnswer.objects.none()
 
         complexity_uuid = self.kwargs.get("complexity_uuid")
-        return ConditionerAnswer.objects.filter(
-            user=self.request.user,
-            conditioner__abstraction_complexity__uuid=complexity_uuid,
-        ).select_related("conditioner")
+
+        return (
+            UserConditionerAnswer.objects.filter(user=self.request.user)
+            .filter(
+                Q(
+                    conditioner__section_rules__section__abstraction_complexity__uuid=complexity_uuid
+                )
+                | Q(
+                    conditioner__axis_rules__axis__section__abstraction_complexity__uuid=complexity_uuid
+                )
+            )
+            .select_related("conditioner")
+            .distinct()
+        )

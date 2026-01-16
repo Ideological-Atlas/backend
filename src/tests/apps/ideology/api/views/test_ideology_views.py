@@ -33,7 +33,6 @@ class IdeologyListViewTestCase(APITestBase):
         self.assertGreaterEqual(len(response.data["results"]), 2)
 
     def test_filter_by_country(self):
-        # Usar .pk o .id para Country (Entero)
         response = self.client.get(self.url, {"country": self.country.pk})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)

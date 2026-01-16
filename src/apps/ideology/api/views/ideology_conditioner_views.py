@@ -8,9 +8,9 @@ from rest_framework.permissions import AllowAny
 
 @extend_schema(
     tags=["structure"],
-    summary=_("List conditioners by complexity"),
+    summary=_("List all relevant conditioners by complexity"),
     description=_(
-        "Returns all ideology conditioners associated with a specific abstraction complexity UUID."
+        "Returns ALL conditioners relevant for a complexity level. This includes conditioners attached to sections, axes, AND recursive dependencies (conditioners required by other conditioners)."
     ),
     parameters=[
         OpenApiParameter(
@@ -22,12 +22,10 @@ from rest_framework.permissions import AllowAny
         )
     ],
 )
-class ConditionerListByComplexityView(ListAPIView):
+class ConditionerListAggregatedByComplexityView(ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = IdeologyConditionerSerializer
 
     def get_queryset(self):
         complexity_uuid = self.kwargs.get("complexity_uuid")
-        return IdeologyConditioner.objects.filter(
-            abstraction_complexity__uuid=complexity_uuid
-        ).order_by("name")
+        return IdeologyConditioner.objects.get_by_complexity(complexity_uuid)

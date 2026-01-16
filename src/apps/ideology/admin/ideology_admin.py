@@ -1,10 +1,17 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from ideology.models import Ideology, IdeologyAssociation, IdeologyReference
-from unfold.admin import ModelAdmin, TabularInline
+from ideology.models import (
+    Ideology,
+    IdeologyAssociation,
+    IdeologyAxisDefinition,
+    IdeologyConditionerDefinition,
+    IdeologyReference,
+)
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
+from unfold.admin import ModelAdmin, StackedInline
 
 
-class IdeologyAssociationInline(TabularInline):
+class IdeologyAssociationInline(StackedInline):
     model = IdeologyAssociation
     extra = 0
     autocomplete_fields = ["country", "region", "religion"]
@@ -13,7 +20,7 @@ class IdeologyAssociationInline(TabularInline):
     tab = True
 
 
-class IdeologyReferenceInline(TabularInline):
+class IdeologyReferenceInline(StackedInline, TranslationStackedInline):
     model = IdeologyReference
     extra = 0
     verbose_name = _("Reference")
@@ -21,13 +28,36 @@ class IdeologyReferenceInline(TabularInline):
     tab = True
 
 
+class IdeologyAxisDefinitionInline(StackedInline):
+    model = IdeologyAxisDefinition
+    extra = 0
+    autocomplete_fields = ["axis"]
+    verbose_name = _("Axis Definition")
+    verbose_name_plural = _("Axis Definitions")
+    tab = True
+
+
+class IdeologyConditionerDefinitionInline(StackedInline):
+    model = IdeologyConditionerDefinition
+    extra = 0
+    autocomplete_fields = ["conditioner"]
+    verbose_name = _("Conditioner Definition")
+    verbose_name_plural = _("Conditioner Definitions")
+    tab = True
+
+
 @admin.register(Ideology)
-class IdeologyAdmin(ModelAdmin):
-    list_display = ["name", "created", "modified", "get_association_count"]
-    search_fields = ["name", "description_supporter"]
+class IdeologyAdmin(ModelAdmin, TabbedTranslationAdmin):
+    list_display = ["name", "uuid", "created", "modified", "get_association_count"]
+    search_fields = ["name", "description_supporter", "uuid"]
     list_filter_submit = True
     list_filter = ["created"]
-    inlines = [IdeologyAssociationInline, IdeologyReferenceInline]
+    inlines = [
+        IdeologyAssociationInline,
+        IdeologyReferenceInline,
+        IdeologyAxisDefinitionInline,
+        IdeologyConditionerDefinitionInline,
+    ]
     readonly_fields = ["created", "modified", "uuid"]
     fieldsets = (
         (

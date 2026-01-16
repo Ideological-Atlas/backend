@@ -6,5 +6,5 @@ from ideology.factories import CompletedAnswerFactory
 class CompletedAnswerModelTestCase(TestCase):
     def test_str(self):
         user = UserFactory(username="tester")
-        comp = CompletedAnswerFactory(completed_by=user)
-        self.assertIn("tester", str(comp))
+        completed_answer = CompletedAnswerFactory(completed_by=user)
+        self.assertIn("tester", str(completed_answer))

@@ -59,7 +59,6 @@ class Ideology(TimeStampedUUIDModel):
         verbose_name=_("Associated Countries"),
         help_text=_("Countries where this ideology is explicitly present."),
     )
-
     associated_regions = models.ManyToManyField(
         "cities_light.Region",
         through="ideology.IdeologyAssociation",
@@ -68,7 +67,6 @@ class Ideology(TimeStampedUUIDModel):
         verbose_name=_("Associated Regions"),
         help_text=_("Specific regions where this ideology is explicitly present."),
     )
-
     associated_religions = models.ManyToManyField(
         "ideology.Religion",
         through="ideology.IdeologyAssociation",
@@ -77,7 +75,6 @@ class Ideology(TimeStampedUUIDModel):
         verbose_name=_("Associated Religions"),
         help_text=_("Religions linked to this ideology."),
     )
-
     tags = models.ManyToManyField(
         "ideology.Tag",
         through="ideology.IdeologyTag",

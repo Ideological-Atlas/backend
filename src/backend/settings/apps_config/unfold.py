@@ -9,23 +9,20 @@ SITE_NAME = PROJECT_NAME
 LINKS = {
     "users": reverse_lazy("admin:core_user_changelist"),
     "groups": reverse_lazy("admin:auth_group_changelist"),
-    # Core Ideology
     "ideology": reverse_lazy("admin:ideology_ideology_changelist"),
     "association": reverse_lazy("admin:ideology_ideologyassociation_changelist"),
     "religion": reverse_lazy("admin:ideology_religion_changelist"),
     "tag": reverse_lazy("admin:ideology_tag_changelist"),
     "reference": reverse_lazy("admin:ideology_ideologyreference_changelist"),
-    # Structure
     "complexity": reverse_lazy(
         "admin:ideology_ideologyabstractioncomplexity_changelist"
     ),
     "section": reverse_lazy("admin:ideology_ideologysection_changelist"),
     "conditioner": reverse_lazy("admin:ideology_ideologyconditioner_changelist"),
     "axis": reverse_lazy("admin:ideology_ideologyaxis_changelist"),
-    # Data / Answers
     "completed": reverse_lazy("admin:ideology_completedanswer_changelist"),
-    "axis_ans": reverse_lazy("admin:ideology_axisanswer_changelist"),
-    "cond_ans": reverse_lazy("admin:ideology_conditioneranswer_changelist"),
+    "axis_ans": reverse_lazy("admin:ideology_useraxisanswer_changelist"),
+    "cond_ans": reverse_lazy("admin:ideology_userconditioneranswer_changelist"),
 }
 
 SIDEBAR_NAVIGATION = [

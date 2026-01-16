@@ -20,9 +20,9 @@ urlpatterns = [
         name="axis-list-by-section",
     ),
     path(
-        "structure/conditioners/<str:complexity_uuid>/",
-        views.ConditionerListByComplexityView.as_view(),
-        name="conditioner-list-by-complexity",
+        "structure/conditioners/<str:complexity_uuid>/aggregated/",
+        views.ConditionerListAggregatedByComplexityView.as_view(),
+        name="conditioner-list-aggregated-by-complexity",
     ),
     path(
         "ideologies/",
@@ -40,6 +40,11 @@ urlpatterns = [
         name="upsert-axis-answer",
     ),
     path(
+        "answers/axis/<str:uuid>/delete/",
+        views.DeleteAxisAnswerView.as_view(),
+        name="delete-axis-answer",
+    ),
+    path(
         "answers/axis/<str:section_uuid>/list/",
         views.UserAxisAnswerListBySectionView.as_view(),
         name="user-axis-answers-by-section",
@@ -48,6 +53,11 @@ urlpatterns = [
         "answers/conditioner/<str:uuid>/",
         views.UpsertConditionerAnswerView.as_view(),
         name="upsert-conditioner-answer",
+    ),
+    path(
+        "answers/conditioner/<str:uuid>/delete/",
+        views.DeleteConditionerAnswerView.as_view(),
+        name="delete-conditioner-answer",
     ),
     path(
         "answers/conditioner/<str:complexity_uuid>/list/",

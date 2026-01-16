@@ -4,15 +4,12 @@ from django.db.models import Q
 
 
 class EmailOrUsernameModelBackend(ModelBackend):
-
     def authenticate(self, request, username=None, password=None, **kwargs):
         User = get_user_model()
         if username is None:
             username = kwargs.get(User.USERNAME_FIELD)
-
         if not username:
             return None
-
         try:
             user = User.objects.get(
                 Q(username__iexact=username) | Q(email__iexact=username)

@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.db.utils import IntegrityError
 from django.test import TestCase
 from ideology.factories import (
@@ -9,43 +11,73 @@ from ideology.factories import (
 
 class IdeologyAssociationModelTestCase(TestCase):
     def test_str_permutations(self):
-        ideo = IdeologyFactory(name="Ideology")
-        rel = ReligionFactory(name="Rel")
+        ideology = IdeologyFactory(name="Ideology")
+        religion = ReligionFactory(name="Rel")
 
-        assoc1 = IdeologyAssociationFactory(
-            ideology=ideo, country__name="Spain", religion=rel, region=None
-        )
-        s1 = str(assoc1)
-        self.assertIn("Ideology", s1)
-        self.assertIn("in Spain", s1)
-        self.assertIn("linked to Rel", s1)
-        self.assertNotIn("(", s1)
+        scenarios: list[tuple[str, dict[str, Any], list[str], list[str]]] = [
+            (
+                "Full Context",
+                {
+                    "ideology": ideology,
+                    "country__name": "Spain",
+                    "religion": religion,
+                    "region": None,
+                },
+                ["Ideology", "in Spain", "linked to Rel"],
+                ["("],
+            ),
+            (
+                "Country Only",
+                {
+                    "ideology": ideology,
+                    "country__name": "Spain",
+                    "religion": None,
+                    "region": None,
+                },
+                ["in Spain"],
+                ["linked to"],
+            ),
+            (
+                "Religion Only",
+                {"ideology": ideology, "trait_religion": True, "religion": religion},
+                ["linked to Rel"],
+                ["in "],
+            ),
+            (
+                "Region Only",
+                {"ideology": ideology, "trait_region": True, "region__name": "Cat"},
+                ["(Cat)"],
+                ["in "],
+            ),
+            (
+                "No Context (Build Only)",
+                {
+                    "ideology": ideology,
+                    "country": None,
+                    "region": None,
+                    "religion": None,
+                    "factory_method": "build",
+                },
+                ["Ideology"],
+                [],
+            ),
+        ]
 
-        assoc2 = IdeologyAssociationFactory(
-            ideology=ideo, country__name="Spain", religion=None, region=None
-        )
-        s2 = str(assoc2)
-        self.assertIn("in Spain", s2)
-        self.assertNotIn("linked to", s2)
+        for name, kwargs, expected_in, expected_not_in in scenarios:
+            with self.subTest(scenario=name):
+                factory_method = kwargs.pop("factory_method", "create")
+                if factory_method == "build":
+                    ideology_association = IdeologyAssociationFactory.build(**kwargs)
+                else:
+                    ideology_association = IdeologyAssociationFactory(**kwargs)
 
-        assoc3 = IdeologyAssociationFactory(
-            ideology=ideo, trait_religion=True, religion=rel
-        )
-        s3 = str(assoc3)
-        self.assertIn("linked to Rel", s3)
-        self.assertNotIn("in ", s3)
+                string_representation = str(ideology_association)
 
-        assoc4 = IdeologyAssociationFactory(
-            ideology=ideo, trait_region=True, region__name="Cat"
-        )
-        s4 = str(assoc4)
-        self.assertIn("(Cat)", s4)
-        self.assertNotIn("in ", s4)
+                for substring in expected_in:
+                    self.assertIn(substring, string_representation)
 
-        assoc5 = IdeologyAssociationFactory.build(
-            ideology=ideo, country=None, region=None, religion=None
-        )
-        self.assertEqual(str(assoc5), "Ideology")
+                for substring in expected_not_in:
+                    self.assertNotIn(substring, string_representation)
 
     def test_constraint_requires_context(self):
         with self.assertRaises(IntegrityError):

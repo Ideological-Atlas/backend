@@ -32,8 +32,6 @@ class AbstractModelTestCase(TestCase):
     def test_str_representation_no_id(self):
         m3 = DummyModel()
         m3.uuid = uuid.uuid4()
-
         if hasattr(m3, "id"):
             del m3.id
-
         self.assertEqual(str(m3), str(m3.uuid))
