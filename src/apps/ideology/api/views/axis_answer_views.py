@@ -8,10 +8,8 @@ from ideology.api.serializers import (
     AxisAnswerUpsertSerializer,
 )
 from ideology.models import UserAxisAnswer
-from rest_framework import status
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 
 
 @extend_schema(
@@ -35,13 +33,6 @@ from rest_framework.response import Response
 class UpsertAxisAnswerView(CreateAPIView):
     permission_classes = [IsAuthenticated, IsVerified]
     serializer_class = AxisAnswerUpsertSerializer
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        instance = serializer.save()
-        read_serializer = AxisAnswerReadSerializer(instance)
-        return Response(read_serializer.data, status=status.HTTP_201_CREATED)
 
 
 @extend_schema(

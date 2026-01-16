@@ -3,6 +3,21 @@ from ideology.models import IdeologyAxisDefinition, UserAxisAnswer
 from rest_framework import serializers
 
 
+class AxisAnswerReadSerializer(UUIDModelSerializerMixin):
+    axis_uuid = serializers.UUIDField(source="axis.uuid", format="hex", read_only=True)
+
+    class Meta:
+        model = UserAxisAnswer
+        fields = [
+            "uuid",
+            "axis_uuid",
+            "value",
+            "margin_left",
+            "margin_right",
+            "is_indifferent",
+        ]
+
+
 class AxisAnswerUpsertSerializer(serializers.Serializer):
     value = serializers.IntegerField(
         min_value=-100, max_value=100, required=False, allow_null=True
@@ -25,20 +40,8 @@ class AxisAnswerUpsertSerializer(serializers.Serializer):
         )
         return answer
 
-
-class AxisAnswerReadSerializer(UUIDModelSerializerMixin):
-    axis_uuid = serializers.UUIDField(source="axis.uuid", format="hex", read_only=True)
-
-    class Meta:
-        model = UserAxisAnswer
-        fields = [
-            "uuid",
-            "axis_uuid",
-            "value",
-            "margin_left",
-            "margin_right",
-            "is_indifferent",
-        ]
+    def to_representation(self, instance):
+        return AxisAnswerReadSerializer(instance, context=self.context).data
 
 
 class IdeologyAxisDefinitionSerializer(UUIDModelSerializerMixin):

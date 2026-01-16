@@ -1,3 +1,4 @@
+from typing import Any
 from unittest.mock import patch
 
 from core.factories import UserFactory
@@ -52,11 +53,45 @@ class AnswerServiceTestCase(TestCase):
         names = sorted([c["name"] for c in data["conditioners"]])
         self.assertEqual(names, ["CondAxis", "CondSection"])
 
-    def test_recursive_conditioner_dependency_loop_coverage(self):
+    def test_recursive_dependency_scenarios(self):
         complexity = IdeologyAbstractionComplexityFactory(complexity=1)
         section = IdeologySectionFactory(
             abstraction_complexity=complexity, add_axes__total=0
         )
+
+        scenarios: list[dict[str, Any]] = [
+            {
+                "name": "Linear Chain (C1->C2->C3)",
+                "setup": lambda: self._setup_linear_chain(section),
+                "expected_conditioners": ["C1", "C2", "C3"],
+            },
+            {
+                "name": "Redundant Branches",
+                "setup": lambda: self._setup_redundant_branches(section),
+                "expected_conditioners": ["Base", "Redundant"],
+                "unexpected_conditioners": ["OrphanTgt"],
+            },
+        ]
+
+        for scenario in scenarios:
+            with self.subTest(scenario=scenario["name"]):
+                UserConditionerAnswerFactory._meta.model.objects.all().delete()
+                IdeologyConditionerConditioner.objects.all().delete()
+                IdeologySectionConditioner.objects.all().delete()
+
+                scenario["setup"]()
+
+                completed = AnswerService.generate_snapshot(self.user)
+                data = completed.answers[0]
+                names = [c["name"] for c in data["conditioners"]]
+
+                for expected in scenario.get("expected_conditioners", []):
+                    self.assertIn(expected, names)
+
+                for unexpected in scenario.get("unexpected_conditioners", []):
+                    self.assertNotIn(unexpected, names)
+
+    def _setup_linear_chain(self, section):
         c1 = IdeologyConditionerFactory(name="C1")
         IdeologySectionConditioner.objects.create(
             section=section, conditioner=c1, name="Rule-C1"
@@ -72,18 +107,8 @@ class AnswerServiceTestCase(TestCase):
         UserConditionerAnswerFactory(user=self.user, conditioner=c1, answer="Yes")
         UserConditionerAnswerFactory(user=self.user, conditioner=c2, answer="Yes")
         UserConditionerAnswerFactory(user=self.user, conditioner=c3, answer="Yes")
-        completed = AnswerService.generate_snapshot(self.user)
-        data = completed.answers[0]
-        names = [c["name"] for c in data["conditioners"]]
-        self.assertIn("C1", names)
-        self.assertIn("C2", names)
-        self.assertIn("C3", names)
 
-    def test_recursive_branches_redundant_and_orphan(self):
-        complexity = IdeologyAbstractionComplexityFactory(complexity=1)
-        section = IdeologySectionFactory(
-            abstraction_complexity=complexity, add_axes__total=0
-        )
+    def _setup_redundant_branches(self, section):
         c_orphan_src = IdeologyConditionerFactory(name="OrphanSrc")
         c_orphan_tgt = IdeologyConditionerFactory(name="OrphanTgt")
         IdeologyConditionerConditioner.objects.create(
@@ -94,6 +119,7 @@ class AnswerServiceTestCase(TestCase):
         UserConditionerAnswerFactory(
             user=self.user, conditioner=c_orphan_tgt, answer="A"
         )
+
         c_base = IdeologyConditionerFactory(name="Base")
         c_redundant = IdeologyConditionerFactory(name="Redundant")
         IdeologySectionConditioner.objects.create(
@@ -110,11 +136,6 @@ class AnswerServiceTestCase(TestCase):
         UserConditionerAnswerFactory(
             user=self.user, conditioner=c_redundant, answer="B"
         )
-        completed = AnswerService.generate_snapshot(self.user)
-        data = completed.answers[0]
-        names = [c["name"] for c in data["conditioners"]]
-        self.assertIn("Redundant", names)
-        self.assertNotIn("OrphanTgt", names)
 
     @patch("ideology.services.answer_service.IdeologyAbstractionComplexity.objects.all")
     def test_orphaned_answers_ignored(self, mock_complexities):
@@ -147,11 +168,11 @@ class AnswerServiceTestCase(TestCase):
     def test_multiple_axes_same_section(self):
         complexity = IdeologyAbstractionComplexityFactory(complexity=1)
         section = IdeologySectionFactory(
-            abstraction_complexity=complexity, name="Economia"
+            abstraction_complexity=complexity, name="Economy"
         )
 
-        axis_1 = IdeologyAxisFactory(section=section, name="Mercado")
-        axis_2 = IdeologyAxisFactory(section=section, name="Regulacion")
+        axis_1 = IdeologyAxisFactory(section=section, name="Market")
+        axis_2 = IdeologyAxisFactory(section=section, name="Regulation")
 
         UserAxisAnswerFactory(user=self.user, axis=axis_1, value=10)
         UserAxisAnswerFactory(user=self.user, axis=axis_2, value=-10)
@@ -164,4 +185,4 @@ class AnswerServiceTestCase(TestCase):
         self.assertEqual(len(axes_list), 2)
 
         names = sorted([a["name"] for a in axes_list])
-        self.assertEqual(names, ["Mercado", "Regulacion"])
+        self.assertEqual(names, ["Market", "Regulation"])
