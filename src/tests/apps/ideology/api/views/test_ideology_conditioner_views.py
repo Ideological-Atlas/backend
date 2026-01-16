@@ -3,10 +3,11 @@ from django.urls import reverse
 from ideology.api.views import ConditionerListAggregatedByComplexityView
 from ideology.factories import (
     IdeologyAbstractionComplexityFactory,
+    IdeologyConditionerConditionerFactory,
     IdeologyConditionerFactory,
+    IdeologySectionConditionerFactory,
     IdeologySectionFactory,
 )
-from ideology.models import IdeologyConditionerConditioner, IdeologySectionConditioner
 from rest_framework import status
 
 
@@ -16,7 +17,7 @@ class IdeologyConditionerViewTestCase(APITestBase):
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
 
         self.conditioner_1 = IdeologyConditionerFactory(name="C1")
-        IdeologySectionConditioner.objects.create(
+        IdeologySectionConditionerFactory(
             section=self.section,
             conditioner=self.conditioner_1,
             name="Test Rule",
@@ -24,7 +25,7 @@ class IdeologyConditionerViewTestCase(APITestBase):
         )
 
         self.conditioner_2 = IdeologyConditionerFactory(name="C2")
-        IdeologyConditionerConditioner.objects.create(
+        IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_1,
             source_conditioner=self.conditioner_2,
             name="C1 depends on C2",
@@ -32,7 +33,7 @@ class IdeologyConditionerViewTestCase(APITestBase):
         )
 
         self.conditioner_3 = IdeologyConditionerFactory(name="C3")
-        IdeologyConditionerConditioner.objects.create(
+        IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_2,
             source_conditioner=self.conditioner_3,
             name="C2 depends on C3",

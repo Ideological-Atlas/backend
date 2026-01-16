@@ -4,14 +4,11 @@ from ideology.factories import (
     IdeologyAbstractionComplexityFactory,
     IdeologyAxisFactory,
     IdeologyConditionerFactory,
+    IdeologySectionConditionerFactory,
     IdeologySectionFactory,
     UserAxisAnswerFactory,
 )
-from ideology.models import (
-    IdeologySectionConditioner,
-    UserAxisAnswer,
-    UserConditionerAnswer,
-)
+from ideology.models import UserAxisAnswer, UserConditionerAnswer
 from rest_framework import status
 
 
@@ -69,7 +66,8 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.complexity = IdeologyAbstractionComplexityFactory()
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
         self.conditioner = IdeologyConditionerFactory()
-        IdeologySectionConditioner.objects.create(
+
+        IdeologySectionConditionerFactory(
             section=self.section, conditioner=self.conditioner, name="rule"
         )
 

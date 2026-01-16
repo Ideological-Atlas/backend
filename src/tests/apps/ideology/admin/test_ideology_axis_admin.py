@@ -2,10 +2,11 @@ from django.contrib.admin.sites import AdminSite
 from django.test import TestCase
 from ideology.admin import IdeologyAxisAdmin
 from ideology.factories import (
+    IdeologyAxisConditionerFactory,
     IdeologyAxisFactory,
     IdeologyConditionerFactory,
 )
-from ideology.models import IdeologyAxis, IdeologyAxisConditioner
+from ideology.models import IdeologyAxis
 
 
 class IdeologyAxisAdminTestCase(TestCase):
@@ -16,5 +17,5 @@ class IdeologyAxisAdminTestCase(TestCase):
     def test_get_condition_count(self):
         axis = IdeologyAxisFactory()
         cond = IdeologyConditionerFactory()
-        IdeologyAxisConditioner.objects.create(axis=axis, conditioner=cond, name="R1")
+        IdeologyAxisConditionerFactory(axis=axis, conditioner=cond, name="R1")
         self.assertEqual(self.admin.get_condition_count(axis), 1)

@@ -4,9 +4,9 @@ from ideology.factories import (
     IdeologyAbstractionComplexityFactory,
     IdeologyAxisFactory,
     IdeologyConditionerFactory,
+    IdeologySectionConditionerFactory,
     IdeologySectionFactory,
 )
-from ideology.models import IdeologySectionConditioner
 from rest_framework import status
 
 
@@ -18,7 +18,8 @@ class StructureViewsTestCase(APITestBase):
         )
         self.axis = IdeologyAxisFactory(section=self.section)
         self.conditioner = IdeologyConditionerFactory()
-        IdeologySectionConditioner.objects.create(
+
+        IdeologySectionConditionerFactory(
             section=self.section,
             conditioner=self.conditioner,
             name="Test",
