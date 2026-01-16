@@ -16,7 +16,9 @@ class IdeologyConditionerViewTestCase(APITestBase):
         self.complexity = IdeologyAbstractionComplexityFactory(add_sections__total=0)
         self.section = IdeologySectionFactory(abstraction_complexity=self.complexity)
 
-        self.conditioner_1 = IdeologyConditionerFactory(name="C1")
+        self.conditioner_1 = IdeologyConditionerFactory(
+            name="C1", accepted_values=["A", "B"]
+        )
         IdeologySectionConditionerFactory(
             section=self.section,
             conditioner=self.conditioner_1,
@@ -24,7 +26,9 @@ class IdeologyConditionerViewTestCase(APITestBase):
             condition_values=["A"],
         )
 
-        self.conditioner_2 = IdeologyConditionerFactory(name="C2")
+        self.conditioner_2 = IdeologyConditionerFactory(
+            name="C2", accepted_values=["A", "B"]
+        )
         IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_1,
             source_conditioner=self.conditioner_2,
@@ -32,7 +36,9 @@ class IdeologyConditionerViewTestCase(APITestBase):
             condition_values=["B"],
         )
 
-        self.conditioner_3 = IdeologyConditionerFactory(name="C3")
+        self.conditioner_3 = IdeologyConditionerFactory(
+            name="C3", accepted_values=["C", "D"]
+        )
         IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_2,
             source_conditioner=self.conditioner_3,

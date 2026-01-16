@@ -5,81 +5,96 @@ from ideology.factories import IdeologyAxisFactory, IdeologyConditionerFactory
 from ideology.models import IdeologyConditioner
 
 
-class IdeologyConditionerModelTestCase(TestCase):
+class IdeologyConditionerValidationTestCase(TestCase):
     def test_str(self):
-        ideology_conditioner = IdeologyConditionerFactory(name="Conditioner1")
-        self.assertEqual(str(ideology_conditioner), "Conditioner1")
+        conditioner = IdeologyConditionerFactory(name="Conditioner1")
+        self.assertEqual(str(conditioner), "Conditioner1")
 
+    def test_validation_fails_if_accepted_values_is_not_list(self):
+        """Coverage for: if not isinstance(self.accepted_values, list)"""
+        conditioner = IdeologyConditionerFactory.build(
+            accepted_values={"invalid": "dict"}  # Should be a list
+        )
+        with self.assertRaises(ValidationError) as cm:
+            conditioner.clean()
+        self.assertIn("Must be a JSON list", str(cm.exception))
+
+    def test_categorical_validation_fails_empty_values(self):
+        conditioner = IdeologyConditionerFactory.build(
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL, accepted_values=[]
+        )
+        with self.assertRaises(ValidationError) as cm:
+            conditioner.clean()
+        self.assertIn("must define at least one accepted value", str(cm.exception))
+
+    def test_categorical_validation_fails_non_string_values(self):
+        """Coverage for: if not all(isinstance(x, str) for x in self.accepted_values)"""
+        conditioner = IdeologyConditionerFactory.build(
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL,
+            accepted_values=["Option A", 123],  # Integer is invalid
+        )
+        with self.assertRaises(ValidationError) as cm:
+            conditioner.clean()
+        self.assertIn("All values in the list must be strings", str(cm.exception))
+
+
+class BooleanLogicTestCase(TestCase):
     def test_boolean_validation_success(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="ValidBooleanConditioner",
+        conditioner = IdeologyConditionerFactory.build(
             type=IdeologyConditioner.ConditionerType.BOOLEAN,
             accepted_values=["true", "false"],
         )
-        ideology_conditioner.save()
-        self.assertTrue(ideology_conditioner.pk)
+        # Should not raise
+        conditioner.clean()
 
     def test_boolean_validation_failure_wrong_values(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="InvalidBooleanConditioner",
+        conditioner = IdeologyConditionerFactory.build(
             type=IdeologyConditioner.ConditionerType.BOOLEAN,
             accepted_values=["Yes", "No"],
         )
-        with self.assertRaises(ValidationError) as validation_error:
-            ideology_conditioner.save()
-        self.assertIn("accepted_values", validation_error.exception.message_dict)
-
-    def test_boolean_validation_failure_empty(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="EmptyBooleanConditioner",
-            type=IdeologyConditioner.ConditionerType.BOOLEAN,
-            accepted_values=[],
-        )
-        with self.assertRaises(ValidationError):
-            ideology_conditioner.save()
+        with self.assertRaises(ValidationError) as cm:
+            conditioner.clean()
+        self.assertIn("accepted_values", cm.exception.message_dict)
 
 
-class IdeologyConditionerAxisRangeTestCase(TestCase):
+class AxisRangeLogicTestCase(TestCase):
     def setUp(self):
-        self.ideology_axis = IdeologyAxisFactory()
+        self.axis = IdeologyAxisFactory()
 
     def test_axis_range_success(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="ValidRangeConditioner",
+        conditioner = IdeologyConditioner(
+            name="ValidRange",
             type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
-            source_axis=self.ideology_axis,
+            source_axis=self.axis,
             axis_min_value=50,
+            # accepted_values is auto-set in clean()
         )
-        ideology_conditioner.save()
-        self.assertTrue(ideology_conditioner.pk)
+        conditioner.clean()
+        self.assertEqual(conditioner.accepted_values, ["true", "false"])
 
     def test_axis_range_missing_source_axis(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="InvalidRangeNoAxisConditioner",
+        """Coverage for: if not self.source_axis: raise ValidationError"""
+        conditioner = IdeologyConditionerFactory.build(
             type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
             source_axis=None,
             axis_min_value=50,
         )
         with translation.override("en"):
-            with self.assertRaises(ValidationError) as validation_error:
-                ideology_conditioner.save()
-            self.assertIn("source_axis", validation_error.exception.message_dict)
-            self.assertIn(
-                "Required for Axis Range type", str(validation_error.exception)
-            )
+            with self.assertRaises(ValidationError) as cm:
+                conditioner.clean()
+            self.assertIn("Required for Axis Range type", str(cm.exception))
 
-    def test_axis_range_missing_values(self):
-        ideology_conditioner = IdeologyConditioner(
-            name="InvalidRangeNoValuesConditioner",
+    def test_axis_range_missing_min_max_values(self):
+        conditioner = IdeologyConditionerFactory.build(
             type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
-            source_axis=self.ideology_axis,
+            source_axis=self.axis,
             axis_min_value=None,
             axis_max_value=None,
         )
         with translation.override("en"):
-            with self.assertRaises(ValidationError) as validation_error:
-                ideology_conditioner.save()
+            with self.assertRaises(ValidationError) as cm:
+                conditioner.clean()
             self.assertIn(
                 "Must specify at least min or max value for Axis Range",
-                str(validation_error.exception),
+                str(cm.exception),
             )

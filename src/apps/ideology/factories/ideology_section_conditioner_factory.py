@@ -13,4 +13,9 @@ class IdeologySectionConditionerFactory(TimeStampedUUIDModelFactory):
     conditioner = factory.SubFactory(IdeologyConditionerFactory)
     name = factory.Sequence(lambda n: f"SectionRule-{n}")
     description = factory.Faker("sentence")
-    condition_values = factory.LazyFunction(list)
+
+    @factory.lazy_attribute
+    def condition_values(self):
+        if self.conditioner and self.conditioner.accepted_values:
+            return [self.conditioner.accepted_values[0]]
+        return ["true"]

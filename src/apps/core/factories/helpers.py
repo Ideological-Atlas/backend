@@ -17,11 +17,13 @@ def add_related_conditioners(
 
     if extracted:
         for item in extracted:
+            valid_val = item.accepted_values[0] if item.accepted_values else "true"
+
             create_kwargs = {
                 parent_field: obj,
                 child_field: item,
                 "name": f"{name_prefix}-{item.name}",
-                "condition_values": item.accepted_values[:1],
+                "condition_values": [valid_val],
             }
             through_model.objects.create(**create_kwargs)
         return
@@ -30,10 +32,12 @@ def add_related_conditioners(
     if count:
         for i in range(count):
             item = IdeologyConditionerFactory()
+            valid_val = item.accepted_values[0] if item.accepted_values else "true"
+
             create_kwargs = {
                 parent_field: obj,
                 child_field: item,
                 "name": f"{name_prefix}-Auto-{i}",
-                "condition_values": item.accepted_values[:1],
+                "condition_values": [valid_val],
             }
             through_model.objects.create(**create_kwargs)

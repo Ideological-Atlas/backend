@@ -40,7 +40,8 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         null=True,
         verbose_name=_("Accepted Values"),
         help_text=_(
-            "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']."
+            "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']. "
+            "For 'Derived from Axis Range', this is auto-set to ['true', 'false']."
         ),
     )
 
@@ -87,29 +88,55 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         return self.name
 
     def clean(self):
-        super().clean()
-        if self.type == self.ConditionerType.BOOLEAN:
-            expected = ["true", "false"]
-            if not self.accepted_values or sorted(self.accepted_values) != sorted(
-                expected
-            ):
-                raise ValidationError(
-                    {
-                        "accepted_values": _(
-                            "Boolean type must have accepted_values=['true', 'false']"
-                        )
-                    }
-                )
-
         if self.type == self.ConditionerType.AXIS_RANGE:
-            if not self.source_axis:
-                raise ValidationError(
-                    {"source_axis": _("Required for Axis Range type.")}
-                )
-            if self.axis_min_value is None and self.axis_max_value is None:
-                raise ValidationError(
-                    _("Must specify at least min or max value for Axis Range.")
-                )
+            self.accepted_values = ["true", "false"]
+
+        super().clean()
+        self._validate_data_structure()
+
+        if self.type == self.ConditionerType.BOOLEAN:
+            self._validate_boolean_logic()
+        elif self.type == self.ConditionerType.CATEGORICAL:
+            self._validate_categorical_logic()
+        elif self.type == self.ConditionerType.AXIS_RANGE:
+            self._validate_axis_range_logic()
+
+    def _validate_data_structure(self):
+        if not isinstance(self.accepted_values, list):
+            raise ValidationError({"accepted_values": _("Must be a JSON list.")})
+
+    def _validate_boolean_logic(self):
+        expected = ["true", "false"]
+        if not self.accepted_values or sorted(self.accepted_values) != sorted(expected):
+            raise ValidationError(
+                {
+                    "accepted_values": _(
+                        "Boolean type must have accepted_values=['true', 'false']"
+                    )
+                }
+            )
+
+    def _validate_categorical_logic(self):
+        if not self.accepted_values:
+            raise ValidationError(
+                {
+                    "accepted_values": _(
+                        "Categorical type must define at least one accepted value."
+                    )
+                }
+            )
+        if not all(isinstance(x, str) for x in self.accepted_values):
+            raise ValidationError(
+                {"accepted_values": _("All values in the list must be strings.")}
+            )
+
+    def _validate_axis_range_logic(self):
+        if not self.source_axis:
+            raise ValidationError({"source_axis": _("Required for Axis Range type.")})
+        if self.axis_min_value is None and self.axis_max_value is None:
+            raise ValidationError(
+                _("Must specify at least min or max value for Axis Range.")
+            )
 
     def save(self, *args, **kwargs):
         self.full_clean()

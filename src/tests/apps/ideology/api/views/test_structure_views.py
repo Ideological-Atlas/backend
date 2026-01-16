@@ -17,13 +17,13 @@ class StructureViewsTestCase(APITestBase):
             abstraction_complexity=self.complexity, add_axes__total=0
         )
         self.axis = IdeologyAxisFactory(section=self.section)
-        self.conditioner = IdeologyConditionerFactory()
+        self.conditioner = IdeologyConditionerFactory(accepted_values=["A", "B"])
 
         IdeologySectionConditionerFactory(
             section=self.section,
             conditioner=self.conditioner,
             name="Test",
-            condition_values=[],
+            condition_values=["A"],
         )
         super().setUp()
 
