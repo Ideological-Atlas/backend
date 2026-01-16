@@ -23,6 +23,9 @@ class IdeologyConditionerSerializer(UUIDModelSerializerMixin):
     condition_rules = IdeologyConditionerConditionerSerializer(
         many=True, read_only=True
     )
+    source_axis_uuid = serializers.UUIDField(
+        source="source_axis.uuid", format="hex", read_only=True, allow_null=True
+    )
 
     class Meta:
         model = IdeologyConditioner
@@ -33,4 +36,7 @@ class IdeologyConditionerSerializer(UUIDModelSerializerMixin):
             "type",
             "accepted_values",
             "condition_rules",
+            "source_axis_uuid",
+            "axis_min_value",
+            "axis_max_value",
         ]

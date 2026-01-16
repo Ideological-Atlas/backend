@@ -1,5 +1,7 @@
 from core.api.permissions import IsVerified
+from core.helpers import UUIDDestroyAPIView
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
@@ -40,6 +42,35 @@ class UpsertConditionerAnswerView(CreateAPIView):
         instance = serializer.save()
         read_serializer = ConditionerAnswerReadSerializer(instance)
         return Response(read_serializer.data, status=status.HTTP_201_CREATED)
+
+
+@extend_schema(
+    tags=["answers"],
+    summary=_("Delete conditioner answer"),
+    description=_(
+        "Deletes the user's answer for the specific conditioner defined by UUID in URL."
+    ),
+    responses={204: None},
+    parameters=[
+        OpenApiParameter(
+            name="uuid",
+            location=OpenApiParameter.PATH,
+            description="UUID of the Conditioner whose answer you want to delete",
+            required=True,
+            type=str,
+        )
+    ],
+)
+class DeleteConditionerAnswerView(UUIDDestroyAPIView):
+    permission_classes = [IsAuthenticated, IsVerified]
+
+    def get_object(self):
+        conditioner_uuid = self.kwargs.get(self.lookup_field)
+        return get_object_or_404(
+            UserConditionerAnswer,
+            user=self.request.user,
+            conditioner__uuid=conditioner_uuid,
+        )
 
 
 @extend_schema(

@@ -74,15 +74,17 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         )
 
         self.url = reverse(
-            "ideology:upsert-conditioner-answer",
-            kwargs={"uuid": self.conditioner.uuid.hex},
+            "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
         )
 
         super().setUp()
 
+        self.delete_url = reverse(
+            "ideology:delete-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
+        )
         self.list_url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
-            kwargs={"complexity_uuid": self.complexity.uuid.hex},
+            kwargs={"complexity_uuid": self.complexity.uuid},
         )
 
     def test_upsert_flow(self):
@@ -97,6 +99,18 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(UserConditionerAnswer.objects.get().answer, "Option B")
 
+    def test_delete_flow(self):
+        UserConditionerAnswer.objects.create(
+            user=self.user, conditioner=self.conditioner, answer="Val"
+        )
+        response = self.client.delete(self.delete_url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertFalse(UserConditionerAnswer.objects.exists())
+
+    def test_delete_not_found(self):
+        response = self.client.delete(self.delete_url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
     def test_list_by_complexity(self):
         UserConditionerAnswer.objects.create(
             user=self.user, conditioner=self.conditioner, answer="Val"
@@ -105,6 +119,5 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
         self.assertEqual(
-            response.data["results"][0]["conditioner_uuid"],
-            str(self.conditioner.uuid.hex),
+            response.data["results"][0]["conditioner_uuid"], str(self.conditioner.uuid)
         )

@@ -8,6 +8,7 @@ from ideology.models import (
     CompletedAnswer,
     IdeologyAbstractionComplexity,
     IdeologyAxisConditioner,
+    IdeologyConditioner,
     IdeologyConditionerConditioner,
     IdeologySectionConditioner,
     UserAxisAnswer,
@@ -41,6 +42,10 @@ class AnswerService:
                 complexity_tree_structure, user_axis_answers
             )
 
+            virtual_conditioner_ids = AnswerService._evaluate_axis_derived_conditioners(
+                user_axis_answers
+            )
+
             conditioner_complexity_map = (
                 AnswerService._build_conditioner_to_complexity_map()
             )
@@ -49,6 +54,7 @@ class AnswerService:
                 complexity_tree_structure,
                 user_conditioner_answers,
                 conditioner_complexity_map,
+                virtual_conditioner_ids,
             )
 
             structured_final_data = AnswerService._serialize_tree_to_list(
@@ -58,6 +64,47 @@ class AnswerService:
             return CompletedAnswer.objects.create(
                 completed_by=user, answers=structured_final_data
             )
+
+    @staticmethod
+    def _evaluate_axis_derived_conditioners(
+        user_axis_answers: QuerySet[UserAxisAnswer],
+    ) -> set[int]:
+        active_virtual_conditioner_ids: set[int] = set()
+
+        answers_map = {
+            user_axis_answer.axis_id: user_axis_answer
+            for user_axis_answer in user_axis_answers
+            if user_axis_answer.value is not None
+        }
+
+        if not answers_map:
+            return active_virtual_conditioner_ids
+
+        axis_derived_conditioners = IdeologyConditioner.objects.filter(
+            type=IdeologyConditioner.ConditionerType.AXIS_RANGE
+        ).select_related("source_axis")
+
+        for ideology_conditioner in axis_derived_conditioners:
+            if (
+                not ideology_conditioner.source_axis_id
+                or ideology_conditioner.source_axis_id not in answers_map
+            ):
+                continue
+
+            user_value = answers_map[ideology_conditioner.source_axis_id].value
+
+            meets_min = True
+            if ideology_conditioner.axis_min_value is not None:
+                meets_min = user_value >= ideology_conditioner.axis_min_value
+
+            meets_max = True
+            if ideology_conditioner.axis_max_value is not None:
+                meets_max = user_value <= ideology_conditioner.axis_max_value
+
+            if meets_min and meets_max:
+                active_virtual_conditioner_ids.add(ideology_conditioner.id)
+
+        return active_virtual_conditioner_ids
 
     @staticmethod
     def _initialize_complexity_tree(
@@ -123,9 +170,9 @@ class AnswerService:
             "target_conditioner_id", "source_conditioner_id"
         )
 
-        changed = True
-        while changed:
-            changed = False
+        has_changes = True
+        while has_changes:
+            has_changes = False
             for target_id, source_id in recursive_rules:
                 if source_id in conditioner_to_complexity_map:
                     current_complexities = conditioner_to_complexity_map[target_id]
@@ -136,7 +183,7 @@ class AnswerService:
                         conditioner_to_complexity_map[target_id].update(
                             new_complexities
                         )
-                        changed = True
+                        has_changes = True
 
         return conditioner_to_complexity_map
 
@@ -145,24 +192,62 @@ class AnswerService:
         complexity_tree: dict[int, dict[str, Any]],
         user_conditioner_answers: QuerySet[UserConditionerAnswer],
         conditioner_to_complexity_map: dict[int, set[int]],
+        virtual_conditioner_ids: set[int],
     ) -> None:
+        processed_conditioner_ids = set()
+
         for conditioner_answer in user_conditioner_answers:
             conditioner_id = conditioner_answer.conditioner_id
-            relevant_complexity_ids = conditioner_to_complexity_map.get(
-                conditioner_id, set()
+            processed_conditioner_ids.add(conditioner_id)
+
+            AnswerService._add_to_tree(
+                complexity_tree,
+                conditioner_to_complexity_map,
+                conditioner_answer.conditioner,
+                conditioner_answer.answer,
             )
 
-            conditioner_payload = {
-                "name": conditioner_answer.conditioner.name,
-                "answer": conditioner_answer.answer,
-                "type": conditioner_answer.conditioner.type,
-            }
-
-            for complexity_id in relevant_complexity_ids:
-                if complexity_id in complexity_tree:
-                    complexity_tree[complexity_id]["conditioners"].append(
-                        conditioner_payload
+        if virtual_conditioner_ids:
+            virtual_conditioner_objects = IdeologyConditioner.objects.filter(
+                id__in=virtual_conditioner_ids
+            )
+            for ideology_conditioner in virtual_conditioner_objects:
+                if ideology_conditioner.id not in processed_conditioner_ids:
+                    AnswerService._add_to_tree(
+                        complexity_tree,
+                        conditioner_to_complexity_map,
+                        ideology_conditioner,
+                        "true",
                     )
+
+    @staticmethod
+    def _add_to_tree(
+        complexity_tree: dict[int, dict[str, Any]],
+        conditioner_to_complexity_map: dict[int, set[int]],
+        ideology_conditioner: IdeologyConditioner,
+        answer_value: str,
+    ) -> None:
+        relevant_complexity_ids = conditioner_to_complexity_map.get(
+            ideology_conditioner.id, set()
+        )
+
+        payload = {
+            "name": ideology_conditioner.name,
+            "answer": answer_value,
+            "type": ideology_conditioner.type,
+        }
+
+        for complexity_id in relevant_complexity_ids:
+            if complexity_id in complexity_tree:
+                existing_entries = [
+                    conditioner_entry
+                    for conditioner_entry in complexity_tree[complexity_id][
+                        "conditioners"
+                    ]
+                    if conditioner_entry["name"] == ideology_conditioner.name
+                ]
+                if not existing_entries:
+                    complexity_tree[complexity_id]["conditioners"].append(payload)
 
     @staticmethod
     def _serialize_tree_to_list(
@@ -178,7 +263,8 @@ class AnswerService:
                     "complexity": abstraction_complexity.complexity,
                     "sections": list(tree_node["sections"].values()),
                     "conditioners": sorted(
-                        tree_node["conditioners"], key=lambda x: x["name"]
+                        tree_node["conditioners"],
+                        key=lambda conditioner_item: conditioner_item["name"],
                     ),
                 }
             )

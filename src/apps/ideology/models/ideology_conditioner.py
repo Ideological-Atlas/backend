@@ -11,6 +11,7 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         SCALE = "scale", _("Scale (Numeric Range)")
         NUMERIC = "numeric", _("Numeric Value")
         TEXT = "text", _("Free Text")
+        AXIS_RANGE = "axis_range", _("Derived from Axis Range")
 
     name = models.CharField(
         max_length=128,
@@ -41,6 +42,29 @@ class IdeologyConditioner(TimeStampedUUIDModel):
             "List of valid options if the type is 'Categorical'. Format: ['Option A', 'Option B']."
         ),
     )
+
+    source_axis = models.ForeignKey(
+        "ideology.IdeologyAxis",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="derived_conditioners",
+        verbose_name=_("Source Axis"),
+        help_text=_("Only for AXIS_RANGE type. The axis to watch."),
+    )
+    axis_min_value = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("Min Value (Inclusive)"),
+        help_text=_("Condition is met if user value >= this."),
+    )
+    axis_max_value = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("Max Value (Inclusive)"),
+        help_text=_("Condition is met if user value <= this."),
+    )
+
     conditioners = models.ManyToManyField(
         "self",
         through="ideology.IdeologyConditionerConditioner",
@@ -72,6 +96,16 @@ class IdeologyConditioner(TimeStampedUUIDModel):
                             "Boolean type must have accepted_values=['true', 'false']"
                         )
                     }
+                )
+
+        if self.type == self.ConditionerType.AXIS_RANGE:
+            if not self.source_axis:
+                raise ValidationError(
+                    {"source_axis": _("Required for Axis Range type.")}
+                )
+            if self.axis_min_value is None and self.axis_max_value is None:
+                raise ValidationError(
+                    _("Must specify at least min or max value for Axis Range.")
                 )
 
     def save(self, *args, **kwargs):

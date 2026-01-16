@@ -23,14 +23,24 @@ class IdeologyConditionerAdmin(ModelAdmin, TabbedTranslationAdmin):
     search_fields = ["name", "uuid"]
     readonly_fields = ["created", "modified", "uuid"]
     inlines = [IdeologyConditionerConditionerInline]
+    autocomplete_fields = ["source_axis"]
+
     fieldsets = (
         (None, {"fields": ("name", "description", "type", "uuid")}),
         (
-            _("Configuration"),
+            _("Standard Configuration"),
             {
                 "fields": ("accepted_values",),
+                "description": _("Only required if type is Categorical or Boolean."),
+            },
+        ),
+        (
+            _("Axis Logic Configuration"),
+            {
+                "classes": ("collapse",),
+                "fields": ("source_axis", "axis_min_value", "axis_max_value"),
                 "description": _(
-                    'Only required if type is Categorical. Enter a JSON list of strings, e.g., ["Option A", "Option B"]'
+                    "Only required if type is 'Derived from Axis Range'. This conditioner will automatically be TRUE if the user's axis answer falls within this range."
                 ),
             },
         ),

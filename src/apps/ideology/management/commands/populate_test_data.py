@@ -41,7 +41,7 @@ class Command(BaseCommand):
                 setattr(ideology_object, field_name, f"[TEST-ES] {field_value}")
         with translation.override("en"):
             for field_name, field_value in kwargs.items():
-                setattr(ideology_object, field_name, f"[TEST-EN] {field_value}")
+                setattr(ideology_object, field_name, field_value)
         ideology_object.save()
 
     def _link_condition(
@@ -71,7 +71,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_abstraction_complexity,
             name="Test Level",
-            description="Level for validation.",
+            description="Debug level to validate conditional logic in the Frontend.",
         )
 
         ideology_section_basic = IdeologySectionFactory(
@@ -80,7 +80,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_section_basic,
             name="Section 1 (Basic)",
-            description="No conditions here.",
+            description="No entry conditions. Contains a Trigger Axis that unlocks Section 4.",
         )
 
         for i in range(10):
@@ -94,7 +94,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_selector,
             name="Conditioner A (Selector)",
-            description="Controls Section 2",
+            description="Controls visibility of Section 2. Select 'Option A' to unlock it.",
         )
 
         ideology_section_conditional = IdeologySectionFactory(
@@ -103,7 +103,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_section_conditional,
             name="Section 2 (Cond A)",
-            description="Visible if Cond A is Option A.",
+            description="You see this because Conditioner A is set to 'Option A'.",
         )
         self._link_condition(
             ideology_section_conditional,
@@ -124,7 +124,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_boolean,
             name="Conditioner B",
-            description="Controls last 5 qs of Sec 2",
+            description="Controls the last 5 questions of this section. Set to 'true' to reveal them.",
         )
 
         for i in range(5):
@@ -145,7 +145,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_c,
             name="Conditioner C",
-            description="Part 1 of Sec 3 lock.",
+            description="Lock 1/2 for Section 3. Set to 'true' to satisfy this part.",
         )
 
         ideology_conditioner_e = IdeologyConditionerFactory(
@@ -155,7 +155,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_e,
             name="Conditioner E (Root)",
-            description="Controls D.",
+            description="Root dependency for Conditioner D. Set to 'true' to enable D.",
         )
 
         ideology_conditioner_d = IdeologyConditionerFactory(
@@ -165,7 +165,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_d,
             name="Conditioner D (Nested)",
-            description="Part 2 of Sec 3 lock.",
+            description="Lock 2/2 for Section 3. Depends on E='true'. Set this to 'true' to fully unlock Section 3.",
         )
 
         IdeologyConditionerConditioner.objects.create(
@@ -181,7 +181,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_section_complex,
             name="Section 3 (Complex)",
-            description="Requires C and D(->E).",
+            description="You see this because C='true' AND D='true' (which required E='true').",
         )
 
         self._link_condition(
@@ -211,7 +211,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_f,
             name="Conditioner F",
-            description="Multi condition part 1",
+            description="Multi-condition Lock 1/2. Select 'Option A'.",
         )
 
         ideology_conditioner_g = IdeologyConditionerFactory(
@@ -222,7 +222,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_g,
             name="Conditioner G",
-            description="Multi condition part 2",
+            description="Multi-condition Lock 2/2. Select 'Option A'.",
         )
 
         for i in range(3):
@@ -253,7 +253,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_h,
             name="Conditioner H",
-            description="Multi recursive part 1",
+            description="Recursive Lock 1/2. Select 'Option A'.",
         )
 
         ideology_conditioner_j = IdeologyConditionerFactory(
@@ -264,7 +264,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_j,
             name="Conditioner J (Root)",
-            description="Multi recursive root",
+            description="Root dependency. Set 'true' to enable Conditioner I.",
         )
 
         ideology_conditioner_i = IdeologyConditionerFactory(
@@ -275,7 +275,7 @@ class Command(BaseCommand):
         self._set_translations(
             ideology_conditioner_i,
             name="Conditioner I (Nested)",
-            description="Multi recursive nested",
+            description="Recursive Lock 2/2. Depends on J='true'. Select 'Option A' to unlock questions.",
         )
 
         IdeologyConditionerConditioner.objects.create(
@@ -304,3 +304,43 @@ class Command(BaseCommand):
                 "axis",
                 trigger_value="Option A",
             )
+
+        trigger_axis = ideology_section_basic.axes.first()
+        self._set_translations(
+            trigger_axis,
+            name="S1 Trigger Axis",
+            description="If you set this value > 50, Section 4 will appear.",
+        )
+
+        ideology_conditioner_virtual = IdeologyConditionerFactory(
+            type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
+            source_axis=trigger_axis,
+            axis_min_value=50,
+            axis_max_value=100,
+        )
+        self._set_translations(
+            ideology_conditioner_virtual,
+            name="Virtual Cond (Triggered by S1 > 50)",
+            description="Automatic: Becomes 'true' if S1 Trigger Axis is between 50 and 100.",
+        )
+
+        ideology_section_virtual = IdeologySectionFactory(
+            abstraction_complexity=ideology_abstraction_complexity, add_axes__total=0
+        )
+        self._set_translations(
+            ideology_section_virtual,
+            name="Section 4 (Virtual Locked)",
+            description="You see this because 'S1 Trigger Axis' in Section 1 is > 50.",
+        )
+
+        self._link_condition(
+            ideology_section_virtual,
+            ideology_conditioner_virtual,
+            IdeologySectionConditioner,
+            "section",
+            trigger_value="true",
+        )
+
+        for i in range(3):
+            ideology_axis = IdeologyAxisFactory(section=ideology_section_virtual)
+            self._set_translations(ideology_axis, name=f"S4 Secret Question {i + 1}")

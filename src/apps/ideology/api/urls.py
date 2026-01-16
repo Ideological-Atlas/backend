@@ -55,6 +55,11 @@ urlpatterns = [
         name="upsert-conditioner-answer",
     ),
     path(
+        "answers/conditioner/<str:uuid>/delete/",
+        views.DeleteConditionerAnswerView.as_view(),
+        name="delete-conditioner-answer",
+    ),
+    path(
         "answers/conditioner/<str:complexity_uuid>/list/",
         views.UserConditionerAnswerListByComplexityView.as_view(),
         name="user-conditioner-answers-by-complexity",
