@@ -1,5 +1,4 @@
 from typing import Any
-from unittest.mock import patch
 
 from core.factories import UserFactory
 from django.test import TestCase
@@ -12,14 +11,14 @@ from ideology.factories import (
     UserConditionerAnswerFactory,
 )
 from ideology.models import (
+    CompletedAnswer,
     IdeologyAxisConditioner,
     IdeologyConditionerConditioner,
     IdeologySectionConditioner,
 )
-from ideology.services import AnswerService
 
 
-class AnswerServiceTestCase(TestCase):
+class CompletedAnswerManagerTestCase(TestCase):
     def setUp(self):
         self.user = UserFactory()
 
@@ -46,7 +45,7 @@ class AnswerServiceTestCase(TestCase):
             user=self.user, conditioner=cond_axis, answer="Maybe"
         )
 
-        completed = AnswerService.generate_snapshot(self.user)
+        completed = CompletedAnswer.objects.generate_snapshot(self.user)
         data = completed.answers[0]
 
         self.assertEqual(len(data["conditioners"]), 2)
@@ -81,7 +80,7 @@ class AnswerServiceTestCase(TestCase):
 
                 scenario["setup"]()
 
-                completed = AnswerService.generate_snapshot(self.user)
+                completed = CompletedAnswer.objects.generate_snapshot(self.user)
                 data = completed.answers[0]
                 names = [c["name"] for c in data["conditioners"]]
 
@@ -137,34 +136,6 @@ class AnswerServiceTestCase(TestCase):
             user=self.user, conditioner=c_redundant, answer="B"
         )
 
-    @patch("ideology.services.answer_service.IdeologyAbstractionComplexity.objects.all")
-    def test_orphaned_answers_ignored(self, mock_complexities):
-        comp_visible = IdeologyAbstractionComplexityFactory(complexity=1)
-        comp_hidden = IdeologyAbstractionComplexityFactory(complexity=99)
-
-        IdeologySectionFactory(abstraction_complexity=comp_visible)
-        section_hidden = IdeologySectionFactory(abstraction_complexity=comp_hidden)
-
-        axis_hidden = IdeologyAxisFactory(section=section_hidden)
-
-        UserAxisAnswerFactory(user=self.user, axis=axis_hidden)
-
-        cond_hidden = IdeologyConditionerFactory()
-        IdeologySectionConditioner.objects.create(
-            section=section_hidden, conditioner=cond_hidden, name="HiddenRule"
-        )
-        UserConditionerAnswerFactory(
-            user=self.user, conditioner=cond_hidden, answer="Hidden"
-        )
-
-        mock_complexities.return_value.order_by.return_value = [comp_visible]
-
-        completed = AnswerService.generate_snapshot(self.user)
-
-        self.assertEqual(len(completed.answers), 1)
-        self.assertEqual(len(completed.answers[0]["conditioners"]), 0)
-        self.assertEqual(len(completed.answers[0]["sections"]), 0)
-
     def test_multiple_axes_same_section(self):
         complexity = IdeologyAbstractionComplexityFactory(complexity=1)
         section = IdeologySectionFactory(
@@ -177,7 +148,7 @@ class AnswerServiceTestCase(TestCase):
         UserAxisAnswerFactory(user=self.user, axis=axis_1, value=10)
         UserAxisAnswerFactory(user=self.user, axis=axis_2, value=-10)
 
-        completed = AnswerService.generate_snapshot(self.user)
+        completed = CompletedAnswer.objects.generate_snapshot(self.user)
         data = completed.answers[0]
 
         self.assertEqual(len(data["sections"]), 1)

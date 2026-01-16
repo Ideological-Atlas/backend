@@ -1,6 +1,7 @@
 from core.models import TimeStampedUUIDModel, User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from ideology.models.managers import CompletedAnswerManager
 
 
 class CompletedAnswer(TimeStampedUUIDModel):
@@ -18,6 +19,8 @@ class CompletedAnswer(TimeStampedUUIDModel):
             "Structured JSON containing the full set of answers provided by the user."
         ),
     )
+
+    objects = CompletedAnswerManager()
 
     class Meta:
         verbose_name = _("Completed Answer")

@@ -15,7 +15,7 @@ from backend.settings import ADMIN_PATH, PRODUCTION, PROJECT_NAME
 
 admin.site.site_header = _(PROJECT_NAME)
 admin.site.site_title = _(PROJECT_NAME)
-admin.site.index_title = _("Panel de control")
+admin.site.index_title = _("Control Panel")
 
 urlpatterns = (
     [

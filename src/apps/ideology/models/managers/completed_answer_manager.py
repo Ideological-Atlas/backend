@@ -1,24 +1,18 @@
 from collections import defaultdict
 from typing import Any
 
-from core.models import User
-from django.db import transaction
+from django.db import models, transaction
 from django.db.models import QuerySet
-from ideology.models import (
-    CompletedAnswer,
-    IdeologyAbstractionComplexity,
-    IdeologyAxisConditioner,
-    IdeologyConditioner,
-    IdeologyConditionerConditioner,
-    IdeologySectionConditioner,
-    UserAxisAnswer,
-    UserConditionerAnswer,
-)
 
 
-class AnswerService:
-    @staticmethod
-    def generate_snapshot(user: User) -> CompletedAnswer:
+class CompletedAnswerManager(models.Manager):
+    def generate_snapshot(self, user):
+        from ideology.models import (
+            IdeologyAbstractionComplexity,
+            UserAxisAnswer,
+            UserConditionerAnswer,
+        )
+
         with transaction.atomic():
             abstraction_complexities = (
                 IdeologyAbstractionComplexity.objects.all().order_by("complexity")
@@ -34,41 +28,39 @@ class AnswerService:
                 user=user
             ).select_related("conditioner")
 
-            complexity_tree_structure = AnswerService._initialize_complexity_tree(
+            complexity_tree_structure = self._initialize_complexity_tree(
                 abstraction_complexities
             )
 
-            AnswerService._enrich_tree_with_axis_answers(
+            self._enrich_tree_with_axis_answers(
                 complexity_tree_structure, user_axis_answers
             )
 
-            virtual_conditioner_ids = AnswerService._evaluate_axis_derived_conditioners(
+            virtual_conditioner_ids = self._evaluate_axis_derived_conditioners(
                 user_axis_answers
             )
 
-            conditioner_complexity_map = (
-                AnswerService._build_conditioner_to_complexity_map()
-            )
+            conditioner_complexity_map = self._build_conditioner_to_complexity_map()
 
-            AnswerService._enrich_tree_with_conditioner_answers(
+            self._enrich_tree_with_conditioner_answers(
                 complexity_tree_structure,
                 user_conditioner_answers,
                 conditioner_complexity_map,
                 virtual_conditioner_ids,
             )
 
-            structured_final_data = AnswerService._serialize_tree_to_list(
+            structured_final_data = self._serialize_tree_to_list(
                 complexity_tree_structure, abstraction_complexities
             )
 
-            return CompletedAnswer.objects.create(
-                completed_by=user, answers=structured_final_data
-            )
+            return self.create(completed_by=user, answers=structured_final_data)
 
     @staticmethod
     def _evaluate_axis_derived_conditioners(
-        user_axis_answers: QuerySet[UserAxisAnswer],
+        user_axis_answers: QuerySet,
     ) -> set[int]:
+        from ideology.models import IdeologyConditioner
+
         active_virtual_conditioner_ids: set[int] = set()
 
         answers_map = {
@@ -108,7 +100,7 @@ class AnswerService:
 
     @staticmethod
     def _initialize_complexity_tree(
-        abstraction_complexities: QuerySet[IdeologyAbstractionComplexity],
+        abstraction_complexities: QuerySet,
     ) -> dict[int, dict[str, Any]]:
         return {
             abstraction_complexity.id: {
@@ -122,7 +114,7 @@ class AnswerService:
     @staticmethod
     def _enrich_tree_with_axis_answers(
         complexity_tree: dict[int, dict[str, Any]],
-        user_axis_answers: QuerySet[UserAxisAnswer],
+        user_axis_answers: QuerySet,
     ) -> None:
         for axis_answer in user_axis_answers:
             complexity_id = axis_answer.axis.section.abstraction_complexity_id
@@ -152,6 +144,12 @@ class AnswerService:
 
     @staticmethod
     def _build_conditioner_to_complexity_map() -> dict[int, set[int]]:
+        from ideology.models import (
+            IdeologyAxisConditioner,
+            IdeologyConditionerConditioner,
+            IdeologySectionConditioner,
+        )
+
         conditioner_to_complexity_map: dict[int, set[int]] = defaultdict(set)
 
         section_rules = IdeologySectionConditioner.objects.values_list(
@@ -187,20 +185,22 @@ class AnswerService:
 
         return conditioner_to_complexity_map
 
-    @staticmethod
     def _enrich_tree_with_conditioner_answers(
+        self,
         complexity_tree: dict[int, dict[str, Any]],
-        user_conditioner_answers: QuerySet[UserConditionerAnswer],
+        user_conditioner_answers: QuerySet,
         conditioner_to_complexity_map: dict[int, set[int]],
         virtual_conditioner_ids: set[int],
     ) -> None:
+        from ideology.models import IdeologyConditioner
+
         processed_conditioner_ids = set()
 
         for conditioner_answer in user_conditioner_answers:
             conditioner_id = conditioner_answer.conditioner_id
             processed_conditioner_ids.add(conditioner_id)
 
-            AnswerService._add_to_tree(
+            self._add_to_tree(
                 complexity_tree,
                 conditioner_to_complexity_map,
                 conditioner_answer.conditioner,
@@ -213,7 +213,7 @@ class AnswerService:
             )
             for ideology_conditioner in virtual_conditioner_objects:
                 if ideology_conditioner.id not in processed_conditioner_ids:
-                    AnswerService._add_to_tree(
+                    self._add_to_tree(
                         complexity_tree,
                         conditioner_to_complexity_map,
                         ideology_conditioner,
@@ -224,7 +224,7 @@ class AnswerService:
     def _add_to_tree(
         complexity_tree: dict[int, dict[str, Any]],
         conditioner_to_complexity_map: dict[int, set[int]],
-        ideology_conditioner: IdeologyConditioner,
+        ideology_conditioner,
         answer_value: str,
     ) -> None:
         relevant_complexity_ids = conditioner_to_complexity_map.get(
@@ -252,7 +252,7 @@ class AnswerService:
     @staticmethod
     def _serialize_tree_to_list(
         complexity_tree: dict[int, dict[str, Any]],
-        abstraction_complexities: QuerySet[IdeologyAbstractionComplexity],
+        abstraction_complexities: QuerySet,
     ) -> list[dict[str, Any]]:
         serialized_data = []
         for abstraction_complexity in abstraction_complexities:
