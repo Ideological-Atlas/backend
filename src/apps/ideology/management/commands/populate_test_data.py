@@ -50,14 +50,17 @@ class Command(BaseCommand):
         ideology_conditioner,
         through_model_class,
         parent_field_name,
+        trigger_value=None,
     ):
-        trigger_value = ideology_conditioner.accepted_values[0]
+        final_trigger = (
+            trigger_value if trigger_value else ideology_conditioner.accepted_values[0]
+        )
 
         creation_arguments = {
             parent_field_name: parent_object,
             "conditioner": ideology_conditioner,
             "name": f"Rule_{parent_object.name}_{ideology_conditioner.name}",
-            "condition_values": [trigger_value],
+            "condition_values": [final_trigger],
         }
         through_model_class.objects.create(**creation_arguments)
 
@@ -107,6 +110,7 @@ class Command(BaseCommand):
             ideology_conditioner_selector,
             IdeologySectionConditioner,
             "section",
+            trigger_value="Option A",
         )
 
         for i in range(5):
@@ -114,7 +118,8 @@ class Command(BaseCommand):
             self._set_translations(ideology_axis, name=f"S2 Basic Question {i + 1}")
 
         ideology_conditioner_boolean = IdeologyConditionerFactory(
-            type=IdeologyConditioner.ConditionerType.BOOLEAN
+            type=IdeologyConditioner.ConditionerType.BOOLEAN,
+            accepted_values=["true", "false"],
         )
         self._set_translations(
             ideology_conditioner_boolean,
@@ -130,10 +135,12 @@ class Command(BaseCommand):
                 ideology_conditioner_boolean,
                 IdeologyAxisConditioner,
                 "axis",
+                trigger_value="true",
             )
 
         ideology_conditioner_c = IdeologyConditionerFactory(
-            type=IdeologyConditioner.ConditionerType.BOOLEAN
+            type=IdeologyConditioner.ConditionerType.BOOLEAN,
+            accepted_values=["true", "false"],
         )
         self._set_translations(
             ideology_conditioner_c,
@@ -142,7 +149,8 @@ class Command(BaseCommand):
         )
 
         ideology_conditioner_e = IdeologyConditionerFactory(
-            type=IdeologyConditioner.ConditionerType.BOOLEAN
+            type=IdeologyConditioner.ConditionerType.BOOLEAN,
+            accepted_values=["true", "false"],
         )
         self._set_translations(
             ideology_conditioner_e,
@@ -151,7 +159,8 @@ class Command(BaseCommand):
         )
 
         ideology_conditioner_d = IdeologyConditionerFactory(
-            type=IdeologyConditioner.ConditionerType.BOOLEAN
+            type=IdeologyConditioner.ConditionerType.BOOLEAN,
+            accepted_values=["true", "false"],
         )
         self._set_translations(
             ideology_conditioner_d,
@@ -163,7 +172,7 @@ class Command(BaseCommand):
             target_conditioner=ideology_conditioner_d,
             source_conditioner=ideology_conditioner_e,
             name="Rule_D_needs_E",
-            condition_values=[ideology_conditioner_e.accepted_values[0]],
+            condition_values=["true"],
         )
 
         ideology_section_complex = IdeologySectionFactory(
@@ -180,26 +189,36 @@ class Command(BaseCommand):
             ideology_conditioner_c,
             IdeologySectionConditioner,
             "section",
+            trigger_value="true",
         )
         self._link_condition(
             ideology_section_complex,
             ideology_conditioner_d,
             IdeologySectionConditioner,
             "section",
+            trigger_value="true",
         )
 
         for i in range(3):
             ideology_axis = IdeologyAxisFactory(section=ideology_section_complex)
             self._set_translations(ideology_axis, name=f"S3 Basic Question {i + 1}")
 
-        ideology_conditioner_f = IdeologyConditionerFactory(name="Conditioner F")
+        ideology_conditioner_f = IdeologyConditionerFactory(
+            name="Conditioner F",
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL,
+            accepted_values=["Option A", "Option B"],
+        )
         self._set_translations(
             ideology_conditioner_f,
             name="Conditioner F",
             description="Multi condition part 1",
         )
 
-        ideology_conditioner_g = IdeologyConditionerFactory(name="Conditioner G")
+        ideology_conditioner_g = IdeologyConditionerFactory(
+            name="Conditioner G",
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL,
+            accepted_values=["Option A", "Option B"],
+        )
         self._set_translations(
             ideology_conditioner_g,
             name="Conditioner G",
@@ -216,22 +235,32 @@ class Command(BaseCommand):
                 ideology_conditioner_f,
                 IdeologyAxisConditioner,
                 "axis",
+                trigger_value="Option A",
             )
             self._link_condition(
                 ideology_axis,
                 ideology_conditioner_g,
                 IdeologyAxisConditioner,
                 "axis",
+                trigger_value="Option A",
             )
 
-        ideology_conditioner_h = IdeologyConditionerFactory(name="Conditioner H")
+        ideology_conditioner_h = IdeologyConditionerFactory(
+            name="Conditioner H",
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL,
+            accepted_values=["Option A", "Option B"],
+        )
         self._set_translations(
             ideology_conditioner_h,
             name="Conditioner H",
             description="Multi recursive part 1",
         )
 
-        ideology_conditioner_j = IdeologyConditionerFactory(name="Conditioner J (Root)")
+        ideology_conditioner_j = IdeologyConditionerFactory(
+            name="Conditioner J (Root)",
+            type=IdeologyConditioner.ConditionerType.BOOLEAN,
+            accepted_values=["true", "false"],
+        )
         self._set_translations(
             ideology_conditioner_j,
             name="Conditioner J (Root)",
@@ -239,7 +268,9 @@ class Command(BaseCommand):
         )
 
         ideology_conditioner_i = IdeologyConditionerFactory(
-            name="Conditioner I (Nested)"
+            name="Conditioner I (Nested)",
+            type=IdeologyConditioner.ConditionerType.CATEGORICAL,
+            accepted_values=["Option A", "Option B"],
         )
         self._set_translations(
             ideology_conditioner_i,
@@ -251,7 +282,7 @@ class Command(BaseCommand):
             target_conditioner=ideology_conditioner_i,
             source_conditioner=ideology_conditioner_j,
             name="Rule_I_needs_J",
-            condition_values=[ideology_conditioner_j.accepted_values[0]],
+            condition_values=["true"],
         )
 
         for i in range(4):
@@ -264,10 +295,12 @@ class Command(BaseCommand):
                 ideology_conditioner_h,
                 IdeologyAxisConditioner,
                 "axis",
+                trigger_value="Option A",
             )
             self._link_condition(
                 ideology_axis,
                 ideology_conditioner_i,
                 IdeologyAxisConditioner,
                 "axis",
+                trigger_value="Option A",
             )

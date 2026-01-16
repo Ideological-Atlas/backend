@@ -1,4 +1,5 @@
 from core.models import TimeStampedUUIDModel
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -57,3 +58,22 @@ class IdeologyConditioner(TimeStampedUUIDModel):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        super().clean()
+        if self.type == self.ConditionerType.BOOLEAN:
+            expected = ["true", "false"]
+            if not self.accepted_values or sorted(self.accepted_values) != sorted(
+                expected
+            ):
+                raise ValidationError(
+                    {
+                        "accepted_values": _(
+                            "Boolean type must have accepted_values=['true', 'false']"
+                        )
+                    }
+                )
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
