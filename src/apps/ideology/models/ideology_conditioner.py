@@ -2,6 +2,7 @@ from core.models import TimeStampedUUIDModel
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from ideology.models.managers import IdeologyConditionerManager
 
 
 class IdeologyConditioner(TimeStampedUUIDModel):
@@ -74,6 +75,8 @@ class IdeologyConditioner(TimeStampedUUIDModel):
         verbose_name=_("Conditioners"),
         help_text=_("Conditioners that determine the visibility of this conditioner."),
     )
+
+    objects = IdeologyConditionerManager()
 
     class Meta:
         verbose_name = _("Ideology Conditioner")
