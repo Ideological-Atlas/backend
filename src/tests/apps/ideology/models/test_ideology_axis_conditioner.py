@@ -8,9 +8,9 @@ from ideology.factories import (
 
 class IdeologyAxisConditionerModelTestCase(TestCase):
     def test_str(self):
-        axis = IdeologyAxisFactory(name="AxisA")
-        conditioner = IdeologyConditionerFactory()
-        rule = IdeologyAxisConditionerFactory(
-            axis=axis, conditioner=conditioner, name="Rule1"
+        ideology_axis = IdeologyAxisFactory(name="AxisA")
+        ideology_conditioner = IdeologyConditionerFactory()
+        ideology_axis_conditioner = IdeologyAxisConditionerFactory(
+            axis=ideology_axis, conditioner=ideology_conditioner, name="Rule1"
         )
-        self.assertEqual(str(rule), "AxisA - Rule1")
+        self.assertEqual(str(ideology_axis_conditioner), "AxisA - Rule1")

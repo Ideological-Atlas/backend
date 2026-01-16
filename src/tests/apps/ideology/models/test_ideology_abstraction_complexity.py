@@ -4,5 +4,7 @@ from ideology.factories import IdeologyAbstractionComplexityFactory
 
 class IdeologyAbstractionComplexityModelTestCase(TestCase):
     def test_str(self):
-        abs_comp = IdeologyAbstractionComplexityFactory(complexity=1, name="Basic")
-        self.assertEqual(str(abs_comp), "1 - Basic")
+        ideology_abstraction_complexity = IdeologyAbstractionComplexityFactory(
+            complexity=1, name="Basic"
+        )
+        self.assertEqual(str(ideology_abstraction_complexity), "1 - Basic")

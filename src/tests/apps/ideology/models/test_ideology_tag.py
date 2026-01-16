@@ -4,6 +4,6 @@ from ideology.factories import IdeologyTagFactory
 
 class IdeologyTagModelTestCase(TestCase):
     def test_creation(self):
-        link = IdeologyTagFactory()
-        self.assertTrue(link.tag)
-        self.assertTrue(link.ideology)
+        ideology_tag_link = IdeologyTagFactory()
+        self.assertTrue(ideology_tag_link.tag)
+        self.assertTrue(ideology_tag_link.ideology)

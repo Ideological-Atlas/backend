@@ -7,6 +7,10 @@ from ideology.factories import (
 
 class IdeologySectionModelTestCase(TestCase):
     def test_str_representations(self):
-        abs_comp = IdeologyAbstractionComplexityFactory(name="Basic")
-        sec1 = IdeologySectionFactory(name="Eco", abstraction_complexity=abs_comp)
-        self.assertEqual(str(sec1), "Eco (Basic)")
+        ideology_abstraction_complexity = IdeologyAbstractionComplexityFactory(
+            name="Basic"
+        )
+        ideology_section = IdeologySectionFactory(
+            name="Economy", abstraction_complexity=ideology_abstraction_complexity
+        )
+        self.assertEqual(str(ideology_section), "Economy (Basic)")

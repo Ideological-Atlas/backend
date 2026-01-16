@@ -4,5 +4,7 @@ from ideology.factories import IdeologyAxisFactory
 
 class IdeologyAxisModelTestCase(TestCase):
     def test_str(self):
-        axis = IdeologyAxisFactory(name="M", left_label="L", right_label="R")
-        self.assertEqual(str(axis), "M (L <-> R)")
+        ideology_axis = IdeologyAxisFactory(
+            name="Market", left_label="Controlled", right_label="Free"
+        )
+        self.assertEqual(str(ideology_axis), "Market (Controlled <-> Free)")
