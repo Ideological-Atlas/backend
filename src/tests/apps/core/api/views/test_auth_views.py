@@ -12,7 +12,7 @@ class AuthTokenObtainPairViewTestCase(APITestBase):
 
     def test_login_scenarios(self):
         self.client.credentials()
-        password = "strong_password_123"  # nosec
+        password = "strong_password_123"
         user = UserFactory(password=password)
 
         scenarios = [
@@ -61,7 +61,7 @@ class RegisterViewTestCase(APITestBase):
         super().setUp()
         self.valid_payload = {
             "email": "foo@foo.com",
-            "password": "ThisIsARealValidPassword123!",  # nosec
+            "password": "ThisIsARealValidPassword123!",
         }
 
     @patch("core.services.AuthService.trigger_verification_email")

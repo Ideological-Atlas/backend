@@ -2,6 +2,7 @@ from io import StringIO
 
 from django.core.management import call_command
 from django.test import TestCase
+from ideology.factories import IdeologyAbstractionComplexityFactory
 from ideology.models import (
     IdeologyAbstractionComplexity,
     IdeologyAxis,
@@ -151,3 +152,8 @@ class PopulateTestDataCommandTestCase(TestCase):
                     name_en="[TEST-EN] Conditioner H"
                 ).exists()
             )
+
+    def test_populate_test_data_skips_if_exists(self):
+        IdeologyAbstractionComplexityFactory(complexity=99)
+        command_output = self.call_command()
+        self.assertIn("Test Level (Complexity 99) already exists", command_output)

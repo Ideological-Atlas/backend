@@ -41,7 +41,7 @@ class Command(BaseCommand):
                 setattr(ideology_object, field_name, f"[TEST-ES] {field_value}")
         with translation.override("en"):
             for field_name, field_value in kwargs.items():
-                setattr(ideology_object, field_name, field_value)
+                setattr(ideology_object, field_name, f"[TEST-EN] {field_value}")
         ideology_object.save()
 
     def _link_condition(

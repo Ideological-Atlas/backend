@@ -21,17 +21,17 @@ class UserAxisAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.axis = IdeologyAxisFactory(section=self.section)
 
         self.url = reverse(
-            "ideology:upsert-axis-answer", kwargs={"uuid": self.axis.uuid}
+            "ideology:upsert-axis-answer", kwargs={"uuid": self.axis.uuid.hex}
         )
 
         super().setUp()
 
         self.delete_url = reverse(
-            "ideology:delete-axis-answer", kwargs={"uuid": self.axis.uuid}
+            "ideology:delete-axis-answer", kwargs={"uuid": self.axis.uuid.hex}
         )
         self.list_url = reverse(
             "ideology:user-axis-answers-by-section",
-            kwargs={"section_uuid": self.section.uuid},
+            kwargs={"section_uuid": self.section.uuid.hex},
         )
 
     def test_upsert_flow(self):
@@ -74,17 +74,19 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         )
 
         self.url = reverse(
-            "ideology:upsert-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
+            "ideology:upsert-conditioner-answer",
+            kwargs={"uuid": self.conditioner.uuid.hex},
         )
 
         super().setUp()
 
         self.delete_url = reverse(
-            "ideology:delete-conditioner-answer", kwargs={"uuid": self.conditioner.uuid}
+            "ideology:delete-conditioner-answer",
+            kwargs={"uuid": self.conditioner.uuid.hex},
         )
         self.list_url = reverse(
             "ideology:user-conditioner-answers-by-complexity",
-            kwargs={"complexity_uuid": self.complexity.uuid},
+            kwargs={"complexity_uuid": self.complexity.uuid.hex},
         )
 
     def test_upsert_flow(self):
@@ -119,5 +121,6 @@ class UserConditionerAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
         self.assertEqual(
-            response.data["results"][0]["conditioner_uuid"], str(self.conditioner.uuid)
+            response.data["results"][0]["conditioner_uuid"],
+            str(self.conditioner.uuid.hex),
         )

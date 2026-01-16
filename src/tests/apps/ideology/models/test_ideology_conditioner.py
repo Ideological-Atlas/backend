@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
-from ideology.factories import IdeologyConditionerFactory
+from django.utils import translation
+from ideology.factories import IdeologyAxisFactory, IdeologyConditionerFactory
 from ideology.models import IdeologyConditioner
 
 
@@ -36,3 +37,47 @@ class IdeologyConditionerModelTestCase(TestCase):
         )
         with self.assertRaises(ValidationError):
             cond.save()
+
+
+class IdeologyConditionerAxisRangeTestCase(TestCase):
+    def setUp(self):
+        self.axis = IdeologyAxisFactory()
+
+    def test_axis_range_success(self):
+        cond = IdeologyConditioner(
+            name="ValidRange",
+            type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
+            source_axis=self.axis,
+            axis_min_value=50,
+        )
+        cond.save()
+        self.assertTrue(cond.pk)
+
+    def test_axis_range_missing_source_axis(self):
+        cond = IdeologyConditioner(
+            name="InvalidRangeNoAxis",
+            type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
+            source_axis=None,
+            axis_min_value=50,
+        )
+        with translation.override("en"):
+            with self.assertRaises(ValidationError) as cm:
+                cond.save()
+            self.assertIn("source_axis", cm.exception.message_dict)
+            self.assertIn("Required for Axis Range type", str(cm.exception))
+
+    def test_axis_range_missing_values(self):
+        cond = IdeologyConditioner(
+            name="InvalidRangeNoValues",
+            type=IdeologyConditioner.ConditionerType.AXIS_RANGE,
+            source_axis=self.axis,
+            axis_min_value=None,
+            axis_max_value=None,
+        )
+        with translation.override("en"):
+            with self.assertRaises(ValidationError) as cm:
+                cond.save()
+            self.assertIn(
+                "Must specify at least min or max value for Axis Range",
+                str(cm.exception),
+            )

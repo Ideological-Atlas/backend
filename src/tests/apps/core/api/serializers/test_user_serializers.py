@@ -28,7 +28,7 @@ class RegisterSerializerTestCase(SerializerTestBase):
         self.assertEqual(user.auth_provider, "internal")
 
     def test_validate_password_errors(self):
-        self.data["password"] = "123"  # nosec
+        self.data["password"] = "123"
         serializer = RegisterSerializer(data=self.data)
 
         with self.assertRaises(ValidationError) as cm:
@@ -80,7 +80,7 @@ class MeSerializerTestCase(SerializerTestBase):
 
 class UserSetPasswordSerializerTestCase(SerializerTestBase):
     def test_set_password_success(self):
-        new_pass = "NewStrongPassword1!"  # nosec
+        new_pass = "NewStrongPassword1!"
         data = {"new_password": new_pass}
         serializer = UserSetPasswordSerializer(self.user, data=data)
         self.assertTrue(serializer.is_valid())
@@ -90,7 +90,7 @@ class UserSetPasswordSerializerTestCase(SerializerTestBase):
         self.assertTrue(self.user.check_password(new_pass))
 
     def test_set_password_weak_fails(self):
-        data = {"new_password": "123"}  # nosec
+        data = {"new_password": "123"}
         serializer = UserSetPasswordSerializer(self.user, data=data)
         self.assertFalse(serializer.is_valid())
         self.assertIn("new_password", serializer.errors)
