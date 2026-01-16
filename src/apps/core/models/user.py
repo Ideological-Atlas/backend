@@ -1,9 +1,11 @@
 import logging
+from typing import Optional
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.db import models, transaction
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
 from .abstract import TimeStampedUUIDModel
@@ -56,3 +58,26 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             self.is_verified = True
             self.verification_uuid = None
             self.save()
+
+    def send_verification_email(self, language: Optional[str] = None) -> None:
+        from core.tasks import send_email_notification
+
+        if self.is_verified:
+            logger.warning(
+                "Attempted to trigger email verification for already verified user '%s'",
+                self,
+            )
+            return
+
+        target_language = language or self.preferred_language or get_language()
+
+        logger.debug("Triggering email verification for '%s'", self)
+
+        transaction.on_commit(
+            lambda: send_email_notification.delay(
+                to_email=self.email,
+                template_name="register",
+                language=target_language,
+                context={"verification_token": self.verification_uuid.hex},
+            )
+        )

@@ -1,5 +1,4 @@
 from core.models import User
-from core.services import AuthService
 from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -105,7 +104,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     @admin.action(description=_("Send verification email"))
     def send_verification_email(self, request, queryset):
         for user in queryset:
-            AuthService.trigger_verification_email(user)
+            user.send_verification_email()
         self.message_user(
             request,
             _("Verification emails process started for selected users."),

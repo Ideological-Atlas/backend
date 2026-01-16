@@ -1,6 +1,7 @@
 from unittest.mock import patch
 
 from core.api.api_test_helpers import APITestBase
+from core.exceptions.user_exceptions import UserDisabledException
 from core.factories import UserFactory
 from core.models import User
 from django.urls import reverse
@@ -64,8 +65,8 @@ class RegisterViewTestCase(APITestBase):
             "password": "ThisIsARealValidPassword123!",
         }
 
-    @patch("core.services.AuthService.trigger_verification_email")
-    def test_register_scenarios(self, mock_trigger):
+    @patch("core.models.user.User.send_verification_email")
+    def test_register_scenarios(self, mock_send_email):
         existing_email = "exists@test.com"
         UserFactory(email=existing_email)
 
@@ -96,7 +97,7 @@ class RegisterViewTestCase(APITestBase):
 
         for name, payload, expected_status, expected_key in scenarios:
             with self.subTest(name=name):
-                mock_trigger.reset_mock()
+                mock_send_email.reset_mock()
 
                 if name == "Success":
                     User.objects.filter(email=self.valid_payload["email"]).delete()
@@ -109,64 +110,41 @@ class RegisterViewTestCase(APITestBase):
                     self.assertTrue(
                         User.objects.filter(email=payload["email"]).exists()
                     )
-                    mock_trigger.assert_called_once()
+                    mock_send_email.assert_called_once()
 
 
 class GoogleLoginViewTestCase(APITestBase):
     url = reverse("core:google-login")
 
-    @patch("core.tasks.send_email_notification.delay")
-    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_scenarios(self, mock_verify, mock_send_email):
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_success(self, mock_login):
         self.client.credentials()
+        user = UserFactory()
+        mock_login.return_value = user
 
-        scenarios = [
-            (
-                "Success New User",
-                {"email": "new@gmail.com", "given_name": "New"},
-                status.HTTP_200_OK,
-                True,
-            ),
-            (
-                "Success Existing User",
-                {"email": "existing@gmail.com", "given_name": "Ex"},
-                status.HTTP_200_OK,
-                False,
-            ),
-        ]
+        response = self.client.post(self.url, data={"token": "valid_token"})
 
-        UserFactory(email="existing@gmail.com", auth_provider="google")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("access", response.data)
+        self.assertIn("user", response.data)
+        mock_login.assert_called_once_with("valid_token")
 
-        for name, mock_data, expected_status, expect_email in scenarios:
-            with self.subTest(name=name):
-                mock_verify.reset_mock()
-                mock_send_email.reset_mock()
-                mock_verify.return_value = mock_data
-
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(self.url, data={"token": "valid"})
-
-                self.assertEqual(response.status_code, expected_status)
-                self.assertIn("access", response.data)
-
-                if expect_email:
-                    mock_send_email.assert_called()
-                else:
-                    mock_send_email.assert_not_called()
-
-    @patch("core.models.managers.user_managers.id_token.verify_oauth2_token")
-    def test_google_login_failures(self, mock_verify):
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_invalid_token(self, mock_login):
         self.client.credentials()
+        mock_login.side_effect = ValueError("Invalid Token")
 
-        mock_verify.side_effect = ValueError("Invalid token")
-        response = self.client.post(self.url, data={"token": "bad"})
+        response = self.client.post(self.url, data={"token": "bad_token"})
+
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        mock_verify.side_effect = None
-        mock_verify.return_value = {"email": "banned@gmail.com"}
-        UserFactory(email="banned@gmail.com", is_active=False)
+    @patch("core.models.managers.user_managers.CustomUserManager.login_with_google")
+    def test_google_login_disabled_user(self, mock_login):
+        self.client.credentials()
+        mock_login.side_effect = UserDisabledException()
 
-        response = self.client.post(self.url, data={"token": "valid"})
+        response = self.client.post(self.url, data={"token": "disabled_user_token"})
+
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 

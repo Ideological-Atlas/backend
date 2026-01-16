@@ -8,9 +8,9 @@ from core.api.serializers import (
     UserVerificationSerializer,
 )
 from core.exceptions import api_exceptions
+from core.exceptions.user_exceptions import UserDisabledException
 from core.helpers import UUIDUpdateAPIView
 from core.models import User
-from core.services import AuthService
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema, inline_serializer
 from rest_framework import serializers, status
@@ -59,7 +59,7 @@ class AuthTokenVerifyView(TokenVerifyView):
     tags=["auth"],
     summary=_("Register new user"),
     description=_(
-        "Creates a new user account, triggers verification email via Service, and logs the user in automatically."
+        "Creates a new user account, triggers verification email via Manager, and logs the user in automatically."
     ),
     responses={
         201: inline_serializer(
@@ -80,7 +80,7 @@ class RegisterView(CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        user = AuthService.register_user(serializer.validated_data)
+        user = User.objects.register(serializer.validated_data)
 
         refresh = RefreshToken.for_user(user)
 
@@ -141,20 +141,19 @@ class GoogleLoginView(GenericAPIView):
         token = serializer.validated_data["token"]
 
         try:
-            user, created = User.objects.get_or_create_from_google_token(token)
+            user = User.objects.login_with_google(token)
+        except ValueError as error:
+            raise api_exceptions.BadRequestException(str(error))
+        except UserDisabledException:
+            raise api_exceptions.ForbiddenException(_("User account is disabled."))
 
-            if not user.is_active:
-                raise api_exceptions.ForbiddenException(_("User account is disabled."))
+        refresh = RefreshToken.for_user(user)
 
-            refresh = RefreshToken.for_user(user)
-
-            return Response(
-                {
-                    "refresh": str(refresh),
-                    "access": str(refresh.access_token),
-                    "user": MeSerializer(user).data,
-                },
-                status=status.HTTP_200_OK,
-            )
-        except ValueError as e:
-            raise api_exceptions.BadRequestException(str(e))
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+                "user": MeSerializer(user).data,
+            },
+            status=status.HTTP_200_OK,
+        )
