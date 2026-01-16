@@ -1,21 +1,21 @@
-import os
-
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = "Creates a superuser if it doesn't exist, strictly via environment variables"
+    help = "Creates a superuser if it doesn't exist, using Django settings"
 
     def handle(self, *args, **options):
         User = get_user_model()
-        username = os.environ.get("SUPERUSER_USERNAME")
-        email = os.environ.get("SUPERUSER_MAIL")
-        password = os.environ.get("SUPERUSER_PASSWORD")
+        username = settings.SUPERUSER_USERNAME
+        email = settings.SUPERUSER_EMAIL
+        password = settings.SUPERUSER_PASSWORD
+
         if not all([username, email, password]):
             self.stdout.write(
                 self.style.WARNING(
-                    "Missing superuser environment variables. Skipping admin creation."
+                    "Missing superuser configuration in settings. Skipping admin creation."
                 )
             )
             return

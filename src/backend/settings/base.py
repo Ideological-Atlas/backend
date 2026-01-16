@@ -140,3 +140,7 @@ DATABASES = {
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+SUPERUSER_USERNAME = env("SUPERUSER_USERNAME", default=None)
+SUPERUSER_EMAIL = env("SUPERUSER_MAIL", default=None)
+SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD", default=None)
