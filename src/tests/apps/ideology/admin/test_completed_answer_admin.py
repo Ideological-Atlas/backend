@@ -11,6 +11,11 @@ class CompletedAnswerAdminTestCase(TestCase):
         self.site = AdminSite()
         self.admin = CompletedAnswerAdmin(CompletedAnswer, self.site)
 
+    def test_admin_configuration_fields(self):
+        self.assertIn("answer_hash", self.admin.list_display)
+        self.assertIn("answer_hash", self.admin.search_fields)
+        self.assertIn("answer_hash", self.admin.readonly_fields)
+
     def test_answers_pretty_render_json(self):
         obj = MagicMock()
         obj.answers = {"key": "value", "list": [1, 2]}

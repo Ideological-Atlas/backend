@@ -1,3 +1,5 @@
+import hashlib
+import json
 from typing import Any
 
 from django.db import models
@@ -6,41 +8,73 @@ from django.db import models
 class CompletedAnswerManager(models.Manager):
     def generate_snapshot(self, user=None, data=None):
         final_data: dict[str, list[dict[str, Any]]] = {"conditioners": [], "axis": []}
+        user_object = user if user and user.is_authenticated else None
 
-        if user and user.is_authenticated:
-            final_data = self._build_from_db(user)
+        if user_object:
+            final_data = self._build_from_db(user_object)
         elif data:
-            final_data = data
+            final_data = self._normalize_data(data)
+
+        data_hash = self._calculate_hash(final_data)
+
+        existing_answer = self.filter(
+            completed_by=user_object, answer_hash=data_hash
+        ).first()
+
+        if existing_answer:
+            return existing_answer
 
         return self.create(
-            completed_by=user if user and user.is_authenticated else None,
+            completed_by=user_object,
             answers=final_data,
+            answer_hash=data_hash,
         )
+
+    @staticmethod
+    def _calculate_hash(data: dict) -> str:
+        json_string = json.dumps(data, sort_keys=True)
+        return hashlib.sha256(json_string.encode("utf-8")).hexdigest()
 
     @staticmethod
     def _build_from_db(user):
         from ideology.models import UserAxisAnswer, UserConditionerAnswer
 
-        axis_answers = UserAxisAnswer.objects.filter(user=user).select_related("axis")
-        conditioner_answers = UserConditionerAnswer.objects.filter(
-            user=user
-        ).select_related("conditioner")
+        user_axis_answers = (
+            UserAxisAnswer.objects.filter(user=user)
+            .select_related("axis")
+            .order_by("axis__uuid")
+        )
+        user_conditioner_answers = (
+            UserConditionerAnswer.objects.filter(user=user)
+            .select_related("conditioner")
+            .order_by("conditioner__uuid")
+        )
 
         return {
             "conditioners": [
                 {
-                    "uuid": answer_entry.conditioner.uuid.hex,
-                    "value": answer_entry.answer,
+                    "uuid": user_conditioner_answer.conditioner.uuid.hex,
+                    "value": user_conditioner_answer.answer,
                 }
-                for answer_entry in conditioner_answers
+                for user_conditioner_answer in user_conditioner_answers
             ],
             "axis": [
                 {
-                    "uuid": answer_entry.axis.uuid.hex,
-                    "value": answer_entry.value,
-                    "margin_left": answer_entry.margin_left,
-                    "margin_right": answer_entry.margin_right,
+                    "uuid": user_axis_answer.axis.uuid.hex,
+                    "value": user_axis_answer.value,
+                    "margin_left": user_axis_answer.margin_left,
+                    "margin_right": user_axis_answer.margin_right,
                 }
-                for answer_entry in axis_answers
+                for user_axis_answer in user_axis_answers
             ],
         }
+
+    @staticmethod
+    def _normalize_data(data: dict) -> dict:
+        normalized_data = {
+            "conditioners": sorted(
+                data.get("conditioners", []), key=lambda item: item.get("uuid", "")
+            ),
+            "axis": sorted(data.get("axis", []), key=lambda item: item.get("uuid", "")),
+        }
+        return normalized_data

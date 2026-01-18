@@ -20,6 +20,14 @@ class CompletedAnswer(TimeStampedUUIDModel):
             "Structured JSON containing the full set of answers provided by the user."
         ),
     )
+    answer_hash = models.CharField(
+        max_length=64,
+        db_index=True,
+        blank=True,
+        editable=False,
+        verbose_name=_("Answer Hash"),
+        help_text=_("SHA-256 hash of the normalized answers for fast deduplication."),
+    )
 
     objects = CompletedAnswerManager()
 
