@@ -38,6 +38,7 @@ dependencies = [
     "factory-boy==3.3.3",
     "django-modeltranslation==0.19.19",
     "google-auth==2.47.0",
+    "django-json-widget==2.1.1",
 ]
 
 [project.optional-dependencies]

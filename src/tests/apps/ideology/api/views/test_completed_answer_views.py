@@ -1,10 +1,10 @@
-from core.api.api_test_helpers import APITestBaseNeedAuthorized
+from core.api.api_test_helpers import APITestBase, APITestBaseNeedAuthorized
 from django.urls import reverse
 from ideology.factories import (
     CompletedAnswerFactory,
-    IdeologyAbstractionComplexityFactory,
+    IdeologyAxisFactory,
+    UserAxisAnswerFactory,
 )
-from ideology.models import CompletedAnswer
 from rest_framework import status
 
 
@@ -25,22 +25,67 @@ class LatestCompletedAnswerViewTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
 
-class GenerateCompletedAnswerViewTestCase(APITestBaseNeedAuthorized):
+class GenerateCompletedAnswerViewTestCase(APITestBase):
     url = reverse("ideology:completed-answer-generate")
 
-    def setUp(self):
-        super().setUp()
-        IdeologyAbstractionComplexityFactory(complexity=1, name="Basic")
+    def test_generate_authenticated_from_db(self):
+        axis = IdeologyAxisFactory()
+        UserAxisAnswerFactory(user=self.user, axis=axis, value=10)
 
-    def test_generate_completed_answer_success(self):
-        initial_count = CompletedAnswer.objects.filter(completed_by=self.user).count()
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(
-            CompletedAnswer.objects.filter(completed_by=self.user).count(),
-            initial_count + 1,
-        )
+
         data = response.data
-        self.assertIn("uuid", data)
-        self.assertIn("answers", data)
-        self.assertIsInstance(data["answers"], list)
+        self.assertEqual(data["completed_by"]["uuid"], self.user.uuid.hex)
+        self.assertEqual(len(data["answers"]["axis"]), 1)
+        self.assertEqual(data["answers"]["axis"][0]["uuid"], axis.uuid.hex)
+
+    def test_generate_anonymous_from_payload(self):
+        self.client.credentials()
+
+        payload = {
+            "axis": [
+                {
+                    "uuid": "00000000000000000000000000000001",
+                    "value": 50,
+                    "margin_left": 0,
+                    "margin_right": 0,
+                }
+            ],
+            "conditioners": [
+                {"uuid": "00000000000000000000000000000002", "value": "Yes"}
+            ],
+        }
+
+        response = self.client.post(self.url, data=payload, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        data = response.data
+        self.assertIsNone(data["completed_by"])
+        self.assertEqual(data["answers"], payload)
+
+    def test_generate_anonymous_invalid_payload(self):
+        self.client.credentials()
+        payload = {"foo": "bar"}
+        response = self.client.post(self.url, data=payload, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class RetrieveCompletedAnswerViewTestCase(APITestBase):
+    def test_retrieve_existing_answer(self):
+        completed_answer = CompletedAnswerFactory()
+        url = reverse(
+            "ideology:completed-answer-detail",
+            kwargs={"uuid": completed_answer.uuid.hex},
+        )
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["uuid"], completed_answer.uuid.hex)
+
+    def test_retrieve_not_found(self):
+        url = reverse(
+            "ideology:completed-answer-detail",
+            kwargs={"uuid": "00000000000000000000000000000000"},
+        )
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

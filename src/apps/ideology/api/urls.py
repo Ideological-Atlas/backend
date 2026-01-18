@@ -74,4 +74,9 @@ urlpatterns = [
         views.GenerateCompletedAnswerView.as_view(),
         name="completed-answer-generate",
     ),
+    path(
+        "answers/completed/<str:uuid>/",
+        views.RetrieveCompletedAnswerView.as_view(),
+        name="completed-answer-detail",
+    ),
 ]

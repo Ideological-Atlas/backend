@@ -6,6 +6,7 @@ from .axis_answer_views import (
 from .completed_answer_views import (
     GenerateCompletedAnswerView,
     LatestCompletedAnswerView,
+    RetrieveCompletedAnswerView,
 )
 from .conditioner_answer_views import (
     DeleteConditionerAnswerView,

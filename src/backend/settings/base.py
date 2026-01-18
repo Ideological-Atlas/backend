@@ -74,6 +74,7 @@ THIRD_PARTY_APPS = [
     "axes",
     "silk",
     "cities_light",
+    "django_json_widget",
 ]
 
 DJANGO_APPS = [

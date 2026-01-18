@@ -29,4 +29,5 @@ class CompletedAnswer(TimeStampedUUIDModel):
         ordering = ["-created"]
 
     def __str__(self):
-        return f"Answers by {self.completed_by.username} ({self.created.strftime('%Y-%m-%d')})"
+        username = self.completed_by.username if self.completed_by else _("Anonymous")
+        return f"Answers by {username} ({self.created.strftime('%Y-%m-%d')})"

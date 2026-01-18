@@ -3,7 +3,11 @@ from .user_axis_answer_serializers import (
     UserAxisAnswerUpsertSerializer,
 )
 from .ideology_definition_serializers import IdeologyAxisDefinitionSerializer
-from .completed_answer_serializers import CompletedAnswerSerializer
+from .completed_answer_serializers import (
+    CompletedAnswerSerializer,
+    AxisAnswerInputSerializer,
+    ConditionerAnswerInputSerializer,
+)
 from .conditioner_answer_serializers import (
     ConditionerAnswerReadSerializer,
     ConditionerAnswerUpsertSerializer,
