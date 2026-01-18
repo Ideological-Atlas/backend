@@ -59,3 +59,9 @@ class CompletedAnswerManagerTestCase(TestCase):
 
         self.assertIsNone(snapshot.completed_by)
         self.assertEqual(snapshot.answers, raw_data)
+
+    def test_generate_snapshot_no_user_no_data(self):
+        snapshot = CompletedAnswer.objects.generate_snapshot(user=None, data=None)
+        self.assertIsNone(snapshot.completed_by)
+        expected_default: dict = {"conditioners": [], "axis": []}
+        self.assertEqual(snapshot.answers, expected_default)
