@@ -20,7 +20,7 @@ class IdeologyConditionerFactory(TimeStampedUUIDModelFactory):
             extracted=extracted,
             through_model=IdeologyConditionerConditioner,
             parent_field="target_conditioner",
-            child_field="source_conditioner",
+            child_field="conditioner",
             name_prefix="CondRule",
             **kwargs,
         )

@@ -14,6 +14,7 @@ class UserFactory(TimeStampedUUIDModelFactory):
     password = PostGenerationMethodCall("set_password", "adm1n")
     username = Faker("email")
     email = Faker("email")
+    bio = FuzzyText()
     first_name = FuzzyText(length=10)
     last_name = FuzzyText(length=10)
     is_staff = False

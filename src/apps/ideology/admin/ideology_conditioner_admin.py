@@ -9,7 +9,7 @@ class IdeologyConditionerConditionerInline(StackedInline, TranslationStackedInli
     model = IdeologyConditionerConditioner
     extra = 0
     fk_name = "target_conditioner"
-    autocomplete_fields = ["source_conditioner"]
+    autocomplete_fields = ["conditioner"]
     verbose_name = _("Condition Rule")
     verbose_name_plural = _("Condition Rules")
     tab = True

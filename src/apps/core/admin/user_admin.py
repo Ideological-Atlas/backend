@@ -25,12 +25,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         ),
         (
             _("Personal info"),
-            {
-                "fields": (
-                    "first_name",
-                    "last_name",
-                )
-            },
+            {"fields": ("first_name", "last_name", "bio")},
         ),
         (
             _("Permissions"),
@@ -75,7 +70,6 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "is_staff",
         "is_superuser",
         "is_active",
-        "groups",
     ]
     form = UserChangeForm
     add_form = UserCreationForm
@@ -85,6 +79,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "first_name",
         "last_name",
         "email",
+        "bio",
         "id",
         "uuid",
         "verification_uuid",

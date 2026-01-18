@@ -7,6 +7,7 @@ from ideology.models.managers import CompletedAnswerManager
 class CompletedAnswer(TimeStampedUUIDModel):
     completed_by = models.ForeignKey(
         User,
+        null=True,
         on_delete=models.CASCADE,
         related_name="completed_answers",
         verbose_name=_("Completed By"),

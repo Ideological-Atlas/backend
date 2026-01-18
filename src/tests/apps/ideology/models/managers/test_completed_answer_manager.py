@@ -253,13 +253,13 @@ class CompletedAnswerManagerCoverageTestCase(TestCase):
 
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_middle,
-            source_conditioner=ideology_conditioner_root,
+            conditioner=ideology_conditioner_root,
             condition_values=["Option A"],
         )
 
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_top,
-            source_conditioner=ideology_conditioner_middle,
+            conditioner=ideology_conditioner_middle,
             condition_values=["Option A"],
         )
 

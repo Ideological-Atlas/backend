@@ -31,7 +31,7 @@ class IdeologyConditionerViewTestCase(APITestBase):
         )
         IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_1,
-            source_conditioner=self.conditioner_2,
+            conditioner=self.conditioner_2,
             name="C1 depends on C2",
             condition_values=["B"],
         )
@@ -41,7 +41,7 @@ class IdeologyConditionerViewTestCase(APITestBase):
         )
         IdeologyConditionerConditionerFactory(
             target_conditioner=self.conditioner_2,
-            source_conditioner=self.conditioner_3,
+            conditioner=self.conditioner_3,
             name="C2 depends on C3",
             condition_values=["C"],
         )

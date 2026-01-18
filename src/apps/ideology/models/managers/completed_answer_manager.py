@@ -165,7 +165,7 @@ class CompletedAnswerManager(models.Manager):
             conditioner_to_complexity_map[conditioner_id].add(complexity_id)
 
         recursive_rules = IdeologyConditionerConditioner.objects.values_list(
-            "target_conditioner_id", "source_conditioner_id"
+            "target_conditioner_id", "conditioner_id"
         )
 
         has_changes = True

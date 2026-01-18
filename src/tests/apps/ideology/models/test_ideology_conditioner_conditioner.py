@@ -8,10 +8,10 @@ from ideology.factories import (
 class IdeologyConditionerConditionerModelTestCase(TestCase):
     def test_str(self):
         target_conditioner = IdeologyConditionerFactory(name="Target")
-        source_conditioner = IdeologyConditionerFactory(name="Source")
+        conditioner = IdeologyConditionerFactory(name="Source")
         conditioner_dependency_rule = IdeologyConditionerConditionerFactory(
             target_conditioner=target_conditioner,
-            source_conditioner=source_conditioner,
+            conditioner=conditioner,
             name="RuleX",
         )
         self.assertEqual(str(conditioner_dependency_rule), "Target -> RuleX")

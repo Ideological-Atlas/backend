@@ -17,6 +17,6 @@ class IdeologyConditionerAdminTestCase(TestCase):
         target = IdeologyConditionerFactory()
         source = IdeologyConditionerFactory()
         IdeologyConditionerConditionerFactory(
-            target_conditioner=target, source_conditioner=source, name="R1"
+            target_conditioner=target, conditioner=source, name="R1"
         )
         self.assertEqual(self.admin.get_condition_count(target), 1)

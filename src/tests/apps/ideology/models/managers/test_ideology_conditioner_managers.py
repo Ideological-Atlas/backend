@@ -65,12 +65,12 @@ class IdeologyConditionerManagerTestCase(TestCase):
 
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_top,
-            source_conditioner=ideology_conditioner_mid,
+            conditioner=ideology_conditioner_mid,
         )
 
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_mid,
-            source_conditioner=ideology_conditioner_root,
+            conditioner=ideology_conditioner_root,
         )
 
         queryset = IdeologyConditioner.objects.get_by_complexity(
@@ -95,11 +95,11 @@ class IdeologyConditionerManagerTestCase(TestCase):
 
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_a,
-            source_conditioner=ideology_conditioner_b,
+            conditioner=ideology_conditioner_b,
         )
         IdeologyConditionerConditionerFactory(
             target_conditioner=ideology_conditioner_b,
-            source_conditioner=ideology_conditioner_a,
+            conditioner=ideology_conditioner_a,
         )
 
         queryset = IdeologyConditioner.objects.get_by_complexity(
