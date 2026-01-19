@@ -38,3 +38,35 @@ class UserModelTestCase(TestCase):
         user = UserFactory.build(is_verified=False, preferred_language="it")
         user.send_verification_email()
         mock_on_commit.assert_called_once()
+
+    @patch("core.tasks.security.clear_reset_password_token.apply_async")
+    @patch("core.tasks.notifications.send_email_notification.delay")
+    def test_initiate_password_reset_with_email(self, mock_email, mock_celery):
+        with self.captureOnCommitCallbacks(execute=True):
+            self.user.initiate_password_reset(send_notification=True)
+
+        self.user.refresh_from_db()
+        self.assertIsNotNone(self.user.reset_password_uuid)
+
+        mock_email.assert_called_once()
+        self.assertEqual(mock_email.call_args.kwargs["template_name"], "reset_password")
+        self.assertEqual(
+            mock_email.call_args.kwargs["context"]["reset_token"],
+            self.user.reset_password_uuid.hex,
+        )
+
+        mock_celery.assert_called_once()
+        self.assertEqual(mock_celery.call_args.kwargs["countdown"], 1800)
+
+    @patch("core.tasks.security.clear_reset_password_token.apply_async")
+    @patch("core.tasks.notifications.send_email_notification.delay")
+    def test_initiate_password_reset_silent(self, mock_email, mock_celery):
+        with self.captureOnCommitCallbacks(execute=True):
+            self.user.initiate_password_reset(send_notification=False)
+
+        self.user.refresh_from_db()
+        self.assertIsNotNone(self.user.reset_password_uuid)
+
+        mock_email.assert_not_called()
+
+        mock_celery.assert_called_once()

@@ -1,4 +1,5 @@
 import logging
+import uuid
 from typing import Optional
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
@@ -32,6 +33,14 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         db_index=True,
         verbose_name=_("Verification UUID"),
         help_text=_("Secret token used for email verification."),
+    )
+    reset_password_uuid = models.UUIDField(
+        null=True,
+        blank=True,
+        unique=True,
+        db_index=True,
+        verbose_name=_("Reset Password UUID"),
+        help_text=_("Token used for password reset requests."),
     )
     auth_provider = models.CharField(
         max_length=20,
@@ -83,4 +92,31 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
                 language=target_language,
                 context={"verification_token": self.verification_uuid.hex},
             )
+        )
+
+    def initiate_password_reset(self, send_notification=True):
+        from core.tasks import clear_reset_password_token, send_email_notification
+
+        new_uuid = uuid.uuid4()
+
+        with transaction.atomic():
+            self.reset_password_uuid = new_uuid
+            self.save(update_fields=["reset_password_uuid"])
+
+            def _schedule_tasks():
+                if send_notification:
+                    send_email_notification.delay(
+                        to_email=self.email,
+                        template_name="reset_password",
+                        language=self.preferred_language,
+                        context={"reset_token": new_uuid.hex},
+                    )
+                clear_reset_password_token.apply_async(args=[self.id], countdown=1800)
+
+            transaction.on_commit(_schedule_tasks)
+
+        logger.info(
+            "Password reset initiated for user '%s' (Email sent: %s)",
+            self,
+            send_notification,
         )

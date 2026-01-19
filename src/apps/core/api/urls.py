@@ -11,6 +11,21 @@ urlpatterns = [
         core_views.VerifyUserView.as_view(),
         name="verify_user",
     ),
+    path(
+        "password/reset/request/",
+        core_views.PasswordResetRequestView.as_view(),
+        name="password-reset-request",
+    ),
+    path(
+        "password/reset/verify/<str:uuid>/",
+        core_views.PasswordResetVerifyTokenView.as_view(),
+        name="password-reset-verify-token",
+    ),
+    path(
+        "password/reset/confirm/<str:uuid>/",
+        core_views.PasswordResetConfirmView.as_view(),
+        name="password-reset-confirm",
+    ),
     path("me/", core_views.MeDetailView.as_view(), name="me"),
     path("me/password/", core_views.UserSetPasswordView.as_view(), name="set-password"),
     path(

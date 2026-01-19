@@ -8,7 +8,17 @@ from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationFo
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin, ModelAdmin):
-    actions = ["send_verification_email"]
+    actions = [
+        "send_verification_email",
+        "trigger_password_reset",
+        "trigger_password_reset_silent",
+    ]
+    actions_detail = [
+        "trigger_password_reset",
+        "trigger_password_reset_silent",
+        "send_verification_email",
+    ]
+
     fieldsets = (
         (
             _("Base info"),
@@ -19,6 +29,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
                     "password",
                     "uuid",
                     "verification_uuid",
+                    "reset_password_uuid",
                     "auth_provider",
                 )
             },
@@ -89,6 +100,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "last_login",
         "uuid",
         "verification_uuid",
+        "reset_password_uuid",
         "id",
         "created",
         "modified",
@@ -104,4 +116,33 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
             request,
             _("Verification emails process started for selected users."),
             messages.SUCCESS,
+        )
+
+    def _perform_password_reset(
+        self, request, queryset, send_notification, success_message
+    ):
+        for user in queryset:
+            user.initiate_password_reset(send_notification=send_notification)
+        self.message_user(request, success_message, messages.SUCCESS)
+
+    @admin.action(description=_("Trigger password reset (Send Email)"))
+    def trigger_password_reset(self, request, queryset):
+        self._perform_password_reset(
+            request,
+            queryset,
+            send_notification=True,
+            success_message=_(
+                "Password reset initiated with email for selected users."
+            ),
+        )
+
+    @admin.action(description=_("Trigger password reset (Silent - No Email)"))
+    def trigger_password_reset_silent(self, request, queryset):
+        self._perform_password_reset(
+            request,
+            queryset,
+            send_notification=False,
+            success_message=_(
+                "Password reset token generated silently. No email sent."
+            ),
         )

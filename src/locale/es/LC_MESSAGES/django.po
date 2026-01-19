@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:44+0100\n"
-"PO-Revision-Date: 2026-01-18 13:50+0100\n"
+"POT-Creation-Date: 2026-01-19 18:30+0100\n"
+"PO-Revision-Date: 2026-01-19 19:30+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -21,27 +21,35 @@ msgstr ""
 msgid "Base info"
 msgstr "Información básica"
 
-#: apps/core/admin/user_admin.py:27
+#: apps/core/admin/user_admin.py:28
 msgid "Personal info"
 msgstr "Información personal"
 
-#: apps/core/admin/user_admin.py:31
+#: apps/core/admin/user_admin.py:32
 msgid "Permissions"
 msgstr "Permisos"
 
-#: apps/core/admin/user_admin.py:44
+#: apps/core/admin/user_admin.py:45
 msgid "Important dates"
 msgstr "Fechas importantes"
 
-#: apps/core/admin/user_admin.py:99
+#: apps/core/admin/user_admin.py:101
 msgid "Send verification email"
 msgstr "Enviar correo de verificación"
 
-#: apps/core/admin/user_admin.py:105
+#: apps/core/admin/user_admin.py:107
 msgid "Verification emails process started for selected users."
 msgstr ""
 "Se ha iniciado el proceso de envío de correos de verificación para los "
 "usuarios seleccionados."
+
+#: apps/core/admin/user_admin.py:111
+msgid "Trigger password reset"
+msgstr "Iniciar restablecimiento de contraseña"
+
+#: apps/core/admin/user_admin.py:117
+msgid "Password reset initiated for selected users."
+msgstr "Se ha iniciado el restablecimiento de contraseña para los usuarios seleccionados."
 
 #: apps/core/api/serializers/user_serializers.py:57
 msgid "Password of the user"
@@ -51,23 +59,23 @@ msgstr "Contraseña del usuario"
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: apps/core/api/views/auth_views.py:32
+#: apps/core/api/views/auth_views.py:33
 msgid "Obtain Token Pair (Login)"
 msgstr "Obtener par de tokens (Iniciar sesión)"
 
-#: apps/core/api/views/auth_views.py:48
+#: apps/core/api/views/auth_views.py:49
 msgid "Refresh Token"
 msgstr "Refrescar token"
 
-#: apps/core/api/views/auth_views.py:53
+#: apps/core/api/views/auth_views.py:54
 msgid "Verify Token"
 msgstr "Verificar token"
 
-#: apps/core/api/views/auth_views.py:60
+#: apps/core/api/views/auth_views.py:61
 msgid "Register new user"
 msgstr "Registrar nuevo usuario"
 
-#: apps/core/api/views/auth_views.py:62
+#: apps/core/api/views/auth_views.py:63
 msgid ""
 "Creates a new user account, triggers verification email via Manager, and "
 "logs the user in automatically."
@@ -75,24 +83,24 @@ msgstr ""
 "Crea una nueva cuenta de usuario, activa el correo de verificación a través "
 "del Gestor y conecta al usuario automáticamente."
 
-#: apps/core/api/views/auth_views.py:99
+#: apps/core/api/views/auth_views.py:100
 msgid "Verify user account"
 msgstr "Verificar cuenta de usuario"
 
-#: apps/core/api/views/auth_views.py:100
+#: apps/core/api/views/auth_views.py:101
 msgid "Marks a user as verified using their secret verification token."
 msgstr ""
 "Marca a un usuario como verificado usando su token de verificación secreto."
 
-#: apps/core/api/views/auth_views.py:104
+#: apps/core/api/views/auth_views.py:105
 msgid "The verification UUID sent via email"
 msgstr "El UUID de verificación enviado por correo electrónico"
 
-#: apps/core/api/views/auth_views.py:119
+#: apps/core/api/views/auth_views.py:120
 msgid "Login with Google"
 msgstr "Iniciar sesión con Google"
 
-#: apps/core/api/views/auth_views.py:121
+#: apps/core/api/views/auth_views.py:122
 msgid ""
 "Validates a Google ID Token. Registers the user if they don't exist "
 "(verified automatically) and returns JWT tokens."
@@ -100,9 +108,44 @@ msgstr ""
 "Valida un token de ID de Google. Registra al usuario si no existe "
 "(verificado automáticamente) y devuelve tokens JWT."
 
-#: apps/core/api/views/auth_views.py:148
+#: apps/core/api/views/auth_views.py:149
 msgid "User account is disabled."
 msgstr "La cuenta de usuario está deshabilitada."
+
+#: apps/core/api/views/auth_views.py:165
+msgid "Request Password Reset"
+msgstr "Solicitar restablecimiento de contraseña"
+
+#: apps/core/api/views/auth_views.py:167
+msgid ""
+"Triggers a password reset email if the email exists. Always returns 200 OK "
+"for security."
+msgstr ""
+"Activa un correo de restablecimiento de contraseña si el correo existe. Siempre devuelve 200 OK por seguridad."
+
+#: apps/core/api/views/auth_views.py:185
+msgid "If the email exists, a password reset link has been sent."
+msgstr "Si el correo electrónico existe, se ha enviado un enlace para restablecer la contraseña."
+
+#: apps/core/api/views/auth_views.py:192
+msgid "Check Reset Token Validity"
+msgstr "Comprobar validez del token de restablecimiento"
+
+#: apps/core/api/views/auth_views.py:193
+msgid "Checks if a reset password token exists and is valid."
+msgstr "Comprueba si existe un token de restablecimiento de contraseña y si es válido."
+
+#: apps/core/api/views/auth_views.py:202
+msgid "Confirm Password Reset"
+msgstr "Confirmar restablecimiento de contraseña"
+
+#: apps/core/api/views/auth_views.py:203
+msgid "Resets the user's password using the token and invalidates it."
+msgstr "Restablece la contraseña del usuario utilizando el token y lo invalida."
+
+#: apps/core/api/views/auth_views.py:214
+msgid "Password has been reset successfully."
+msgstr "La contraseña se ha restablecido correctamente."
 
 #: apps/core/api/views/geo_views.py:13
 msgid "List all countries"
@@ -170,58 +213,74 @@ msgstr "El superusuario debe tener is_superuser=True."
 msgid "Google token has no email."
 msgstr "El token de Google no tiene correo electrónico."
 
-#: apps/core/models/user.py:18
+#: apps/core/models/user.py:19
 msgid "Internal"
 msgstr "Interno"
 
-#: apps/core/models/user.py:19
+#: apps/core/models/user.py:20
 msgid "Google"
 msgstr "Google"
 
-#: apps/core/models/user.py:21
+#: apps/core/models/user.py:22
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: apps/core/models/user.py:25
+#: apps/core/models/user.py:26
 msgid "Is verified"
 msgstr "Está verificado"
 
-#: apps/core/models/user.py:26
+#: apps/core/models/user.py:27
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:33
+#: apps/core/models/user.py:34
 msgid "Verification UUID"
 msgstr "UUID de Verificación"
 
-#: apps/core/models/user.py:34
+#: apps/core/models/user.py:35
 msgid "Secret token used for email verification."
 msgstr "Token secreto utilizado para la verificación por correo electrónico."
 
-#: apps/core/models/user.py:40
+#: apps/core/models/user.py:42
+msgid "Reset Password UUID"
+msgstr "UUID de restablecimiento de contraseña"
+
+#: apps/core/models/user.py:43
+msgid "Token used for password reset requests."
+msgstr "Token utilizado para solicitudes de restablecimiento de contraseña."
+
+#: apps/core/models/user.py:49
 msgid "Auth Provider"
 msgstr "Proveedor de autenticación"
 
-#: apps/core/models/user.py:41
+#: apps/core/models/user.py:50
 msgid "The provider used for the user authentication/registration."
 msgstr "El proveedor utilizado para la autenticación/registro del usuario."
 
-#: apps/core/models/user.py:44
+#: apps/core/models/user.py:53
 msgid "Bio"
 msgstr "Biografía"
 
-#: apps/core/models/user.py:44
+#: apps/core/models/user.py:53
 msgid "User bio"
 msgstr "Biografía del usuario"
 
-#: apps/core/models/user.py:49 apps/ideology/models/user_axis_answer.py:14
+#: apps/core/models/user.py:58 apps/ideology/models/user_axis_answer.py:14
 #: apps/ideology/models/user_axis_answer.py:34
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:50 backend/settings/apps_config/unfold.py:33
+#: apps/core/models/user.py:59 backend/settings/apps_config/unfold.py:33
 msgid "Users"
 msgstr "Usuarios"
+
+#: apps/ideology/admin/completed_answer_admin.py:47
+msgid "Data"
+msgstr "Datos"
+
+#: apps/ideology/admin/completed_answer_admin.py:57
+msgid "Timestamps"
+msgstr "Marcas de tiempo"
 
 #: apps/ideology/admin/ideology_admin.py:18
 msgid "Association"
@@ -316,6 +375,10 @@ msgstr ""
 msgid "Usage Count"
 msgstr "Recuento de uso"
 
+#: apps/ideology/api/serializers/completed_answer_serializers.py:38
+msgid "Anonymous users must provide 'axis' and 'conditioners' data."
+msgstr "Los usuarios anónimos deben proporcionar datos de 'axis' y 'conditioners'."
+
 #: apps/ideology/api/views/axis_answer_views.py:17
 msgid "Upsert axis answer"
 msgstr "Insertar/Actualizar respuesta de eje"
@@ -368,11 +431,18 @@ msgstr "Generar instantánea de respuesta completada"
 
 #: apps/ideology/api/views/completed_answer_views.py:36
 msgid ""
-"Triggers the calculation of the user's current results, saves it as a "
-"CompletedAnswer, and returns the structured data."
+"Generates a snapshot. If logged in, calculates from DB. If anonymous, "
+"expects 'axis' and 'conditioners' lists in body."
 msgstr ""
-"Inicia el cálculo de los resultados actuales del usuario, lo guarda como una "
-"Respuesta Completada y devuelve los datos estructurados."
+"Genera una instantánea. Si ha iniciado sesión, calcula desde la BD. Si es anónimo, espera listas de 'axis' y 'conditioners' en el cuerpo."
+
+#: apps/ideology/api/views/completed_answer_views.py:47
+msgid "Retrieve specific completed answer"
+msgstr "Recuperar respuesta completada específica"
+
+#: apps/ideology/api/views/completed_answer_views.py:48
+msgid "Returns the details of a specific completed answer by its UUID."
+msgstr "Devuelve los detalles de una respuesta completada específica por su UUID."
 
 #: apps/ideology/api/views/conditioner_answer_views.py:18
 msgid "Upsert conditioner answer"
@@ -618,13 +688,25 @@ msgstr ""
 "JSON estructurado que contiene el conjunto completo de respuestas "
 "proporcionadas por el usuario."
 
-#: apps/ideology/models/completed_answer.py:27
+#: apps/ideology/models/completed_answer.py:28
+msgid "Answer Hash"
+msgstr "Hash de respuesta"
+
+#: apps/ideology/models/completed_answer.py:29
+msgid "SHA-256 hash of the normalized answers for fast deduplication."
+msgstr "Hash SHA-256 de las respuestas normalizadas para una desduplicación rápida."
+
+#: apps/ideology/models/completed_answer.py:35
 msgid "Completed Answer"
 msgstr "Respuesta completada"
 
-#: apps/ideology/models/completed_answer.py:28
+#: apps/ideology/models/completed_answer.py:36
 msgid "Completed Answers"
 msgstr "Respuestas completadas"
+
+#: apps/ideology/models/completed_answer.py:40
+msgid "Anonymous"
+msgstr "Anónimo"
 
 #: apps/ideology/models/ideology.py:12
 msgid "Ideology Name"
@@ -1267,3 +1349,19 @@ msgstr "Inglés"
 #: backend/urls.py:18
 msgid "Control Panel"
 msgstr "Panel de control"
+
+#: apps/core/admin/user_admin.py:125
+msgid "Trigger password reset (Send Email)"
+msgstr "Iniciar restablecimiento (Enviar Email)"
+
+#: apps/core/admin/user_admin.py:131
+msgid "Password reset initiated with email for selected users."
+msgstr "Restablecimiento iniciado con envío de email para los usuarios seleccionados."
+
+#: apps/core/admin/user_admin.py:135
+msgid "Trigger password reset (Silent - No Email)"
+msgstr "Generar token de restablecimiento (Silencioso)"
+
+#: apps/core/admin/user_admin.py:141
+msgid "Password reset token generated silently. No email sent."
+msgstr "Token de restablecimiento generado silenciosamente. No se envió correo."
