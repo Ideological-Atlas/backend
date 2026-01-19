@@ -1,4 +1,5 @@
 from core.helpers import UUIDModelSerializerMixin
+from drf_spectacular.utils import extend_schema_field
 from ideology.models import IdeologyConditioner
 from rest_framework import serializers
 
@@ -24,6 +25,7 @@ class IdeologyConditionerSerializer(UUIDModelSerializerMixin):
             "axis_max_value",
         ]
 
+    @extend_schema_field(serializers.ListField(child=serializers.DictField()))
     def get_condition_rules(self, instance):
         from ideology.api.serializers import IdeologyConditionerConditionerSerializer
 

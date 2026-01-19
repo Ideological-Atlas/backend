@@ -7,6 +7,7 @@ from core.exceptions.user_exceptions import UserDisabledException
 from django.conf import settings
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import transaction
+from django.shortcuts import get_object_or_404
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from google.auth.transport import requests as google_requests
@@ -69,6 +70,25 @@ class CustomUserManager(BaseUserManager):
         )
 
         user.send_verification_email()
+        return user
+
+    def request_password_reset(self, email: str) -> None:
+        try:
+            user = self.get(email=email, is_active=True)
+            user.initiate_password_reset()
+        except self.model.DoesNotExist:
+            logger.info("Password reset requested for non-existent email: %s", email)
+            pass
+
+    def verify_reset_token(self, token: str):
+        return get_object_or_404(self.model, reset_password_uuid=token)
+
+    def confirm_password_reset(self, token: str, new_password: str):
+        user = self.verify_reset_token(token)
+        user.set_password(new_password)
+        user.reset_password_uuid = None
+        user.save()
+        logger.info("Password reset successfully for user: %s", user.email)
         return user
 
     def login_with_google(self, token: str):

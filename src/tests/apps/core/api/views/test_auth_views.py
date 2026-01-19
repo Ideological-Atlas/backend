@@ -177,3 +177,81 @@ class VerifyUserViewTestCase(APITestBase):
 
         user_pending.refresh_from_db()
         self.assertTrue(user_pending.is_verified)
+
+
+class PasswordResetRequestViewTestCase(APITestBase):
+    url = reverse("core:password-reset-request")
+
+    @patch("core.models.user.User.initiate_password_reset")
+    def test_password_reset_request_success(self, mock_initiate):
+        self.client.credentials()
+        user = UserFactory(email="reset@test.com")
+
+        response = self.client.post(self.url, data={"email": user.email})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("message", response.data)
+        mock_initiate.assert_called_once()
+
+    @patch("core.models.user.User.initiate_password_reset")
+    def test_password_reset_request_unknown_email(self, mock_initiate):
+        self.client.credentials()
+
+        response = self.client.post(self.url, data={"email": "unknown@test.com"})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        mock_initiate.assert_not_called()
+
+
+class PasswordResetConfirmationFlowTestCase(APITestBase):
+    def setUp(self):
+        super().setUp()
+        self.user = UserFactory()
+        self.user.initiate_password_reset()
+        self.user.refresh_from_db()
+        self.reset_uuid = self.user.reset_password_uuid.hex
+        self.verify_url = reverse(
+            "core:password-reset-verify-token", kwargs={"uuid": self.reset_uuid}
+        )
+        self.confirm_url = reverse(
+            "core:password-reset-confirm", kwargs={"uuid": self.reset_uuid}
+        )
+
+    def test_verify_token_success(self):
+        self.client.credentials()
+        response = self.client.get(self.verify_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_verify_token_invalid(self):
+        self.client.credentials()
+        url = reverse(
+            "core:password-reset-verify-token",
+            kwargs={"uuid": "00000000-0000-0000-0000-000000000000"},
+        )
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_confirm_reset_success(self):
+        self.client.credentials()
+        new_pass = "NewStrongPass1!"
+        response = self.client.post(self.confirm_url, data={"new_password": new_pass})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password(new_pass))
+        self.assertIsNone(self.user.reset_password_uuid)
+
+    def test_confirm_reset_weak_password(self):
+        self.client.credentials()
+        response = self.client.post(self.confirm_url, data={"new_password": "123"})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("new_password", response.data)
+
+    def test_confirm_reset_invalid_token(self):
+        self.client.credentials()
+        url = reverse(
+            "core:password-reset-confirm",
+            kwargs={"uuid": "00000000-0000-0000-0000-000000000000"},
+        )
+        response = self.client.post(url, data={"new_password": "Pass!"})
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

@@ -4,6 +4,8 @@ from core.api.serializers import (
     CustomTokenObtainPairSerializer,
     GoogleLoginSerializer,
     MeSerializer,
+    PasswordResetConfirmSerializer,
+    PasswordResetRequestSerializer,
     RegisterSerializer,
     UserVerificationSerializer,
 )
@@ -17,6 +19,7 @@ from rest_framework import serializers, status
 from rest_framework.generics import CreateAPIView, GenericAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -155,5 +158,70 @@ class GoogleLoginView(GenericAPIView):
                 "access": str(refresh.access_token),
                 "user": MeSerializer(user).data,
             },
+            status=status.HTTP_200_OK,
+        )
+
+
+@extend_schema(
+    tags=["auth"],
+    summary=_("Request Password Reset"),
+    description=_(
+        "Triggers a password reset email if the email exists. Always returns 200 OK for security."
+    ),
+    responses={
+        200: inline_serializer(
+            name="PasswordResetResponse",
+            fields={"message": serializers.CharField()},
+        )
+    },
+)
+class PasswordResetRequestView(GenericAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = PasswordResetRequestSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        User.objects.request_password_reset(email=serializer.validated_data["email"])
+        return Response(
+            {"message": _("If the email exists, a password reset link has been sent.")},
+            status=status.HTTP_200_OK,
+        )
+
+
+@extend_schema(
+    tags=["auth"],
+    summary=_("Check Reset Token Validity"),
+    description=_("Checks if a reset password token exists and is valid."),
+    responses={200: None, 404: None},
+)
+class PasswordResetVerifyTokenView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, uuid):
+        User.objects.verify_reset_token(uuid)
+        return Response(status=status.HTTP_200_OK)
+
+
+@extend_schema(
+    tags=["auth"],
+    summary=_("Confirm Password Reset"),
+    description=_("Resets the user's password using the token and invalidates it."),
+    responses={200: None},
+)
+class PasswordResetConfirmView(GenericAPIView):
+    permission_classes = [AllowAny]
+    serializer_class = PasswordResetConfirmSerializer
+
+    def post(self, request, uuid):
+        user = User.objects.verify_reset_token(uuid)
+        serializer = self.get_serializer(data=request.data, context={"user": user})
+        serializer.is_valid(raise_exception=True)
+        User.objects.confirm_password_reset(
+            token=uuid, new_password=serializer.validated_data["new_password"]
+        )
+
+        return Response(
+            {"message": _("Password has been reset successfully.")},
             status=status.HTTP_200_OK,
         )
