@@ -29,14 +29,16 @@ class HelperCoverageTestCase(APITestBaseNeedAuthorized):
         self.assertEqual(response.status_code, 200)
 
 
-class HelperSkipTestCase(APITestBase):
+class HelperNoUrlTestCase(APITestBase):
     url = None
 
-    def test_skip_logic(self):
-        from unittest.case import SkipTest
+    def test_setup_runs_gracefully(self):
+        self.assertIsNotNone(self.request)
+        self.assertIsNotNone(self.user)
 
-        with self.assertRaises(SkipTest):
-            self.setUp()
+
+class HelperNeedAuthNoUrlTestCase(APITestBaseNeedAuthorized):
+    url = None
 
 
 class SerializerHelperCoverage(SerializerTestBase):
