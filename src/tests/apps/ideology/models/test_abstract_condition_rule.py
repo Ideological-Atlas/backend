@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+from django.utils import translation
 from ideology.factories import (
     IdeologyConditionerFactory,
     IdeologySectionConditionerFactory,
@@ -21,17 +22,19 @@ class AbstractConditionRuleValidationTestCase(TestCase):
             conditioner=self.conditioner,
             condition_values={"bad": "type"},
         )
-        with self.assertRaises(ValidationError) as cm:
-            rule.clean()
-        self.assertIn("Must be a list of values", str(cm.exception))
+        with translation.override("en"):
+            with self.assertRaises(ValidationError) as cm:
+                rule.clean()
+            self.assertIn("Must be a list of values", str(cm.exception))
 
     def test_clean_fails_if_condition_values_is_empty(self):
         rule = IdeologySectionConditionerFactory.build(
             section=self.section, conditioner=self.conditioner, condition_values=[]
         )
-        with self.assertRaises(ValidationError) as cm:
-            rule.clean()
-        self.assertIn("Trigger values cannot be empty", str(cm.exception))
+        with translation.override("en"):
+            with self.assertRaises(ValidationError) as cm:
+                rule.clean()
+            self.assertIn("Trigger values cannot be empty", str(cm.exception))
 
     def test_clean_fails_if_value_not_in_parent_accepted_values(self):
         rule = IdeologySectionConditionerFactory.build(
@@ -39,9 +42,10 @@ class AbstractConditionRuleValidationTestCase(TestCase):
             conditioner=self.conditioner,
             condition_values=["Red", "Purple"],
         )
-        with self.assertRaises(ValidationError) as cm:
-            rule.clean()
-        self.assertIn("Values ['Purple'] are not valid", str(cm.exception))
+        with translation.override("en"):
+            with self.assertRaises(ValidationError) as cm:
+                rule.clean()
+            self.assertIn("Values ['Purple'] are not valid", str(cm.exception))
 
     def test_logical_consistency_skipped_if_parent_has_no_values(self):
         free_text_conditioner = IdeologyConditionerFactory(

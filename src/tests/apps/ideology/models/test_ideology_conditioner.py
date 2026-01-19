@@ -37,9 +37,10 @@ class IdeologyConditionerValidationTestCase(TestCase):
                     type=IdeologyConditioner.ConditionerType.CATEGORICAL,
                     accepted_values=invalid_value,
                 )
-                with self.assertRaises(ValidationError) as cm:
-                    conditioner.clean()
-                self.assertIn(error_message_part, str(cm.exception))
+                with translation.override("en"):
+                    with self.assertRaises(ValidationError) as cm:
+                        conditioner.clean()
+                    self.assertIn(error_message_part, str(cm.exception))
 
     def test_clean_method_validates_boolean_logic_strictly(self):
         valid_boolean_conditioner = IdeologyConditionerFactory.build(

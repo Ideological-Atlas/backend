@@ -29,14 +29,10 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
 
     def validate_new_password(self, value):
         user = self.context.get("user")
-        errors = {}
         try:
             validators.validate_password(password=value, user=user)
         except DjangoValidationError as exception:
-            errors["new_password"] = [
-                ErrorDetail(e.message, code=e.code) for e in exception.error_list
-            ]
-
-        if errors:
-            raise serializers.ValidationError(errors)
+            raise serializers.ValidationError(
+                [ErrorDetail(e.message, code=e.code) for e in exception.error_list]
+            )
         return value

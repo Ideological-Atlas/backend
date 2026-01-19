@@ -149,6 +149,8 @@ class GoogleLoginViewTestCase(APITestBase):
 
 
 class VerifyUserViewTestCase(APITestBase):
+    url = "/dummy/"
+
     def test_verify_user_scenarios(self):
         user_pending = UserFactory(is_verified=False)
         UserFactory(is_verified=True, verification_uuid=None)
@@ -204,6 +206,8 @@ class PasswordResetRequestViewTestCase(APITestBase):
 
 
 class PasswordResetConfirmationFlowTestCase(APITestBase):
+    url = "/dummy-url-for-base-class/"
+
     def setUp(self):
         super().setUp()
         self.user = UserFactory()

@@ -90,6 +90,27 @@ class UserManagerBasicTestCase(TestCase):
         self.assertEqual(mock_create_user.call_args[1]["preferred_language"], "fr")
         mock_user_instance.send_verification_email.assert_called_once()
 
+    @patch("core.models.user.User.initiate_password_reset")
+    def test_request_password_reset_success(self, mock_initiate):
+        VerifiedUserFactory(email="reset@me.com", is_active=True)
+        User.objects.request_password_reset("reset@me.com")
+        mock_initiate.assert_called_once()
+
+    @patch("core.models.user.User.initiate_password_reset")
+    def test_request_password_reset_non_existent_email(self, mock_initiate):
+        User.objects.request_password_reset("ghost@me.com")
+        mock_initiate.assert_not_called()
+
+    def test_confirm_password_reset_success(self):
+        user = VerifiedUserFactory()
+        user.initiate_password_reset()
+        token = user.reset_password_uuid
+
+        updated_user = User.objects.confirm_password_reset(token, "NewPass!123")
+
+        self.assertTrue(updated_user.check_password("NewPass!123"))
+        self.assertIsNone(updated_user.reset_password_uuid)
+
 
 class GoogleAuthManagerTestCase(TestCase):
     @patch("core.tasks.send_email_notification.delay")
