@@ -40,6 +40,9 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         verbose_name=_("Auth Provider"),
         help_text=_("The provider used for the user authentication/registration."),
     )
+    bio = models.TextField(
+        null=True, blank=True, verbose_name=_("Bio"), help_text=_("User bio")
+    )
     objects = CustomUserManager()
 
     class Meta:

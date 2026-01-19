@@ -94,10 +94,10 @@ class UserConditionerAnswerListByComplexityView(ListAPIView):
             UserConditionerAnswer.objects.filter(user=self.request.user)
             .filter(
                 Q(
-                    conditioner__section_rules__section__abstraction_complexity__uuid=complexity_uuid
+                    conditioner__ideologysectionconditioner_rules__section__abstraction_complexity__uuid=complexity_uuid
                 )
                 | Q(
-                    conditioner__axis_rules__axis__section__abstraction_complexity__uuid=complexity_uuid
+                    conditioner__ideologyaxisconditioner_rules__axis__section__abstraction_complexity__uuid=complexity_uuid
                 )
             )
             .select_related("conditioner")

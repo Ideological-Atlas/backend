@@ -1,8 +1,8 @@
 from core.helpers import UUIDModelSerializerMixin
 from ideology.models import Ideology
 
-from .axis_answer_serializers import IdeologyAxisDefinitionSerializer
 from .conditioner_answer_serializers import IdeologyConditionerDefinitionSerializer
+from .ideology_definition_serializers import IdeologyAxisDefinitionSerializer
 
 
 class IdeologyListSerializer(UUIDModelSerializerMixin):

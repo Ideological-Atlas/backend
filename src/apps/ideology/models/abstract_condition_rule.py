@@ -5,6 +5,13 @@ from django.utils.translation import gettext_lazy as _
 
 
 class BaseConditionRule(TimeStampedUUIDModel):
+    conditioner = models.ForeignKey(
+        "ideology.IdeologyConditioner",
+        on_delete=models.CASCADE,
+        related_name="%(class)s_rules",
+        verbose_name=_("Conditioner"),
+        help_text=_("The conditioner determining visibility."),
+    )
     name = models.CharField(
         max_length=128,
         verbose_name=_("Name"),
@@ -44,19 +51,11 @@ class BaseConditionRule(TimeStampedUUIDModel):
             )
 
     def _validate_logical_consistency(self):
-        parent_conditioner = next(
-            (
-                getattr(self, field)
-                for field in ["conditioner", "source_conditioner"]
-                if hasattr(self, field)
-            ),
-            None,
-        )
-
-        if not parent_conditioner or not parent_conditioner.accepted_values:
+        # Conditioner is now guaranteed by the abstract model
+        if not self.conditioner or not self.conditioner.accepted_values:
             return
 
-        valid_set = set(parent_conditioner.accepted_values)
+        valid_set = set(self.conditioner.accepted_values)
         current_set = set(self.condition_values)
         invalid_values = current_set - valid_set
 
@@ -64,7 +63,7 @@ class BaseConditionRule(TimeStampedUUIDModel):
             raise ValidationError(
                 {
                     "condition_values": _(
-                        f"Values {list(invalid_values)} are not valid for conditioner '{parent_conditioner.name}'."
+                        f"Values {list(invalid_values)} are not valid for conditioner '{self.conditioner.name}'."
                     )
                 }
             )

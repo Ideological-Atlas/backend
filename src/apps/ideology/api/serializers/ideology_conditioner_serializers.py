@@ -1,31 +1,14 @@
 from core.helpers import UUIDModelSerializerMixin
-from ideology.models import IdeologyConditioner, IdeologyConditionerConditioner
+from ideology.models import IdeologyConditioner
 from rest_framework import serializers
 
 
-class IdeologyConditionerConditionerSerializer(UUIDModelSerializerMixin):
-    source_conditioner_uuid = serializers.UUIDField(
-        source="source_conditioner.uuid", format="hex", read_only=True
-    )
-
-    class Meta:
-        model = IdeologyConditionerConditioner
-        fields = [
-            "uuid",
-            "name",
-            "description",
-            "condition_values",
-            "source_conditioner_uuid",
-        ]
-
-
 class IdeologyConditionerSerializer(UUIDModelSerializerMixin):
-    condition_rules = IdeologyConditionerConditionerSerializer(
-        many=True, read_only=True
-    )
     source_axis_uuid = serializers.UUIDField(
         source="source_axis.uuid", format="hex", read_only=True, allow_null=True
     )
+
+    condition_rules = serializers.SerializerMethodField()
 
     class Meta:
         model = IdeologyConditioner
@@ -40,3 +23,16 @@ class IdeologyConditionerSerializer(UUIDModelSerializerMixin):
             "axis_min_value",
             "axis_max_value",
         ]
+
+    def get_condition_rules(self, instance):
+        from ideology.api.serializers import IdeologyConditionerConditionerSerializer
+
+        return IdeologyConditionerConditionerSerializer(
+            instance.condition_rules.all(), many=True, context=self.context
+        ).data
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if instance.type == "axis_range":
+            data.pop("accepted_values", None)
+        return data

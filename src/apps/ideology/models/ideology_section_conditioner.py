@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models import IdeologyConditioner, IdeologySection
+from ideology.models import IdeologySection
 
 from .abstract_condition_rule import BaseConditionRule
 
@@ -12,13 +12,6 @@ class IdeologySectionConditioner(BaseConditionRule):
         related_name="condition_rules",
         verbose_name=_("Section"),
         help_text=_("The section being conditioned."),
-    )
-    conditioner = models.ForeignKey(
-        IdeologyConditioner,
-        on_delete=models.CASCADE,
-        related_name="section_rules",
-        verbose_name=_("Conditioner"),
-        help_text=_("The conditioner determining visibility."),
     )
 
     class Meta:

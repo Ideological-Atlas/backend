@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-16 15:20+0100\n"
-"PO-Revision-Date: 2026-01-16 15:22+0100\n"
+"POT-Creation-Date: 2026-01-18 13:44+0100\n"
+"PO-Revision-Date: 2026-01-18 13:50+0100\n"
 "Last-Translator: Gemini AI\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -17,37 +17,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/core/admin/user_admin.py:15
+#: apps/core/admin/user_admin.py:14
 msgid "Base info"
 msgstr "Información básica"
 
-#: apps/core/admin/user_admin.py:28
+#: apps/core/admin/user_admin.py:27
 msgid "Personal info"
 msgstr "Información personal"
 
-#: apps/core/admin/user_admin.py:37
+#: apps/core/admin/user_admin.py:31
 msgid "Permissions"
 msgstr "Permisos"
 
-#: apps/core/admin/user_admin.py:50
+#: apps/core/admin/user_admin.py:44
 msgid "Important dates"
 msgstr "Fechas importantes"
 
-#: apps/core/admin/user_admin.py:105
+#: apps/core/admin/user_admin.py:99
 msgid "Send verification email"
 msgstr "Enviar correo de verificación"
 
-#: apps/core/admin/user_admin.py:111
+#: apps/core/admin/user_admin.py:105
 msgid "Verification emails process started for selected users."
 msgstr ""
 "Se ha iniciado el proceso de envío de correos de verificación para los "
 "usuarios seleccionados."
 
-#: apps/core/api/serializers/user_serializers.py:56
+#: apps/core/api/serializers/user_serializers.py:57
 msgid "Password of the user"
 msgstr "Contraseña del usuario"
 
-#: apps/core/api/serializers/user_serializers.py:58
+#: apps/core/api/serializers/user_serializers.py:59
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -69,11 +69,11 @@ msgstr "Registrar nuevo usuario"
 
 #: apps/core/api/views/auth_views.py:62
 msgid ""
-"Creates a new user account, triggers verification email via Service, and "
+"Creates a new user account, triggers verification email via Manager, and "
 "logs the user in automatically."
 msgstr ""
 "Crea una nueva cuenta de usuario, activa el correo de verificación a través "
-"del Servicio y conecta al usuario automáticamente."
+"del Gestor y conecta al usuario automáticamente."
 
 #: apps/core/api/views/auth_views.py:99
 msgid "Verify user account"
@@ -100,7 +100,7 @@ msgstr ""
 "Valida un token de ID de Google. Registra al usuario si no existe "
 "(verificado automáticamente) y devuelve tokens JWT."
 
-#: apps/core/api/views/auth_views.py:147
+#: apps/core/api/views/auth_views.py:148
 msgid "User account is disabled."
 msgstr "La cuenta de usuario está deshabilitada."
 
@@ -152,66 +152,74 @@ msgstr ""
 "Permite a un usuario autenticado (ej. conectado vía Google) establecer una "
 "contraseña para usar el inicio de sesión estándar en el futuro."
 
-#: apps/core/models/managers/user_managers.py:30
+#: apps/core/models/managers/user_managers.py:33
 msgid "The Email must be set"
 msgstr "Debe establecerse el correo electrónico"
 
-#: apps/core/models/managers/user_managers.py:49
-#: tests/apps/core/models/managers/test_user_managers.py:35
+#: apps/core/models/managers/user_managers.py:52
+#: tests/apps/core/models/managers/test_user_managers.py:37
 msgid "Superuser must have is_staff=True."
 msgstr "El superusuario debe tener is_staff=True."
 
-#: apps/core/models/managers/user_managers.py:51
-#: tests/apps/core/models/managers/test_user_managers.py:40
+#: apps/core/models/managers/user_managers.py:54
+#: tests/apps/core/models/managers/test_user_managers.py:42
 msgid "Superuser must have is_superuser=True."
 msgstr "El superusuario debe tener is_superuser=True."
 
-#: apps/core/models/managers/user_managers.py:85
+#: apps/core/models/managers/user_managers.py:128
 msgid "Google token has no email."
 msgstr "El token de Google no tiene correo electrónico."
 
-#: apps/core/models/user.py:16
+#: apps/core/models/user.py:18
 msgid "Internal"
 msgstr "Interno"
 
-#: apps/core/models/user.py:17
+#: apps/core/models/user.py:19
 msgid "Google"
 msgstr "Google"
 
-#: apps/core/models/user.py:19
+#: apps/core/models/user.py:21
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: apps/core/models/user.py:23
+#: apps/core/models/user.py:25
 msgid "Is verified"
 msgstr "Está verificado"
 
-#: apps/core/models/user.py:24
+#: apps/core/models/user.py:26
 msgid "Field that shows if the user is verified or not."
 msgstr "Campo que muestra si el usuario está verificado o no."
 
-#: apps/core/models/user.py:31
+#: apps/core/models/user.py:33
 msgid "Verification UUID"
 msgstr "UUID de Verificación"
 
-#: apps/core/models/user.py:32
+#: apps/core/models/user.py:34
 msgid "Secret token used for email verification."
 msgstr "Token secreto utilizado para la verificación por correo electrónico."
 
-#: apps/core/models/user.py:38
+#: apps/core/models/user.py:40
 msgid "Auth Provider"
 msgstr "Proveedor de autenticación"
 
-#: apps/core/models/user.py:39
+#: apps/core/models/user.py:41
 msgid "The provider used for the user authentication/registration."
 msgstr "El proveedor utilizado para la autenticación/registro del usuario."
 
-#: apps/core/models/user.py:44 apps/ideology/models/user_answers.py:14
-#: apps/ideology/models/user_answers.py:34
+#: apps/core/models/user.py:44
+msgid "Bio"
+msgstr "Biografía"
+
+#: apps/core/models/user.py:44
+msgid "User bio"
+msgstr "Biografía del usuario"
+
+#: apps/core/models/user.py:49 apps/ideology/models/user_axis_answer.py:14
+#: apps/ideology/models/user_axis_answer.py:34
 msgid "User"
 msgstr "Usuario"
 
-#: apps/core/models/user.py:45 backend/settings/apps_config/unfold.py:33
+#: apps/core/models/user.py:50 backend/settings/apps_config/unfold.py:33
 msgid "Users"
 msgstr "Usuarios"
 
@@ -308,11 +316,11 @@ msgstr ""
 msgid "Usage Count"
 msgstr "Recuento de uso"
 
-#: apps/ideology/api/views/axis_answer_views.py:19
+#: apps/ideology/api/views/axis_answer_views.py:17
 msgid "Upsert axis answer"
 msgstr "Insertar/Actualizar respuesta de eje"
 
-#: apps/ideology/api/views/axis_answer_views.py:21
+#: apps/ideology/api/views/axis_answer_views.py:19
 msgid ""
 "Creates or updates the user's answer for a specific axis defined by UUID in "
 "URL. Allows marking answer as indifferent (null value)."
@@ -321,31 +329,26 @@ msgstr ""
 "por UUID en la URL. Permite marcar la respuesta como indiferente (valor "
 "nulo)."
 
-#: apps/ideology/api/views/axis_answer_views.py:49
+#: apps/ideology/api/views/axis_answer_views.py:40
 msgid "Delete axis answer"
 msgstr "Eliminar respuesta de eje"
 
-#: apps/ideology/api/views/axis_answer_views.py:51
+#: apps/ideology/api/views/axis_answer_views.py:42
 msgid "Deletes the user's answer for the specific axis defined by UUID in URL."
 msgstr ""
 "Elimina la respuesta del usuario para el eje específico definido por UUID en "
 "la URL."
 
-#: apps/ideology/api/views/axis_answer_views.py:76
+#: apps/ideology/api/views/axis_answer_views.py:67
 msgid "List user axis answers by section"
 msgstr "Listar respuestas de eje del usuario por sección"
 
-#: apps/ideology/api/views/axis_answer_views.py:78
+#: apps/ideology/api/views/axis_answer_views.py:69
 msgid ""
 "Returns the user's axis answers filtered by a specific ideology section."
 msgstr ""
 "Devuelve las respuestas de eje del usuario filtradas por una sección "
 "ideológica específica."
-
-#: apps/ideology/api/views/base_views.py:32
-#, python-brace-format
-msgid "{model} not found"
-msgstr "{model} no encontrado"
 
 #: apps/ideology/api/views/completed_answer_views.py:13
 msgid "Get latest completed answer"
@@ -371,11 +374,11 @@ msgstr ""
 "Inicia el cálculo de los resultados actuales del usuario, lo guarda como una "
 "Respuesta Completada y devuelve los datos estructurados."
 
-#: apps/ideology/api/views/conditioner_answer_views.py:20
+#: apps/ideology/api/views/conditioner_answer_views.py:18
 msgid "Upsert conditioner answer"
 msgstr "Insertar/Actualizar respuesta de condicionador"
 
-#: apps/ideology/api/views/conditioner_answer_views.py:22
+#: apps/ideology/api/views/conditioner_answer_views.py:20
 msgid ""
 "Creates or updates the user's answer for a specific conditioner defined by "
 "UUID in URL."
@@ -383,11 +386,11 @@ msgstr ""
 "Crea o actualiza la respuesta del usuario para un condicionador específico "
 "definido por UUID en la URL."
 
-#: apps/ideology/api/views/conditioner_answer_views.py:49
+#: apps/ideology/api/views/conditioner_answer_views.py:40
 msgid "Delete conditioner answer"
 msgstr "Eliminar respuesta de condicionador"
 
-#: apps/ideology/api/views/conditioner_answer_views.py:51
+#: apps/ideology/api/views/conditioner_answer_views.py:42
 msgid ""
 "Deletes the user's answer for the specific conditioner defined by UUID in "
 "URL."
@@ -395,11 +398,11 @@ msgstr ""
 "Elimina la respuesta del usuario para el condicionador específico definido "
 "por UUID en la URL."
 
-#: apps/ideology/api/views/conditioner_answer_views.py:78
+#: apps/ideology/api/views/conditioner_answer_views.py:69
 msgid "List user conditioner answers by complexity"
 msgstr "Listar respuestas de condicionador del usuario por complejidad"
 
-#: apps/ideology/api/views/conditioner_answer_views.py:80
+#: apps/ideology/api/views/conditioner_answer_views.py:71
 msgid ""
 "Returns the user's conditioner answers filtered by abstraction complexity "
 "(via sections or axes)."
@@ -428,11 +431,11 @@ msgstr ""
 "Devuelve todos los ejes (incluyendo sus condicionadores) para un UUID de "
 "sección específico."
 
-#: apps/ideology/api/views/ideology_conditioner_views.py:12
+#: apps/ideology/api/views/ideology_conditioner_views.py:11
 msgid "List all relevant conditioners by complexity"
 msgstr "Listar todos los condicionadores relevantes por complejidad"
 
-#: apps/ideology/api/views/ideology_conditioner_views.py:14
+#: apps/ideology/api/views/ideology_conditioner_views.py:13
 msgid ""
 "Returns ALL conditioners relevant for a complexity level. This includes "
 "conditioners attached to sections, axes, AND recursive dependencies "
@@ -498,7 +501,7 @@ msgstr ""
 "definición (ejes y condicionadores)."
 
 #: apps/ideology/models/abstract_answers.py:12
-#: apps/ideology/models/ideology_axis_conditioner.py:12
+#: apps/ideology/models/ideology_axis_conditioner.py:13
 msgid "Axis"
 msgstr "Eje"
 
@@ -531,8 +534,7 @@ msgid "A non-indifferent answer must have a numeric value."
 msgstr "Una respuesta no indiferente debe tener un valor numérico."
 
 #: apps/ideology/models/abstract_answers.py:73
-#: apps/ideology/models/ideology_axis_conditioner.py:19
-#: apps/ideology/models/ideology_section_conditioner.py:19
+#: apps/ideology/models/abstract_condition_rule.py:12
 msgid "Conditioner"
 msgstr "Condicionador"
 
@@ -544,45 +546,85 @@ msgstr "La pregunta o variable que se está respondiendo."
 msgid "Answer"
 msgstr "Respuesta"
 
-#: apps/ideology/models/completed_answer.py:11
+#: apps/ideology/models/abstract_condition_rule.py:13
+msgid "The conditioner determining visibility."
+msgstr "El condicionador que determina la visibilidad."
+
+#: apps/ideology/models/abstract_condition_rule.py:17
+#: apps/ideology/models/ideology.py:11
+#: apps/ideology/models/ideology_abstraction_complexity.py:10
+#: apps/ideology/models/ideology_axis.py:17
+#: apps/ideology/models/ideology_conditioner.py:19
+#: apps/ideology/models/ideology_reference.py:17
+#: apps/ideology/models/ideology_section.py:11
+#: apps/ideology/models/religion.py:10 apps/ideology/models/tag.py:11
+msgid "Name"
+msgstr "Nombre"
+
+#: apps/ideology/models/abstract_condition_rule.py:18
+msgid "Name of this condition rule."
+msgstr "Nombre de esta regla de condición."
+
+#: apps/ideology/models/abstract_condition_rule.py:23
+#: apps/ideology/models/ideology_abstraction_complexity.py:18
+#: apps/ideology/models/ideology_axis.py:23
+#: apps/ideology/models/ideology_conditioner.py:25
+#: apps/ideology/models/ideology_reference.py:25
+#: apps/ideology/models/ideology_section.py:19
+#: apps/ideology/models/religion.py:16 apps/ideology/models/tag.py:17
+msgid "Description"
+msgstr "Descripción"
+
+#: apps/ideology/models/abstract_condition_rule.py:24
+msgid "Description of the logic applied in this rule."
+msgstr "Descripción de la lógica aplicada en esta regla."
+
+#: apps/ideology/models/abstract_condition_rule.py:30
+msgid "Trigger Values"
+msgstr "Valores desencadenantes"
+
+#: apps/ideology/models/abstract_condition_rule.py:32
+msgid ""
+"List of values that satisfy this condition (e.g. ['Spain']). Must match "
+"values in the conditioner."
+msgstr ""
+"Lista de valores que satisfacen esta condición (ej. ['España']). Debe "
+"coincidir con los valores en el condicionador."
+
+#: apps/ideology/models/abstract_condition_rule.py:46
+msgid "Must be a list of values."
+msgstr "Debe ser una lista de valores."
+
+#: apps/ideology/models/abstract_condition_rule.py:50
+msgid "Trigger values cannot be empty."
+msgstr "Los valores desencadenantes no pueden estar vacíos."
+
+#: apps/ideology/models/completed_answer.py:13
 msgid "Completed By"
 msgstr "Completado por"
 
-#: apps/ideology/models/completed_answer.py:12
+#: apps/ideology/models/completed_answer.py:14
 msgid "The user who submitted this set of answers."
 msgstr "El usuario que envió este conjunto de respuestas."
 
-#: apps/ideology/models/completed_answer.py:16
+#: apps/ideology/models/completed_answer.py:18
 msgid "Answers Data"
 msgstr "Datos de respuestas"
 
-#: apps/ideology/models/completed_answer.py:18
+#: apps/ideology/models/completed_answer.py:20
 msgid ""
 "Structured JSON containing the full set of answers provided by the user."
 msgstr ""
 "JSON estructurado que contiene el conjunto completo de respuestas "
 "proporcionadas por el usuario."
 
-#: apps/ideology/models/completed_answer.py:23
+#: apps/ideology/models/completed_answer.py:27
 msgid "Completed Answer"
 msgstr "Respuesta completada"
 
-#: apps/ideology/models/completed_answer.py:24
+#: apps/ideology/models/completed_answer.py:28
 msgid "Completed Answers"
 msgstr "Respuestas completadas"
-
-#: apps/ideology/models/ideology.py:11
-#: apps/ideology/models/ideology_abstraction_complexity.py:10
-#: apps/ideology/models/ideology_axis.py:17
-#: apps/ideology/models/ideology_axis_conditioner.py:24
-#: apps/ideology/models/ideology_conditioner.py:18
-#: apps/ideology/models/ideology_conditioner_conditioner.py:24
-#: apps/ideology/models/ideology_reference.py:17
-#: apps/ideology/models/ideology_section.py:11
-#: apps/ideology/models/ideology_section_conditioner.py:24
-#: apps/ideology/models/religion.py:10 apps/ideology/models/tag.py:11
-msgid "Name"
-msgstr "Nombre"
 
 #: apps/ideology/models/ideology.py:12
 msgid "Ideology Name"
@@ -692,18 +734,6 @@ msgstr ""
 "La etiqueta para este nivel de abstracción (ej: 'Concreto', 'Teórico', "
 "'Metafísico')."
 
-#: apps/ideology/models/ideology_abstraction_complexity.py:18
-#: apps/ideology/models/ideology_axis.py:23
-#: apps/ideology/models/ideology_axis_conditioner.py:30
-#: apps/ideology/models/ideology_conditioner.py:24
-#: apps/ideology/models/ideology_conditioner_conditioner.py:30
-#: apps/ideology/models/ideology_reference.py:25
-#: apps/ideology/models/ideology_section.py:19
-#: apps/ideology/models/ideology_section_conditioner.py:30
-#: apps/ideology/models/religion.py:16 apps/ideology/models/tag.py:17
-msgid "Description"
-msgstr "Descripción"
-
 #: apps/ideology/models/ideology_abstraction_complexity.py:20
 msgid ""
 "Detailed explanation of the characteristics that define this complexity "
@@ -770,7 +800,7 @@ msgid "Ideology Associations"
 msgstr "Asociaciones ideológicas"
 
 #: apps/ideology/models/ideology_axis.py:12
-#: apps/ideology/models/ideology_section_conditioner.py:12
+#: apps/ideology/models/ideology_section_conditioner.py:13
 msgid "Section"
 msgstr "Sección"
 
@@ -804,7 +834,7 @@ msgid "Label for the end or maximum value of the axis (e.g., 'Total Liberty')."
 msgstr "Etiqueta para el final o valor máximo del eje (ej: 'Libertad total')."
 
 #: apps/ideology/models/ideology_axis.py:45
-#: apps/ideology/models/ideology_conditioner.py:74
+#: apps/ideology/models/ideology_conditioner.py:76
 #: apps/ideology/models/ideology_section.py:43
 #: backend/settings/apps_config/unfold.py:70
 msgid "Conditioners"
@@ -822,80 +852,47 @@ msgstr "Eje ideológico"
 msgid "Ideology Axes"
 msgstr "Ejes ideológicos"
 
-#: apps/ideology/models/ideology_axis_conditioner.py:13
+#: apps/ideology/models/ideology_axis_conditioner.py:14
 msgid "The axis being conditioned."
 msgstr "El eje que está siendo condicionado."
 
-#: apps/ideology/models/ideology_axis_conditioner.py:20
-#: apps/ideology/models/ideology_conditioner_conditioner.py:20
-#: apps/ideology/models/ideology_section_conditioner.py:20
-msgid "The conditioner determining visibility."
-msgstr "El condicionador que determina la visibilidad."
-
-#: apps/ideology/models/ideology_axis_conditioner.py:25
-#: apps/ideology/models/ideology_conditioner_conditioner.py:25
-#: apps/ideology/models/ideology_section_conditioner.py:25
-msgid "Name of this condition rule."
-msgstr "Nombre de esta regla de condición."
-
-#: apps/ideology/models/ideology_axis_conditioner.py:31
-#: apps/ideology/models/ideology_conditioner_conditioner.py:31
-#: apps/ideology/models/ideology_section_conditioner.py:31
-msgid "Description of the logic applied in this rule."
-msgstr "Descripción de la lógica aplicada en esta regla."
-
-#: apps/ideology/models/ideology_axis_conditioner.py:37
-#: apps/ideology/models/ideology_conditioner_conditioner.py:37
-#: apps/ideology/models/ideology_section_conditioner.py:37
-msgid "Trigger Values"
-msgstr "Valores desencadenantes"
-
-#: apps/ideology/models/ideology_axis_conditioner.py:39
-#: apps/ideology/models/ideology_section_conditioner.py:39
-msgid ""
-"List of values that satisfy this condition (e.g. ['Spain']). Must match "
-"values in the conditioner."
-msgstr ""
-"Lista de valores que satisfacen esta condición (ej. ['España']). Debe "
-"coincidir con los valores en el condicionador."
-
-#: apps/ideology/models/ideology_axis_conditioner.py:44
+#: apps/ideology/models/ideology_axis_conditioner.py:18
 msgid "Ideology Axis Conditioner"
 msgstr "Condicionador de eje ideológico"
 
-#: apps/ideology/models/ideology_axis_conditioner.py:45
+#: apps/ideology/models/ideology_axis_conditioner.py:19
 msgid "Ideology Axis Conditioners"
 msgstr "Condicionadores de eje ideológico"
 
-#: apps/ideology/models/ideology_conditioner.py:9
+#: apps/ideology/models/ideology_conditioner.py:10
 msgid "Boolean (Yes/No)"
 msgstr "Booleano (Sí/No)"
 
-#: apps/ideology/models/ideology_conditioner.py:10
+#: apps/ideology/models/ideology_conditioner.py:11
 msgid "Categorical (Selection)"
 msgstr "Categórico (Selección)"
 
-#: apps/ideology/models/ideology_conditioner.py:11
+#: apps/ideology/models/ideology_conditioner.py:12
 msgid "Scale (Numeric Range)"
 msgstr "Escala (Rango numérico)"
 
-#: apps/ideology/models/ideology_conditioner.py:12
+#: apps/ideology/models/ideology_conditioner.py:13
 msgid "Numeric Value"
 msgstr "Valor numérico"
 
-#: apps/ideology/models/ideology_conditioner.py:13
+#: apps/ideology/models/ideology_conditioner.py:14
 msgid "Free Text"
 msgstr "Texto libre"
 
-#: apps/ideology/models/ideology_conditioner.py:14
+#: apps/ideology/models/ideology_conditioner.py:15
 msgid "Derived from Axis Range"
 msgstr "Derivado del rango del eje"
 
-#: apps/ideology/models/ideology_conditioner.py:19
+#: apps/ideology/models/ideology_conditioner.py:20
 msgid "The name of the conditioner or variable."
 msgstr "El nombre del condicionador o variable."
 
-#: apps/ideology/models/ideology_conditioner.py:26
+#: apps/ideology/models/ideology_conditioner.py:27
 msgid ""
 "Detailed explanation of what this conditioner measures or defines within an "
 "ideology."
@@ -903,99 +900,102 @@ msgstr ""
 "Explicación detallada de lo que este condicionador mide o define dentro de "
 "una ideología."
 
-#: apps/ideology/models/ideology_conditioner.py:33
+#: apps/ideology/models/ideology_conditioner.py:34
 msgid "Type"
 msgstr "Tipo"
 
-#: apps/ideology/models/ideology_conditioner.py:34
+#: apps/ideology/models/ideology_conditioner.py:35
 msgid "Defines the format of the data expected for this conditioner."
 msgstr "Define el formato de los datos esperados para este condicionador."
 
-#: apps/ideology/models/ideology_conditioner.py:40
+#: apps/ideology/models/ideology_conditioner.py:41
 msgid "Accepted Values"
 msgstr "Valores aceptados"
 
-#: apps/ideology/models/ideology_conditioner.py:42
+#: apps/ideology/models/ideology_conditioner.py:43
 msgid ""
 "List of valid options if the type is 'Categorical'. Format: ['Option A', "
-"'Option B']."
+"'Option B']. For 'Derived from Axis Range', this is auto-set to ['true', "
+"'false']."
 msgstr ""
 "Lista de opciones válidas si el tipo es 'Categórico'. Formato: ['Opción A', "
-"'Opción B']."
+"'Opción B']. Para 'Derivado de rango de eje', esto se establece "
+"automáticamente a ['true', 'false']."
 
-#: apps/ideology/models/ideology_conditioner.py:52
+#: apps/ideology/models/ideology_conditioner.py:54
 msgid "Source Axis"
 msgstr "Eje de origen"
 
-#: apps/ideology/models/ideology_conditioner.py:53
+#: apps/ideology/models/ideology_conditioner.py:55
 msgid "Only for AXIS_RANGE type. The axis to watch."
 msgstr "Solo para el tipo AXIS_RANGE. El eje a observar."
 
-#: apps/ideology/models/ideology_conditioner.py:58
+#: apps/ideology/models/ideology_conditioner.py:60
 msgid "Min Value (Inclusive)"
 msgstr "Valor mínimo (Inclusivo)"
 
-#: apps/ideology/models/ideology_conditioner.py:59
+#: apps/ideology/models/ideology_conditioner.py:61
 msgid "Condition is met if user value >= this."
 msgstr "La condición se cumple si el valor del usuario >= este."
 
-#: apps/ideology/models/ideology_conditioner.py:64
+#: apps/ideology/models/ideology_conditioner.py:66
 msgid "Max Value (Inclusive)"
 msgstr "Valor máximo (Inclusivo)"
 
-#: apps/ideology/models/ideology_conditioner.py:65
+#: apps/ideology/models/ideology_conditioner.py:67
 msgid "Condition is met if user value <= this."
 msgstr "La condición se cumple si el valor del usuario <= este."
 
-#: apps/ideology/models/ideology_conditioner.py:75
+#: apps/ideology/models/ideology_conditioner.py:77
 msgid "Conditioners that determine the visibility of this conditioner."
 msgstr "Condicionadores que determinan la visibilidad de este condicionador."
 
-#: apps/ideology/models/ideology_conditioner.py:79
+#: apps/ideology/models/ideology_conditioner.py:83
 msgid "Ideology Conditioner"
 msgstr "Condicionador ideológico"
 
-#: apps/ideology/models/ideology_conditioner.py:80
+#: apps/ideology/models/ideology_conditioner.py:84
 msgid "Ideology Conditioners"
 msgstr "Condicionadores ideológicos"
 
-#: apps/ideology/models/ideology_conditioner.py:96
+#: apps/ideology/models/ideology_conditioner.py:106
+msgid "Must be a JSON list."
+msgstr "Debe ser una lista JSON."
+
+#: apps/ideology/models/ideology_conditioner.py:114
 msgid "Boolean type must have accepted_values=['true', 'false']"
 msgstr "El tipo booleano debe tener accepted_values=['true', 'false']"
 
-#: apps/ideology/models/ideology_conditioner.py:104
+#: apps/ideology/models/ideology_conditioner.py:124
+msgid "Categorical type must define at least one accepted value."
+msgstr "El tipo Categórico debe definir al menos un valor aceptado."
+
+#: apps/ideology/models/ideology_conditioner.py:130
+msgid "All values in the list must be strings."
+msgstr "Todos los valores en la lista deben ser cadenas de texto."
+
+#: apps/ideology/models/ideology_conditioner.py:135
 msgid "Required for Axis Range type."
 msgstr "Requerido para el tipo Rango de Eje."
 
-#: apps/ideology/models/ideology_conditioner.py:108
+#: apps/ideology/models/ideology_conditioner.py:138
 msgid "Must specify at least min or max value for Axis Range."
-msgstr "Debe especificar al menos un valor mínimo o máximo para el Rango de Eje."
+msgstr ""
+"Debe especificar al menos un valor mínimo o máximo para el Rango de Eje."
 
-#: apps/ideology/models/ideology_conditioner_conditioner.py:12
+#: apps/ideology/models/ideology_conditioner_conditioner.py:13
 msgid "Target Conditioner"
 msgstr "Condicionador objetivo"
 
-#: apps/ideology/models/ideology_conditioner_conditioner.py:13
+#: apps/ideology/models/ideology_conditioner_conditioner.py:14
 msgid "The conditioner being conditioned."
 msgstr "El condicionador que está siendo condicionado."
 
-#: apps/ideology/models/ideology_conditioner_conditioner.py:19
-msgid "Source Conditioner"
-msgstr "Condicionador de origen"
-
-#: apps/ideology/models/ideology_conditioner_conditioner.py:39
-msgid ""
-"List of values that satisfy this condition (e.g. ['Spain']). Must match "
-"values in the source conditioner."
-msgstr ""
-"Lista de valores que satisfacen esta condición (ej. ['España']). Debe "
-"coincidir con los valores en el condicionador de origen."
-
-#: apps/ideology/models/ideology_conditioner_conditioner.py:44
+#: apps/ideology/models/ideology_conditioner_conditioner.py:18
 msgid "Ideology Conditioner Conditioner"
 msgstr "Condicionador de condicionador ideológico"
 
-#: apps/ideology/models/ideology_conditioner_conditioner.py:45
+#: apps/ideology/models/ideology_conditioner_conditioner.py:19
 msgid "Ideology Conditioner Conditioners"
 msgstr "Condicionadores de condicionador ideológico"
 
@@ -1087,15 +1087,15 @@ msgstr "Sección ideológica"
 msgid "Ideology Sections"
 msgstr "Secciones ideológicas"
 
-#: apps/ideology/models/ideology_section_conditioner.py:13
+#: apps/ideology/models/ideology_section_conditioner.py:14
 msgid "The section being conditioned."
 msgstr "La sección que está siendo condicionada."
 
-#: apps/ideology/models/ideology_section_conditioner.py:44
+#: apps/ideology/models/ideology_section_conditioner.py:18
 msgid "Ideology Section Conditioner"
 msgstr "Condicionador de sección ideológica"
 
-#: apps/ideology/models/ideology_section_conditioner.py:45
+#: apps/ideology/models/ideology_section_conditioner.py:19
 msgid "Ideology Section Conditioners"
 msgstr "Condicionadores de sección ideológica"
 
@@ -1148,19 +1148,19 @@ msgstr "El nombre de la etiqueta."
 msgid "The description of the tag."
 msgstr "La descripción de la etiqueta."
 
-#: apps/ideology/models/user_answers.py:20
+#: apps/ideology/models/user_axis_answer.py:20
 msgid "User Axis Answer"
 msgstr "Respuesta de eje del usuario"
 
-#: apps/ideology/models/user_answers.py:21
+#: apps/ideology/models/user_axis_answer.py:21
 msgid "User Axis Answers"
 msgstr "Respuestas de eje del usuario"
 
-#: apps/ideology/models/user_answers.py:40
+#: apps/ideology/models/user_axis_answer.py:40
 msgid "User Conditioner Answer"
 msgstr "Respuesta de condicionador del usuario"
 
-#: apps/ideology/models/user_answers.py:41
+#: apps/ideology/models/user_axis_answer.py:41
 msgid "User Conditioner Answers"
 msgstr "Respuestas de condicionador del usuario"
 
@@ -1265,5 +1265,5 @@ msgid "English"
 msgstr "Inglés"
 
 #: backend/urls.py:18
-msgid "Panel de control"
+msgid "Control Panel"
 msgstr "Panel de control"

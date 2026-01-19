@@ -2,8 +2,8 @@ from unittest.mock import Mock
 
 from core.api.api_test_helpers import SerializerTestBase
 from ideology.api.serializers import (
-    AxisAnswerUpsertSerializer,
     ConditionerAnswerUpsertSerializer,
+    UserAxisAnswerUpsertSerializer,
 )
 from ideology.factories import IdeologyAxisFactory, IdeologyConditionerFactory
 
@@ -20,7 +20,7 @@ class AnswerSerializersTestCase(SerializerTestBase):
         context = {"request": self.request, "view": view}
 
         data = {"value": 50, "margin_left": 0, "margin_right": 0}
-        serializer = AxisAnswerUpsertSerializer(data=data, context=context)
+        serializer = UserAxisAnswerUpsertSerializer(data=data, context=context)
         self.assertTrue(serializer.is_valid())
         answer = serializer.save()
 
@@ -28,7 +28,7 @@ class AnswerSerializersTestCase(SerializerTestBase):
         self.assertEqual(answer.user, self.user)
 
     def test_axis_upsert_validation_error(self):
-        s2 = AxisAnswerUpsertSerializer(data={"value": 150})
+        s2 = UserAxisAnswerUpsertSerializer(data={"value": 150})
         self.assertFalse(s2.is_valid())
         self.assertIn("value", s2.errors)
 

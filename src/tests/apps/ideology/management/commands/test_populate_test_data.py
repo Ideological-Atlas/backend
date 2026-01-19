@@ -104,7 +104,7 @@ class PopulateTestDataCommandTestCase(TestCase):
         self.assertTrue(
             IdeologyConditionerConditioner.objects.filter(
                 target_conditioner=ideology_conditioner_d,
-                source_conditioner=ideology_conditioner_e,
+                conditioner=ideology_conditioner_e,
             ).exists(),
             "Conditioner D should depend on E",
         )
@@ -136,7 +136,7 @@ class PopulateTestDataCommandTestCase(TestCase):
         self.assertTrue(
             IdeologyConditionerConditioner.objects.filter(
                 target_conditioner=ideology_conditioner_i,
-                source_conditioner=ideology_conditioner_j,
+                conditioner=ideology_conditioner_j,
             ).exists(),
             "Conditioner I should depend on J",
         )

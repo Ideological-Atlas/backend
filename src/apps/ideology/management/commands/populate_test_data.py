@@ -318,7 +318,7 @@ class IdeologySeeder:
     def _link_conditioners(target, source, trigger_value, rule_name):
         IdeologyConditionerConditioner.objects.create(
             target_conditioner=target,
-            source_conditioner=source,
+            conditioner=source,  # Changed from conditioner
             name=rule_name,
             condition_values=[trigger_value],
         )

@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import (
-    AxisAnswerReadSerializer,
-    AxisAnswerUpsertSerializer,
+    UserAxisAnswerReadSerializer,
+    UserAxisAnswerUpsertSerializer,
 )
 from ideology.models import UserAxisAnswer
 from rest_framework.generics import CreateAPIView, ListAPIView
@@ -28,11 +28,11 @@ from rest_framework.permissions import IsAuthenticated
             type=str,
         )
     ],
-    responses={201: AxisAnswerReadSerializer},
+    responses={201: UserAxisAnswerReadSerializer},
 )
 class UpsertAxisAnswerView(CreateAPIView):
     permission_classes = [IsAuthenticated, IsVerified]
-    serializer_class = AxisAnswerUpsertSerializer
+    serializer_class = UserAxisAnswerUpsertSerializer
 
 
 @extend_schema(
@@ -80,7 +80,7 @@ class DeleteAxisAnswerView(UUIDDestroyAPIView):
 )
 class UserAxisAnswerListBySectionView(ListAPIView):
     permission_classes = [IsAuthenticated, IsVerified]
-    serializer_class = AxisAnswerReadSerializer
+    serializer_class = UserAxisAnswerReadSerializer
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
