@@ -21,8 +21,9 @@ class UserModelTestCase(TestCase):
         self.assertEqual(str(self.user), self.user.username)
 
     def test_default_values(self):
-        self.assertEqual(self.user.appearance, User.Appearance.AUTO)
-        self.assertFalse(self.user.is_public)
+        user = User()
+        self.assertEqual(user.appearance, User.Appearance.AUTO)
+        self.assertFalse(user.is_public)
 
     @patch("core.models.user.logger")
     @patch("core.models.user.transaction.on_commit")
