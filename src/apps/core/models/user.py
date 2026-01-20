@@ -19,8 +19,23 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         INTERNAL = "internal", _("Internal")
         GOOGLE = "google", _("Google")
 
+    class Appearance(models.TextChoices):
+        LIGHT = "light", _("Light")
+        DARK = "dark", _("Dark")
+        AUTO = "auto", _("Auto")
+
     email = models.EmailField(_("email address"), unique=True)
     preferred_language = models.CharField(max_length=10, default="es")
+    appearance = models.CharField(
+        max_length=10,
+        choices=Appearance.choices,
+        default=Appearance.AUTO,
+        verbose_name=_("Appearance"),
+    )
+    is_public = models.BooleanField(
+        default=False,
+        verbose_name=_("Is Public Profile"),
+    )
     is_verified = models.BooleanField(
         default=False,
         verbose_name=_("Is verified"),

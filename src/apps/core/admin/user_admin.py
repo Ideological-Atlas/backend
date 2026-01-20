@@ -36,7 +36,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         ),
         (
             _("Personal info"),
-            {"fields": ("first_name", "last_name", "bio")},
+            {"fields": ("first_name", "last_name", "bio", "appearance", "is_public")},
         ),
         (
             _("Permissions"),
@@ -75,12 +75,16 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "last_name",
         "is_staff",
         "is_verified",
+        "is_public",
+        "appearance",
     ]
     list_filter = [
         "auth_provider",
         "is_staff",
         "is_superuser",
         "is_active",
+        "is_public",
+        "appearance",
     ]
     form = UserChangeForm
     add_form = UserCreationForm

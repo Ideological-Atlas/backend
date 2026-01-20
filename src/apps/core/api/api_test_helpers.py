@@ -19,9 +19,6 @@ class APITestBase(APITestCase):
 
     def setUp(self) -> None:
         logging.disable(logging.CRITICAL)
-        if not self.url:
-            self.skipTest("URL must be defined in subclasses.")
-
         self.user: User = VerifiedUserFactory(password="root1234")  # nosec
 
         refresh = RefreshToken.for_user(self.user)
@@ -29,7 +26,8 @@ class APITestBase(APITestCase):
 
         self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {self.token}")
 
-        self.request = APIRequestFactory().get(self.url)
+        request_path = self.url if self.url else "/"
+        self.request = APIRequestFactory().get(request_path)
         self.request.user = self.user
         self.test_context = {"request": self.request}
         super().setUp()
@@ -38,6 +36,9 @@ class APITestBase(APITestCase):
 class APITestBaseNeedAuthorized(APITestBase):
     def test_not_logged_401_unauthorized(self):
         self.client.credentials()
+        if not self.url:
+            return
+
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         error_field = response.data.get("message") or response.data.get("detail")
