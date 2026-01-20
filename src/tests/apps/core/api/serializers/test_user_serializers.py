@@ -10,6 +10,7 @@ from core.api.serializers import (
 from core.exceptions import api_exceptions
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.factories import UserFactory
+from core.models import User
 from rest_framework.exceptions import ValidationError
 
 
@@ -67,15 +68,23 @@ class MeSerializerTestCase(SerializerTestBase):
         self.assertIn("uuid", data)
         self.assertIn("preferred_language", data)
         self.assertIn("auth_provider", data)
+        self.assertIn("appearance", data)
+        self.assertIn("is_public", data)
         self.assertNotIn("has_password", data)
 
-    def test_update_preferred_language(self):
-        data = {"preferred_language": "fr"}
+    def test_update_settings(self):
+        data = {
+            "preferred_language": "fr",
+            "appearance": User.Appearance.DARK,
+            "is_public": True,
+        }
         serializer = MeSerializer(self.user, data=data, partial=True)
         self.assertTrue(serializer.is_valid())
         serializer.save()
         self.user.refresh_from_db()
         self.assertEqual(self.user.preferred_language, "fr")
+        self.assertEqual(self.user.appearance, User.Appearance.DARK)
+        self.assertTrue(self.user.is_public)
 
 
 class UserSetPasswordSerializerTestCase(SerializerTestBase):

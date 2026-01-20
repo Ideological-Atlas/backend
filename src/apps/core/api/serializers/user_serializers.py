@@ -17,7 +17,7 @@ class SimpleUserSerializer(UUIDModelSerializerMixin):
 
     class Meta:
         model = User
-        fields = ["uuid", "username", "bio"]
+        fields = ["uuid", "username", "bio", "appearance", "is_public"]
         read_only_fields = ["uuid"]
 
 
@@ -48,6 +48,8 @@ class MeSerializer(SimpleUserSerializer):
             "preferred_language",
             "auth_provider",
             "bio",
+            "appearance",
+            "is_public",
         ]
         read_only_fields = ["is_verified", "email", "auth_provider"]
 

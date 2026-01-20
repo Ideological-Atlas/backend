@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.factories import UserFactory, VerifiedUserFactory
+from core.models import User
 from django.test import TestCase
 
 
@@ -18,6 +19,10 @@ class UserModelTestCase(TestCase):
 
     def test_str_representation(self):
         self.assertEqual(str(self.user), self.user.username)
+
+    def test_default_values(self):
+        self.assertEqual(self.user.appearance, User.Appearance.AUTO)
+        self.assertFalse(self.user.is_public)
 
     @patch("core.models.user.logger")
     @patch("core.models.user.transaction.on_commit")
