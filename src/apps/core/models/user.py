@@ -1,6 +1,6 @@
 import logging
 import uuid
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
@@ -135,3 +135,12 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             self,
             send_notification,
         )
+
+    def get_affinity_data(self, other_user) -> Dict[str, Any]:
+        """
+        Calculates detailed ideological affinity with another user.
+        Returns: { 'total': float, 'breakdown': list }
+        """
+        from core.services.affinity_calculator import AffinityCalculator
+
+        return AffinityCalculator(self, other_user).calculate_detailed()

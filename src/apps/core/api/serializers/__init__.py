@@ -11,4 +11,5 @@ from .user_serializers import (
     SimpleUserSerializer,
     UserSetPasswordSerializer,
     UserVerificationSerializer,
+    AffinitySerializer,
 )

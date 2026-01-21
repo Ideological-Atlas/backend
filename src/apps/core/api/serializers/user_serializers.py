@@ -7,6 +7,7 @@ from core.helpers import UUIDModelSerializerMixin
 from core.models import User
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.utils.translation import gettext_lazy as _
+from ideology.models import IdeologyAbstractionComplexity, IdeologyAxis, IdeologySection
 from rest_framework import serializers
 from rest_framework.serializers import ErrorDetail
 
@@ -14,11 +15,74 @@ logger = logging.getLogger(__name__)
 
 
 class SimpleUserSerializer(UUIDModelSerializerMixin):
-
     class Meta:
         model = User
         fields = ["uuid", "username", "bio", "appearance", "is_public"]
         read_only_fields = ["uuid"]
+
+
+class PublicUserSerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = User
+        fields = ["uuid", "username", "bio", "is_public"]
+        read_only_fields = ["uuid", "username", "bio", "is_public"]
+
+
+class SimpleAxisSerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologyAxis
+        fields = ["uuid", "name", "left_label", "right_label"]
+
+
+class SimpleSectionSerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologySection
+        fields = ["uuid", "name", "icon"]
+
+
+class SimpleComplexitySerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologyAbstractionComplexity
+        fields = ["uuid", "name", "complexity"]
+
+
+class AnswerDetailSerializer(serializers.Serializer):
+    value = serializers.IntegerField(allow_null=True)
+    margin_left = serializers.IntegerField()
+    margin_right = serializers.IntegerField()
+    is_indifferent = serializers.BooleanField(default=False)
+
+
+class AxisBreakdownSerializer(serializers.Serializer):
+    axis = SimpleAxisSerializer(allow_null=True)
+    my_answer = AnswerDetailSerializer(source="user_a", allow_null=True)
+    their_answer = AnswerDetailSerializer(source="user_b", allow_null=True)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+
+
+class SectionAffinitySerializer(serializers.Serializer):
+    section = SimpleSectionSerializer(allow_null=True)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+    axes = AxisBreakdownSerializer(many=True)
+
+
+class ComplexityAffinitySerializer(serializers.Serializer):
+    complexity = SimpleComplexitySerializer(allow_null=True)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+    sections = SectionAffinitySerializer(many=True)
+
+
+class AffinitySerializer(serializers.Serializer):
+    target_user = PublicUserSerializer(read_only=True)
+    total_affinity = serializers.FloatField(
+        min_value=0.0,
+        max_value=100.0,
+        source="total",
+        help_text=_("Overall affinity percentage."),
+    )
+    complexities = ComplexityAffinitySerializer(
+        many=True, help_text=_("Affinity grouped by abstraction level.")
+    )
 
 
 class UserVerificationSerializer(SimpleUserSerializer):
