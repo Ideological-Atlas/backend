@@ -17,7 +17,7 @@ python3 manage.py makemigrations --no-input
 python3 manage.py migrate --no-input
 
 # Load fixtures
-python3 manage.py loaddata initial_ideology_data
+python3 manage.py loaddata ideologies ideology_abstraction_complexities ideology_axes ideology_conditioners ideology_axis_definitions
 
 # Populate Test Data & Init MinIO (Only in Non-Prod)
 if [ "$ENVIRONMENT" != "prod" ] && [ "$ENVIRONMENT" != "production" ]; then
