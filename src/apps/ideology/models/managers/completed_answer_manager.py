@@ -6,14 +6,18 @@ from django.db import models
 
 
 class CompletedAnswerManager(models.Manager):
-    def generate_snapshot(self, user=None, data=None):
-        final_data: dict[str, list[dict[str, Any]]] = {"conditioners": [], "axis": []}
+    def generate_snapshot(self, user=None, input_data=None):
+        final_data: dict[str, list[dict[str, Any]]] = {
+            "conditioners": [],
+            "axis": [],
+        }
         user_object = user if user and user.is_authenticated else None
 
         if user_object:
             final_data = self._build_from_db(user_object)
-        elif data:
-            final_data = self._normalize_data(data)
+        elif input_data:
+            processed_input = self._process_anonymous_input_data(input_data)
+            final_data = self._normalize_data(processed_input)
 
         data_hash = self._calculate_hash(final_data)
 
@@ -29,6 +33,20 @@ class CompletedAnswerManager(models.Manager):
             answers=final_data,
             answer_hash=data_hash,
         )
+
+    @staticmethod
+    def _process_anonymous_input_data(input_data: dict[str, Any]) -> dict[str, Any]:
+        axis_data = [
+            {**item, "uuid": item["uuid"].hex} for item in input_data.get("axis", [])
+        ]
+        conditioners_data = [
+            {**item, "uuid": item["uuid"].hex}
+            for item in input_data.get("conditioners", [])
+        ]
+        return {
+            "axis": axis_data,
+            "conditioners": conditioners_data,
+        }
 
     @staticmethod
     def _calculate_hash(data: dict) -> str:

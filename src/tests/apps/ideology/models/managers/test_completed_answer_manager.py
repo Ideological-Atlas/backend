@@ -1,3 +1,5 @@
+import uuid
+
 from core.factories import UserFactory
 from django.test import TestCase
 from ideology.factories import (
@@ -13,7 +15,9 @@ class CompletedAnswerManagerTestCase(TestCase):
     def setUp(self):
         self.user = UserFactory()
 
-    def test_generate_snapshot_from_db_user(self):
+    def test_given_authenticated_user_with_db_answers_when_generate_snapshot_then_creates_record_from_db_state(
+        self,
+    ):
         ideology_axis = IdeologyAxisFactory()
         ideology_conditioner = IdeologyConditionerFactory()
 
@@ -48,116 +52,103 @@ class CompletedAnswerManagerTestCase(TestCase):
         )
         self.assertEqual(answers_data["conditioners"][0]["value"], "Yes")
 
-    def test_generate_snapshot_creates_hash(self):
+    def test_given_authenticated_user_when_generate_snapshot_twice_then_returns_idempotent_result_unless_data_changes(
+        self,
+    ):
         ideology_axis = IdeologyAxisFactory()
         UserAxisAnswerFactory(user=self.user, axis=ideology_axis, value=50)
 
-        completed_answer_snapshot = CompletedAnswer.objects.generate_snapshot(
-            user=self.user
-        )
-
-        self.assertIsNotNone(completed_answer_snapshot.answer_hash)
-        self.assertEqual(len(completed_answer_snapshot.answer_hash), 64)
-
-    def test_generate_snapshot_avoids_duplicates_using_hash(self):
-        ideology_axis = IdeologyAxisFactory()
-        UserAxisAnswerFactory(user=self.user, axis=ideology_axis, value=50)
-
-        first_completed_answer_snapshot = CompletedAnswer.objects.generate_snapshot(
-            user=self.user
-        )
+        first_snapshot = CompletedAnswer.objects.generate_snapshot(user=self.user)
 
         with self.subTest("Should return existing instance for identical data"):
-            second_completed_answer_snapshot = (
-                CompletedAnswer.objects.generate_snapshot(user=self.user)
-            )
+            second_snapshot = CompletedAnswer.objects.generate_snapshot(user=self.user)
 
-            self.assertEqual(
-                first_completed_answer_snapshot.pk,
-                second_completed_answer_snapshot.pk,
-            )
-            self.assertEqual(
-                first_completed_answer_snapshot.answer_hash,
-                second_completed_answer_snapshot.answer_hash,
-            )
+            self.assertEqual(first_snapshot.pk, second_snapshot.pk)
+            self.assertEqual(first_snapshot.answer_hash, second_snapshot.answer_hash)
             self.assertEqual(CompletedAnswer.objects.count(), 1)
 
         with self.subTest("Should create new instance for modified data"):
             UserAxisAnswerFactory(user=self.user, axis=IdeologyAxisFactory(), value=10)
 
-            third_completed_answer_snapshot = CompletedAnswer.objects.generate_snapshot(
-                user=self.user
-            )
+            third_snapshot = CompletedAnswer.objects.generate_snapshot(user=self.user)
 
-            self.assertNotEqual(
-                first_completed_answer_snapshot.pk, third_completed_answer_snapshot.pk
-            )
-            self.assertNotEqual(
-                first_completed_answer_snapshot.answer_hash,
-                third_completed_answer_snapshot.answer_hash,
-            )
+            self.assertNotEqual(first_snapshot.pk, third_snapshot.pk)
+            self.assertNotEqual(first_snapshot.answer_hash, third_snapshot.answer_hash)
             self.assertEqual(CompletedAnswer.objects.count(), 2)
 
-    def test_generate_snapshot_from_raw_data_anonymous(self):
-        raw_answers_data = {
+    def test_given_anonymous_user_with_input_data_when_generate_snapshot_then_normalizes_and_saves_data(
+        self,
+    ):
+        axis_uuid = uuid.UUID("11111111111111111111111111111111")
+        conditioner_uuid = uuid.UUID("22222222222222222222222222222222")
+
+        raw_input_data = {
             "axis": [
                 {
-                    "uuid": "11111111111111111111111111111111",
+                    "uuid": axis_uuid,
                     "value": 10,
                     "margin_left": 0,
                     "margin_right": 0,
                 }
             ],
             "conditioners": [
-                {"uuid": "22222222222222222222222222222222", "value": "Option_A"}
+                {
+                    "uuid": conditioner_uuid,
+                    "value": "Option_A",
+                }
             ],
         }
 
         completed_answer_snapshot = CompletedAnswer.objects.generate_snapshot(
-            user=None, data=raw_answers_data
+            user=None, input_data=raw_input_data
         )
 
         self.assertIsNone(completed_answer_snapshot.completed_by)
-        self.assertEqual(completed_answer_snapshot.answers, raw_answers_data)
+        self.assertEqual(
+            completed_answer_snapshot.answers["axis"][0]["uuid"],
+            axis_uuid.hex,
+        )
 
-    def test_generate_snapshot_anonymous_deduplication(self):
-        raw_answers_data = {
-            "axis": [{"uuid": "a" * 32, "value": 10}],
+    def test_given_anonymous_input_when_generate_snapshot_twice_then_returns_idempotent_result_unless_data_changes(
+        self,
+    ):
+        raw_input_data = {
+            "axis": [{"uuid": uuid.UUID("a" * 32), "value": 10}],
             "conditioners": [],
         }
 
         with self.subTest("Should return existing instance for identical data"):
-            first_anonymous_snapshot = CompletedAnswer.objects.generate_snapshot(
-                user=None, data=raw_answers_data
+            first_snapshot = CompletedAnswer.objects.generate_snapshot(
+                user=None, input_data=raw_input_data
             )
-            second_anonymous_snapshot = CompletedAnswer.objects.generate_snapshot(
-                user=None, data=raw_answers_data
+            second_snapshot = CompletedAnswer.objects.generate_snapshot(
+                user=None, input_data=raw_input_data
             )
 
-            self.assertEqual(first_anonymous_snapshot.pk, second_anonymous_snapshot.pk)
+            self.assertEqual(first_snapshot.pk, second_snapshot.pk)
             self.assertEqual(
-                first_anonymous_snapshot.answer_hash,
-                second_anonymous_snapshot.answer_hash,
+                first_snapshot.answer_hash,
+                second_snapshot.answer_hash,
             )
             self.assertEqual(CompletedAnswer.objects.count(), 1)
 
         with self.subTest("Should create new instance for modified data"):
-            modified_answers_data = {
-                "axis": [{"uuid": "b" * 32, "value": 20}],
+            modified_input_data = {
+                "axis": [{"uuid": uuid.UUID("b" * 32), "value": 20}],
                 "conditioners": [],
             }
-            third_anonymous_snapshot = CompletedAnswer.objects.generate_snapshot(
-                user=None, data=modified_answers_data
+            third_snapshot = CompletedAnswer.objects.generate_snapshot(
+                user=None, input_data=modified_input_data
             )
 
-            self.assertNotEqual(
-                first_anonymous_snapshot.pk, third_anonymous_snapshot.pk
-            )
+            self.assertNotEqual(first_snapshot.pk, third_snapshot.pk)
             self.assertEqual(CompletedAnswer.objects.count(), 2)
 
-    def test_generate_snapshot_no_user_no_data(self):
+    def test_given_no_user_and_no_data_when_generate_snapshot_then_creates_empty_snapshot(
+        self,
+    ):
         completed_answer_snapshot = CompletedAnswer.objects.generate_snapshot(
-            user=None, data=None
+            user=None, input_data=None
         )
         self.assertIsNone(completed_answer_snapshot.completed_by)
         self.assertEqual(

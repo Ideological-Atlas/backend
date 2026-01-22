@@ -1,6 +1,6 @@
 import logging
 import uuid
-from typing import Any, Dict, Optional
+from typing import Any
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
@@ -86,7 +86,7 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             self.verification_uuid = None
             self.save()
 
-    def send_verification_email(self, language: Optional[str] = None) -> None:
+    def send_verification_email(self, language: str | None = None) -> None:
         from core.tasks import send_email_notification
 
         if self.is_verified:
@@ -136,14 +136,14 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             send_notification,
         )
 
-    def get_affinity_data(self, target_data: Dict[str, dict]) -> Dict[str, Any]:
+    def get_affinity_data(self, target_data: dict[str, dict]) -> dict[str, Any]:
         from core.services.affinity_calculator import AffinityCalculator
         from ideology.models import UserAxisAnswer
 
         my_data = UserAxisAnswer.objects.get_mapped_for_calculation(self)
         return AffinityCalculator(my_data, target_data).calculate_detailed()
 
-    def calculate_detailed_affinity_with(self, target_answer) -> Dict[str, Any]:
+    def calculate_detailed_affinity_with(self, target_answer) -> dict[str, Any]:
         from ideology.models import (
             IdeologyAbstractionComplexity,
             IdeologyAxis,
