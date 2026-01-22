@@ -4,10 +4,14 @@ from core.api.serializers import (
     MeSerializer,
     UserSetPasswordSerializer,
 )
-from core.models import User
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
-from ideology.models import IdeologyAbstractionComplexity, IdeologyAxis, IdeologySection
+from ideology.models import (
+    CompletedAnswer,
+    IdeologyAbstractionComplexity,
+    IdeologyAxis,
+    IdeologySection,
+)
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -58,25 +62,25 @@ class UserSetPasswordView(UpdateAPIView):
 
 @extend_schema(
     tags=["users"],
-    summary=_("Get affinity with another user"),
+    summary=_("Get affinity with a Completed Answer"),
     description=_(
-        "Calculates the ideological affinity (0-100%) between the current user "
-        "and another user specified by UUID. Returns breakdown grouped by complexity and section."
+        "Calculates the ideological affinity (0-100%) between the current user's active answers "
+        "and a specific CompletedAnswer (identified by UUID). The target might be anonymous."
     ),
 )
 class UserAffinityView(GenericAPIView):
     permission_classes = [IsAuthenticated, IsVerified]
-    queryset = User.objects.filter(is_active=True)
+    queryset = CompletedAnswer.objects.all()
     lookup_field = "uuid"
     serializer_class = AffinitySerializer
 
     def get(self, request, *args, **kwargs):
-        target_user = self.get_object()
+        target_answer = self.get_object()
 
-        # 1. Calculate raw data (Service)
-        affinity_data = request.user.get_affinity_data(target_user)
+        target_data_mapped = target_answer.get_mapped_for_calculation()
 
-        # 2. Extract UUIDs for hydration
+        affinity_data = request.user.get_affinity_data(target_data_mapped)
+
         comp_uuids = set()
         sec_uuids = set()
         axis_uuids = set()
@@ -88,7 +92,6 @@ class UserAffinityView(GenericAPIView):
                 for ax in sec["axes"]:
                     axis_uuids.add(ax["axis_uuid"])
 
-        # 3. Fetch Objects
         comps_map = {
             c.uuid.hex: c
             for c in IdeologyAbstractionComplexity.objects.filter(uuid__in=comp_uuids)
@@ -100,7 +103,6 @@ class UserAffinityView(GenericAPIView):
             ax.uuid.hex: ax for ax in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
         }
 
-        # 4. Inject Objects
         for comp_item in affinity_data["complexities"]:
             comp_item["complexity"] = comps_map.get(comp_item["complexity_uuid"])
 
@@ -110,9 +112,8 @@ class UserAffinityView(GenericAPIView):
                 for axis_item in section_item["axes"]:
                     axis_item["axis"] = axes_map.get(axis_item["axis_uuid"])
 
-        # 5. Construct final response
         response_data = {
-            "target_user": target_user,
+            "target_user": target_answer.completed_by,
             "total": affinity_data["total"],
             "complexities": affinity_data["complexities"],
         }

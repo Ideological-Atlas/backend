@@ -27,11 +27,6 @@ class UserAxisAnswerManager(models.Manager):
         return user_axis_answer, created
 
     def get_mapped_for_calculation(self, user) -> dict[str, dict]:
-        """
-        Returns a dictionary keyed by Axis UUID (HEX).
-        Now includes 'is_indifferent' status.
-        """
-        # Fetch answers that have a value OR are marked as indifferent
         queryset = (
             self.filter(user=user)
             .filter(Q(value__isnull=False) | Q(is_indifferent=True))

@@ -57,28 +57,29 @@ class AxisBreakdownSerializer(serializers.Serializer):
     axis = SimpleAxisSerializer(allow_null=True)
     my_answer = AnswerDetailSerializer(source="user_a", allow_null=True)
     their_answer = AnswerDetailSerializer(source="user_b", allow_null=True)
-    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0, allow_null=True)
 
 
 class SectionAffinitySerializer(serializers.Serializer):
     section = SimpleSectionSerializer(allow_null=True)
-    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0, allow_null=True)
     axes = AxisBreakdownSerializer(many=True)
 
 
 class ComplexityAffinitySerializer(serializers.Serializer):
     complexity = SimpleComplexitySerializer(allow_null=True)
-    affinity = serializers.FloatField(min_value=0.0, max_value=100.0)
+    affinity = serializers.FloatField(min_value=0.0, max_value=100.0, allow_null=True)
     sections = SectionAffinitySerializer(many=True)
 
 
 class AffinitySerializer(serializers.Serializer):
-    target_user = PublicUserSerializer(read_only=True)
+    target_user = PublicUserSerializer(read_only=True, allow_null=True)
     total_affinity = serializers.FloatField(
         min_value=0.0,
         max_value=100.0,
+        allow_null=True,
         source="total",
-        help_text=_("Overall affinity percentage."),
+        help_text=_("Overall affinity percentage. Null if no common axes."),
     )
     complexities = ComplexityAffinitySerializer(
         many=True, help_text=_("Affinity grouped by abstraction level.")

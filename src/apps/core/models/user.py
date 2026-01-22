@@ -136,11 +136,9 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             send_notification,
         )
 
-    def get_affinity_data(self, other_user) -> Dict[str, Any]:
-        """
-        Calculates detailed ideological affinity with another user.
-        Returns: { 'total': float, 'breakdown': list }
-        """
+    def get_affinity_data(self, target_data: Dict[str, dict]) -> Dict[str, Any]:
         from core.services.affinity_calculator import AffinityCalculator
+        from ideology.models import UserAxisAnswer
 
-        return AffinityCalculator(self, other_user).calculate_detailed()
+        my_data = UserAxisAnswer.objects.get_mapped_for_calculation(self)
+        return AffinityCalculator(my_data, target_data).calculate_detailed()
