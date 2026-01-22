@@ -6,12 +6,7 @@ from core.api.serializers import (
 )
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
-from ideology.models import (
-    CompletedAnswer,
-    IdeologyAbstractionComplexity,
-    IdeologyAxis,
-    IdeologySection,
-)
+from ideology.models import CompletedAnswer
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -76,47 +71,6 @@ class UserAffinityView(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         target_answer = self.get_object()
-
-        target_data_mapped = target_answer.get_mapped_for_calculation()
-
-        affinity_data = request.user.get_affinity_data(target_data_mapped)
-
-        comp_uuids = set()
-        sec_uuids = set()
-        axis_uuids = set()
-
-        for comp in affinity_data["complexities"]:
-            comp_uuids.add(comp["complexity_uuid"])
-            for sec in comp["sections"]:
-                sec_uuids.add(sec["section_uuid"])
-                for ax in sec["axes"]:
-                    axis_uuids.add(ax["axis_uuid"])
-
-        comps_map = {
-            c.uuid.hex: c
-            for c in IdeologyAbstractionComplexity.objects.filter(uuid__in=comp_uuids)
-        }
-        secs_map = {
-            s.uuid.hex: s for s in IdeologySection.objects.filter(uuid__in=sec_uuids)
-        }
-        axes_map = {
-            ax.uuid.hex: ax for ax in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
-        }
-
-        for comp_item in affinity_data["complexities"]:
-            comp_item["complexity"] = comps_map.get(comp_item["complexity_uuid"])
-
-            for section_item in comp_item["sections"]:
-                section_item["section"] = secs_map.get(section_item["section_uuid"])
-
-                for axis_item in section_item["axes"]:
-                    axis_item["axis"] = axes_map.get(axis_item["axis_uuid"])
-
-        response_data = {
-            "target_user": target_answer.completed_by,
-            "total": affinity_data["total"],
-            "complexities": affinity_data["complexities"],
-        }
-
-        serializer = self.get_serializer(response_data)
+        data = request.user.calculate_detailed_affinity_with(target_answer)
+        serializer = self.get_serializer(data)
         return Response(serializer.data, status=status.HTTP_200_OK)
