@@ -1,6 +1,7 @@
 from core.exceptions.api_exceptions import NotFoundException
 from django.apps import apps
 from django.db import models, transaction
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 
@@ -24,6 +25,35 @@ class UserAxisAnswerManager(models.Manager):
                 user=user, axis=ideology_axis, defaults=defaults
             )
         return user_axis_answer, created
+
+    def get_mapped_for_calculation(self, user) -> dict[str, dict]:
+        queryset = (
+            self.filter(user=user)
+            .filter(Q(value__isnull=False) | Q(is_indifferent=True))
+            .values(
+                "axis__uuid",
+                "value",
+                "margin_left",
+                "margin_right",
+                "is_indifferent",
+                "axis__section__uuid",
+                "axis__section__abstraction_complexity__uuid",
+            )
+        )
+
+        return {
+            item["axis__uuid"].hex: {
+                "value": item["value"],
+                "margin_left": item["margin_left"] or 0,
+                "margin_right": item["margin_right"] or 0,
+                "is_indifferent": item["is_indifferent"],
+                "section_uuid": item["axis__section__uuid"].hex,
+                "complexity_uuid": item[
+                    "axis__section__abstraction_complexity__uuid"
+                ].hex,
+            }
+            for item in queryset
+        }
 
 
 class UserConditionerAnswerManager(models.Manager):

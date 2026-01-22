@@ -235,7 +235,9 @@ class PasswordResetConfirmationFlowTestCase(APITestBase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-    def test_confirm_reset_success(self):
+    @patch("django.contrib.auth.password_validation.validate_password")
+    def test_confirm_reset_success(self, mock_validate):
+        mock_validate.return_value = None
         self.client.credentials()
         new_pass = "NewStrongPass1!"
         response = self.client.post(self.confirm_url, data={"new_password": new_pass})

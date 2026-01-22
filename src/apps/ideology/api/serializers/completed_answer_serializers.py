@@ -41,19 +41,6 @@ class CompletedAnswerSerializer(UUIDModelSerializerMixin):
         return attrs
 
     def create(self, validated_data):
-        user = self.context["request"].user
-        data = None
-
-        if not user.is_authenticated:
-            data = {
-                "axis": [
-                    {**item, "uuid": item["uuid"].hex}
-                    for item in validated_data.get("axis", [])
-                ],
-                "conditioners": [
-                    {**item, "uuid": item["uuid"].hex}
-                    for item in validated_data.get("conditioners", [])
-                ],
-            }
-
-        return CompletedAnswer.objects.generate_snapshot(user=user, data=data)
+        return CompletedAnswer.objects.generate_snapshot(
+            user=self.context["request"].user, input_data=validated_data
+        )
