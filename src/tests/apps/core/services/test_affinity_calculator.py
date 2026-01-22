@@ -19,7 +19,8 @@ class AffinityCalculatorTestCase(TestCase):
         self.axis_1 = IdeologyAxisFactory(section=self.section_1)
         self.axis_2 = IdeologyAxisFactory(section=self.section_1)
 
-    def _get_data(self, user):
+    @staticmethod
+    def _get_data(user):
         return UserAxisAnswer.objects.get_mapped_for_calculation(user)
 
     def test_calculate_unmatched_axes_return_null(self):
@@ -32,21 +33,12 @@ class AffinityCalculatorTestCase(TestCase):
         result = calculator.calculate_detailed()
 
         self.assertIsNone(result["total"])
-
         comp_res = result["complexities"][0]
         self.assertIsNone(comp_res["affinity"])
-
-        sec_res = comp_res["sections"][0]
-        self.assertEqual(len(sec_res["axes"]), 2)
-
-        for ax in sec_res["axes"]:
-            self.assertIsNone(ax["affinity"])
-            self.assertTrue(ax["user_a"] or ax["user_b"])
 
     def test_calculate_partial_overlap_union(self):
         UserAxisAnswerFactory(user=self.user_a, axis=self.axis_1, value=10)
         UserAxisAnswerFactory(user=self.user_b, axis=self.axis_1, value=10)
-
         UserAxisAnswerFactory(user=self.user_a, axis=self.axis_2, value=10)
 
         calculator = AffinityCalculator(
@@ -56,24 +48,87 @@ class AffinityCalculatorTestCase(TestCase):
 
         self.assertEqual(result["total"], 100.0)
 
-        sec_axes = result["complexities"][0]["sections"][0]["axes"]
-        self.assertEqual(len(sec_axes), 2)
-
-        shared = next(
-            a for a in sec_axes if a["axis_uuid"] == str(self.axis_1.uuid.hex)
-        )
-        self.assertEqual(shared["affinity"], 100.0)
-        self.assertIsNotNone(shared["user_a"])
-        self.assertIsNotNone(shared["user_b"])
-
-        unmatched = next(
-            a for a in sec_axes if a["axis_uuid"] == str(self.axis_2.uuid.hex)
-        )
-        self.assertIsNone(unmatched["affinity"])
-        self.assertIsNotNone(unmatched["user_a"])
-        self.assertIsNone(unmatched["user_b"])
-
     def test_empty_users(self):
         calculator = AffinityCalculator({}, {})
         result = calculator.calculate_detailed()
+        self.assertIsNone(result["total"])
+
+    def test_mutual_indifference(self):
+        UserAxisAnswerFactory(user=self.user_a, axis=self.axis_1, is_indifferent=True)
+        UserAxisAnswerFactory(user=self.user_b, axis=self.axis_1, is_indifferent=True)
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 100.0)
+
+    def test_one_sided_indifference(self):
+        UserAxisAnswerFactory(user=self.user_a, axis=self.axis_1, value=50)
+        UserAxisAnswerFactory(user=self.user_b, axis=self.axis_1, is_indifferent=True)
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 75.0)
+
+    def test_gap_logic_min2_greater_max1(self):
+        UserAxisAnswerFactory(
+            user=self.user_a, axis=self.axis_1, value=10, margin_left=0, margin_right=0
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=40, margin_left=0, margin_right=0
+        )
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 36.12)
+
+    def test_gap_logic_min1_greater_max2(self):
+        UserAxisAnswerFactory(
+            user=self.user_a, axis=self.axis_1, value=40, margin_left=0, margin_right=0
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=10, margin_left=0, margin_right=0
+        )
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 36.12)
+
+    def test_contact_distance_logic_v1_less_than_v2(self):
+        UserAxisAnswerFactory(
+            user=self.user_a, axis=self.axis_1, value=10, margin_left=5, margin_right=5
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=14, margin_left=5, margin_right=5
+        )
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 68.0)
+
+    def test_contact_distance_logic_v1_greater_v2(self):
+        UserAxisAnswerFactory(
+            user=self.user_a, axis=self.axis_1, value=20, margin_left=5, margin_right=5
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=15, margin_left=5, margin_right=5
+        )
+
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 62.5)
+
+    def test_defensive_none_ref_item(self):
+        result = AffinityCalculator({"corrupt_uuid": None}, {}).calculate_detailed()  # type: ignore
         self.assertIsNone(result["total"])

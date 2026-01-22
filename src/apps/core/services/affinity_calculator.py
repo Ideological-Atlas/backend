@@ -154,8 +154,5 @@ class AffinityCalculator:
         if dist == 0:
             return 100.0
 
-        if max_contact_dist <= 0:
-            return 50.0
-
         ratio = min(dist / max_contact_dist, 1.0)
         return 50.0 + (50.0 * ((1.0 - ratio) ** 2))

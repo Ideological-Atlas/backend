@@ -47,12 +47,10 @@ class UserAnswersManagerTestCase(TestCase):
             UserConditionerAnswer.objects.upsert(self.user, random_uuid, {})
 
     def test_get_mapped_for_calculation(self):
-        # Setup: 1 normal answer, 1 indifferent, 1 None value
         axis_1 = IdeologyAxisFactory()
         axis_2 = IdeologyAxisFactory()
         axis_3 = IdeologyAxisFactory()
 
-        # Valid answer
         UserAxisAnswerFactory(
             user=self.user,
             axis=axis_1,
@@ -61,17 +59,20 @@ class UserAnswersManagerTestCase(TestCase):
             margin_right=5,
             is_indifferent=False,
         )
-        # Indifferent answer (Should be ignored)
         UserAxisAnswerFactory(user=self.user, axis=axis_2, is_indifferent=True)
-        # Missing value (Should be ignored, though usually prevented by model)
-        UserAxisAnswerFactory(
+
+        bad_answer = UserAxisAnswerFactory.build(
             user=self.user, axis=axis_3, value=None, is_indifferent=False
         )
+        UserAxisAnswer.objects.bulk_create([bad_answer])
 
         result = UserAxisAnswer.objects.get_mapped_for_calculation(self.user)
 
         self.assertIn(str(axis_1.uuid.hex), result)
-        self.assertNotIn(str(axis_2.uuid.hex), result)
+
+        self.assertIn(str(axis_2.uuid.hex), result)
+        self.assertTrue(result[str(axis_2.uuid.hex)]["is_indifferent"])
+
         self.assertNotIn(str(axis_3.uuid.hex), result)
 
         entry = result[str(axis_1.uuid.hex)]
