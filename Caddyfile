@@ -1,0 +1,11 @@
+{
+    email support@ideologicalatlas.com
+}
+
+backend.ideologicalatlas.com {
+    reverse_proxy backend:3141
+}
+
+notifications.ideologicalatlas.com {
+    reverse_proxy notifications_service:8000
+}

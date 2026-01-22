@@ -41,30 +41,6 @@ services:
       - app_network
     logging: *default-logging
 
-  minio:
-    image: minio/minio
-    container_name: ${PROJECT_NAME}_minio
-    hostname: minio
-    restart: always
-    volumes:
-      - minio_data:/data
-    env_file: .env
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-    command: server /data --console-address ":9001"
-    healthcheck:
-      test: curl -f http://127.0.0.1:9000/minio/health/live
-      interval: 30s
-      timeout: 20s
-      retries: 3
-    ports:
-      - "${MINIO_PORT}:9000"
-      - "${MINIO_CONSOLE_PORT}:9001"
-    networks:
-      - app_network
-    logging: *default-logging
-
   backend:
     container_name: ${PROJECT_NAME}_backend
     hostname: backend
@@ -80,14 +56,11 @@ services:
       - ./src:/src/
       - logs_data:/src/logs
     env_file: .env
-    ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    # NOTA: Puertos y dependencia de MinIO movidos a override/prod
     depends_on:
       postgres:
         condition: service_healthy
       broker:
-        condition: service_healthy
-      minio:
         condition: service_healthy
     networks:
       - app_network
@@ -180,5 +153,10 @@ volumes:
     name: ${PROJECT_NAME}_logs_data
   db_data:
     name: ${PROJECT_NAME}_db_data
+  # Definimos los volumenes aquí aunque se usen en override/prod
   minio_data:
     name: ${PROJECT_NAME}_minio_data
+  caddy_data:
+    name: ${PROJECT_NAME}_caddy_data
+  caddy_config:
+    name: ${PROJECT_NAME}_caddy_config

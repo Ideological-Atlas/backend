@@ -1,0 +1,32 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: [ "20-feat-production-deployment" ]
+  workflow_dispatch:
+
+jobs:
+  quality-assurance:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    needs: quality-assurance
+    if: success()
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.4
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/ideologicalatlas/backend
+            git fetch --all
+            git reset --hard origin/20-feat-production-deployment
+            printf "%s" "${{ secrets.ENV_FILE }}" > .env
+            docker compose -f compose.yml -f compose.prod.yml up -d --build --remove-orphans
+            docker image prune -f
