@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     make \
     gettext \
+    iputils-ping \
     libpq-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

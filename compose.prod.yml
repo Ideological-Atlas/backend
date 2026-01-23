@@ -1,0 +1,16 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: ${PROJECT_NAME}_caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - global_net
+    depends_on:
+      - backend

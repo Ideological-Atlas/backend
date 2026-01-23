@@ -14,7 +14,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql
     networks:
-      - app_network
+      - global_net
     ports:
       - "${POSTGRES_EXTERNAL_PORT}:5432"
     logging: &default-logging
@@ -38,31 +38,7 @@ services:
       - "${BROKER_PORT_2}:15672"
       - "${BROKER_PORT}:5672"
     networks:
-      - app_network
-    logging: *default-logging
-
-  minio:
-    image: minio/minio
-    container_name: ${PROJECT_NAME}_minio
-    hostname: minio
-    restart: always
-    volumes:
-      - minio_data:/data
-    env_file: .env
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-    command: server /data --console-address ":9001"
-    healthcheck:
-      test: curl -f http://127.0.0.1:9000/minio/health/live
-      interval: 30s
-      timeout: 20s
-      retries: 3
-    ports:
-      - "${MINIO_PORT}:9000"
-      - "${MINIO_CONSOLE_PORT}:9001"
-    networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   backend:
@@ -80,17 +56,13 @@ services:
       - ./src:/src/
       - logs_data:/src/logs
     env_file: .env
-    ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
     depends_on:
       postgres:
         condition: service_healthy
       broker:
         condition: service_healthy
-      minio:
-        condition: service_healthy
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   worker:
@@ -117,7 +89,7 @@ services:
       broker:
         condition: service_healthy
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   beat:
@@ -143,7 +115,7 @@ services:
       worker:
         condition: service_started
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   flower:
@@ -164,16 +136,17 @@ services:
         condition: service_healthy
     volumes:
       - ./src:/src
+      - logs_data:/src/logs
     networks:
-      - app_network
+      - global_net
     ports:
       - "${FLOWER_PORT}:5555"
     logging: *default-logging
 
 networks:
-  app_network:
-    name: ${PROJECT_NAME}_network
-    driver: bridge
+  global_net:
+    name: ideological_global_network
+    external: true
 
 volumes:
   logs_data:
@@ -182,3 +155,7 @@ volumes:
     name: ${PROJECT_NAME}_db_data
   minio_data:
     name: ${PROJECT_NAME}_minio_data
+  caddy_data:
+    name: ${PROJECT_NAME}_caddy_data
+  caddy_config:
+    name: ${PROJECT_NAME}_caddy_config

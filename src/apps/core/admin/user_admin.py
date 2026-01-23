@@ -3,6 +3,7 @@ from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from unfold.admin import ModelAdmin
+from unfold.decorators import action
 from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
 
 
@@ -112,7 +113,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
     ]
     ordering = ["created"]
 
-    @admin.action(description=_("Send verification email"))
+    @action(description=_("Send verification email"))
     def send_verification_email(self, request, queryset):
         for user in queryset:
             user.send_verification_email()
@@ -129,7 +130,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
             user.initiate_password_reset(send_notification=send_notification)
         self.message_user(request, success_message, messages.SUCCESS)
 
-    @admin.action(description=_("Trigger password reset (Send Email)"))
+    @action(description=_("Trigger password reset (Send Email)"))
     def trigger_password_reset(self, request, queryset):
         self._perform_password_reset(
             request,
@@ -140,7 +141,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
             ),
         )
 
-    @admin.action(description=_("Trigger password reset (Silent - No Email)"))
+    @action(description=_("Trigger password reset (Silent - No Email)"))
     def trigger_password_reset_silent(self, request, queryset):
         self._perform_password_reset(
             request,

@@ -33,7 +33,7 @@ remove-containers: ## Remove all project containers
 # --- Docker Orchestration ---
 up-logs: up logs
 
-up: prepare-env ## Start containers in background
+up: create-network prepare-env ## Start containers in background
 	@$(COMPOSE) up --force-recreate -d --remove-orphans
 
 down: ## Stop and remove containers
@@ -42,7 +42,7 @@ down: ## Stop and remove containers
 restart: ## Restart containers
 	@$(COMPOSE) restart
 
-build: prepare-env ## Build images
+build: create-network prepare-env ## Build images
 	@$(COMPOSE) build
 
 down-up: down up-logs ## Recreate services
@@ -50,6 +50,9 @@ down-up: down up-logs ## Recreate services
 complete-build: build down-up ## Full rebuild cycle
 
 complete-build-dev: build down-up install-dev-dependencies ## Full rebuild cycle with dev dependencies
+
+prod-up: create-network
+	@$(COMPOSE) -f compose.yml -f compose.prod.yml up -d --build --remove-orphans
 
 # --- Development & Logs ---
 .PHONY: logs celery-logs flower-logs all-logs bash shell
@@ -115,3 +118,6 @@ fast-test: clean-coverage ## Run tests with failfast
 test-recreate: install-dev-dependencies ## Run tests recreating database
 	@$(EXEC) uv run coverage run manage.py test --parallel=$(TEST_WORKERS) --noinput
 	@$(MAKE) coverage-report
+
+create-network: ## Create shared network if not exists
+	@docker network inspect ideological_global_network >/dev/null 2>&1 || docker network create ideological_global_network
