@@ -20,7 +20,7 @@ services:
       - "${MINIO_PORT}:9000"
       - "${MINIO_CONSOLE_PORT}:9001"
     networks:
-      - app_network
+      - global_net
     logging:
       driver: "json-file"
       options:

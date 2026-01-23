@@ -14,7 +14,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql
     networks:
-      - app_network
+      - global_net
     ports:
       - "${POSTGRES_EXTERNAL_PORT}:5432"
     logging: &default-logging
@@ -38,7 +38,7 @@ services:
       - "${BROKER_PORT_2}:15672"
       - "${BROKER_PORT}:5672"
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   backend:
@@ -56,14 +56,13 @@ services:
       - ./src:/src/
       - logs_data:/src/logs
     env_file: .env
-    # NOTA: Puertos y dependencia de MinIO movidos a override/prod
     depends_on:
       postgres:
         condition: service_healthy
       broker:
         condition: service_healthy
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   worker:
@@ -90,7 +89,7 @@ services:
       broker:
         condition: service_healthy
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   beat:
@@ -116,7 +115,7 @@ services:
       worker:
         condition: service_started
     networks:
-      - app_network
+      - global_net
     logging: *default-logging
 
   flower:
@@ -139,22 +138,21 @@ services:
       - ./src:/src
       - logs_data:/src/logs
     networks:
-      - app_network
+      - global_net
     ports:
       - "${FLOWER_PORT}:5555"
     logging: *default-logging
 
 networks:
-  app_network:
-    name: ${PROJECT_NAME}_network
-    driver: bridge
+  global_net:
+    name: ideological_global_network
+    external: true
 
 volumes:
   logs_data:
     name: ${PROJECT_NAME}_logs_data
   db_data:
     name: ${PROJECT_NAME}_db_data
-  # Definimos los volumenes aquí aunque se usen en override/prod
   minio_data:
     name: ${PROJECT_NAME}_minio_data
   caddy_data:

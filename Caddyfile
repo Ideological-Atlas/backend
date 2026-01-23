@@ -7,7 +7,7 @@ backend.ideologicalatlas.com {
 }
 
 notifications.ideologicalatlas.com {
-    reverse_proxy notifications:5101
+    reverse_proxy notifications:8000
 }
 
 flower.ideologicalatlas.com {

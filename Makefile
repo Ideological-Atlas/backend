@@ -51,6 +51,9 @@ complete-build: build down-up ## Full rebuild cycle
 
 complete-build-dev: build down-up install-dev-dependencies ## Full rebuild cycle with dev dependencies
 
+prod-up:
+	@$(COMPOSE) -f compose.yml -f compose.prod.yml up -d --build --remove-orphans
+
 # --- Development & Logs ---
 .PHONY: logs celery-logs flower-logs all-logs bash shell
 
