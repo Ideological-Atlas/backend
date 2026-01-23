@@ -75,6 +75,7 @@ THIRD_PARTY_APPS = [
     "silk",
     "cities_light",
     "django_json_widget",
+    "drf_api_logger",
 ]
 
 DJANGO_APPS = [
@@ -107,6 +108,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
+    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
 
 TEMPLATES = [
