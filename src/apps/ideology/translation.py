@@ -17,7 +17,12 @@ from .models import (
 
 @register(Ideology)
 class IdeologyTranslationOptions(TranslationOptions):
-    fields = ("description_supporter", "description_detractor", "description_neutral")
+    fields = (
+        "name",
+        "description_supporter",
+        "description_detractor",
+        "description_neutral",
+    )
 
 
 @register(IdeologySection)

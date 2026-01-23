@@ -1,0 +1,240 @@
+[
+  {
+    "fields": {
+      "abstraction_complexity": 1,
+      "created": "2026-01-06T23:02:28.829Z",
+      "description": "Esta secci\u00f3n introductoria eval\u00faa los instintos pol\u00edticos primarios y la intuici\u00f3n moral b\u00e1sica del usuario antes de entrar en debates t\u00e9cnicos. Se centra en la percepci\u00f3n subjetiva del bien y el mal en la pol\u00edtica, explorando c\u00f3mo el individuo reacciona ante conceptos abstractos de gobernanza sin necesidad de un marco te\u00f3rico complejo.\n\nSirve como punto de partida para calibrar la br\u00fajula moral del encuestado. Aqu\u00ed no se juzgan medidas concretas, sino la predisposici\u00f3n general hacia la autoridad, la justicia y la toma de decisiones colectivas, estableciendo la base psicol\u00f3gica sobre la que se construir\u00e1n las posturas ideol\u00f3gicas m\u00e1s sofisticadas.",
+      "description_en": "This introductory section evaluates the user's primary political instincts and basic moral intuition before entering into technical debates. It focuses on the subjective perception of good and evil in politics, exploring how the individual reacts to abstract concepts of governance without the need for a complex theoretical framework.\n\nIt serves as a starting point to calibrate the respondent's moral compass. Here, concrete measures are not judged, but rather the general predisposition towards authority, justice, and collective decision-making, establishing the psychological basis upon which more sophisticated ideological stances will be built.",
+      "description_es": "Esta secci\u00f3n introductoria eval\u00faa los instintos pol\u00edticos primarios y la intuici\u00f3n moral b\u00e1sica del usuario antes de entrar en debates t\u00e9cnicos. Se centra en la percepci\u00f3n subjetiva del bien y el mal en la pol\u00edtica, explorando c\u00f3mo el individuo reacciona ante conceptos abstractos de gobernanza sin necesidad de un marco te\u00f3rico complejo.\n\nSirve como punto de partida para calibrar la br\u00fajula moral del encuestado. Aqu\u00ed no se juzgan medidas concretas, sino la predisposici\u00f3n general hacia la autoridad, la justicia y la toma de decisiones colectivas, estableciendo la base psicol\u00f3gica sobre la que se construir\u00e1n las posturas ideol\u00f3gicas m\u00e1s sofisticadas.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.834Z",
+      "name": "General",
+      "name_en": "General",
+      "name_es": "General",
+      "uuid": "af16f91f-0068-4595-9291-0a0c435342ce"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 2,
+      "created": "2026-01-06T23:02:28.842Z",
+      "description": "Se centra en la dicotom\u00eda cl\u00e1sica del espectro pol\u00edtico, ubicando al usuario en los grandes ejes tradicionales de izquierda-derecha y libertario-autoritario. Esta secci\u00f3n busca identificar la tendencia general del pensamiento pol\u00edtico, simplificando la complejidad ideol\u00f3gica en grandes categor\u00edas reconocibles para facilitar una primera clasificaci\u00f3n.\n\nAborda las preguntas fundamentales sobre el ritmo del cambio social y la estructura del poder. \u00bfDebe la sociedad evolucionar r\u00e1pidamente hacia nuevas formas de convivencia o preservar las tradiciones probadas? \u00bfEs el Estado el garante del bienestar o una amenaza para la libertad individual? Estas respuestas definen el perfil macro-pol\u00edtico del usuario.",
+      "description_en": "Focuses on the classic dichotomy of the political spectrum, placing the user on the traditional left-right and libertarian-authoritarian axes. This section seeks to identify the general trend of political thought, simplifying ideological complexity into broad, recognizable categories to facilitate initial classification.\n\nIt addresses fundamental questions about the pace of social change and the structure of power. Should society evolve rapidly towards new forms of coexistence or preserve proven traditions? Is the State the guarantor of well-being or a threat to individual freedom? These answers define the user's macro-political profile.",
+      "description_es": "Se centra en la dicotom\u00eda cl\u00e1sica del espectro pol\u00edtico, ubicando al usuario en los grandes ejes tradicionales de izquierda-derecha y libertario-autoritario. Esta secci\u00f3n busca identificar la tendencia general del pensamiento pol\u00edtico, simplificando la complejidad ideol\u00f3gica en grandes categor\u00edas reconocibles para facilitar una primera clasificaci\u00f3n.\n\nAborda las preguntas fundamentales sobre el ritmo del cambio social y la estructura del poder. \u00bfDebe la sociedad evolucionar r\u00e1pidamente hacia nuevas formas de convivencia o preservar las tradiciones probadas? \u00bfEs el Estado el garante del bienestar o una amenaza para la libertad individual? Estas respuestas definen el perfil macro-pol\u00edtico del usuario.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.842Z",
+      "name": "Alineamiento General",
+      "name_en": "General Alignment",
+      "name_es": "Alineamiento General",
+      "uuid": "8a6898e9-8ec0-4ab6-b1f4-146c20422fd6"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 3,
+      "created": "2026-01-06T23:02:28.848Z",
+      "description": "Profundiza en los pilares ideol\u00f3gicos espec\u00edficos, desglosando la visi\u00f3n general en componentes m\u00e1s concretos como el intervencionismo econ\u00f3mico, el dirigismo estatal y la pol\u00edtica social. Aqu\u00ed se empieza a matizar la diferencia entre lo que se desea en teor\u00eda y lo que se apoya en la pr\u00e1ctica, evaluando la coherencia entre distintos \u00e1mbitos.\n\nEsta secci\u00f3n es crucial para distinguir matices dentro de un mismo bloque pol\u00edtico. Por ejemplo, permite diferenciar a un liberal conservador de un liberal progresista, o a un socialista democr\u00e1tico de un comunista, bas\u00e1ndose en la intensidad y la naturaleza de la intervenci\u00f3n estatal preferida en la vida p\u00fablica y privada.",
+      "description_en": "Delves into specific ideological pillars, breaking down the general vision into more concrete components such as economic interventionism, state dirigisme, and social policy. Here, the nuance between what is desired in theory and what is supported in practice begins to emerge, evaluating consistency across different realms.\n\nThis section is crucial for distinguishing nuances within the same political bloc. For example, it allows differentiation between a conservative liberal and a progressive liberal, or a democratic socialist and a communist, based on the intensity and nature of the preferred state intervention in public and private life.",
+      "description_es": "Profundiza en los pilares ideol\u00f3gicos espec\u00edficos, desglosando la visi\u00f3n general en componentes m\u00e1s concretos como el intervencionismo econ\u00f3mico, el dirigismo estatal y la pol\u00edtica social. Aqu\u00ed se empieza a matizar la diferencia entre lo que se desea en teor\u00eda y lo que se apoya en la pr\u00e1ctica, evaluando la coherencia entre distintos \u00e1mbitos.\n\nEsta secci\u00f3n es crucial para distinguir matices dentro de un mismo bloque pol\u00edtico. Por ejemplo, permite diferenciar a un liberal conservador de un liberal progresista, o a un socialista democr\u00e1tico de un comunista, bas\u00e1ndose en la intensidad y la naturaleza de la intervenci\u00f3n estatal preferida en la vida p\u00fablica y privada.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.848Z",
+      "name": "Posicionamiento",
+      "name_en": "Positioning",
+      "name_es": "Posicionamiento",
+      "uuid": "4e3c25a5-9c87-4443-a472-6abccc147a66"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-06T23:02:28.863Z",
+      "description": "Analiza detalladamente la visi\u00f3n del usuario sobre la gesti\u00f3n de la riqueza, la propiedad y las relaciones laborales. Se exploran conceptos como la redistribuci\u00f3n, la planificaci\u00f3n central frente al orden espont\u00e1neo del mercado, y el papel de los sindicatos y la regulaci\u00f3n laboral en la econom\u00eda moderna.\n\nEs el n\u00facleo del debate materialista. Determina si el usuario prioriza la igualdad de resultados mediante una fuerte intervenci\u00f3n estatal o si apuesta por la eficiencia y el crecimiento a trav\u00e9s de la libertad de mercado y la propiedad privada, definiendo su postura ante el capitalismo y sus alternativas.",
+      "description_en": "Detailed analysis of the user's vision on wealth management, property, and labor relations. Concepts such as redistribution, central planning versus spontaneous market order, and the role of unions and labor regulation in the modern economy are explored.\n\nIt is the core of the materialist debate. It determines whether the user prioritizes equality of outcome through strong state intervention or bets on efficiency and growth through market freedom and private property, defining their stance on capitalism and its alternatives.",
+      "description_es": "Analiza detalladamente la visi\u00f3n del usuario sobre la gesti\u00f3n de la riqueza, la propiedad y las relaciones laborales. Se exploran conceptos como la redistribuci\u00f3n, la planificaci\u00f3n central frente al orden espont\u00e1neo del mercado, y el papel de los sindicatos y la regulaci\u00f3n laboral en la econom\u00eda moderna.\n\nEs el n\u00facleo del debate materialista. Determina si el usuario prioriza la igualdad de resultados mediante una fuerte intervenci\u00f3n estatal o si apuesta por la eficiencia y el crecimiento a trav\u00e9s de la libertad de mercado y la propiedad privada, definiendo su postura ante el capitalismo y sus alternativas.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.863Z",
+      "name": "Econom\u00eda y Trabajo",
+      "name_en": "Economy and Labor",
+      "name_es": "Econom\u00eda y Trabajo",
+      "uuid": "8ee7a286-6150-460c-92bf-6337fbc882d4"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-06T23:02:28.886Z",
+      "description": "Explora la relaci\u00f3n del Estado con la identidad cultural, la fe y los grupos minoritarios. Aborda tensiones cr\u00edticas como la laicidad frente a la confesionalidad, la integraci\u00f3n de inmigrantes frente al nativismo, y las pol\u00edticas de discriminaci\u00f3n positiva frente a la igualdad legal ciega.\n\nEsta secci\u00f3n mide la tolerancia y la visi\u00f3n de la cohesi\u00f3n social. Eval\u00faa si el usuario concibe la naci\u00f3n como una entidad homog\u00e9nea basada en tradiciones compartidas o como un espacio plural y multicultural donde el Estado debe proteger activamente la diversidad y las diferentes expresiones de fe.",
+      "description_en": "Explores the State's relationship with cultural identity, faith, and minority groups. It addresses critical tensions such as secularism versus confessionalism, immigrant integration versus nativism, and affirmative action policies versus blind legal equality.\n\nThis section measures tolerance and the vision of social cohesion. It evaluates whether the user conceives the nation as a homogeneous entity based on shared traditions or as a plural and multicultural space where the State must actively protect diversity and different expressions of faith.",
+      "description_es": "Explora la relaci\u00f3n del Estado con la identidad cultural, la fe y los grupos minoritarios. Aborda tensiones cr\u00edticas como la laicidad frente a la confesionalidad, la integraci\u00f3n de inmigrantes frente al nativismo, y las pol\u00edticas de discriminaci\u00f3n positiva frente a la igualdad legal ciega.\n\nEsta secci\u00f3n mide la tolerancia y la visi\u00f3n de la cohesi\u00f3n social. Eval\u00faa si el usuario concibe la naci\u00f3n como una entidad homog\u00e9nea basada en tradiciones compartidas o como un espacio plural y multicultural donde el Estado debe proteger activamente la diversidad y las diferentes expresiones de fe.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.886Z",
+      "name": "Minor\u00edas y Religi\u00f3n",
+      "name_en": "Minorities and Religion",
+      "name_es": "Minor\u00edas y Religi\u00f3n",
+      "uuid": "78351a88-e82f-4db1-b0b5-c91459880ed2"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-06T23:02:28.908Z",
+      "description": "Cuestiona la estructura misma del poder y su distribuci\u00f3n geogr\u00e1fica. Se debaten modelos de organizaci\u00f3n como el centralismo, el federalismo y el confederalismo, as\u00ed como el monopolio de la fuerza, el control policial y el sistema penitenciario.\n\nEs fundamental para entender la visi\u00f3n del usuario sobre la soberan\u00eda y el orden. \u00bfDebe el poder estar concentrado para garantizar la igualdad y la seguridad, o debe estar descentralizado para maximizar la libertad y la autogesti\u00f3n local? Tambi\u00e9n aborda el equilibrio entre seguridad y derechos civiles.",
+      "description_en": "Questions the very structure of power and its geographical distribution. Organizational models such as centralism, federalism, and confederalism are debated, as well as the monopoly on force, police control, and the prison system.\n\nIt is fundamental for understanding the user's view on sovereignty and order. Should power be concentrated to guarantee equality and security, or should it be decentralized to maximize freedom and local self-management? It also addresses the balance between security and civil rights.",
+      "description_es": "Cuestiona la estructura misma del poder y su distribuci\u00f3n geogr\u00e1fica. Se debaten modelos de organizaci\u00f3n como el centralismo, el federalismo y el confederalismo, as\u00ed como el monopolio de la fuerza, el control policial y el sistema penitenciario.\n\nEs fundamental para entender la visi\u00f3n del usuario sobre la soberan\u00eda y el orden. \u00bfDebe el poder estar concentrado para garantizar la igualdad y la seguridad, o debe estar descentralizado para maximizar la libertad y la autogesti\u00f3n local? Tambi\u00e9n aborda el equilibrio entre seguridad y derechos civiles.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.908Z",
+      "name": "Estado y Territorio",
+      "name_en": "State and Territory",
+      "name_es": "Estado y Territorio",
+      "uuid": "0207fa36-f3ae-46d0-81d3-9303ade7c370"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-06T23:02:28.930Z",
+      "description": "Define la posici\u00f3n de la naci\u00f3n en el tablero internacional. Eval\u00faa el apoyo a organismos supranacionales (como la UE o la ONU), las alianzas militares (OTAN) y la estrategia comercial (globalizaci\u00f3n frente a proteccionismo), as\u00ed como la gesti\u00f3n de fronteras y migraci\u00f3n.\n\nSit\u00faa al usuario entre el cosmopolitismo globalista y el soberanismo nacional. Examina si se prefiere ceder parte de la soberan\u00eda en busca de cooperaci\u00f3n y paz mundial, o si se prioriza el inter\u00e9s nacional estricto, la autarqu\u00eda y el control f\u00e9rreo de las fronteras frente a injerencias externas.",
+      "description_en": "Defines the nation's position on the international chessboard. It evaluates support for supranational bodies (like the EU or UN), military alliances (NATO), and trade strategy (globalization versus protectionism), as well as border and migration management.\n\nIt places the user between globalist cosmopolitanism and national sovereignty. It examines whether one prefers to cede part of sovereignty in search of cooperation and world peace, or whether strict national interest, autarky, and tight border control against external interference are prioritized.",
+      "description_es": "Define la posici\u00f3n de la naci\u00f3n en el tablero internacional. Eval\u00faa el apoyo a organismos supranacionales (como la UE o la ONU), las alianzas militares (OTAN) y la estrategia comercial (globalizaci\u00f3n frente a proteccionismo), as\u00ed como la gesti\u00f3n de fronteras y migraci\u00f3n.\n\nSit\u00faa al usuario entre el cosmopolitismo globalista y el soberanismo nacional. Examina si se prefiere ceder parte de la soberan\u00eda en busca de cooperaci\u00f3n y paz mundial, o si se prioriza el inter\u00e9s nacional estricto, la autarqu\u00eda y el control f\u00e9rreo de las fronteras frente a injerencias externas.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.930Z",
+      "name": "Geopol\u00edtica y Bloques",
+      "name_en": "Geopolitics and Blocs",
+      "name_es": "Geopol\u00edtica y Bloques",
+      "uuid": "946e2e00-3fd5-4452-9b6d-464af0d39efe"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-06T23:02:28.952Z",
+      "description": "Aborda los desaf\u00edos emergentes del siglo XXI que redefinen la convivencia. Incluye debates sobre bio\u00e9tica (aborto, eutanasia, transhumanismo), ecolog\u00eda radical frente a desarrollo industrial, derechos de los animales y la regulaci\u00f3n de nuevas tecnolog\u00edas como la IA.\n\nEs la secci\u00f3n m\u00e1s vanguardista, donde se cruzan la moral, la ciencia y la pol\u00edtica. Mide la actitud del usuario hacia el progreso tecnol\u00f3gico y los cambios sociales profundos: \u00bfdeben regularse por precauci\u00f3n \u00e9tica y ambiental, o debe permitirse la innovaci\u00f3n y la libertad individual sin frenos?",
+      "description_en": "Addresses emerging 21st-century challenges redefining coexistence. Includes debates on bioethics (abortion, euthanasia, transhumanism), radical ecology versus industrial development, animal rights, and the regulation of new technologies like AI.\n\nIt is the most avant-garde section, where morality, science, and politics intersect. It measures the user's attitude towards technological progress and deep social changes: should they be regulated for ethical and environmental caution, or should innovation and individual freedom be allowed unchecked?",
+      "description_es": "Aborda los desaf\u00edos emergentes del siglo XXI que redefinen la convivencia. Incluye debates sobre bio\u00e9tica (aborto, eutanasia, transhumanismo), ecolog\u00eda radical frente a desarrollo industrial, derechos de los animales y la regulaci\u00f3n de nuevas tecnolog\u00edas como la IA.\n\nEs la secci\u00f3n m\u00e1s vanguardista, donde se cruzan la moral, la ciencia y la pol\u00edtica. Mide la actitud del usuario hacia el progreso tecnol\u00f3gico y los cambios sociales profundos: \u00bfdeben regularse por precauci\u00f3n \u00e9tica y ambiental, o debe permitirse la innovaci\u00f3n y la libertad individual sin frenos?",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.952Z",
+      "name": "Sociedad y Futuro",
+      "name_en": "Society and Future",
+      "name_es": "Sociedad y Futuro",
+      "uuid": "8bd45975-5ede-47f8-bc2c-ec3805910919"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:28.977Z",
+      "description": "Un an\u00e1lisis t\u00e9cnico y exhaustivo del sistema tributario. Va m\u00e1s all\u00e1 de 'impuestos altos o bajos' para debatir figuras espec\u00edficas: impuesto de sucesiones, patrimonio, sociedades, tasas al consumo y la armonizaci\u00f3n fiscal global frente a la competencia entre estados.\n\nRevela la filosof\u00eda profunda sobre la propiedad y la contribuci\u00f3n social. \u00bfEs el impuesto un robo o el precio de la civilizaci\u00f3n? \u00bfDebe el sistema fiscal usarse para redistribuir riqueza e ingenier\u00eda social, o simplemente para financiar servicios m\u00ednimos con la menor distorsi\u00f3n posible?",
+      "description_en": "A technical and exhaustive analysis of the tax system. It goes beyond 'high or low taxes' to debate specific figures: inheritance tax, wealth tax, corporate tax, consumption taxes, and global fiscal harmonization versus competition between states.\n\nIt reveals the deep philosophy on property and social contribution. Is taxation theft or the price of civilization? Should the tax system be used to redistribute wealth and for social engineering, or simply to fund minimal services with the least possible distortion?",
+      "description_es": "Un an\u00e1lisis t\u00e9cnico y exhaustivo del sistema tributario. Va m\u00e1s all\u00e1 de 'impuestos altos o bajos' para debatir figuras espec\u00edficas: impuesto de sucesiones, patrimonio, sociedades, tasas al consumo y la armonizaci\u00f3n fiscal global frente a la competencia entre estados.\n\nRevela la filosof\u00eda profunda sobre la propiedad y la contribuci\u00f3n social. \u00bfEs el impuesto un robo o el precio de la civilizaci\u00f3n? \u00bfDebe el sistema fiscal usarse para redistribuir riqueza e ingenier\u00eda social, o simplemente para financiar servicios m\u00ednimos con la menor distorsi\u00f3n posible?",
+      "icon": "",
+      "modified": "2026-01-06T23:02:28.977Z",
+      "name": "Fiscalidad",
+      "name_en": "Taxation",
+      "name_es": "Fiscalidad",
+      "uuid": "e3fdf341-359d-4480-a616-dab0d87609c3"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:29.010Z",
+      "description": "Desciende al detalle de la regulaci\u00f3n laboral y la protecci\u00f3n del trabajador. Eval\u00faa propuestas como el Trabajo Garantizado, la reducci\u00f3n de jornada, el despido libre, la negociaci\u00f3n colectiva y el papel del funcionariado y las empresas de trabajo temporal.\n\nContrasta la seguridad contra la flexibilidad. Busca entender si el usuario prefiere un mercado r\u00edgido que proteja al trabajador instalado aunque dificulte la entrada a nuevos, o un mercado din\u00e1mico y desregulado que maximice la creaci\u00f3n de empleo a costa de la estabilidad vital.",
+      "description_en": "Descends into the details of labor regulation and worker protection. Evaluates proposals such as Guaranteed Work, reduction of working hours, free dismissal, collective bargaining, and the role of the civil service and temporary employment agencies.\n\nContrasts security against flexibility. Seeks to understand if the user prefers a rigid market that protects the incumbent worker even if it hinders entry for new ones, or a dynamic and deregulated market that maximizes job creation at the cost of life stability.",
+      "description_es": "Desciende al detalle de la regulaci\u00f3n laboral y la protecci\u00f3n del trabajador. Eval\u00faa propuestas como el Trabajo Garantizado, la reducci\u00f3n de jornada, el despido libre, la negociaci\u00f3n colectiva y el papel del funcionariado y las empresas de trabajo temporal.\n\nContrasta la seguridad contra la flexibilidad. Busca entender si el usuario prefiere un mercado r\u00edgido que proteja al trabajador instalado aunque dificulte la entrada a nuevos, o un mercado din\u00e1mico y desregulado que maximice la creaci\u00f3n de empleo a costa de la estabilidad vital.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:29.010Z",
+      "name": "Mercado Laboral y Trabajo Garantizado",
+      "name_en": "Labor Market and Guaranteed Work",
+      "name_es": "Mercado Laboral y Trabajo Garantizado",
+      "uuid": "2a82e187-0042-416b-a934-8f9c7b5f2161"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:29.042Z",
+      "description": "Aborda espec\u00edficamente la gesti\u00f3n pol\u00edtica de la diversidad racial y cultural. Incluye temas de alto voltaje como las cuotas raciales, el derecho de autodeterminaci\u00f3n \u00e9tnica, la gesti\u00f3n de la memoria hist\u00f3rica y los derechos ling\u00fc\u00edsticos en territorios biling\u00fces.\n\nEs crucial para contextos de tensi\u00f3n identitaria. Eval\u00faa si la justicia requiere un trato diferenciado para compensar agravios hist\u00f3ricos (equidad) o si el Estado debe ser ciego ante la raza y el origen (igualdad formal), promoviendo una ciudadan\u00eda \u00fanica sin apellidos \u00e9tnicos.",
+      "description_en": "Specifically addresses the political management of racial and cultural diversity. Includes high-voltage topics such as racial quotas, the right to ethnic self-determination, the management of historical memory, and linguistic rights in bilingual territories.\n\nCrucial for contexts of identity tension. It evaluates whether justice requires differentiated treatment to compensate for historical grievances (equity) or if the State must be blind to race and origin (formal equality), promoting a single citizenship without ethnic surnames.",
+      "description_es": "Aborda espec\u00edficamente la gesti\u00f3n pol\u00edtica de la diversidad racial y cultural. Incluye temas de alto voltaje como las cuotas raciales, el derecho de autodeterminaci\u00f3n \u00e9tnica, la gesti\u00f3n de la memoria hist\u00f3rica y los derechos ling\u00fc\u00edsticos en territorios biling\u00fces.\n\nEs crucial para contextos de tensi\u00f3n identitaria. Eval\u00faa si la justicia requiere un trato diferenciado para compensar agravios hist\u00f3ricos (equidad) o si el Estado debe ser ciego ante la raza y el origen (igualdad formal), promoviendo una ciudadan\u00eda \u00fanica sin apellidos \u00e9tnicos.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:29.043Z",
+      "name": "Minor\u00edas y Etnias",
+      "name_en": "Minorities and Ethnicities",
+      "name_es": "Minor\u00edas y Etnias",
+      "uuid": "a8681e57-7f48-4ce2-94d6-aa47608170d8"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:29.076Z",
+      "description": "Examina la separaci\u00f3n Iglesia-Estado en todas sus facetas. Desde la financiaci\u00f3n p\u00fablica del culto y la ense\u00f1anza religiosa en escuelas, hasta la presencia de s\u00edmbolos en espacios p\u00fablicos y la regulaci\u00f3n de sectas o el proselitismo.\n\nDefine el modelo de convivencia espiritual. \u00bfDebe el Estado ser hostil, neutral o cooperador con las religiones? \u00bfEs la religi\u00f3n un asunto estrictamente privado o un bien cultural p\u00fablico que merece protecci\u00f3n y fomento institucional?",
+      "description_en": "Examines the Church-State separation in all its facets. From public funding of worship and religious education in schools, to the presence of symbols in public spaces and the regulation of cults or proselytism.\n\nDefines the model of spiritual coexistence. Should the State be hostile, neutral, or cooperative with religions? Is religion a strictly private matter or a public cultural good deserving protection and institutional promotion?",
+      "description_es": "Examina la separaci\u00f3n Iglesia-Estado en todas sus facetas. Desde la financiaci\u00f3n p\u00fablica del culto y la ense\u00f1anza religiosa en escuelas, hasta la presencia de s\u00edmbolos en espacios p\u00fablicos y la regulaci\u00f3n de sectas o el proselitismo.\n\nDefine el modelo de convivencia espiritual. \u00bfDebe el Estado ser hostil, neutral o cooperador con las religiones? \u00bfEs la religi\u00f3n un asunto estrictamente privado o un bien cultural p\u00fablico que merece protecci\u00f3n y fomento institucional?",
+      "icon": "",
+      "modified": "2026-01-06T23:02:29.076Z",
+      "name": "Religi\u00f3n y Creencia",
+      "name_en": "Religion and Belief",
+      "name_es": "Religi\u00f3n y Creencia",
+      "uuid": "2ec693e6-54bc-484b-a664-dbf001780757"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:29.109Z",
+      "description": "Desglosa la red de protecci\u00f3n social del Estado del Bienestar. Analiza la sostenibilidad y filosof\u00eda de las pensiones, las ayudas a la natalidad, el acceso a la vivienda, la educaci\u00f3n universitaria gratuita y la garant\u00eda de suministros b\u00e1sicos.\n\nEnfrenta la solidaridad obligatoria contra la responsabilidad individual. Mide hasta qu\u00e9 punto el usuario cree que el Estado debe asegurar a los ciudadanos 'desde la cuna hasta la tumba', o si considera que un exceso de protecci\u00f3n debilita la sociedad civil y la econom\u00eda familiar.",
+      "description_en": "Breaks down the Welfare State's social safety net. Analyzes the sustainability and philosophy of pensions, birth grants, access to housing, free university education, and the guarantee of basic utilities.\n\nPits mandatory solidarity against individual responsibility. Measures to what extent the user believes the State should insure citizens 'from cradle to grave', or if they consider that excessive protection weakens civil society and the family economy.",
+      "description_es": "Desglosa la red de protecci\u00f3n social del Estado del Bienestar. Analiza la sostenibilidad y filosof\u00eda de las pensiones, las ayudas a la natalidad, el acceso a la vivienda, la educaci\u00f3n universitaria gratuita y la garant\u00eda de suministros b\u00e1sicos.\n\nEnfrenta la solidaridad obligatoria contra la responsabilidad individual. Mide hasta qu\u00e9 punto el usuario cree que el Estado debe asegurar a los ciudadanos 'desde la cuna hasta la tumba', o si considera que un exceso de protecci\u00f3n debilita la sociedad civil y la econom\u00eda familiar.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:29.109Z",
+      "name": "Bienestar y Subsidios",
+      "name_en": "Welfare and Subsidies",
+      "name_es": "Bienestar y Subsidios",
+      "uuid": "cb4844d5-ce3b-4b1f-915b-e7fb4482f956"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-06T23:02:29.141Z",
+      "description": "Cubre tanto la gesti\u00f3n sanitaria como los l\u00edmites bio\u00e9ticos de la medicina. Debate sobre la titularidad p\u00fablica o privada de los hospitales, la cobertura de tratamientos est\u00e9ticos o dentales, la vacunaci\u00f3n obligatoria y la liberaci\u00f3n de patentes farmac\u00e9uticas.\n\nEs el cruce entre econom\u00eda y \u00e9tica de la vida. Eval\u00faa si la salud es un derecho humano incondicional ajeno al mercado, o un servicio que se optimiza mejor mediante la competencia y la libertad de elecci\u00f3n, adem\u00e1s de definir el poder del Estado sobre el cuerpo del ciudadano.",
+      "description_en": "Covers both health management and the bioethical limits of medicine. Debates public or private ownership of hospitals, coverage of aesthetic or dental treatments, mandatory vaccination, and the release of pharmaceutical patents.\n\nIt is the intersection of economics and the ethics of life. Evaluates whether health is an unconditional human right outside the market, or a service best optimized through competition and freedom of choice, as well as defining the State's power over the citizen's body.",
+      "description_es": "Cubre tanto la gesti\u00f3n sanitaria como los l\u00edmites bio\u00e9ticos de la medicina. Debate sobre la titularidad p\u00fablica o privada de los hospitales, la cobertura de tratamientos est\u00e9ticos o dentales, la vacunaci\u00f3n obligatoria y la liberaci\u00f3n de patentes farmac\u00e9uticas.\n\nEs el cruce entre econom\u00eda y \u00e9tica de la vida. Eval\u00faa si la salud es un derecho humano incondicional ajeno al mercado, o un servicio que se optimiza mejor mediante la competencia y la libertad de elecci\u00f3n, adem\u00e1s de definir el poder del Estado sobre el cuerpo del ciudadano.",
+      "icon": "",
+      "modified": "2026-01-06T23:02:29.142Z",
+      "name": "Salud",
+      "name_en": "Health",
+      "name_es": "Salud",
+      "uuid": "916d8a13-6079-49b4-9e70-169ee5938103"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 14
+  }
+]
