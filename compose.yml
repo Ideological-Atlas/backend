@@ -137,6 +137,7 @@ services:
         condition: service_healthy
     volumes:
       - ./src:/src
+      - logs_data:/src/logs
     networks:
       - app_network
     ports:
