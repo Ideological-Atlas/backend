@@ -115,6 +115,7 @@ class MeSerializer(SimpleUserSerializer):
             "bio",
             "appearance",
             "is_public",
+            "atlas_onboarding_completed",
         ]
         read_only_fields = ["is_verified", "email", "auth_provider"]
 

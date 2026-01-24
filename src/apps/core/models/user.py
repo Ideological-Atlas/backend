@@ -67,6 +67,13 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
     bio = models.TextField(
         null=True, blank=True, verbose_name=_("Bio"), help_text=_("User bio")
     )
+    atlas_onboarding_completed = models.BooleanField(
+        default=False,
+        verbose_name=_("Atlas Onboarding Completed"),
+        help_text=_(
+            "Field showing whether or not the user has completed the atlas onboarding."
+        ),
+    )
     objects = CustomUserManager()
 
     class Meta:
