@@ -32,6 +32,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
                     "verification_uuid",
                     "reset_password_uuid",
                     "auth_provider",
+                    "atlas_onboarding_completed",
                 )
             },
         ),
@@ -78,6 +79,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "is_verified",
         "is_public",
         "appearance",
+        "atlas_onboarding_completed",
     ]
     list_filter = [
         "auth_provider",
@@ -85,6 +87,7 @@ class CustomUserAdmin(UserAdmin, ModelAdmin):
         "is_superuser",
         "is_active",
         "is_public",
+        "atlas_onboarding_completed",
         "appearance",
     ]
     form = UserChangeForm

@@ -94,7 +94,6 @@ DJANGO_APPS = [
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + INTERNAL_APPS
 
 MIDDLEWARE = [
-    "silk.middleware.SilkyMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -110,6 +109,9 @@ MIDDLEWARE = [
     "simple_history.middleware.HistoryRequestMiddleware",
     "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
+
+if not PRODUCTION:
+    MIDDLEWARE.insert(0, "silk.middleware.SilkyMiddleware")
 
 TEMPLATES = [
     {
