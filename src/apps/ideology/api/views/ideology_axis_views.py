@@ -31,5 +31,5 @@ class AxisListBySectionView(ListAPIView):
         return (
             IdeologyAxis.objects.filter(section__uuid=section_uuid)
             .prefetch_related("condition_rules__conditioner")
-            .order_by("name")
+            .order_by("created")
         )
