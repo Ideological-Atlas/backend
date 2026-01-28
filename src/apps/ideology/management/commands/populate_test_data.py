@@ -45,6 +45,7 @@ class IdeologySeeder:
             complexity,
             name="Test Level",
             description="Debug level to validate conditional logic in the Frontend.",
+            visible=False,
         )
         return complexity
 
