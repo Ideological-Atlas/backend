@@ -32,4 +32,4 @@ class IdeologyConditionerManager(models.Manager):
             relevant_ids.update(new_parent_ids)
             current_level_ids = list(new_parent_ids)
 
-        return self.filter(id__in=relevant_ids).order_by("name")
+        return self.filter(id__in=relevant_ids).order_by("created")
