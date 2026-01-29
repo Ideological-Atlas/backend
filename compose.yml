@@ -155,7 +155,3 @@ volumes:
     name: ${PROJECT_NAME}_db_data
   minio_data:
     name: ${PROJECT_NAME}_minio_data
-  caddy_data:
-    name: ${PROJECT_NAME}_caddy_data
-  caddy_config:
-    name: ${PROJECT_NAME}_caddy_config

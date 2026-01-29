@@ -13,6 +13,7 @@ class IdeologyAbstractionComplexityFactory(TimeStampedUUIDModelFactory):
     name = factory.Faker("word")
     description = factory.Faker("sentence")
     complexity = factory.Sequence(lambda n: n + 1)
+    visible = True
 
     @factory.post_generation
     def add_sections(self, create, extracted, **kwargs):

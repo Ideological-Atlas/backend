@@ -1,0 +1,710 @@
+[
+  {
+    "fields": {
+      "abstraction_complexity": 1,
+      "created": "2026-01-29T00:04:39.598Z",
+      "description": "[TEST-ES] No entry conditions. Contains a Trigger Axis that unlocks Section 4.",
+      "description_en": "[TEST-EN] No entry conditions. Contains a Trigger Axis that unlocks Section 4.",
+      "description_es": "[TEST-ES] No entry conditions. Contains a Trigger Axis that unlocks Section 4.",
+      "icon": "",
+      "modified": "2026-01-29T00:04:39.601Z",
+      "name": "[TEST-ES] Section 1 (Basic)",
+      "name_en": "[TEST-EN] Section 1 (Basic)",
+      "name_es": "[TEST-ES] Section 1 (Basic)",
+      "uuid": "3879d977-ea5f-4606-8d37-db1c4b583679"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 1,
+      "created": "2026-01-29T00:04:39.629Z",
+      "description": "[TEST-ES] You see this because Conditioner A is set to 'Option A'.",
+      "description_en": "[TEST-EN] You see this because Conditioner A is set to 'Option A'.",
+      "description_es": "[TEST-ES] You see this because Conditioner A is set to 'Option A'.",
+      "icon": "",
+      "modified": "2026-01-29T00:04:39.631Z",
+      "name": "[TEST-ES] Section 2 (Cond A)",
+      "name_en": "[TEST-EN] Section 2 (Cond A)",
+      "name_es": "[TEST-ES] Section 2 (Cond A)",
+      "uuid": "df77bc3a-aacc-4a7d-8879-1b84a2753062"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 1,
+      "created": "2026-01-29T00:04:39.682Z",
+      "description": "[TEST-ES] You see this because C='true' AND D='true' (which required E='true').",
+      "description_en": "[TEST-EN] You see this because C='true' AND D='true' (which required E='true').",
+      "description_es": "[TEST-ES] You see this because C='true' AND D='true' (which required E='true').",
+      "icon": "",
+      "modified": "2026-01-29T00:04:39.684Z",
+      "name": "[TEST-ES] Section 3 (Complex)",
+      "name_en": "[TEST-EN] Section 3 (Complex)",
+      "name_es": "[TEST-ES] Section 3 (Complex)",
+      "uuid": "8d51d15e-5199-43a8-9bf1-ea8bda6b76d8"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 1,
+      "created": "2026-01-29T00:04:39.818Z",
+      "description": "[TEST-ES] You see this because 'S1 Trigger Axis' in Section 1 is > 50.",
+      "description_en": "[TEST-EN] You see this because 'S1 Trigger Axis' in Section 1 is > 50.",
+      "description_es": "[TEST-ES] You see this because 'S1 Trigger Axis' in Section 1 is > 50.",
+      "icon": "",
+      "modified": "2026-01-29T00:04:39.819Z",
+      "name": "[TEST-ES] Section 4 (Virtual Locked)",
+      "name_en": "[TEST-EN] Section 4 (Virtual Locked)",
+      "name_es": "[TEST-ES] Section 4 (Virtual Locked)",
+      "uuid": "f7ee2e39-22d2-40fb-b899-a5bcb26b7c79"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 2,
+      "created": "2026-01-29T00:06:28.367Z",
+      "description": "Esta secci\u00f3n establece el punto de partida absoluto para cualquier an\u00e1lisis pol\u00edtico subsiguiente. Se enfoca en capturar la predisposici\u00f3n an\u00edmica y \u00e9tica del usuario hacia la gobernanza, sirviendo como un 'check' de integridad que valida si las intenciones del sistema pol\u00edtico est\u00e1n alineadas con la moralidad del individuo.\n\nNo se trata de debatir medidas concretas, sino de establecer el tono de la conversaci\u00f3n pol\u00edtica. Aqu\u00ed se define la confianza b\u00e1sica en las intenciones de los actores pol\u00edticos y se separa lo que el usuario considera aceptable en un sentido humano y universal de lo que considera aberrante o malintencionado.",
+      "description_en": "This section establishes the absolute starting point for any subsequent political analysis. It focuses on capturing the user's emotional and ethical predisposition towards governance, serving as an integrity check that validates whether the intentions of the political system are aligned with the individual's morality.\n\nIt is not about debating concrete measures, but about setting the tone of the political conversation. Here, basic trust in the intentions of political actors is defined, separating what the user considers acceptable in a human and universal sense from what they consider aberrant or malicious.",
+      "description_es": "Esta secci\u00f3n establece el punto de partida absoluto para cualquier an\u00e1lisis pol\u00edtico subsiguiente. Se enfoca en capturar la predisposici\u00f3n an\u00edmica y \u00e9tica del usuario hacia la gobernanza, sirviendo como un 'check' de integridad que valida si las intenciones del sistema pol\u00edtico est\u00e1n alineadas con la moralidad del individuo.\n\nNo se trata de debatir medidas concretas, sino de establecer el tono de la conversaci\u00f3n pol\u00edtica. Aqu\u00ed se define la confianza b\u00e1sica en las intenciones de los actores pol\u00edticos y se separa lo que el usuario considera aceptable en un sentido humano y universal de lo que considera aberrante o malintencionado.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.367Z",
+      "name": "General",
+      "name_en": "General",
+      "name_es": "General",
+      "uuid": "b85f9c0f-dc53-4d4a-bc6a-c93a2bebdde1"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 3,
+      "created": "2026-01-29T00:06:28.374Z",
+      "description": "Esta secci\u00f3n busca situar al usuario dentro del espectro pol\u00edtico tradicional, identificando su inclinaci\u00f3n natural hacia el cambio o la conservaci\u00f3n. Es el primer paso para categorizar la visi\u00f3n del mundo del individuo en t\u00e9rminos pol\u00edticos reconocibles, simplificando la vasta complejidad de opiniones en una direcci\u00f3n vectora clara.\n\nAqu\u00ed se eval\u00faa la identidad pol\u00edtica 'por defecto'. Antes de entrar en detalles sobre impuestos o leyes espec\u00edficas, esta secci\u00f3n determina la tribu pol\u00edtica con la que el usuario se siente m\u00e1s c\u00f3modo, bas\u00e1ndose en su respuesta emocional e intelectual hacia los conceptos de modernidad, tradici\u00f3n, igualdad y jerarqu\u00eda.",
+      "description_en": "This section seeks to place the user within the traditional political spectrum, identifying their natural inclination towards change or conservation. It is the first step in categorizing the individual's worldview into recognizable political terms, simplifying the vast complexity of opinions into a clear vector direction.\n\nHere, the 'default' political identity is evaluated. Before going into details about taxes or specific laws, this section determines the political tribe with which the user feels most comfortable, based on their emotional and intellectual response to the concepts of modernity, tradition, equality, and hierarchy.",
+      "description_es": "Esta secci\u00f3n busca situar al usuario dentro del espectro pol\u00edtico tradicional, identificando su inclinaci\u00f3n natural hacia el cambio o la conservaci\u00f3n. Es el primer paso para categorizar la visi\u00f3n del mundo del individuo en t\u00e9rminos pol\u00edticos reconocibles, simplificando la vasta complejidad de opiniones en una direcci\u00f3n vectora clara.\n\nAqu\u00ed se eval\u00faa la identidad pol\u00edtica 'por defecto'. Antes de entrar en detalles sobre impuestos o leyes espec\u00edficas, esta secci\u00f3n determina la tribu pol\u00edtica con la que el usuario se siente m\u00e1s c\u00f3modo, bas\u00e1ndose en su respuesta emocional e intelectual hacia los conceptos de modernidad, tradici\u00f3n, igualdad y jerarqu\u00eda.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.374Z",
+      "name": "Alineamiento General",
+      "name_en": "General Alignment",
+      "name_es": "Alineamiento General",
+      "uuid": "ae004f67-bf60-4096-84be-b1360bdecaf6"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 4,
+      "created": "2026-01-29T00:06:28.380Z",
+      "description": "Esta secci\u00f3n descompone la ideolog\u00eda pol\u00edtica en sus tres componentes estructurales b\u00e1sicos: el poder del Estado, la libertad econ\u00f3mica y los valores sociales. Su objetivo es triangular la posici\u00f3n exacta del usuario m\u00e1s all\u00e1 de las etiquetas simplistas, permitiendo identificar perfiles complejos como el libertario, el socialdem\u00f3crata cl\u00e1sico o el conservador autoritario.\n\nMediante estos tres vectores, se dibuja un mapa mental donde se asignan responsabilidades. Se define qui\u00e9n debe controlar qu\u00e9: si el Estado debe dirigir la vida o servirla, si el mercado es un mecanismo eficiente o depredador, y si la moral es un asunto p\u00fablico o privado.",
+      "description_en": "This section breaks down political ideology into its three basic structural components: State power, economic freedom, and social values. Its goal is to triangulate the user's exact position beyond simplistic labels, allowing the identification of complex profiles such as the libertarian, the classic social democrat, or the authoritarian conservative.\n\nThrough these three vectors, a mental map is drawn where responsibilities are assigned. It defines who should control what: whether the State should direct life or serve it, whether the market is an efficient or predatory mechanism, and whether morality is a public or private matter.",
+      "description_es": "Esta secci\u00f3n descompone la ideolog\u00eda pol\u00edtica en sus tres componentes estructurales b\u00e1sicos: el poder del Estado, la libertad econ\u00f3mica y los valores sociales. Su objetivo es triangular la posici\u00f3n exacta del usuario m\u00e1s all\u00e1 de las etiquetas simplistas, permitiendo identificar perfiles complejos como el libertario, el socialdem\u00f3crata cl\u00e1sico o el conservador autoritario.\n\nMediante estos tres vectores, se dibuja un mapa mental donde se asignan responsabilidades. Se define qui\u00e9n debe controlar qu\u00e9: si el Estado debe dirigir la vida o servirla, si el mercado es un mecanismo eficiente o depredador, y si la moral es un asunto p\u00fablico o privado.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.380Z",
+      "name": "Posicionamiento General",
+      "name_en": "General Positioning",
+      "name_es": "Posicionamiento General",
+      "uuid": "c8e48a4c-83e8-4621-96cc-8b5456f377d9"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-29T00:06:28.390Z",
+      "description": "Esta secci\u00f3n define la arquitectura fundamental de la autoridad pol\u00edtica. Se cuestiona la naturaleza misma de la organizaci\u00f3n social, desde la omnipresencia del Leviat\u00e1n estatal hasta su total disoluci\u00f3n en favor de la soberan\u00eda individual o comunitaria.\n\nAqu\u00ed se establecen los cimientos sobre los que se construye la convivencia: \u00bfQui\u00e9n tiene el monopolio de la fuerza? \u00bfC\u00f3mo se legitima el poder? Se exploran los l\u00edmites entre el orden impuesto y la libertad ca\u00f3tica, determinando la estructura b\u00e1sica de la ley y la seguridad.",
+      "description_en": "This section defines the fundamental architecture of political authority. It questions the very nature of social organization, from the omnipresence of the state Leviathan to its total dissolution in favor of individual or community sovereignty.\n\nHere, the foundations upon which coexistence is built are established: Who holds the monopoly on force? How is power legitimized? The boundaries between imposed order and chaotic freedom are explored, determining the basic structure of law and security.",
+      "description_es": "Esta secci\u00f3n define la arquitectura fundamental de la autoridad pol\u00edtica. Se cuestiona la naturaleza misma de la organizaci\u00f3n social, desde la omnipresencia del Leviat\u00e1n estatal hasta su total disoluci\u00f3n en favor de la soberan\u00eda individual o comunitaria.\n\nAqu\u00ed se establecen los cimientos sobre los que se construye la convivencia: \u00bfQui\u00e9n tiene el monopolio de la fuerza? \u00bfC\u00f3mo se legitima el poder? Se exploran los l\u00edmites entre el orden impuesto y la libertad ca\u00f3tica, determinando la estructura b\u00e1sica de la ley y la seguridad.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.390Z",
+      "name": "Tipo de estado",
+      "name_en": "Type of State",
+      "name_es": "Tipo de estado",
+      "uuid": "8921fa31-7c1b-4c00-a206-adce6b8a23ac"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-29T00:06:28.405Z",
+      "description": "Define las bases materiales de la sociedad. Esta secci\u00f3n confronta los modelos de producci\u00f3n y distribuci\u00f3n de riqueza, desde el control estatal total hasta el laissez-faire absoluto.\n\nSe exploran las reglas fundamentales sobre la propiedad, el trabajo, el dinero y el comercio. El usuario debe decidir entre un sistema que prioriza la igualdad material y la seguridad, o uno que prioriza la libertad de intercambio y la eficiencia.",
+      "description_en": "Defines the material bases of society. This section confronts wealth production and distribution models, from total state control to absolute laissez-faire.\n\nFundamental rules on property, labor, money, and trade are explored. The user must decide between a system that prioritizes material equality and security, or one that prioritizes freedom of exchange and efficiency.",
+      "description_es": "Define las bases materiales de la sociedad. Esta secci\u00f3n confronta los modelos de producci\u00f3n y distribuci\u00f3n de riqueza, desde el control estatal total hasta el laissez-faire absoluto.\n\nSe exploran las reglas fundamentales sobre la propiedad, el trabajo, el dinero y el comercio. El usuario debe decidir entre un sistema que prioriza la igualdad material y la seguridad, o uno que prioriza la libertad de intercambio y la eficiencia.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.405Z",
+      "name": "Tipo de econom\u00eda",
+      "name_en": "Economy Type",
+      "name_es": "Tipo de econom\u00eda",
+      "uuid": "3eb20fb9-2d6e-4f81-abf7-ea622f4d300d"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-29T00:06:28.426Z",
+      "description": "Define la estructura del bienestar y la cultura. Esta secci\u00f3n aborda c\u00f3mo el Estado gestiona los derechos b\u00e1sicos, la identidad y la moralidad p\u00fablica.\n\nSe debate sobre la provisi\u00f3n de servicios esenciales como sanidad y pensiones, y sobre la intervenci\u00f3n estatal en cuestiones de conciencia, religi\u00f3n y derechos de las minor\u00edas. El usuario define una sociedad solidaria e intervencionista o una individualista y diversa.",
+      "description_en": "Defines the structure of welfare and culture. This section addresses how the State manages basic rights, identity, and public morality.\n\nThe provision of essential services such as healthcare and pensions, and state intervention in matters of conscience, religion, and minority rights are debated. The user defines a supportive and interventionist society or an individualistic and diverse one.",
+      "description_es": "Define la estructura del bienestar y la cultura. Esta secci\u00f3n aborda c\u00f3mo el Estado gestiona los derechos b\u00e1sicos, la identidad y la moralidad p\u00fablica.\n\nSe debate sobre la provisi\u00f3n de servicios esenciales como sanidad y pensiones, y sobre la intervenci\u00f3n estatal en cuestiones de conciencia, religi\u00f3n y derechos de las minor\u00edas. El usuario define una sociedad solidaria e intervencionista o una individualista y diversa.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.426Z",
+      "name": "Medidas sociales",
+      "name_en": "Social Measures",
+      "name_es": "Medidas sociales",
+      "uuid": "e939452e-0fcf-491f-82dd-40437f41f7c5"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 5,
+      "created": "2026-01-29T00:06:28.444Z",
+      "description": "Define la postura del Estado en el escenario internacional. Se analiza c\u00f3mo interact\u00faa la naci\u00f3n con sus vecinos y potencias globales, desde la integraci\u00f3n pac\u00edfica hasta la confrontaci\u00f3n armada.\n\nSe exploran temas como el militarismo, las alianzas estrat\u00e9gicas, el control de fronteras y la vocaci\u00f3n imperialista o neutral del pa\u00eds. El usuario decide entre un enfoque cosmopolita y cooperativo, o uno nacionalista y defensivo.",
+      "description_en": "Defines the State's stance on the international stage. It analyzes how the nation interacts with its neighbors and global powers, from peaceful integration to armed confrontation.\n\nTopics such as militarism, strategic alliances, border control, and the country's imperialist or neutral vocation are explored. The user decides between a cosmopolitan and cooperative approach, or a nationalist and defensive one.",
+      "description_es": "Define la postura del Estado en el escenario internacional. Se analiza c\u00f3mo interact\u00faa la naci\u00f3n con sus vecinos y potencias globales, desde la integraci\u00f3n pac\u00edfica hasta la confrontaci\u00f3n armada.\n\nSe exploran temas como el militarismo, las alianzas estrat\u00e9gicas, el control de fronteras y la vocaci\u00f3n imperialista o neutral del pa\u00eds. El usuario decide entre un enfoque cosmopolita y cooperativo, o uno nacionalista y defensivo.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.444Z",
+      "name": "Relaciones exteriores",
+      "name_en": "Foreign Relations",
+      "name_es": "Relaciones exteriores",
+      "uuid": "f7855b77-f97a-436c-8483-f76b78b6a2c9"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.545Z",
+      "description": "Esta secci\u00f3n analiza la arquitectura fundamental del poder pol\u00edtico, definiendo la relaci\u00f3n b\u00e1sica entre la autoridad y el ciudadano. Se exploran las estructuras de mando, desde la jefatura del Estado hasta la distribuci\u00f3n territorial del poder, cuestionando la legitimidad y el alcance de las instituciones p\u00fablicas.\n\nAqu\u00ed se define si el usuario prefiere un Leviat\u00e1n fuerte que garantice el orden y la direcci\u00f3n, o si aboga por la dispersi\u00f3n del poder para maximizar la libertad. Se abordan debates cl\u00e1sicos como monarqu\u00eda frente a rep\u00fablica, as\u00ed como tensiones contempor\u00e1neas sobre la soberan\u00eda nacional, el laicismo y la democracia directa.",
+      "description_en": "This section analyzes the fundamental architecture of political power, defining the basic relationship between authority and the citizen. Command structures are explored, from the head of state to the territorial distribution of power, questioning the legitimacy and scope of public institutions.\n\nHere it is defined whether the user prefers a strong Leviathan that guarantees order and direction, or if they advocate for the dispersal of power to maximize freedom. Classic debates such as monarchy versus republic are addressed, as well as contemporary tensions regarding national sovereignty, secularism, and direct democracy.",
+      "description_es": "Esta secci\u00f3n analiza la arquitectura fundamental del poder pol\u00edtico, definiendo la relaci\u00f3n b\u00e1sica entre la autoridad y el ciudadano. Se exploran las estructuras de mando, desde la jefatura del Estado hasta la distribuci\u00f3n territorial del poder, cuestionando la legitimidad y el alcance de las instituciones p\u00fablicas.\n\nAqu\u00ed se define si el usuario prefiere un Leviat\u00e1n fuerte que garantice el orden y la direcci\u00f3n, o si aboga por la dispersi\u00f3n del poder para maximizar la libertad. Se abordan debates cl\u00e1sicos como monarqu\u00eda frente a rep\u00fablica, as\u00ed como tensiones contempor\u00e1neas sobre la soberan\u00eda nacional, el laicismo y la democracia directa.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.545Z",
+      "name": "Modelo de estado",
+      "name_en": "State Model",
+      "name_es": "Modelo de estado",
+      "uuid": "c60946d6-cf7f-4676-b7fb-4b167d66524c"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.578Z",
+      "description": "Esta secci\u00f3n define las reglas del juego para la producci\u00f3n y distribuci\u00f3n de la riqueza. Se adentra en los mecanismos fundamentales que rigen la propiedad, el intercambio y el valor, confrontando las teor\u00edas de libre mercado con la planificaci\u00f3n estatal y el control social de los recursos.\n\nEl usuario debe posicionarse sobre la intervenci\u00f3n del Estado en la econom\u00eda, desde la gesti\u00f3n de la moneda y la banca hasta la regulaci\u00f3n laboral y el comercio internacional. Aqu\u00ed se determina si la prosperidad nace de la competencia desenfrenada o de la seguridad colectiva garantizada por la administraci\u00f3n p\u00fablica.",
+      "description_en": "This section defines the rules of the game for the production and distribution of wealth. It delves into the fundamental mechanisms governing property, exchange, and value, confronting free market theories with state planning and social control of resources.\n\nThe user must position themselves regarding State intervention in the economy, from currency and banking management to labor regulation and international trade. Here it is determined whether prosperity is born from unrestrained competition or from collective security guaranteed by public administration.",
+      "description_es": "Esta secci\u00f3n define las reglas del juego para la producci\u00f3n y distribuci\u00f3n de la riqueza. Se adentra en los mecanismos fundamentales que rigen la propiedad, el intercambio y el valor, confrontando las teor\u00edas de libre mercado con la planificaci\u00f3n estatal y el control social de los recursos.\n\nEl usuario debe posicionarse sobre la intervenci\u00f3n del Estado en la econom\u00eda, desde la gesti\u00f3n de la moneda y la banca hasta la regulaci\u00f3n laboral y el comercio internacional. Aqu\u00ed se determina si la prosperidad nace de la competencia desenfrenada o de la seguridad colectiva garantizada por la administraci\u00f3n p\u00fablica.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.578Z",
+      "name": "Sistema econ\u00f3mico",
+      "name_en": "Economic System",
+      "name_es": "Sistema econ\u00f3mico",
+      "uuid": "8618368f-d1c0-4f31-a7db-39f9333c46bd"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.614Z",
+      "description": "Esta secci\u00f3n define el papel de la naci\u00f3n en el tablero global, explorando c\u00f3mo debe interactuar el Estado con otras potencias, organismos internacionales y conflictos supranacionales. Se cuestiona la naturaleza de la soberan\u00eda en un mundo interconectado: si debe ser absoluta y celosa de sus fronteras, o colaborativa y diluida en proyectos comunes.\n\nDesde la pertenencia a bloques militares como la OTAN hasta la integraci\u00f3n econ\u00f3mica en la UE, aqu\u00ed se perfila la estrategia diplom\u00e1tica. Tambi\u00e9n se abordan cuestiones de justicia global, ayuda humanitaria y el dilema entre defender los intereses nacionales ego\u00edstas o promover valores universales como la democracia y los derechos humanos.",
+      "description_en": "This section defines the nation's role on the global chessboard, exploring how the State should interact with other powers, international bodies, and supranational conflicts. The nature of sovereignty in an interconnected world is questioned: whether it should be absolute and jealous of its borders, or collaborative and diluted in common projects.\n\nFrom membership in military blocs like NATO to economic integration in the EU, diplomatic strategy is outlined here. It also addresses issues of global justice, humanitarian aid, and the dilemma between defending selfish national interests or promoting universal values such as democracy and human rights.",
+      "description_es": "Esta secci\u00f3n define el papel de la naci\u00f3n en el tablero global, explorando c\u00f3mo debe interactuar el Estado con otras potencias, organismos internacionales y conflictos supranacionales. Se cuestiona la naturaleza de la soberan\u00eda en un mundo interconectado: si debe ser absoluta y celosa de sus fronteras, o colaborativa y diluida en proyectos comunes.\n\nDesde la pertenencia a bloques militares como la OTAN hasta la integraci\u00f3n econ\u00f3mica en la UE, aqu\u00ed se perfila la estrategia diplom\u00e1tica. Tambi\u00e9n se abordan cuestiones de justicia global, ayuda humanitaria y el dilema entre defender los intereses nacionales ego\u00edstas o promover valores universales como la democracia y los derechos humanos.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.614Z",
+      "name": "Relaciones exteriores",
+      "name_en": "Foreign Relations",
+      "name_es": "Relaciones exteriores",
+      "uuid": "b7a8498f-7aeb-4dc7-83e5-9ab71191c0fc"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.641Z",
+      "description": "Esta secci\u00f3n entra en el detalle t\u00e9cnico y \u00e9tico de la recaudaci\u00f3n. No se trata solo de cu\u00e1nto pagar, sino de c\u00f3mo, a qui\u00e9n y con qu\u00e9 justificaci\u00f3n. Se exploran modelos tributarios espec\u00edficos que definen la relaci\u00f3n entre el esfuerzo individual y la contribuci\u00f3n colectiva.\n\nAqu\u00ed se debaten conceptos avanzados como la trazabilidad del dinero, la fiscalidad de la herencia y la tierra, y la competencia fiscal internacional. El usuario define si el sistema fiscal debe ser una herramienta de ingenier\u00eda social y redistribuci\u00f3n agresiva, o un mecanismo neutral y minimalista para financiar servicios b\u00e1sicos.",
+      "description_en": "This section goes into the technical and ethical detail of collection. It is not just about how much to pay, but how, to whom, and with what justification. Specific tax models defining the relationship between individual effort and collective contribution are explored.\n\nAdvanced concepts such as money traceability, inheritance and land taxation, and international tax competition are debated here. The user defines whether the tax system should be a tool for social engineering and aggressive redistribution, or a neutral and minimalist mechanism to finance basic services.",
+      "description_es": "Esta secci\u00f3n entra en el detalle t\u00e9cnico y \u00e9tico de la recaudaci\u00f3n. No se trata solo de cu\u00e1nto pagar, sino de c\u00f3mo, a qui\u00e9n y con qu\u00e9 justificaci\u00f3n. Se exploran modelos tributarios espec\u00edficos que definen la relaci\u00f3n entre el esfuerzo individual y la contribuci\u00f3n colectiva.\n\nAqu\u00ed se debaten conceptos avanzados como la trazabilidad del dinero, la fiscalidad de la herencia y la tierra, y la competencia fiscal internacional. El usuario define si el sistema fiscal debe ser una herramienta de ingenier\u00eda social y redistribuci\u00f3n agresiva, o un mecanismo neutral y minimalista para financiar servicios b\u00e1sicos.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.641Z",
+      "name": "Fiscalidad y Hacienda",
+      "name_en": "Taxation and Treasury",
+      "name_es": "Fiscalidad y Hacienda",
+      "uuid": "9a43e6cb-efdb-4979-8068-f37e334fd887"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.665Z",
+      "description": "El n\u00facleo del debate sobre la libertad individual frente al control social. Esta secci\u00f3n explora los l\u00edmites de la autonom\u00eda personal: hasta d\u00f3nde puede llegar el Estado para proteger a los ciudadanos de s\u00ed mismos o de otros, y qu\u00e9 derechos son inalienables bajo cualquier circunstancia.\n\nSe tratan temas sensibles como la libertad de expresi\u00f3n frente al discurso de odio, el derecho a portar armas, la privacidad digital y la soberan\u00eda sobre el propio cuerpo. El usuario debe decidir si prioriza una sociedad segura y ordenada, o una sociedad libre y arriesgada.",
+      "description_en": "The core of the debate on individual freedom versus social control. This section explores the limits of personal autonomy: how far the State can go to protect citizens from themselves or others, and what rights are inalienable under any circumstances.\n\nSensitive issues such as freedom of speech versus hate speech, the right to bear arms, digital privacy, and sovereignty over one's own body are addressed. The user must decide whether to prioritize a safe and orderly society, or a free and risky one.",
+      "description_es": "El n\u00facleo del debate sobre la libertad individual frente al control social. Esta secci\u00f3n explora los l\u00edmites de la autonom\u00eda personal: hasta d\u00f3nde puede llegar el Estado para proteger a los ciudadanos de s\u00ed mismos o de otros, y qu\u00e9 derechos son inalienables bajo cualquier circunstancia.\n\nSe tratan temas sensibles como la libertad de expresi\u00f3n frente al discurso de odio, el derecho a portar armas, la privacidad digital y la soberan\u00eda sobre el propio cuerpo. El usuario debe decidir si prioriza una sociedad segura y ordenada, o una sociedad libre y arriesgada.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.665Z",
+      "name": "Derechos civiles y libertades",
+      "name_en": "Civil Rights and Liberties",
+      "name_es": "Derechos civiles y libertades",
+      "uuid": "f87a6ab7-16b2-4bcf-a151-f46ef0dda6cf"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.694Z",
+      "description": "Esta secci\u00f3n analiza la filosof\u00eda punitiva y la estructura del sistema judicial. Se pregunta c\u00f3mo debe el Estado resolver conflictos y castigar delitos: \u00bfbuscando venganza o rehabilitaci\u00f3n? \u00bfCentralizando la ley o permitiendo arbitrajes privados?\n\nAqu\u00ed se definen posturas sobre la pena de muerte, la independencia judicial, la elecci\u00f3n de jueces y la severidad de las penas. Es el campo de batalla entre la justicia retributiva dura y los modelos restaurativos o abolicionistas.",
+      "description_en": "This section analyzes punitive philosophy and the structure of the judicial system. It asks how the State should resolve conflicts and punish crimes: seeking revenge or rehabilitation? Centralizing the law or allowing private arbitration?\n\nStances on the death penalty, judicial independence, the election of judges, and the severity of penalties are defined here. It is the battleground between harsh retributive justice and restorative or abolitionist models.",
+      "description_es": "Esta secci\u00f3n analiza la filosof\u00eda punitiva y la estructura del sistema judicial. Se pregunta c\u00f3mo debe el Estado resolver conflictos y castigar delitos: \u00bfbuscando venganza o rehabilitaci\u00f3n? \u00bfCentralizando la ley o permitiendo arbitrajes privados?\n\nAqu\u00ed se definen posturas sobre la pena de muerte, la independencia judicial, la elecci\u00f3n de jueces y la severidad de las penas. Es el campo de batalla entre la justicia retributiva dura y los modelos restaurativos o abolicionistas.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.694Z",
+      "name": "Justicia",
+      "name_en": "Justice",
+      "name_es": "Justicia",
+      "uuid": "e59f51bb-3648-4b9b-8f10-b2c9cc312431"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.727Z",
+      "description": "Esta secci\u00f3n aborda el mantenimiento del orden p\u00fablico y la protecci\u00f3n f\u00edsica de los ciudadanos. Se centra en el papel de la polic\u00eda, el uso de la tecnolog\u00eda para la vigilancia y el tratamiento de la delincuencia en las calles.\n\nEl usuario debe posicionarse sobre el equilibrio entre seguridad y libertad: \u00bfes aceptable una vigilancia masiva para prevenir el crimen? \u00bfDebe la polic\u00eda estar militarizada o ser comunitaria? \u00bfSe debe permitir la autodefensa letal?",
+      "description_en": "This section addresses the maintenance of public order and the physical protection of citizens. It focuses on the role of the police, the use of technology for surveillance, and the treatment of crime on the streets.\n\nThe user must position themselves on the balance between security and freedom: is mass surveillance acceptable to prevent crime? Should the police be militarized or community-based? Should lethal self-defense be allowed?",
+      "description_es": "Esta secci\u00f3n aborda el mantenimiento del orden p\u00fablico y la protecci\u00f3n f\u00edsica de los ciudadanos. Se centra en el papel de la polic\u00eda, el uso de la tecnolog\u00eda para la vigilancia y el tratamiento de la delincuencia en las calles.\n\nEl usuario debe posicionarse sobre el equilibrio entre seguridad y libertad: \u00bfes aceptable una vigilancia masiva para prevenir el crimen? \u00bfDebe la polic\u00eda estar militarizada o ser comunitaria? \u00bfSe debe permitir la autodefensa letal?",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.727Z",
+      "name": "Seguridad ciudadana",
+      "name_en": "Public Safety",
+      "name_es": "Seguridad ciudadana",
+      "uuid": "67e62792-0f21-4f57-8040-5a5cb748ad65"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.750Z",
+      "description": "Esta secci\u00f3n trata sobre la supervivencia del Estado frente a amenazas externas y la filosof\u00eda militar. Se debate el tama\u00f1o y la naturaleza de las fuerzas armadas: si deben ser una herramienta de proyecci\u00f3n de poder global o una fuerza m\u00ednima de autodefensa.\n\nTambi\u00e9n se abordan dilemas \u00e9ticos y estrat\u00e9gicos cruciales como la posesi\u00f3n de armas nucleares, la moralidad de la guerra automatizada (drones e IA), el servicio militar obligatorio y la dependencia de alianzas supranacionales frente a la soberan\u00eda militar absoluta.",
+      "description_en": "This section deals with the survival of the State against external threats and military philosophy. The size and nature of the armed forces are debated: whether they should be a tool for global power projection or a minimal self-defense force.\n\nCrucial ethical and strategic dilemmas are also addressed, such as the possession of nuclear weapons, the morality of automated warfare (drones and AI), conscription, and reliance on supranational alliances versus absolute military sovereignty.",
+      "description_es": "Esta secci\u00f3n trata sobre la supervivencia del Estado frente a amenazas externas y la filosof\u00eda militar. Se debate el tama\u00f1o y la naturaleza de las fuerzas armadas: si deben ser una herramienta de proyecci\u00f3n de poder global o una fuerza m\u00ednima de autodefensa.\n\nTambi\u00e9n se abordan dilemas \u00e9ticos y estrat\u00e9gicos cruciales como la posesi\u00f3n de armas nucleares, la moralidad de la guerra automatizada (drones e IA), el servicio militar obligatorio y la dependencia de alianzas supranacionales frente a la soberan\u00eda militar absoluta.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.750Z",
+      "name": "Defensa y Seguridad nacional",
+      "name_en": "Defense and National Security",
+      "name_es": "Defensa y Seguridad nacional",
+      "uuid": "7e8be393-09e3-41b3-a94d-a6e9f8827fe9"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.776Z",
+      "description": "Esta secci\u00f3n aborda la gesti\u00f3n de la salud p\u00fablica, uno de los pilares m\u00e1s costosos y debatidos del Estado moderno. Se confrontan dos visiones: la salud como un derecho humano fundamental que el Estado debe garantizar universalmente, o como un servicio sujeto a las leyes del mercado y la responsabilidad individual.\n\nSe exploran modelos de financiaci\u00f3n (impuestos vs seguros), la gesti\u00f3n de hospitales, la libertad de elecci\u00f3n del paciente y el alcance de la cobertura estatal en temas controvertidos como las terapias alternativas o la vacunaci\u00f3n obligatoria.",
+      "description_en": "This section addresses the management of public health, one of the most costly and debated pillars of the modern State. Two visions confront each other: health as a fundamental human right that the State must guarantee universally, or as a service subject to market laws and individual responsibility.\n\nFunding models (taxes vs insurance), hospital management, patient freedom of choice, and the scope of state coverage on controversial issues such as alternative therapies or mandatory vaccination are explored.",
+      "description_es": "Esta secci\u00f3n aborda la gesti\u00f3n de la salud p\u00fablica, uno de los pilares m\u00e1s costosos y debatidos del Estado moderno. Se confrontan dos visiones: la salud como un derecho humano fundamental que el Estado debe garantizar universalmente, o como un servicio sujeto a las leyes del mercado y la responsabilidad individual.\n\nSe exploran modelos de financiaci\u00f3n (impuestos vs seguros), la gesti\u00f3n de hospitales, la libertad de elecci\u00f3n del paciente y el alcance de la cobertura estatal en temas controvertidos como las terapias alternativas o la vacunaci\u00f3n obligatoria.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.776Z",
+      "name": "Sanidad",
+      "name_en": "Healthcare",
+      "name_es": "Sanidad",
+      "uuid": "d4ef003b-8fc2-4e7b-bb19-2c4a54c6a866"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.797Z",
+      "description": "Esta secci\u00f3n examina la red de seguridad que el Estado proporciona a sus ciudadanos. Se debate hasta qu\u00e9 punto la sociedad es responsable de proteger a los individuos frente a la adversidad econ\u00f3mica, el desempleo, la vejez y la falta de vivienda.\n\nSe confrontan modelos asistencialistas universales con enfoques minimalistas de caridad privada. El usuario debe definir la generosidad y las condiciones de las ayudas p\u00fablicas: \u00bfson un derecho incondicional o una herramienta para incentivar el trabajo? \u00bfDebe el Estado garantizar la vivienda y las pensiones, o es responsabilidad de cada uno?",
+      "description_en": "This section examines the safety net the State provides to its citizens. It debates to what extent society is responsible for protecting individuals against economic adversity, unemployment, old age, and homelessness.\n\nUniversal welfare models are confronted with minimalist approaches of private charity. The user must define the generosity and conditions of public aid: are they an unconditional right or a tool to incentivize work? Should the State guarantee housing and pensions, or is it everyone's own responsibility?",
+      "description_es": "Esta secci\u00f3n examina la red de seguridad que el Estado proporciona a sus ciudadanos. Se debate hasta qu\u00e9 punto la sociedad es responsable de proteger a los individuos frente a la adversidad econ\u00f3mica, el desempleo, la vejez y la falta de vivienda.\n\nSe confrontan modelos asistencialistas universales con enfoques minimalistas de caridad privada. El usuario debe definir la generosidad y las condiciones de las ayudas p\u00fablicas: \u00bfson un derecho incondicional o una herramienta para incentivar el trabajo? \u00bfDebe el Estado garantizar la vivienda y las pensiones, o es responsabilidad de cada uno?",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.797Z",
+      "name": "Bienestar social",
+      "name_en": "Social Welfare",
+      "name_es": "Bienestar social",
+      "uuid": "4877f0fe-31d8-4e90-8241-82ff2f3f8d0f"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.816Z",
+      "description": "Esta secci\u00f3n analiza c\u00f3mo se transmite el conocimiento y los valores a las nuevas generaciones. Se debate el control del curr\u00edculo escolar: \u00bfdebe el Estado decidir qu\u00e9 aprenden los ni\u00f1os o es derecho de los padres? \u00bfLa educaci\u00f3n debe ser una herramienta de cohesi\u00f3n nacional o de libre mercado?\n\nSe exploran temas como el cheque escolar, la educaci\u00f3n concertada, la ense\u00f1anza religiosa y la inmersi\u00f3n ling\u00fc\u00edstica. El usuario define si prefiere un sistema educativo uniforme y p\u00fablico, o uno diverso y competitivo.",
+      "description_en": "This section analyzes how knowledge and values are transmitted to new generations. Control of the school curriculum is debated: should the State decide what children learn, or is it the parents' right? Should education be a tool for national cohesion or the free market?\n\nTopics such as school vouchers, state-subsidized private education, religious teaching, and linguistic immersion are explored. The user defines whether they prefer a uniform and public educational system, or a diverse and competitive one.",
+      "description_es": "Esta secci\u00f3n analiza c\u00f3mo se transmite el conocimiento y los valores a las nuevas generaciones. Se debate el control del curr\u00edculo escolar: \u00bfdebe el Estado decidir qu\u00e9 aprenden los ni\u00f1os o es derecho de los padres? \u00bfLa educaci\u00f3n debe ser una herramienta de cohesi\u00f3n nacional o de libre mercado?\n\nSe exploran temas como el cheque escolar, la educaci\u00f3n concertada, la ense\u00f1anza religiosa y la inmersi\u00f3n ling\u00fc\u00edstica. El usuario define si prefiere un sistema educativo uniforme y p\u00fablico, o uno diverso y competitivo.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.816Z",
+      "name": "Educaci\u00f3n",
+      "name_en": "Education",
+      "name_es": "Educaci\u00f3n",
+      "uuid": "cebd2539-a9c6-4010-bef9-dcebb0cd4b51"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.836Z",
+      "description": "Esta secci\u00f3n explora el papel del Estado en el avance cient\u00edfico y tecnol\u00f3gico. Se debate si el progreso debe ser dirigido por una visi\u00f3n p\u00fablica estrat\u00e9gica o dejado a la innovaci\u00f3n ca\u00f3tica del mercado.\n\nSe plantean dilemas \u00e9ticos sobre la ingenier\u00eda gen\u00e9tica, la inteligencia artificial y la energ\u00eda nuclear. El usuario debe decidir si la tecnolog\u00eda es una herramienta neutral que debe acelerarse a toda costa, o si requiere un control democr\u00e1tico estricto para evitar riesgos existenciales.",
+      "description_en": "This section explores the role of the State in scientific and technological advancement. It is debated whether progress should be directed by a strategic public vision or left to the chaotic innovation of the market.\n\nEthical dilemmas regarding genetic engineering, artificial intelligence, and nuclear energy are raised. The user must decide whether technology is a neutral tool that must be accelerated at all costs, or if it requires strict democratic control to avoid existential risks.",
+      "description_es": "Esta secci\u00f3n explora el papel del Estado en el avance cient\u00edfico y tecnol\u00f3gico. Se debate si el progreso debe ser dirigido por una visi\u00f3n p\u00fablica estrat\u00e9gica o dejado a la innovaci\u00f3n ca\u00f3tica del mercado.\n\nSe plantean dilemas \u00e9ticos sobre la ingenier\u00eda gen\u00e9tica, la inteligencia artificial y la energ\u00eda nuclear. El usuario debe decidir si la tecnolog\u00eda es una herramienta neutral que debe acelerarse a toda costa, o si requiere un control democr\u00e1tico estricto para evitar riesgos existenciales.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.836Z",
+      "name": "I+D",
+      "name_en": "R&D",
+      "name_es": "I+D",
+      "uuid": "1979e255-e245-415c-9fe2-155eece53c01"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.856Z",
+      "description": "Esta secci\u00f3n analiza las relaciones entre capital y trabajo. Se debate el grado de intervenci\u00f3n estatal en el mercado laboral: desde la regulaci\u00f3n estricta de salarios y despidos hasta la flexibilizaci\u00f3n total.\n\nSe exploran el papel de los sindicatos, la democracia en la empresa y la protecci\u00f3n ante el desempleo. El usuario decide si prefiere un modelo garantista que proteja al trabajador, o un modelo din\u00e1mico que priorice la creaci\u00f3n de empleo empresarial.",
+      "description_en": "This section analyzes the relationship between capital and labor. The degree of state intervention in the labor market is debated: from strict regulation of wages and dismissals to total flexibility.\n\nThe role of unions, workplace democracy, and unemployment protection are explored. The user decides whether they prefer a guarantor model that protects the worker, or a dynamic model that prioritizes business job creation.",
+      "description_es": "Esta secci\u00f3n analiza las relaciones entre capital y trabajo. Se debate el grado de intervenci\u00f3n estatal en el mercado laboral: desde la regulaci\u00f3n estricta de salarios y despidos hasta la flexibilizaci\u00f3n total.\n\nSe exploran el papel de los sindicatos, la democracia en la empresa y la protecci\u00f3n ante el desempleo. El usuario decide si prefiere un modelo garantista que proteja al trabajador, o un modelo din\u00e1mico que priorice la creaci\u00f3n de empleo empresarial.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.856Z",
+      "name": "Trabajo",
+      "name_en": "Labor",
+      "name_es": "Trabajo",
+      "uuid": "1bd11353-3107-4632-a051-ed1b4099ae9f"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.876Z",
+      "description": "El debate sobre la sostenibilidad y la relaci\u00f3n del ser humano con la naturaleza. Esta secci\u00f3n confronta el crecimiento econ\u00f3mico con la preservaci\u00f3n ecol\u00f3gica. Se decide si el medio ambiente es un recurso a explotar o un santuario a proteger, y qu\u00e9 sacrificios (econ\u00f3micos o de estilo de vida) son aceptables para combatir el cambio clim\u00e1tico.\n\nSe tratan temas como la prohibici\u00f3n de combustibles f\u00f3siles, los derechos de los animales, la energ\u00eda nuclear y el decrecimiento. El usuario define si prioriza la prosperidad material o la supervivencia ecol\u00f3gica.",
+      "description_en": "The debate on sustainability and the human relationship with nature. This section confronts economic growth with ecological preservation. It decides whether the environment is a resource to be exploited or a sanctuary to be protected, and what sacrifices (economic or lifestyle) are acceptable to combat climate change.\n\nTopics such as the ban on fossil fuels, animal rights, nuclear energy, and degrowth are discussed. The user defines whether they prioritize material prosperity or ecological survival.",
+      "description_es": "El debate sobre la sostenibilidad y la relaci\u00f3n del ser humano con la naturaleza. Esta secci\u00f3n confronta el crecimiento econ\u00f3mico con la preservaci\u00f3n ecol\u00f3gica. Se decide si el medio ambiente es un recurso a explotar o un santuario a proteger, y qu\u00e9 sacrificios (econ\u00f3micos o de estilo de vida) son aceptables para combatir el cambio clim\u00e1tico.\n\nSe tratan temas como la prohibici\u00f3n de combustibles f\u00f3siles, los derechos de los animales, la energ\u00eda nuclear y el decrecimiento. El usuario define si prioriza la prosperidad material o la supervivencia ecol\u00f3gica.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.876Z",
+      "name": "Medio ambiente y energ\u00eda",
+      "name_en": "Environment and Energy",
+      "name_es": "Medio ambiente y energ\u00eda",
+      "uuid": "6ad932df-e244-4433-b188-d8585ed2d502"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.891Z",
+      "description": "Esta secci\u00f3n trata sobre c\u00f3mo construimos el entorno f\u00edsico en el que vivimos. Se debate el papel del Estado en la provisi\u00f3n de carreteras, trenes y vivienda. \u00bfDebe el gobierno planificar las ciudades o dejar que crezcan org\u00e1nicamente?\n\nSe confrontan modelos de financiaci\u00f3n (peajes vs impuestos), la priorizaci\u00f3n del transporte p\u00fablico frente al coche privado y la regulaci\u00f3n del uso del suelo. El usuario decide entre un urbanismo intervencionista y planificado o uno liberalizado y orientado al mercado.",
+      "description_en": "This section deals with how we build the physical environment we live in. It debates the role of the State in providing roads, trains, and housing. Should the government plan cities or let them grow organically?\n\nFunding models (tolls vs taxes), prioritization of public transport versus private cars, and land use regulation are confronted. The user decides between interventionist and planned urbanism or a liberalized, market-oriented one.",
+      "description_es": "Esta secci\u00f3n trata sobre c\u00f3mo construimos el entorno f\u00edsico en el que vivimos. Se debate el papel del Estado en la provisi\u00f3n de carreteras, trenes y vivienda. \u00bfDebe el gobierno planificar las ciudades o dejar que crezcan org\u00e1nicamente?\n\nSe confrontan modelos de financiaci\u00f3n (peajes vs impuestos), la priorizaci\u00f3n del transporte p\u00fablico frente al coche privado y la regulaci\u00f3n del uso del suelo. El usuario decide entre un urbanismo intervencionista y planificado o uno liberalizado y orientado al mercado.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.891Z",
+      "name": "Infraestructura y urbanismo",
+      "name_en": "Infrastructure and Urban Planning",
+      "name_es": "Infraestructura y urbanismo",
+      "uuid": "323cd98d-6eb4-4dba-8261-9828fc4ca01e"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.904Z",
+      "description": "Esta secci\u00f3n aborda el control de los flujos humanos. Se debate qui\u00e9n tiene derecho a entrar y vivir en el pa\u00eds. Se confrontan visiones de fronteras abiertas y solidaridad global con visiones de seguridad nacional y preservaci\u00f3n cultural.\n\nSe exploran pol\u00edticas espec\u00edficas sobre asilo, deportaciones, regularizaciones y el derecho a la nacionalidad (ius soli vs ius sanguinis). El usuario define si ve la inmigraci\u00f3n como una oportunidad econ\u00f3mica y humanitaria, o como una amenaza a la cohesi\u00f3n social y los servicios p\u00fablicos.",
+      "description_en": "This section addresses the control of human flows. It debates who has the right to enter and live in the country. Open borders and global solidarity visions are confronted with national security and cultural preservation visions.\n\nSpecific policies on asylum, deportations, regularizations, and the right to nationality (jus soli vs jus sanguinis) are explored. The user defines whether they see immigration as an economic and humanitarian opportunity, or as a threat to social cohesion and public services.",
+      "description_es": "Esta secci\u00f3n aborda el control de los flujos humanos. Se debate qui\u00e9n tiene derecho a entrar y vivir en el pa\u00eds. Se confrontan visiones de fronteras abiertas y solidaridad global con visiones de seguridad nacional y preservaci\u00f3n cultural.\n\nSe exploran pol\u00edticas espec\u00edficas sobre asilo, deportaciones, regularizaciones y el derecho a la nacionalidad (ius soli vs ius sanguinis). El usuario define si ve la inmigraci\u00f3n como una oportunidad econ\u00f3mica y humanitaria, o como una amenaza a la cohesi\u00f3n social y los servicios p\u00fablicos.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.904Z",
+      "name": "Inmigraci\u00f3n y fronteras",
+      "name_en": "Immigration and Borders",
+      "name_es": "Inmigraci\u00f3n y fronteras",
+      "uuid": "c7c29ec7-de9e-496b-b515-944e0cf8b1c0"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.918Z",
+      "description": "El campo de batalla de la 'guerra cultural'. Esta secci\u00f3n aborda la regulaci\u00f3n de las relaciones humanas, la identidad y la moralidad p\u00fablica. Se debate si el Estado debe intervenir para corregir desigualdades hist\u00f3ricas de g\u00e9nero y raza, o si debe mantenerse neutral y ciego a las diferencias identitarias.\n\nSe exploran temas como el feminismo legal, los derechos LGTBI, el reconocimiento de nuevos modelos de familia y la libertad religiosa. El usuario define su postura entre un progresismo activo que busca la equidad social y un conservadurismo o liberalismo que prioriza la igualdad formal ante la ley y la tradici\u00f3n.",
+      "description_en": "The battlefield of the 'culture war'. This section addresses the regulation of human relationships, identity, and public morality. It debates whether the State should intervene to correct historical gender and racial inequalities, or remain neutral and blind to identity differences.\n\nTopics such as legal feminism, LGBTI rights, recognition of new family models, and religious freedom are explored. The user defines their stance between an active progressivism seeking social equity and a conservatism or liberalism prioritizing formal equality before the law and tradition.",
+      "description_es": "El campo de batalla de la 'guerra cultural'. Esta secci\u00f3n aborda la regulaci\u00f3n de las relaciones humanas, la identidad y la moralidad p\u00fablica. Se debate si el Estado debe intervenir para corregir desigualdades hist\u00f3ricas de g\u00e9nero y raza, o si debe mantenerse neutral y ciego a las diferencias identitarias.\n\nSe exploran temas como el feminismo legal, los derechos LGTBI, el reconocimiento de nuevos modelos de familia y la libertad religiosa. El usuario define su postura entre un progresismo activo que busca la equidad social y un conservadurismo o liberalismo que prioriza la igualdad formal ante la ley y la tradici\u00f3n.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.918Z",
+      "name": "Derechos sociales",
+      "name_en": "Social Rights",
+      "name_es": "Derechos sociales",
+      "uuid": "624e8ce7-455d-4ae8-9edb-f241a2daf0f6"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.932Z",
+      "description": "Esta secci\u00f3n trata sobre el mecenazgo estatal y la identidad cultural. Se debate si el arte y el deporte deben ser financiados con impuestos para garantizar el acceso y proteger el patrimonio, o si deben sobrevivir por su propio m\u00e9rito comercial.\n\nSe incluyen temas espec\u00edficos como la tauromaquia, la financiaci\u00f3n de la televisi\u00f3n p\u00fablica (BBC/RTVE) y la protecci\u00f3n de tradiciones frente a la modernizaci\u00f3n. El usuario decide si la cultura es un servicio p\u00fablico o un bien de consumo.",
+      "description_en": "This section deals with state patronage and cultural identity. It is debated whether art and sport should be funded by taxes to ensure access and protect heritage, or whether they should survive on their own commercial merit.\n\nSpecific topics such as bullfighting, public television funding (BBC/RTVE), and the protection of traditions against modernization are included. The user decides whether culture is a public service or a consumer good.",
+      "description_es": "Esta secci\u00f3n trata sobre el mecenazgo estatal y la identidad cultural. Se debate si el arte y el deporte deben ser financiados con impuestos para garantizar el acceso y proteger el patrimonio, o si deben sobrevivir por su propio m\u00e9rito comercial.\n\nSe incluyen temas espec\u00edficos como la tauromaquia, la financiaci\u00f3n de la televisi\u00f3n p\u00fablica (BBC/RTVE) y la protecci\u00f3n de tradiciones frente a la modernizaci\u00f3n. El usuario decide si la cultura es un servicio p\u00fablico o un bien de consumo.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.932Z",
+      "name": "Cultura y deporte",
+      "name_en": "Culture and Sport",
+      "name_es": "Cultura y deporte",
+      "uuid": "baf39ee6-b360-4af0-a721-692fe3c43959"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.946Z",
+      "description": "Esta secci\u00f3n aborda el control del ciberespacio. Se debate si el Estado debe ejercer soberan\u00eda sobre los datos y las redes como si fuera territorio f\u00edsico, o si internet debe ser un espacio global y desregulado.\n\nSe exploran temas como la identidad digital, la regulaci\u00f3n de la Inteligencia Artificial y el derecho al olvido. El usuario decide entre un internet seguro y regulado nacionalmente, o un internet libre, an\u00f3nimo y riesgoso.",
+      "description_en": "This section addresses control of cyberspace. It is debated whether the State should exercise sovereignty over data and networks as if it were physical territory, or if the internet should be a global and deregulated space.\n\nTopics such as digital identity, Artificial Intelligence regulation, and the right to be forgotten are explored. The user decides between a secure, nationally regulated internet, or a free, anonymous, and risky internet.",
+      "description_es": "Esta secci\u00f3n aborda el control del ciberespacio. Se debate si el Estado debe ejercer soberan\u00eda sobre los datos y las redes como si fuera territorio f\u00edsico, o si internet debe ser un espacio global y desregulado.\n\nSe exploran temas como la identidad digital, la regulaci\u00f3n de la Inteligencia Artificial y el derecho al olvido. El usuario decide entre un internet seguro y regulado nacionalmente, o un internet libre, an\u00f3nimo y riesgoso.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.946Z",
+      "name": "Soberan\u00eda digital y ciberseguridad",
+      "name_en": "Digital Sovereignty and Cybersecurity",
+      "name_es": "Soberan\u00eda digital y ciberseguridad",
+      "uuid": "c93c7f0b-3ac3-4608-9c12-95844dbeeb57"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.956Z",
+      "description": "Esta secci\u00f3n disecciona la mec\u00e1nica del sistema pol\u00edtico. Se cuestionan las reglas del juego electoral y la \u00e9tica p\u00fablica. \u00bfC\u00f3mo se debe elegir a los representantes? \u00bfC\u00f3mo se financian? \u00bfQu\u00e9 privilegios deben tener?\n\nSe abordan reformas profundas como el sistema de listas abiertas, la financiaci\u00f3n de partidos, el control de los lobbies y la figura del aforamiento. El usuario decide entre una democracia participativa y transparente, o un sistema representativo estable y protegido.",
+      "description_en": "This section dissects the mechanics of the political system. Electoral game rules and public ethics are questioned. How should representatives be chosen? How are they funded? What privileges should they have?\n\nDeep reforms such as the open list system, party funding, lobby control, and legal immunity (aforamiento) are addressed. The user decides between a participatory and transparent democracy, or a stable and protected representative system.",
+      "description_es": "Esta secci\u00f3n disecciona la mec\u00e1nica del sistema pol\u00edtico. Se cuestionan las reglas del juego electoral y la \u00e9tica p\u00fablica. \u00bfC\u00f3mo se debe elegir a los representantes? \u00bfC\u00f3mo se financian? \u00bfQu\u00e9 privilegios deben tener?\n\nSe abordan reformas profundas como el sistema de listas abiertas, la financiaci\u00f3n de partidos, el control de los lobbies y la figura del aforamiento. El usuario decide entre una democracia participativa y transparente, o un sistema representativo estable y protegido.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.956Z",
+      "name": "Transparencia y calidad democr\u00e1tica",
+      "name_en": "Transparency and Democratic Quality",
+      "name_es": "Transparencia y calidad democr\u00e1tica",
+      "uuid": "82141296-bac7-4b59-92fb-ea25caf528f2"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:28.978Z",
+      "description": "Esta secci\u00f3n analiza el papel del Estado en la econom\u00eda productiva. Se debate si el gobierno debe tener una estrategia para desarrollar sectores clave o dejar que el mercado decida qu\u00e9 producir.\n\nSe exploran temas como la reindustrializaci\u00f3n, la soberan\u00eda tecnol\u00f3gica, el proteccionismo verde y la automatizaci\u00f3n. El usuario define si prefiere un Estado planificador que proteja la industria nacional, o una econom\u00eda abierta y competitiva globalmente.",
+      "description_en": "This section analyzes the role of the State in the productive economy. It is debated whether the government should have a strategy to develop key sectors or let the market decide what to produce.\n\nTopics such as reindustrialization, technological sovereignty, green protectionism, and automation are explored. The user defines whether they prefer a planning State that protects national industry, or an open and globally competitive economy.",
+      "description_es": "Esta secci\u00f3n analiza el papel del Estado en la econom\u00eda productiva. Se debate si el gobierno debe tener una estrategia para desarrollar sectores clave o dejar que el mercado decida qu\u00e9 producir.\n\nSe exploran temas como la reindustrializaci\u00f3n, la soberan\u00eda tecnol\u00f3gica, el proteccionismo verde y la automatizaci\u00f3n. El usuario define si prefiere un Estado planificador que proteja la industria nacional, o una econom\u00eda abierta y competitiva globalmente.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:28.978Z",
+      "name": "Pol\u00edtica industrial",
+      "name_en": "Industrial Policy",
+      "name_es": "Pol\u00edtica industrial",
+      "uuid": "a7d11913-85d1-4243-9ce3-6e197732fa80"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:29.001Z",
+      "description": "Esta secci\u00f3n trata sobre la justicia intergeneracional. Se analiza c\u00f3mo el Estado apoya (o ignora) a los j\u00f3venes en su transici\u00f3n a la vida adulta.\n\nSe confrontan pol\u00edticas de ayuda directa (bonos, avales, condonaci\u00f3n de deuda) con pol\u00edticas de libre mercado y responsabilidad individual. El usuario define si el Estado debe compensar a los j\u00f3venes por la precariedad actual, o si cada generaci\u00f3n debe labrarse su propio futuro sin ayudas.",
+      "description_en": "This section deals with intergenerational justice. It analyzes how the State supports (or ignores) young people in their transition to adulthood.\n\nDirect aid policies (bonuses, guarantees, debt forgiveness) are confronted with free market policies and individual responsibility. The user defines whether the State should compensate young people for current precariousness, or whether each generation must carve out its own future without aid.",
+      "description_es": "Esta secci\u00f3n trata sobre la justicia intergeneracional. Se analiza c\u00f3mo el Estado apoya (o ignora) a los j\u00f3venes en su transici\u00f3n a la vida adulta.\n\nSe confrontan pol\u00edticas de ayuda directa (bonos, avales, condonaci\u00f3n de deuda) con pol\u00edticas de libre mercado y responsabilidad individual. El usuario define si el Estado debe compensar a los j\u00f3venes por la precariedad actual, o si cada generaci\u00f3n debe labrarse su propio futuro sin ayudas.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:29.001Z",
+      "name": "Juventud y emancipaci\u00f3n",
+      "name_en": "Youth and Emancipation",
+      "name_es": "Juventud y emancipaci\u00f3n",
+      "uuid": "2e2a5934-22dd-43c5-ae1a-b8ffea8a137a"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:29.021Z",
+      "description": "Esta secci\u00f3n regula la relaci\u00f3n entre empresas y consumidores. Se debate hasta qu\u00e9 punto el Estado debe proteger al ciudadano de pr\u00e1cticas abusivas, productos nocivos o adicciones, frente a la libertad de mercado y la responsabilidad individual.\n\nSe tratan temas como el juego y las apuestas, la obsolescencia programada, el derecho a reparar y la publicidad. El usuario decide si prefiere un mercado paternalista que cuida del consumidor, o un mercado libre donde el comprador asume sus riesgos ('caveat emptor').",
+      "description_en": "This section regulates the relationship between companies and consumers. It debates to what extent the State should protect the citizen from abusive practices, harmful products, or addictions, versus market freedom and individual responsibility.\n\nTopics such as gambling and betting, planned obsolescence, the right to repair, and advertising are discussed. The user decides whether they prefer a paternalistic market that takes care of the consumer, or a free market where the buyer assumes their risks ('caveat emptor').",
+      "description_es": "Esta secci\u00f3n regula la relaci\u00f3n entre empresas y consumidores. Se debate hasta qu\u00e9 punto el Estado debe proteger al ciudadano de pr\u00e1cticas abusivas, productos nocivos o adicciones, frente a la libertad de mercado y la responsabilidad individual.\n\nSe tratan temas como el juego y las apuestas, la obsolescencia programada, el derecho a reparar y la publicidad. El usuario decide si prefiere un mercado paternalista que cuida del consumidor, o un mercado libre donde el comprador asume sus riesgos ('caveat emptor').",
+      "icon": "",
+      "modified": "2026-01-29T00:06:29.022Z",
+      "name": "Consumo y derechos del usuario",
+      "name_en": "Consumption and User Rights",
+      "name_es": "Consumo y derechos del usuario",
+      "uuid": "f0a81d0a-010a-4e54-90e8-19e759a89058"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:29.045Z",
+      "description": "Esta secci\u00f3n analiza el impacto de la industria tur\u00edstica. Se debate si el turismo es un motor de desarrollo indispensable o una actividad extractiva que destruye el tejido social y el medio ambiente.\n\nSe exploran temas como la regulaci\u00f3n de Airbnb, el turismo de borrachera, la masificaci\u00f3n de espacios naturales y la dependencia econ\u00f3mica del visitante. El usuario decide entre fomentar la llegada de viajeros o proteger la vida de los residentes.",
+      "description_en": "This section analyzes the impact of the tourism industry. It is debated whether tourism is an indispensable engine of development or an extractive activity that destroys the social fabric and the environment.\n\nTopics such as Airbnb regulation, binge tourism, overcrowding of natural spaces, and economic dependence on visitors are explored. The user decides between encouraging the arrival of travelers or protecting the lives of residents.",
+      "description_es": "Esta secci\u00f3n analiza el impacto de la industria tur\u00edstica. Se debate si el turismo es un motor de desarrollo indispensable o una actividad extractiva que destruye el tejido social y el medio ambiente.\n\nSe exploran temas como la regulaci\u00f3n de Airbnb, el turismo de borrachera, la masificaci\u00f3n de espacios naturales y la dependencia econ\u00f3mica del visitante. El usuario decide entre fomentar la llegada de viajeros o proteger la vida de los residentes.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:29.045Z",
+      "name": "Turismo",
+      "name_en": "Tourism",
+      "name_es": "Turismo",
+      "uuid": "51215879-f5d0-4d4d-80ef-301d9130adaf"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "abstraction_complexity": 6,
+      "created": "2026-01-29T00:06:29.067Z",
+      "description": "Esta secci\u00f3n trata sobre lo que comemos y c\u00f3mo lo producimos. Se debate el equilibrio entre la seguridad alimentaria, la rentabilidad del campo y la protecci\u00f3n del medio ambiente.\n\nSe confrontan modelos intensivos y tecnol\u00f3gicos (transg\u00e9nicos, macrogranjas) con modelos tradicionales y ecol\u00f3gicos. El usuario decide si el campo debe ser una f\u00e1brica eficiente de alimentos baratos o un paisaje protegido subvencionado.",
+      "description_en": "This section deals with what we eat and how we produce it. It debates the balance between food security, farm profitability, and environmental protection.\n\nIntensive and technological models (GMOs, mega-farms) are confronted with traditional and ecological models. The user decides whether the countryside should be an efficient factory of cheap food or a subsidized protected landscape.",
+      "description_es": "Esta secci\u00f3n trata sobre lo que comemos y c\u00f3mo lo producimos. Se debate el equilibrio entre la seguridad alimentaria, la rentabilidad del campo y la protecci\u00f3n del medio ambiente.\n\nSe confrontan modelos intensivos y tecnol\u00f3gicos (transg\u00e9nicos, macrogranjas) con modelos tradicionales y ecol\u00f3gicos. El usuario decide si el campo debe ser una f\u00e1brica eficiente de alimentos baratos o un paisaje protegido subvencionado.",
+      "icon": "",
+      "modified": "2026-01-29T00:06:29.067Z",
+      "name": "Pol\u00edticas agroalimentarias y pesca",
+      "name_en": "Agri-food and Fishing Policies",
+      "name_es": "Pol\u00edticas agroalimentarias y pesca",
+      "uuid": "469512e0-8772-4c94-ada3-a926102114ba"
+    },
+    "model": "ideology.ideologysection",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Option A"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Option A"
+      ],
+      "conditioner": 1,
+      "created": "2026-01-29T00:04:39.632Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.636Z",
+      "name": "Rule_[TEST-ES] _[TEST-ES] ",
+      "name_en": null,
+      "name_es": "Rule_[TEST-ES] _[TEST-ES] ",
+      "section": 2,
+      "uuid": "27d99f3e-e90c-4730-9f8a-eb707b270083"
+    },
+    "model": "ideology.ideologysectionconditioner",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 5,
+      "created": "2026-01-29T00:04:39.704Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.707Z",
+      "name": "Rule_[TEST-ES] _[TEST-ES] ",
+      "name_en": null,
+      "name_es": "Rule_[TEST-ES] _[TEST-ES] ",
+      "section": 3,
+      "uuid": "74c8ec98-67d2-4118-a4f7-ae62d4dd32d8"
+    },
+    "model": "ideology.ideologysectionconditioner",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 3,
+      "created": "2026-01-29T00:04:39.708Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.711Z",
+      "name": "Rule_[TEST-ES] _[TEST-ES] ",
+      "name_en": null,
+      "name_es": "Rule_[TEST-ES] _[TEST-ES] ",
+      "section": 3,
+      "uuid": "7af0ab3a-54b2-46ec-8cac-07b2b676dd73"
+    },
+    "model": "ideology.ideologysectionconditioner",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 11,
+      "created": "2026-01-29T00:04:39.820Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.823Z",
+      "name": "Rule_[TEST-ES] _[TEST-ES] ",
+      "name_en": null,
+      "name_es": "Rule_[TEST-ES] _[TEST-ES] ",
+      "section": 4,
+      "uuid": "f481e343-0f00-4c65-b893-086ed173a78e"
+    },
+    "model": "ideology.ideologysectionconditioner",
+    "pk": 4
+  }
+]

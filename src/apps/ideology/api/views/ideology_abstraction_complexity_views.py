@@ -13,5 +13,9 @@ from rest_framework.permissions import AllowAny
 )
 class AbstractionComplexityListView(ListAPIView):
     permission_classes = [AllowAny]
-    queryset = IdeologyAbstractionComplexity.objects.all().order_by("complexity")
     serializer_class = IdeologyAbstractionComplexitySerializer
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return IdeologyAbstractionComplexity.objects.all().order_by("complexity")
+        return IdeologyAbstractionComplexity.objects.visible.order_by("complexity")

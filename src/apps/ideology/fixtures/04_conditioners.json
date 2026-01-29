@@ -1,0 +1,5061 @@
+[
+  {
+    "fields": {
+      "accepted_values": [
+        "Option A",
+        "Option B",
+        "Option C"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "Option A",
+        "Option B",
+        "Option C"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.624Z",
+      "description": "[TEST-ES] Controls visibility of Section 2. Select 'Option A' to unlock it.",
+      "description_en": "[TEST-EN] Controls visibility of Section 2. Select 'Option A' to unlock it.",
+      "description_es": "[TEST-ES] Controls visibility of Section 2. Select 'Option A' to unlock it.",
+      "modified": "2026-01-29T00:04:39.629Z",
+      "name": "[TEST-ES] Conditioner A (Selector)",
+      "name_en": "[TEST-EN] Conditioner A (Selector)",
+      "name_es": "[TEST-ES] Conditioner A (Selector)",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "a8e4d25c-e5c4-4420-9e0c-86a4ca11f781"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.648Z",
+      "description": "[TEST-ES] Controls the last 5 questions of this section. Set to 'true' to reveal them.",
+      "description_en": "[TEST-EN] Controls the last 5 questions of this section. Set to 'true' to reveal them.",
+      "description_es": "[TEST-ES] Controls the last 5 questions of this section. Set to 'true' to reveal them.",
+      "modified": "2026-01-29T00:04:39.652Z",
+      "name": "[TEST-ES] Conditioner B",
+      "name_en": "[TEST-EN] Conditioner B",
+      "name_es": "[TEST-ES] Conditioner B",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "b3c9dced-8227-4792-98bd-11a84166b289"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.685Z",
+      "description": "[TEST-ES] Lock 1/2 for Section 3. Set to 'true' to satisfy this part.",
+      "description_en": "[TEST-EN] Lock 1/2 for Section 3. Set to 'true' to satisfy this part.",
+      "description_es": "[TEST-ES] Lock 1/2 for Section 3. Set to 'true' to satisfy this part.",
+      "modified": "2026-01-29T00:04:39.690Z",
+      "name": "[TEST-ES] Conditioner C",
+      "name_en": "[TEST-EN] Conditioner C",
+      "name_es": "[TEST-ES] Conditioner C",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "ba9402c4-75d0-4dbb-91a0-4aedb6228263"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.690Z",
+      "description": "[TEST-ES] Root dependency for Conditioner D. Set to 'true' to enable D.",
+      "description_en": "[TEST-EN] Root dependency for Conditioner D. Set to 'true' to enable D.",
+      "description_es": "[TEST-ES] Root dependency for Conditioner D. Set to 'true' to enable D.",
+      "modified": "2026-01-29T00:04:39.694Z",
+      "name": "[TEST-ES] Conditioner E (Root)",
+      "name_en": "[TEST-EN] Conditioner E (Root)",
+      "name_es": "[TEST-ES] Conditioner E (Root)",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "35d1523e-ee7b-41ed-beb2-a1cfa06a5da8"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.695Z",
+      "description": "[TEST-ES] Lock 2/2 for Section 3. Depends on E='true'. Set this to 'true' to fully unlock Section 3.",
+      "description_en": "[TEST-EN] Lock 2/2 for Section 3. Depends on E='true'. Set this to 'true' to fully unlock Section 3.",
+      "description_es": "[TEST-ES] Lock 2/2 for Section 3. Depends on E='true'. Set this to 'true' to fully unlock Section 3.",
+      "modified": "2026-01-29T00:04:39.698Z",
+      "name": "[TEST-ES] Conditioner D (Nested)",
+      "name_en": "[TEST-EN] Conditioner D (Nested)",
+      "name_es": "[TEST-ES] Conditioner D (Nested)",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "4fa9cdcd-5f99-40e4-a6d9-77e9794d0ddd"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Option A",
+        "Option B"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "Option A",
+        "Option B"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.718Z",
+      "description": "[TEST-ES] Multi-condition Lock 1/2. Select 'Option A'.",
+      "description_en": "[TEST-EN] Multi-condition Lock 1/2. Select 'Option A'.",
+      "description_es": "[TEST-ES] Multi-condition Lock 1/2. Select 'Option A'.",
+      "modified": "2026-01-29T00:04:39.722Z",
+      "name": "[TEST-ES] Conditioner F",
+      "name_en": "[TEST-EN] Conditioner F",
+      "name_es": "[TEST-ES] Conditioner F",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "1149c2b8-b16f-477d-a6f6-64caeeb80a16"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Option A",
+        "Option B"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "Option A",
+        "Option B"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.722Z",
+      "description": "[TEST-ES] Multi-condition Lock 2/2. Select 'Option A'.",
+      "description_en": "[TEST-EN] Multi-condition Lock 2/2. Select 'Option A'.",
+      "description_es": "[TEST-ES] Multi-condition Lock 2/2. Select 'Option A'.",
+      "modified": "2026-01-29T00:04:39.726Z",
+      "name": "[TEST-ES] Conditioner G",
+      "name_en": "[TEST-EN] Conditioner G",
+      "name_es": "[TEST-ES] Conditioner G",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "38ec2cc9-614a-4b1f-bc82-6ddad41bcf7f"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Option A",
+        "Option B"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "Option A",
+        "Option B"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.755Z",
+      "description": "[TEST-ES] Recursive Lock 1/2. Select 'Option A'.",
+      "description_en": "[TEST-EN] Recursive Lock 1/2. Select 'Option A'.",
+      "description_es": "[TEST-ES] Recursive Lock 1/2. Select 'Option A'.",
+      "modified": "2026-01-29T00:04:39.758Z",
+      "name": "[TEST-ES] Conditioner H",
+      "name_en": "[TEST-EN] Conditioner H",
+      "name_es": "[TEST-ES] Conditioner H",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "3f112e55-c2b8-446b-a5db-5c41848e68f8"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.759Z",
+      "description": "[TEST-ES] Root dependency. Set 'true' to enable Conditioner I.",
+      "description_en": "[TEST-EN] Root dependency. Set 'true' to enable Conditioner I.",
+      "description_es": "[TEST-ES] Root dependency. Set 'true' to enable Conditioner I.",
+      "modified": "2026-01-29T00:04:39.762Z",
+      "name": "[TEST-ES] Conditioner J (Root)",
+      "name_en": "[TEST-EN] Conditioner J (Root)",
+      "name_es": "[TEST-ES] Conditioner J (Root)",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "60538f2d-2db4-4887-8787-aca27b361fd0"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Option A",
+        "Option B"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "Option A",
+        "Option B"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:04:39.763Z",
+      "description": "[TEST-ES] Recursive Lock 2/2. Depends on J='true'. Select 'Option A' to unlock questions.",
+      "description_en": "[TEST-EN] Recursive Lock 2/2. Depends on J='true'. Select 'Option A' to unlock questions.",
+      "description_es": "[TEST-ES] Recursive Lock 2/2. Depends on J='true'. Select 'Option A' to unlock questions.",
+      "modified": "2026-01-29T00:04:39.767Z",
+      "name": "[TEST-ES] Conditioner I (Nested)",
+      "name_en": "[TEST-EN] Conditioner I (Nested)",
+      "name_es": "[TEST-ES] Conditioner I (Nested)",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "71c010b6-cd9a-47ae-bf32-25080d1652f1"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 50,
+      "created": "2026-01-29T00:04:39.812Z",
+      "description": "[TEST-ES] Automatic: Becomes 'true' if S1 Trigger Axis is between 50 and 100.",
+      "description_en": "[TEST-EN] Automatic: Becomes 'true' if S1 Trigger Axis is between 50 and 100.",
+      "description_es": "[TEST-ES] Automatic: Becomes 'true' if S1 Trigger Axis is between 50 and 100.",
+      "modified": "2026-01-29T00:04:39.817Z",
+      "name": "[TEST-ES] Virtual Cond (Triggered by S1 > 50)",
+      "name_en": "[TEST-EN] Virtual Cond (Triggered by S1 > 50)",
+      "name_es": "[TEST-ES] Virtual Cond (Triggered by S1 > 50)",
+      "source_axis": 1,
+      "type": "axis_range",
+      "uuid": "9f88438c-8b5e-4c73-8984-fe40eaf1ba9a"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "accepted_values_en": [
+        "Spain",
+        "United Kingdom"
+      ],
+      "accepted_values_es": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.459Z",
+      "description": "Determina el marco geopol\u00edtico y cultural desde el cual el usuario responde, condicionando la aplicabilidad de preguntas espec\u00edficas sobre independencia regional, monarqu\u00eda o alianzas internacionales.",
+      "description_en": "Determines the geopolitical and cultural framework from which the user responds, conditioning the applicability of specific questions regarding regional independence, monarchy, or international alliances.",
+      "description_es": "Determina el marco geopol\u00edtico y cultural desde el cual el usuario responde, condicionando la aplicabilidad de preguntas espec\u00edficas sobre independencia regional, monarqu\u00eda o alianzas internacionales.",
+      "modified": "2026-01-29T00:06:28.460Z",
+      "name": "Pa\u00eds de origen",
+      "name_en": "Country of origin",
+      "name_es": "Pa\u00eds de origen",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "ea9aae1e-9fe9-42c1-8762-7ceb02673b94"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Indiferente",
+        "Cristianismo Cat\u00f3lico",
+        "Cristianismo Ortodoxo",
+        "Otra rama del cristianismo",
+        "Islam Sun\u00ed",
+        "Islam Chi\u00ed",
+        "Otra rama del Islam",
+        "Hinduismo",
+        "Budismo",
+        "Agnosticismo",
+        "Ate\u00edsmo"
+      ],
+      "accepted_values_en": [
+        "Indifferent",
+        "Catholic Christianity",
+        "Orthodox Christianity",
+        "Other branch of Christianity",
+        "Sunni Islam",
+        "Shia Islam",
+        "Other branch of Islam",
+        "Hinduism",
+        "Buddhism",
+        "Agnosticism",
+        "Atheism"
+      ],
+      "accepted_values_es": [
+        "Indiferente",
+        "Cristianismo Cat\u00f3lico",
+        "Cristianismo Ortodoxo",
+        "Otra rama del cristianismo",
+        "Islam Sun\u00ed",
+        "Islam Chi\u00ed",
+        "Otra rama del Islam",
+        "Hinduismo",
+        "Budismo",
+        "Agnosticismo",
+        "Ate\u00edsmo"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.462Z",
+      "description": "Identifica el marco espiritual o filos\u00f3fico con el que el usuario se identifica, lo cual puede influir en sus posturas sobre moralidad p\u00fablica, leyes sociales y la relaci\u00f3n entre Iglesia y Estado.",
+      "description_en": "Identifies the spiritual or philosophical framework with which the user identifies, which may influence their stances on public morality, social laws, and the relationship between Church and State.",
+      "description_es": "Identifica el marco espiritual o filos\u00f3fico con el que el usuario se identifica, lo cual puede influir en sus posturas sobre moralidad p\u00fablica, leyes sociales y la relaci\u00f3n entre Iglesia y Estado.",
+      "modified": "2026-01-29T00:06:28.463Z",
+      "name": "Religi\u00f3n preferencial",
+      "name_en": "Preferential religion",
+      "name_es": "Religi\u00f3n preferencial",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "cbe736ea-a01d-46b4-90d0-ee91d2e12bb4"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "todas las comunidades aut\u00f3nomas de Espa\u00f1a..."
+      ],
+      "accepted_values_en": [
+        "all autonomous communities of Spain..."
+      ],
+      "accepted_values_es": [
+        "todas las comunidades aut\u00f3nomas de Espa\u00f1a..."
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.465Z",
+      "description": "Especifica la ubicaci\u00f3n administrativa del usuario dentro de Espa\u00f1a, relevante para evaluar tensiones centro-periferia, fiscalidad regional y sentimientos identitarios locales.",
+      "description_en": "Specifies the user's administrative location within Spain, relevant for evaluating center-periphery tensions, regional taxation, and local identity sentiments.",
+      "description_es": "Especifica la ubicaci\u00f3n administrativa del usuario dentro de Espa\u00f1a, relevante para evaluar tensiones centro-periferia, fiscalidad regional y sentimientos identitarios locales.",
+      "modified": "2026-01-29T00:06:28.465Z",
+      "name": "Comunidad aut\u00f3noma",
+      "name_en": "Autonomous community",
+      "name_es": "Comunidad aut\u00f3noma",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "ec70cacc-b5fd-4873-b2ff-876ff5d1fc51"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Escocia",
+        "Gales",
+        "Irlanda del Norte",
+        "Inglaterra"
+      ],
+      "accepted_values_en": [
+        "Scotland",
+        "Wales",
+        "Northern Ireland",
+        "England"
+      ],
+      "accepted_values_es": [
+        "Escocia",
+        "Gales",
+        "Irlanda del Norte",
+        "Inglaterra"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.467Z",
+      "description": "Define la naci\u00f3n constituyente de residencia dentro del Reino Unido, factor clave para entender posturas sobre la devoluci\u00f3n de poderes y la unidad del reino.",
+      "description_en": "Defines the constituent nation of residence within the United Kingdom, a key factor in understanding stances on devolution of powers and the unity of the kingdom.",
+      "description_es": "Define la naci\u00f3n constituyente de residencia dentro del Reino Unido, factor clave para entender posturas sobre la devoluci\u00f3n de poderes y la unidad del reino.",
+      "modified": "2026-01-29T00:06:28.468Z",
+      "name": "Pa\u00eds constituyente",
+      "name_en": "Constituent country",
+      "name_es": "Pa\u00eds constituyente",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "eb59329e-b904-4434-8d5a-03305a3b9508"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Primogenitura s\u00e1lica",
+        "Primogenitura",
+        "Ultimogenitura",
+        "Por antig\u00fcedad din\u00e1stica",
+        "Electiva general",
+        "Electiva militar",
+        "Electiva aristocr\u00e1tica",
+        "Electiva din\u00e1stica",
+        "Partici\u00f3n din\u00e1stica"
+      ],
+      "accepted_values_en": [
+        "Salic primogeniture",
+        "Primogeniture",
+        "Ultimogeniture",
+        "By dynastic seniority",
+        "General elective",
+        "Military elective",
+        "Aristocratic elective",
+        "Dynastic elective",
+        "Dynastic partition"
+      ],
+      "accepted_values_es": [
+        "Primogenitura s\u00e1lica",
+        "Primogenitura",
+        "Ultimogenitura",
+        "Por antig\u00fcedad din\u00e1stica",
+        "Electiva general",
+        "Electiva militar",
+        "Electiva aristocr\u00e1tica",
+        "Electiva din\u00e1stica",
+        "Partici\u00f3n din\u00e1stica"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.470Z",
+      "description": "Explora la preferencia sobre las reglas de transmisi\u00f3n de la jefatura del Estado en un sistema mon\u00e1rquico, desde modelos tradicionales hereditarios hasta variantes electivas.",
+      "description_en": "Explores the preference regarding the rules of transmission of the head of state in a monarchical system, from traditional hereditary models to elective variants.",
+      "description_es": "Explora la preferencia sobre las reglas de transmisi\u00f3n de la jefatura del Estado en un sistema mon\u00e1rquico, desde modelos tradicionales hereditarios hasta variantes electivas.",
+      "modified": "2026-01-29T00:06:28.470Z",
+      "name": "Tipo de sucesi\u00f3n mon\u00e1rquica deseada",
+      "name_en": "Desired type of monarchical succession",
+      "name_es": "Tipo de sucesi\u00f3n mon\u00e1rquica deseada",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "376f2d19-28a8-4912-9d19-fb4d51f86466"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.472Z",
+      "description": "Cuestiona la relevancia y continuidad de la organizaci\u00f3n poscolonial que agrupa a antiguos territorios brit\u00e1nicos, evaluando su utilidad geopol\u00edtica actual.",
+      "description_en": "Questions the relevance and continuity of the post-colonial organization grouping former British territories, evaluating its current geopolitical utility.",
+      "description_es": "Cuestiona la relevancia y continuidad de la organizaci\u00f3n poscolonial que agrupa a antiguos territorios brit\u00e1nicos, evaluando su utilidad geopol\u00edtica actual.",
+      "modified": "2026-01-29T00:06:28.473Z",
+      "name": "\u00bfDeber\u00eda disolverse la Mancomunidad de Naciones?",
+      "name_en": "Should the Commonwealth of Nations be dissolved?",
+      "name_es": "\u00bfDeber\u00eda disolverse la Mancomunidad de Naciones?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "3157691c-c65e-4fa0-bfe4-4af57bda4ddb"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Presidencialista",
+        "Semipresidencialista",
+        "Parlamentaria",
+        "Unipartidista"
+      ],
+      "accepted_values_en": [
+        "Presidential",
+        "Semi-presidential",
+        "Parliamentary",
+        "One-party"
+      ],
+      "accepted_values_es": [
+        "Presidencialista",
+        "Semipresidencialista",
+        "Parlamentaria",
+        "Unipartidista"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.474Z",
+      "description": "Indaga en la estructura preferida para el poder ejecutivo en ausencia de monarqu\u00eda, diferenciando entre modelos donde el presidente ostenta el poder real o funciones ceremoniales.",
+      "description_en": "Inquires into the preferred structure for the executive power in the absence of monarchy, differentiating between models where the president holds real power or ceremonial functions.",
+      "description_es": "Indaga en la estructura preferida para el poder ejecutivo en ausencia de monarqu\u00eda, diferenciando entre modelos donde el presidente ostenta el poder real o funciones ceremoniales.",
+      "modified": "2026-01-29T00:06:28.475Z",
+      "name": "Tipo de rep\u00fablica deseada",
+      "name_en": "Desired type of republic",
+      "name_es": "Tipo de rep\u00fablica deseada",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "27e5a6a5-b9d3-4b53-8d8e-120cdcad40cd"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Unitario Centralizado",
+        "Unitario Descentralizado",
+        "Federal",
+        "Confederal"
+      ],
+      "accepted_values_en": [
+        "Centralized Unitary",
+        "Decentralized Unitary",
+        "Federal",
+        "Confederal"
+      ],
+      "accepted_values_es": [
+        "Unitario Centralizado",
+        "Unitario Descentralizado",
+        "Federal",
+        "Confederal"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.477Z",
+      "description": "Define el modelo de organizaci\u00f3n administrativa del Estado, determinando el grado de autonom\u00eda o centralizaci\u00f3n que deben tener las regiones frente al gobierno central.",
+      "description_en": "Defines the model of administrative organization of the State, determining the degree of autonomy or centralization that regions should have vis-\u00e0-vis the central government.",
+      "description_es": "Define el modelo de organizaci\u00f3n administrativa del Estado, determinando el grado de autonom\u00eda o centralizaci\u00f3n que deben tener las regiones frente al gobierno central.",
+      "modified": "2026-01-29T00:06:28.477Z",
+      "name": "Estructura Territorial",
+      "name_en": "Territorial Structure",
+      "name_es": "Estructura Territorial",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "794e82a6-c443-4d74-bd6f-1b1abe0dfdb1"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.479Z",
+      "description": "Eval\u00faa la posici\u00f3n directa sobre la secesi\u00f3n de Catalu\u00f1a respecto a Espa\u00f1a, un tema central en la pol\u00edtica territorial espa\u00f1ola.",
+      "description_en": "Evaluates the direct position on the secession of Catalonia from Spain, a central issue in Spanish territorial politics.",
+      "description_es": "Eval\u00faa la posici\u00f3n directa sobre la secesi\u00f3n de Catalu\u00f1a respecto a Espa\u00f1a, un tema central en la pol\u00edtica territorial espa\u00f1ola.",
+      "modified": "2026-01-29T00:06:28.480Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Catalu\u00f1a?",
+      "name_en": "Are you in favor of the independence of Catalonia?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Catalu\u00f1a?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "3db68ce9-b749-4250-bc93-900cd66b1d56"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.482Z",
+      "description": "Sondea la opini\u00f3n sobre la soberan\u00eda plena del Pa\u00eds Vasco, considerando su historia particular y movimientos nacionalistas.",
+      "description_en": "Probes the opinion on the full sovereignty of the Basque Country, considering its particular history and nationalist movements.",
+      "description_es": "Sondea la opini\u00f3n sobre la soberan\u00eda plena del Pa\u00eds Vasco, considerando su historia particular y movimientos nacionalistas.",
+      "modified": "2026-01-29T00:06:28.482Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Euskadi?",
+      "name_en": "Are you in favor of the independence of the Basque Country?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Euskadi?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "106c5908-f28e-43ce-a786-6d01588444c5"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.484Z",
+      "description": "Pregunta por la posible constituci\u00f3n de Galicia como estado independiente, midiendo el apoyo al nacionalismo gallego.",
+      "description_en": "Asks about the possible constitution of Galicia as an independent state, measuring support for Galician nationalism.",
+      "description_es": "Pregunta por la posible constituci\u00f3n de Galicia como estado independiente, midiendo el apoyo al nacionalismo gallego.",
+      "modified": "2026-01-29T00:06:28.485Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Galicia?",
+      "name_en": "Are you in favor of the independence of Galicia?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Galicia?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "98290dae-6506-4513-aa42-a1c49e0f4b39"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.487Z",
+      "description": "Considera la opci\u00f3n de soberan\u00eda para el archipi\u00e9lago canario, teniendo en cuenta su situaci\u00f3n geogr\u00e1fica y particularidades insulares.",
+      "description_en": "Considers the option of sovereignty for the Canary Islands archipelago, taking into account its geographical situation and insular particularities.",
+      "description_es": "Considera la opci\u00f3n de soberan\u00eda para el archipi\u00e9lago canario, teniendo en cuenta su situaci\u00f3n geogr\u00e1fica y particularidades insulares.",
+      "modified": "2026-01-29T00:06:28.488Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Canarias?",
+      "name_en": "Are you in favor of the independence of the Canary Islands?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Canarias?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "c5489f97-81bb-4309-8f1b-f5cc43d13a4a"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.489Z",
+      "description": "Eval\u00faa el deseo de autodeterminaci\u00f3n para las Islas Baleares, separ\u00e1ndolas de la administraci\u00f3n estatal espa\u00f1ola.",
+      "description_en": "Evaluates the desire for self-determination for the Balearic Islands, separating them from the Spanish state administration.",
+      "description_es": "Eval\u00faa el deseo de autodeterminaci\u00f3n para las Islas Baleares, separ\u00e1ndolas de la administraci\u00f3n estatal espa\u00f1ola.",
+      "modified": "2026-01-29T00:06:28.490Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Baleares?",
+      "name_en": "Are you in favor of the independence of the Balearic Islands?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Baleares?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "d4470532-dee9-47a7-a2d0-0c37a3617d87"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.492Z",
+      "description": "Plantea un escenario hipot\u00e9tico y espec\u00edfico de secesi\u00f3n para la regi\u00f3n capitalina, vinculado a un liderazgo pol\u00edtico concreto.",
+      "description_en": "Poses a hypothetical and specific secession scenario for the capital region, linked to specific political leadership.",
+      "description_es": "Plantea un escenario hipot\u00e9tico y espec\u00edfico de secesi\u00f3n para la regi\u00f3n capitalina, vinculado a un liderazgo pol\u00edtico concreto.",
+      "modified": "2026-01-29T00:06:28.492Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Madrid bajo Ayuso?",
+      "name_en": "Are you in favor of the independence of Madrid under Ayuso?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Madrid bajo Ayuso?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "887d419d-993e-49f3-a8b9-7415df18eda9"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.494Z",
+      "description": "Mide el apoyo a la disoluci\u00f3n de la uni\u00f3n entre Escocia y el resto del Reino Unido, un tema recurrente en la pol\u00edtica brit\u00e1nica.",
+      "description_en": "Measures support for the dissolution of the union between Scotland and the rest of the United Kingdom, a recurring theme in British politics.",
+      "description_es": "Mide el apoyo a la disoluci\u00f3n de la uni\u00f3n entre Escocia y el resto del Reino Unido, un tema recurrente en la pol\u00edtica brit\u00e1nica.",
+      "modified": "2026-01-29T00:06:28.495Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Escocia?",
+      "name_en": "Are you in favor of the independence of Scotland?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Escocia?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "e00603f1-9fd1-4df6-ad42-26768ec41fac"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.497Z",
+      "description": "Consulta sobre la posibilidad de que Gales se constituya como una naci\u00f3n soberana fuera del Reino Unido.",
+      "description_en": "Consults on the possibility of Wales constituting itself as a sovereign nation outside the United Kingdom.",
+      "description_es": "Consulta sobre la posibilidad de que Gales se constituya como una naci\u00f3n soberana fuera del Reino Unido.",
+      "modified": "2026-01-29T00:06:28.497Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Gales?",
+      "name_en": "Are you in favor of the independence of Wales?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Gales?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "37bbb9b4-0358-4242-a08b-21f8fdb2c461"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.499Z",
+      "description": "Aborda la compleja cuesti\u00f3n territorial de Irlanda del Norte, implicando su salida del Reino Unido y posible reunificaci\u00f3n con Irlanda.",
+      "description_en": "Addresses the complex territorial issue of Northern Ireland, implying its exit from the United Kingdom and possible reunification with Ireland.",
+      "description_es": "Aborda la compleja cuesti\u00f3n territorial de Irlanda del Norte, implicando su salida del Reino Unido y posible reunificaci\u00f3n con Irlanda.",
+      "modified": "2026-01-29T00:06:28.499Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Irlanda del Norte?",
+      "name_en": "Are you in favor of the independence of Northern Ireland?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Irlanda del Norte?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "28bd0c20-dbc9-4d0a-a524-50f5e6154795"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.501Z",
+      "description": "Eval\u00faa el apoyo al movimiento regionalista de Cornualles y su aspiraci\u00f3n a ser reconocido como naci\u00f3n celta independiente.",
+      "description_en": "Evaluates support for the Cornish regionalist movement and its aspiration to be recognized as an independent Celtic nation.",
+      "description_es": "Eval\u00faa el apoyo al movimiento regionalista de Cornualles y su aspiraci\u00f3n a ser reconocido como naci\u00f3n celta independiente.",
+      "modified": "2026-01-29T00:06:28.502Z",
+      "name": "\u00bfEst\u00e1s a favor de la independencia de Cornualles?",
+      "name_en": "Are you in favor of the independence of Cornwall?",
+      "name_es": "\u00bfEst\u00e1s a favor de la independencia de Cornualles?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "6d574608-e534-4d84-96ac-a4ca2c7cf373"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.504Z",
+      "description": "Cuestiona la pertenencia a la alianza militar atl\u00e1ntica, reflejando posturas sobre defensa com\u00fan, soberan\u00eda militar y alineamiento geopol\u00edtico occidental.",
+      "description_en": "Questions membership in the Atlantic military alliance, reflecting stances on common defense, military sovereignty, and Western geopolitical alignment.",
+      "description_es": "Cuestiona la pertenencia a la alianza militar atl\u00e1ntica, reflejando posturas sobre defensa com\u00fan, soberan\u00eda militar y alineamiento geopol\u00edtico occidental.",
+      "modified": "2026-01-29T00:06:28.504Z",
+      "name": "\u00bfDeber\u00eda tu pa\u00eds salir de la OTAN?",
+      "name_en": "Should your country leave NATO?",
+      "name_es": "\u00bfDeber\u00eda tu pa\u00eds salir de la OTAN?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "96407dea-57cd-43cd-9bd1-dc0a72cf1d52"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.506Z",
+      "description": "Plantea la opci\u00f3n del 'exit' para Espa\u00f1a, evaluando el escepticismo hacia la integraci\u00f3n europea y la preferencia por la soberan\u00eda nacional plena.",
+      "description_en": "Poses the 'exit' option for Spain, evaluating skepticism towards European integration and the preference for full national sovereignty.",
+      "description_es": "Plantea la opci\u00f3n del 'exit' para Espa\u00f1a, evaluando el escepticismo hacia la integraci\u00f3n europea y la preferencia por la soberan\u00eda nacional plena.",
+      "modified": "2026-01-29T00:06:28.507Z",
+      "name": "\u00bfDeber\u00eda tu pa\u00eds salir de la Uni\u00f3n Europea?",
+      "name_en": "Should your country leave the European Union?",
+      "name_es": "\u00bfDeber\u00eda tu pa\u00eds salir de la Uni\u00f3n Europea?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "47a93f3d-e5ae-4d53-9008-5ba5b75f0d26"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.508Z",
+      "description": "Reeval\u00faa la decisi\u00f3n del Brexit, preguntando si el Reino Unido deber\u00eda revertir su salida y buscar la reintegraci\u00f3n en el bloque comunitario.",
+      "description_en": "Reevaluates the Brexit decision, asking if the United Kingdom should reverse its exit and seek reintegration into the community bloc.",
+      "description_es": "Reeval\u00faa la decisi\u00f3n del Brexit, preguntando si el Reino Unido deber\u00eda revertir su salida y buscar la reintegraci\u00f3n en el bloque comunitario.",
+      "modified": "2026-01-29T00:06:28.509Z",
+      "name": "\u00bfDeber\u00eda Reino Unido volver a la Uni\u00f3n Europea?",
+      "name_en": "Should the United Kingdom rejoin the European Union?",
+      "name_es": "\u00bfDeber\u00eda Reino Unido volver a la Uni\u00f3n Europea?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "17ea00be-62e1-4a7a-afa2-9fa747461d33"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.511Z",
+      "description": "Se enfoca en la soberan\u00eda monetaria, cuestionando la pertenencia a la moneda \u00fanica europea y la posibilidad de recuperar una divisa nacional propia.",
+      "description_en": "Focuses on monetary sovereignty, questioning membership in the single European currency and the possibility of regaining a national currency.",
+      "description_es": "Se enfoca en la soberan\u00eda monetaria, cuestionando la pertenencia a la moneda \u00fanica europea y la posibilidad de recuperar una divisa nacional propia.",
+      "modified": "2026-01-29T00:06:28.511Z",
+      "name": "\u00bfDeber\u00eda tu pa\u00eds abandonar la Eurozona?",
+      "name_en": "Should your country leave the Eurozone?",
+      "name_es": "\u00bfDeber\u00eda tu pa\u00eds abandonar la Eurozona?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "8a49592e-9f0f-48e5-9e05-e4cbbd175092"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Sionismo/Pro-Israel",
+        "Soluci\u00f3n de dos estados",
+        "Pro-Palestina/Antisionismo",
+        "Neutralidad estricta"
+      ],
+      "accepted_values_en": [
+        "Zionism/Pro-Israel",
+        "Two-state solution",
+        "Pro-Palestine/Anti-Zionism",
+        "Strict neutrality"
+      ],
+      "accepted_values_es": [
+        "Sionismo/Pro-Israel",
+        "Soluci\u00f3n de dos estados",
+        "Pro-Palestina/Antisionismo",
+        "Neutralidad estricta"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.513Z",
+      "description": "Define el posicionamiento diplom\u00e1tico y moral respecto al conflicto israel\u00ed-palestino, una de las divisiones m\u00e1s marcadas en la pol\u00edtica internacional.",
+      "description_en": "Defines the diplomatic and moral stance regarding the Israeli-Palestinian conflict, one of the most marked divisions in international politics.",
+      "description_es": "Define el posicionamiento diplom\u00e1tico y moral respecto al conflicto israel\u00ed-palestino, una de las divisiones m\u00e1s marcadas en la pol\u00edtica internacional.",
+      "modified": "2026-01-29T00:06:28.514Z",
+      "name": "Postura en el conflicto de Oriente Pr\u00f3ximo",
+      "name_en": "Stance on the Middle East conflict",
+      "name_es": "Postura en el conflicto de Oriente Pr\u00f3ximo",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "0ec6372f-faca-4d5f-a0fb-25606d85be63"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.516Z",
+      "description": "Pregunta por el reconocimiento oficial de Kosovo como estado independiente, un tema delicado para pa\u00edses con tensiones territoriales internas como Espa\u00f1a.",
+      "description_en": "Asks for the official recognition of Kosovo as an independent state, a sensitive issue for countries with internal territorial tensions like Spain.",
+      "description_es": "Pregunta por el reconocimiento oficial de Kosovo como estado independiente, un tema delicado para pa\u00edses con tensiones territoriales internas como Espa\u00f1a.",
+      "modified": "2026-01-29T00:06:28.516Z",
+      "name": "Reconocimiento de Kosovo",
+      "name_en": "Recognition of Kosovo",
+      "name_es": "Reconocimiento de Kosovo",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "dd0844eb-5555-494d-adcb-cf0beac8bbc7"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Espa\u00f1ol",
+        "Brit\u00e1nico",
+        "Cosoberan\u00eda",
+        "Independiente"
+      ],
+      "accepted_values_en": [
+        "Spanish",
+        "British",
+        "Co-sovereignty",
+        "Independent"
+      ],
+      "accepted_values_es": [
+        "Espa\u00f1ol",
+        "Brit\u00e1nico",
+        "Cosoberan\u00eda",
+        "Independiente"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.518Z",
+      "description": "Aborda la disputa territorial sobre el Pe\u00f1\u00f3n, ofreciendo opciones que van desde el statu quo brit\u00e1nico hasta la soberan\u00eda espa\u00f1ola o f\u00f3rmulas compartidas.",
+      "description_en": "Addresses the territorial dispute over the Rock, offering options ranging from the British status quo to Spanish sovereignty or shared formulas.",
+      "description_es": "Aborda la disputa territorial sobre el Pe\u00f1\u00f3n, ofreciendo opciones que van desde el statu quo brit\u00e1nico hasta la soberan\u00eda espa\u00f1ola o f\u00f3rmulas compartidas.",
+      "modified": "2026-01-29T00:06:28.519Z",
+      "name": "Estatus de Gibraltar",
+      "name_en": "Status of Gibraltar",
+      "name_es": "Estatus de Gibraltar",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "043a861b-471c-4076-88f7-1d02e83eea03"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.521Z",
+      "description": "Plantea el dilema \u00e9tico sobre la capacidad del Estado para ejecutar a criminales, sirviendo como indicador de valores sobre justicia punitiva y derechos humanos.",
+      "description_en": "Poses the ethical dilemma regarding the State's capacity to execute criminals, serving as an indicator of values regarding punitive justice and human rights.",
+      "description_es": "Plantea el dilema \u00e9tico sobre la capacidad del Estado para ejecutar a criminales, sirviendo como indicador de valores sobre justicia punitiva y derechos humanos.",
+      "modified": "2026-01-29T00:06:28.522Z",
+      "name": "\u00bfEst\u00e1s a favor de la pena de muerte bajo alguna casu\u00edstica concreta?",
+      "name_en": "Are you in favor of the death penalty in any specific case?",
+      "name_es": "\u00bfEst\u00e1s a favor de la pena de muerte bajo alguna casu\u00edstica concreta?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "3e5fad31-a068-4902-a007-56d183de459d"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Ingl\u00e9s",
+        "Espa\u00f1ol",
+        "Franc\u00e9s",
+        "Alem\u00e1n",
+        "Portugu\u00e9s",
+        "Chino",
+        "\u00c1rabe",
+        "Hind\u00fa",
+        "Bengal\u00ed",
+        "Ruso",
+        "Japon\u00e9s",
+        "Otro"
+      ],
+      "accepted_values_en": [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Portuguese",
+        "Chinese",
+        "Arabic",
+        "Hindi",
+        "Bengali",
+        "Russian",
+        "Japanese",
+        "Other"
+      ],
+      "accepted_values_es": [
+        "Ingl\u00e9s",
+        "Espa\u00f1ol",
+        "Franc\u00e9s",
+        "Alem\u00e1n",
+        "Portugu\u00e9s",
+        "Chino",
+        "\u00c1rabe",
+        "Hind\u00fa",
+        "Bengal\u00ed",
+        "Ruso",
+        "Japon\u00e9s",
+        "Otro"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.523Z",
+      "description": "Eval\u00faa las prioridades educativas y culturales en cuanto al aprendizaje de lenguas extranjeras, indicando preferencias geopol\u00edticas o econ\u00f3micas.",
+      "description_en": "Evaluates educational and cultural priorities regarding foreign language learning, indicating geopolitical or economic preferences.",
+      "description_es": "Eval\u00faa las prioridades educativas y culturales en cuanto al aprendizaje de lenguas extranjeras, indicando preferencias geopol\u00edticas o econ\u00f3micas.",
+      "modified": "2026-01-29T00:06:28.524Z",
+      "name": "\u00bfQue idioma deber\u00eda ser obligado en tu pa\u00eds a parte del oficial?",
+      "name_en": "What language should be mandatory in your country besides the official one?",
+      "name_es": "\u00bfQue idioma deber\u00eda ser obligado en tu pa\u00eds a parte del oficial?",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "73f5ab8c-f3de-48d3-a7de-3b2b84728499"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "[0-5)",
+        "[5-10)",
+        "[10-15)",
+        "[15-20)",
+        "[20-25)",
+        "[25-30)",
+        "[30-35)",
+        "[35-40)",
+        "[40-45)",
+        "[45-50)",
+        "[50-55)",
+        "[55-60)",
+        "[60-65)",
+        "[65-70)",
+        "[70-75)",
+        "[75-80)",
+        ">80"
+      ],
+      "accepted_values_en": [
+        "[0-5)",
+        "[5-10)",
+        "[10-15)",
+        "[15-20)",
+        "[20-25)",
+        "[25-30)",
+        "[30-35)",
+        "[35-40)",
+        "[40-45)",
+        "[45-50)",
+        "[50-55)",
+        "[55-60)",
+        "[60-65)",
+        "[65-70)",
+        "[70-75)",
+        "[75-80)",
+        ">80"
+      ],
+      "accepted_values_es": [
+        "[0-5)",
+        "[5-10)",
+        "[10-15)",
+        "[15-20)",
+        "[20-25)",
+        "[25-30)",
+        "[30-35)",
+        "[35-40)",
+        "[40-45)",
+        "[45-50)",
+        "[50-55)",
+        "[55-60)",
+        "[60-65)",
+        "[65-70)",
+        "[70-75)",
+        "[75-80)",
+        ">80"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.526Z",
+      "description": "Define la visi\u00f3n sobre la regulaci\u00f3n laboral y el equilibrio entre vida y trabajo, desde modelos de explotaci\u00f3n intensiva hasta reducciones de jornada progresistas.",
+      "description_en": "Defines the vision on labor regulation and work-life balance, from intensive exploitation models to progressive working hour reductions.",
+      "description_es": "Define la visi\u00f3n sobre la regulaci\u00f3n laboral y el equilibrio entre vida y trabajo, desde modelos de explotaci\u00f3n intensiva hasta reducciones de jornada progresistas.",
+      "modified": "2026-01-29T00:06:28.526Z",
+      "name": "\u00bfCuantas horas deber\u00edan trabajarse a la semana?",
+      "name_en": "How many hours should be worked per week?",
+      "name_es": "\u00bfCuantas horas deber\u00edan trabajarse a la semana?",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "0d387fb5-3aca-4652-bb21-f240228122f7"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Jus Soli",
+        "Ius Sanguinis",
+        "Nacionalidad por Presunci\u00f3n",
+        "Jus Soli Restringido",
+        "Jus Soli e Ius Sanguinis",
+        "Solicitud libre"
+      ],
+      "accepted_values_en": [
+        "Jus Soli",
+        "Jus Sanguinis",
+        "Nationality by Presumption",
+        "Restricted Jus Soli",
+        "Jus Soli and Jus Sanguinis",
+        "Free application"
+      ],
+      "accepted_values_es": [
+        "Jus Soli",
+        "Ius Sanguinis",
+        "Nacionalidad por Presunci\u00f3n",
+        "Jus Soli Restringido",
+        "Jus Soli e Ius Sanguinis",
+        "Solicitud libre"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.528Z",
+      "description": "Establece el criterio fundamental para otorgar la ciudadan\u00eda, eligiendo entre el derecho de suelo (territorio) o el derecho de sangre (ascendencia).",
+      "description_en": "Establishes the fundamental criterion for granting citizenship, choosing between jus soli (territory) or jus sanguinis (descent).",
+      "description_es": "Establece el criterio fundamental para otorgar la ciudadan\u00eda, eligiendo entre el derecho de suelo (territorio) o el derecho de sangre (ascendencia).",
+      "modified": "2026-01-29T00:06:28.529Z",
+      "name": "\u00bfQu\u00e9 tipo de nacionalidad por nacimiento deber\u00eda darse?",
+      "name_en": "What type of nationality by birth should be granted?",
+      "name_es": "\u00bfQu\u00e9 tipo de nacionalidad por nacimiento deber\u00eda darse?",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "52cc46fd-630f-48f5-8d21-04530f12f2ef"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Heterosexualidad",
+        "Homosexualidad",
+        "Bisexualidad",
+        "Otro"
+      ],
+      "accepted_values_en": [
+        "Heterosexuality",
+        "Homosexuality",
+        "Bisexuality",
+        "Other"
+      ],
+      "accepted_values_es": [
+        "Heterosexualidad",
+        "Homosexualidad",
+        "Bisexualidad",
+        "Otro"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.531Z",
+      "description": "Eval\u00faa el grado de intolerancia estatal y control sobre la vida privada, identificando posturas extremas que criminalizan comportamientos sexuales consensuados.",
+      "description_en": "Evaluates the degree of state intolerance and control over private life, identifying extreme stances that criminalize consensual sexual behaviors.",
+      "description_es": "Eval\u00faa el grado de intolerancia estatal y control sobre la vida privada, identificando posturas extremas que criminalizan comportamientos sexuales consensuados.",
+      "modified": "2026-01-29T00:06:28.531Z",
+      "name": "\u00bfQu\u00e9 orientaciones sexuales consideras que deber\u00edan perseguirse?",
+      "name_en": "What sexual orientations do you consider should be prosecuted?",
+      "name_es": "\u00bfQu\u00e9 orientaciones sexuales consideras que deber\u00edan perseguirse?",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "fe52a076-0e5b-4c96-8943-dd4496e5f6d0"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "Todas",
+        "Cristianismo Cat\u00f3lico",
+        "Cristianismo Ortodoxo",
+        "Otra rama del cristianismo",
+        "Islam Sun\u00ed",
+        "Islam Chi\u00ed",
+        "Otra rama del Islam",
+        "Hinduismo",
+        "Budismo",
+        "Agnosticismo",
+        "Ate\u00edsmo"
+      ],
+      "accepted_values_en": [
+        "All",
+        "Catholic Christianity",
+        "Orthodox Christianity",
+        "Other branch of Christianity",
+        "Sunni Islam",
+        "Shia Islam",
+        "Other branch of Islam",
+        "Hinduism",
+        "Buddhism",
+        "Agnosticism",
+        "Atheism"
+      ],
+      "accepted_values_es": [
+        "Todas",
+        "Cristianismo Cat\u00f3lico",
+        "Cristianismo Ortodoxo",
+        "Otra rama del cristianismo",
+        "Islam Sun\u00ed",
+        "Islam Chi\u00ed",
+        "Otra rama del Islam",
+        "Hinduismo",
+        "Budismo",
+        "Agnosticismo",
+        "Ate\u00edsmo"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.533Z",
+      "description": "Mide la libertad religiosa y la persecuci\u00f3n de credos espec\u00edficos, detectando sesgos teocr\u00e1ticos o ate\u00edsmo de estado militante.",
+      "description_en": "Measures religious freedom and the persecution of specific creeds, detecting theocratic biases or militant state atheism.",
+      "description_es": "Mide la libertad religiosa y la persecuci\u00f3n de credos espec\u00edficos, detectando sesgos teocr\u00e1ticos o ate\u00edsmo de estado militante.",
+      "modified": "2026-01-29T00:06:28.534Z",
+      "name": "\u00bfQu\u00e9 religiones consideras que deber\u00edan perseguirse?",
+      "name_en": "What religions do you consider should be prosecuted?",
+      "name_es": "\u00bfQu\u00e9 religiones consideras que deber\u00edan perseguirse?",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "669aae9f-8b21-44a4-af76-88b293df50c9"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_en": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_es": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.536Z",
+      "description": "Establece el umbral de madurez pol\u00edtica y participaci\u00f3n ciudadana, debatiendo sobre la capacidad de los j\u00f3venes o la restricci\u00f3n a adultos.",
+      "description_en": "Establishes the threshold for political maturity and civic participation, debating the capacity of youth or the restriction to adults.",
+      "description_es": "Establece el umbral de madurez pol\u00edtica y participaci\u00f3n ciudadana, debatiendo sobre la capacidad de los j\u00f3venes o la restricci\u00f3n a adultos.",
+      "modified": "2026-01-29T00:06:28.536Z",
+      "name": "\u00bfA partir de que edad deber\u00eda permitirse votar? (en a\u00f1os)",
+      "name_en": "At what age should voting be allowed? (in years)",
+      "name_es": "\u00bfA partir de que edad deber\u00eda permitirse votar? (en a\u00f1os)",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "e4b44f93-b20b-40d7-b379-57c012330659"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_en": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_es": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.538Z",
+      "description": "Regula el acceso a sustancias controladas bas\u00e1ndose en criterios de salud p\u00fablica y responsabilidad individual.",
+      "description_en": "Regulates access to controlled substances based on public health and individual responsibility criteria.",
+      "description_es": "Regula el acceso a sustancias controladas bas\u00e1ndose en criterios de salud p\u00fablica y responsabilidad individual.",
+      "modified": "2026-01-29T00:06:28.538Z",
+      "name": "\u00bfA partir de que edad deber\u00eda permitirse consumir bebidas alcoh\u00f3licas? (en a\u00f1os)",
+      "name_en": "At what age should alcohol consumption be allowed? (in years)",
+      "name_es": "\u00bfA partir de que edad deber\u00eda permitirse consumir bebidas alcoh\u00f3licas? (en a\u00f1os)",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "82ef2836-abb4-43c4-a9fe-54613876624c"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_en": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "accepted_values_es": [
+        "(0-3)",
+        "[3-6)",
+        "[6-9)",
+        "[9-12)",
+        "[12-15)",
+        "[15-18)",
+        "[18-21)",
+        "[21-24)",
+        "[24-27)",
+        "[27-30)",
+        ">30"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.540Z",
+      "description": "Determina la pol\u00edtica de protecci\u00f3n al menor frente al tabaquismo, equilibrando la libertad de elecci\u00f3n con la prevenci\u00f3n sanitaria.",
+      "description_en": "Determines the policy of protecting minors against smoking, balancing freedom of choice with health prevention.",
+      "description_es": "Determina la pol\u00edtica de protecci\u00f3n al menor frente al tabaquismo, equilibrando la libertad de elecci\u00f3n con la prevenci\u00f3n sanitaria.",
+      "modified": "2026-01-29T00:06:28.541Z",
+      "name": "\u00bfA partir de que edad deber\u00eda permitirse consumir tabaco? (en a\u00f1os)",
+      "name_en": "At what age should tobacco consumption be allowed? (in years)",
+      "name_es": "\u00bfA partir de que edad deber\u00eda permitirse consumir tabaco? (en a\u00f1os)",
+      "source_axis": null,
+      "type": "categorical",
+      "uuid": "4ca01aa3-e194-4349-b6d4-f05714ba8786"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": null,
+      "axis_min_value": null,
+      "created": "2026-01-29T00:06:28.543Z",
+      "description": "Cuestiona la base misma de la democracia representativa partidista, explorando alternativas como la tecnocracia, la democracia directa o sistemas autocr\u00e1ticos sin facciones.",
+      "description_en": "Questions the very basis of partisan representative democracy, exploring alternatives such as technocracy, direct democracy, or autocratic systems without factions.",
+      "description_es": "Cuestiona la base misma de la democracia representativa partidista, explorando alternativas como la tecnocracia, la democracia directa o sistemas autocr\u00e1ticos sin facciones.",
+      "modified": "2026-01-29T00:06:28.543Z",
+      "name": "\u00bfDeber\u00edan abolirse todos los partidos pol\u00edticos?",
+      "name_en": "Should all political parties be abolished?",
+      "name_es": "\u00bfDeber\u00edan abolirse todos los partidos pol\u00edticos?",
+      "source_axis": null,
+      "type": "boolean",
+      "uuid": "604a2247-fa75-482c-a661-91c0e720a60e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.088Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.092Z",
+      "name": "Auto: Planificaci\u00f3n e < 100",
+      "name_en": null,
+      "name_es": "Auto: Planificaci\u00f3n e < 100",
+      "source_axis": 39,
+      "type": "axis_range",
+      "uuid": "56b1491a-96c1-4e4a-989d-9a681f3f2d35"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.116Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.117Z",
+      "name": "Auto: Planificaci\u00f3n e > -100",
+      "name_en": null,
+      "name_es": "Auto: Planificaci\u00f3n e > -100",
+      "source_axis": 39,
+      "type": "axis_range",
+      "uuid": "ee07b96c-be7c-467f-8aeb-96a6f62e7dc4"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.165Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.166Z",
+      "name": "Auto: Libre mercado v < 100",
+      "name_en": null,
+      "name_es": "Auto: Libre mercado v < 100",
+      "source_axis": 45,
+      "type": "axis_range",
+      "uuid": "effa3222-1f47-44c7-841e-e7faafcfc7f7"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 81,
+      "created": "2026-01-29T00:06:29.172Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.173Z",
+      "name": "Auto: Libertad de cul > 80",
+      "name_en": null,
+      "name_es": "Auto: Libertad de cul > 80",
+      "source_axis": 59,
+      "type": "axis_range",
+      "uuid": "5da059fa-4916-429a-ba52-e7271296a9f5"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.179Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.180Z",
+      "name": "Auto: Derechos especi < 100",
+      "name_en": null,
+      "name_es": "Auto: Derechos especi < 100",
+      "source_axis": 57,
+      "type": "axis_range",
+      "uuid": "1e482b09-eedf-401b-9078-e1c3aa86b913"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.191Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.192Z",
+      "name": "Auto: Estado desarmad > -100",
+      "name_en": null,
+      "name_es": "Auto: Estado desarmad > -100",
+      "source_axis": 64,
+      "type": "axis_range",
+      "uuid": "0dab8589-1d49-4e9a-81b8-055e8942f825"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.198Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.199Z",
+      "name": "Auto: Autarqu\u00eda vs Ap > -100",
+      "name_en": null,
+      "name_es": "Auto: Autarqu\u00eda vs Ap > -100",
+      "source_axis": 49,
+      "type": "axis_range",
+      "uuid": "58577844-b97d-4e68-aab3-c4247cd4ece3"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": -51,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.221Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.222Z",
+      "name": "Auto: Monarqu\u00eda vs Re < -50",
+      "name_en": null,
+      "name_es": "Auto: Monarqu\u00eda vs Re < -50",
+      "source_axis": 72,
+      "type": "axis_range",
+      "uuid": "0dd0892e-042b-4eb5-ac6a-bebe0e97449f"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 1,
+      "created": "2026-01-29T00:06:29.233Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.234Z",
+      "name": "Auto: Monarqu\u00eda vs Re > 0",
+      "name_en": null,
+      "name_es": "Auto: Monarqu\u00eda vs Re > 0",
+      "source_axis": 72,
+      "type": "axis_range",
+      "uuid": "f2f12912-24bb-4392-bf96-bd3912024d37"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.240Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.241Z",
+      "name": "Auto: Estado omnipres < 100",
+      "name_en": null,
+      "name_es": "Auto: Estado omnipres < 100",
+      "source_axis": 70,
+      "type": "axis_range",
+      "uuid": "21304808-a82f-442c-b509-755dc9789269"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": -1,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.252Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.253Z",
+      "name": "Auto: Secesi\u00f3n inmedi < 0",
+      "name_en": null,
+      "name_es": "Auto: Secesi\u00f3n inmedi < 0",
+      "source_axis": 78,
+      "type": "axis_range",
+      "uuid": "d13d45ec-34da-45e8-b4a2-24fda26f9845"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.382Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.383Z",
+      "name": "Auto: Aislacionismo e > -100",
+      "name_en": null,
+      "name_es": "Auto: Aislacionismo e > -100",
+      "source_axis": 108,
+      "type": "axis_range",
+      "uuid": "01e96502-e96c-42e0-99ce-f8e540af9598"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.398Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.399Z",
+      "name": "Auto: Clases en otro  < 100",
+      "name_en": null,
+      "name_es": "Auto: Clases en otro  < 100",
+      "source_axis": 211,
+      "type": "axis_range",
+      "uuid": "2afa2eb7-d13d-4d09-9344-70d17891ac68"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.405Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.406Z",
+      "name": "Auto: Reducci\u00f3n de jo < 100",
+      "name_en": null,
+      "name_es": "Auto: Reducci\u00f3n de jo < 100",
+      "source_axis": 225,
+      "type": "axis_range",
+      "uuid": "82e92969-7297-4473-b848-22b7349d49bd"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.412Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.413Z",
+      "name": "Auto: Derecho por nac < 100",
+      "name_en": null,
+      "name_es": "Auto: Derecho por nac < 100",
+      "source_axis": 247,
+      "type": "axis_range",
+      "uuid": "cecbc0f0-e9d6-4e73-b85b-f0d391ee6080"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 1,
+      "created": "2026-01-29T00:06:29.419Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.420Z",
+      "name": "Auto: Orientaci\u00f3n sex > 0",
+      "name_en": null,
+      "name_es": "Auto: Orientaci\u00f3n sex > 0",
+      "source_axis": 254,
+      "type": "axis_range",
+      "uuid": "04ea1a9b-5363-4491-9ab4-3c4834d590ca"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 1,
+      "created": "2026-01-29T00:06:29.426Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.427Z",
+      "name": "Auto: Libertad de cul > 0",
+      "name_en": null,
+      "name_es": "Auto: Libertad de cul > 0",
+      "source_axis": 255,
+      "type": "axis_range",
+      "uuid": "9ae0c6dd-bc23-4546-8795-9fa1243d8608"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.433Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.434Z",
+      "name": "Auto: Edad de voto a  > -100",
+      "name_en": null,
+      "name_es": "Auto: Edad de voto a  > -100",
+      "source_axis": 267,
+      "type": "axis_range",
+      "uuid": "80dc1ae8-dfd4-4809-bb5e-4395dec7fa09"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.440Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.441Z",
+      "name": "Auto: Prohibici\u00f3n del > -100",
+      "name_en": null,
+      "name_es": "Auto: Prohibici\u00f3n del > -100",
+      "source_axis": 141,
+      "type": "axis_range",
+      "uuid": "2985207b-29db-4aad-a17a-57809a3bc901"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": -1,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.452Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.453Z",
+      "name": "Auto: Listas electora < 0",
+      "name_en": null,
+      "name_es": "Auto: Listas electora < 0",
+      "source_axis": 268,
+      "type": "axis_range",
+      "uuid": "a42b23ec-0438-4a67-a778-c410b97fcfa6"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": -1,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.459Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.460Z",
+      "name": "Auto: Monarqu\u00eda vs Re < 0",
+      "name_en": null,
+      "name_es": "Auto: Monarqu\u00eda vs Re < 0",
+      "source_axis": 72,
+      "type": "axis_range",
+      "uuid": "39f56139-2413-4f12-94b0-0083c03ce912"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 1,
+      "created": "2026-01-29T00:06:29.466Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.468Z",
+      "name": "Auto: Monarqu\u00eda absol > 0",
+      "name_en": null,
+      "name_es": "Auto: Monarqu\u00eda absol > 0",
+      "source_axis": 73,
+      "type": "axis_range",
+      "uuid": "f6991cf9-269a-4eb7-8c93-5d294adae528"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.489Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.490Z",
+      "name": "Auto: Uninacionalismo > -100",
+      "name_en": null,
+      "name_es": "Auto: Uninacionalismo > -100",
+      "source_axis": 76,
+      "type": "axis_range",
+      "uuid": "9127d5c4-1517-4ac1-bf3e-c936470bbcda"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": -1,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.497Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.498Z",
+      "name": "Auto: Secesionismo pe < 0",
+      "name_en": null,
+      "name_es": "Auto: Secesionismo pe < 0",
+      "source_axis": 77,
+      "type": "axis_range",
+      "uuid": "3571f645-8a77-41ae-a6d1-513f94c71e69"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.510Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.511Z",
+      "name": "Auto: Mandatos ilimit > -100",
+      "name_en": null,
+      "name_es": "Auto: Mandatos ilimit > -100",
+      "source_axis": 80,
+      "type": "axis_range",
+      "uuid": "812f8bc9-41a1-4401-a497-07f14af3ecb2"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.523Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.524Z",
+      "name": "Auto: Gobierno teocr\u00e1 < 100",
+      "name_en": null,
+      "name_es": "Auto: Gobierno teocr\u00e1 < 100",
+      "source_axis": 81,
+      "type": "axis_range",
+      "uuid": "9f67c1e8-d34b-4c8e-9b14-fce179269e6e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.575Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.576Z",
+      "name": "Auto: Laissez-faire ( > -100",
+      "name_en": null,
+      "name_es": "Auto: Laissez-faire ( > -100",
+      "source_axis": 86,
+      "type": "axis_range",
+      "uuid": "05a7596b-70ec-44de-a174-09f5497175ef"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.582Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.583Z",
+      "name": "Auto: Soberan\u00eda monet < 100",
+      "name_en": null,
+      "name_es": "Auto: Soberan\u00eda monet < 100",
+      "source_axis": 89,
+      "type": "axis_range",
+      "uuid": "083d0d6b-2f77-44da-bf76-7da8ee36cd8d"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.616Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.617Z",
+      "name": "Auto: Abolici\u00f3n de im > -100",
+      "name_en": null,
+      "name_es": "Auto: Abolici\u00f3n de im > -100",
+      "source_axis": 95,
+      "type": "axis_range",
+      "uuid": "e3e3ad63-ba51-4142-93f2-53010b4b301e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.628Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.629Z",
+      "name": "Auto: Centralismo vs  > -100",
+      "name_en": null,
+      "name_es": "Auto: Centralismo vs  > -100",
+      "source_axis": 75,
+      "type": "axis_range",
+      "uuid": "85c8eaa2-92f1-41ea-b0c6-6294b1acc4da"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.757Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.758Z",
+      "name": "Auto: Impuestos al pa > -100",
+      "name_en": null,
+      "name_es": "Auto: Impuestos al pa > -100",
+      "source_axis": 99,
+      "type": "axis_range",
+      "uuid": "cacb0a1a-d6f9-4a3d-9a68-0d40bee2daba"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.868Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.869Z",
+      "name": "Auto: Legalizaci\u00f3n co < 100",
+      "name_en": null,
+      "name_es": "Auto: Legalizaci\u00f3n co < 100",
+      "source_axis": 132,
+      "type": "axis_range",
+      "uuid": "37e9978c-8aa1-4646-b2e8-a439abd84859"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:29.901Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.902Z",
+      "name": "Auto: Ley polic\u00e9ntric > -100",
+      "name_en": null,
+      "name_es": "Auto: Ley polic\u00e9ntric > -100",
+      "source_axis": 143,
+      "type": "axis_range",
+      "uuid": "df5eb4b5-6cdc-4063-93c0-a53ebcc1a897"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": 1,
+      "created": "2026-01-29T00:06:29.956Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.957Z",
+      "name": "Auto: Secesionismo pe > 0",
+      "name_en": null,
+      "name_es": "Auto: Secesionismo pe > 0",
+      "source_axis": 77,
+      "type": "axis_range",
+      "uuid": "759a4796-bd8c-4c45-994d-0106f6fdc2fe"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:29.992Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.993Z",
+      "name": "Auto: Poder personali < 100",
+      "name_en": null,
+      "name_es": "Auto: Poder personali < 100",
+      "source_axis": 71,
+      "type": "axis_range",
+      "uuid": "1db4470e-d466-47a1-9d21-96788b2f355e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 81
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.034Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.035Z",
+      "name": "Auto: Derecho individ < 100",
+      "name_en": null,
+      "name_es": "Auto: Derecho individ < 100",
+      "source_axis": 130,
+      "type": "axis_range",
+      "uuid": "aa797cab-0e5b-435c-9729-766fe94eaa01"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 82
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.042Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.043Z",
+      "name": "Auto: Seguridad ciuda > -100",
+      "name_en": null,
+      "name_es": "Auto: Seguridad ciuda > -100",
+      "source_axis": 159,
+      "type": "axis_range",
+      "uuid": "c26ea3a8-7954-4a0a-8f9e-d891d8982b9a"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 83
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.055Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.057Z",
+      "name": "Auto: Propiedad priva > -100",
+      "name_en": null,
+      "name_es": "Auto: Propiedad priva > -100",
+      "source_axis": 87,
+      "type": "axis_range",
+      "uuid": "c858cbaf-0e1d-4b7e-81e9-e2f7773f266a"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 84
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.093Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.094Z",
+      "name": "Auto: Pacifismo insti > -100",
+      "name_en": null,
+      "name_es": "Auto: Pacifismo insti > -100",
+      "source_axis": 170,
+      "type": "axis_range",
+      "uuid": "02599a21-54ca-4555-9a5c-cbdba338773a"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.112Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.113Z",
+      "name": "Auto: Privatizaci\u00f3n d > -100",
+      "name_en": null,
+      "name_es": "Auto: Privatizaci\u00f3n d > -100",
+      "source_axis": 172,
+      "type": "axis_range",
+      "uuid": "89b38bfb-1b79-42ad-95d5-751f685f5af8"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 86
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.186Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.188Z",
+      "name": "Auto: Medicina social > -100",
+      "name_en": null,
+      "name_es": "Auto: Medicina social > -100",
+      "source_axis": 183,
+      "type": "axis_range",
+      "uuid": "47162484-d5d0-41a4-9a6a-8f1972b53efb"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 87
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.212Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.214Z",
+      "name": "Auto: Medicina social < 100",
+      "name_en": null,
+      "name_es": "Auto: Medicina social < 100",
+      "source_axis": 183,
+      "type": "axis_range",
+      "uuid": "8062e360-2557-4eb0-bfab-e6da42a07053"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 88
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.256Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.257Z",
+      "name": "Auto: Estado del Bien > -100",
+      "name_en": null,
+      "name_es": "Auto: Estado del Bien > -100",
+      "source_axis": 193,
+      "type": "axis_range",
+      "uuid": "a58ecf29-cf70-499c-8ee7-e82c2fe0965f"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.295Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.297Z",
+      "name": "Auto: Despido prohibi > -100",
+      "name_en": null,
+      "name_es": "Auto: Despido prohibi > -100",
+      "source_axis": 101,
+      "type": "axis_range",
+      "uuid": "c2e98aea-d07b-41d9-ad9c-2ad7c016d4ff"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 90
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.351Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.353Z",
+      "name": "Auto: Educaci\u00f3n estat > -100",
+      "name_en": null,
+      "name_es": "Auto: Educaci\u00f3n estat > -100",
+      "source_axis": 202,
+      "type": "axis_range",
+      "uuid": "6ac58fa7-06c3-48b3-a3d1-ea94c013b759"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 91
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.395Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.396Z",
+      "name": "Auto: Investigaci\u00f3n e > -100",
+      "name_en": null,
+      "name_es": "Auto: Investigaci\u00f3n e > -100",
+      "source_axis": 212,
+      "type": "axis_range",
+      "uuid": "3c9001d2-9c8b-4f24-8a6c-c0948df1b70d"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 92
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.418Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.420Z",
+      "name": "Auto: Investigaci\u00f3n e < 100",
+      "name_en": null,
+      "name_es": "Auto: Investigaci\u00f3n e < 100",
+      "source_axis": 212,
+      "type": "axis_range",
+      "uuid": "2792c148-5a2b-4748-96b5-bb1e4233c445"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 93
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.426Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.427Z",
+      "name": "Auto: Trabajo obligad < 100",
+      "name_en": null,
+      "name_es": "Auto: Trabajo obligad < 100",
+      "source_axis": 221,
+      "type": "axis_range",
+      "uuid": "dec15c3e-9575-401d-a60a-87fcbf53f12b"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 94
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.439Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.441Z",
+      "name": "Auto: Salario M\u00ednimo  < 100",
+      "name_en": null,
+      "name_es": "Auto: Salario M\u00ednimo  < 100",
+      "source_axis": 102,
+      "type": "axis_range",
+      "uuid": "25157250-58c6-4925-84cf-fe211662d38d"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 95
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.447Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.448Z",
+      "name": "Auto: Derecho inviola < 100",
+      "name_en": null,
+      "name_es": "Auto: Derecho inviola < 100",
+      "source_axis": 157,
+      "type": "axis_range",
+      "uuid": "9fa01c43-229d-4df3-87c9-fb5718de1395"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 96
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.470Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.471Z",
+      "name": "Auto: Mandato judicia > -100",
+      "name_en": null,
+      "name_es": "Auto: Mandato judicia > -100",
+      "source_axis": 147,
+      "type": "axis_range",
+      "uuid": "a73ad009-910e-422a-b9fd-356af6b03d3d"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 97
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.494Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.495Z",
+      "name": "Auto: Salario M\u00ednimo  > -100",
+      "name_en": null,
+      "name_es": "Auto: Salario M\u00ednimo  > -100",
+      "source_axis": 102,
+      "type": "axis_range",
+      "uuid": "02207e94-4fbd-4383-8474-0a26a06f695c"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 98
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.543Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.544Z",
+      "name": "Auto: Contaminaci\u00f3n m < 100",
+      "name_en": null,
+      "name_es": "Auto: Contaminaci\u00f3n m < 100",
+      "source_axis": 231,
+      "type": "axis_range",
+      "uuid": "9f084739-0f35-4093-9121-5c4380348486"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.556Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.557Z",
+      "name": "Auto: Contaminaci\u00f3n m > -100",
+      "name_en": null,
+      "name_es": "Auto: Contaminaci\u00f3n m > -100",
+      "source_axis": 231,
+      "type": "axis_range",
+      "uuid": "4e064304-b3a5-4e0a-bdf3-32c8bf10e95b"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 100
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.584Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.585Z",
+      "name": "Auto: Derechos animal > -100",
+      "name_en": null,
+      "name_es": "Auto: Derechos animal > -100",
+      "source_axis": 233,
+      "type": "axis_range",
+      "uuid": "c98b14b0-228f-410c-8d82-50e0e5364dd6"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 101
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.607Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.608Z",
+      "name": "Auto: Infraestructura < 100",
+      "name_en": null,
+      "name_es": "Auto: Infraestructura < 100",
+      "source_axis": 239,
+      "type": "axis_range",
+      "uuid": "b53c8baf-a137-4d55-a0ef-a4b760fa9ebd"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 102
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.624Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.626Z",
+      "name": "Auto: Parque p\u00fablico  < 100",
+      "name_en": null,
+      "name_es": "Auto: Parque p\u00fablico  < 100",
+      "source_axis": 196,
+      "type": "axis_range",
+      "uuid": "49153b96-e67a-4e5d-8686-b3051177d14b"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 103
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.670Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.671Z",
+      "name": "Auto: Fronteras abier < 100",
+      "name_en": null,
+      "name_es": "Auto: Fronteras abier < 100",
+      "source_axis": 245,
+      "type": "axis_range",
+      "uuid": "82a12b59-aa28-4f5d-8532-e718c996d410"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 104
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.757Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.758Z",
+      "name": "Auto: Liberalizaci\u00f3n  > -100",
+      "name_en": null,
+      "name_es": "Auto: Liberalizaci\u00f3n  > -100",
+      "source_axis": 243,
+      "type": "axis_range",
+      "uuid": "93bb8ad7-fbf4-4ff6-98a1-66a24d22b567"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 105
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.770Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.771Z",
+      "name": "Auto: Practica de dep < 100",
+      "name_en": null,
+      "name_es": "Auto: Practica de dep < 100",
+      "source_axis": 260,
+      "type": "axis_range",
+      "uuid": "bf379b6d-837d-41cc-853f-2e073640d0b7"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 106
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.793Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.794Z",
+      "name": "Auto: Identidad digit > -100",
+      "name_en": null,
+      "name_es": "Auto: Identidad digit > -100",
+      "source_axis": 263,
+      "type": "axis_range",
+      "uuid": "780d7547-776f-479e-94c6-e104b1dd2a95"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 107
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.801Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.802Z",
+      "name": "Auto: Elecciones abol > -100",
+      "name_en": null,
+      "name_es": "Auto: Elecciones abol > -100",
+      "source_axis": 79,
+      "type": "axis_range",
+      "uuid": "71272978-dd0a-40ef-85dd-095eccc14901"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 108
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.819Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.820Z",
+      "name": "Auto: Elecciones abol < 100",
+      "name_en": null,
+      "name_es": "Auto: Elecciones abol < 100",
+      "source_axis": 79,
+      "type": "axis_range",
+      "uuid": "0ec93267-8cb7-45e6-9928-15b022bd0c26"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 109
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.881Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.883Z",
+      "name": "Auto: Autarqu\u00eda (Prot > -100",
+      "name_en": null,
+      "name_es": "Auto: Autarqu\u00eda (Prot > -100",
+      "source_axis": 88,
+      "type": "axis_range",
+      "uuid": "3f2e3d9a-c856-4f09-bf90-7bd055513490"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 110
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.935Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.937Z",
+      "name": "Auto: Democracia en l > -100",
+      "name_en": null,
+      "name_es": "Auto: Democracia en l > -100",
+      "source_axis": 229,
+      "type": "axis_range",
+      "uuid": "4ff8c5e5-5705-4c87-b5b7-81b213e3da3e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 111
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.943Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.944Z",
+      "name": "Auto: Confiscaci\u00f3n to > -100",
+      "name_en": null,
+      "name_es": "Auto: Confiscaci\u00f3n to > -100",
+      "source_axis": 128,
+      "type": "axis_range",
+      "uuid": "6eb151aa-1c24-448d-82e6-d6d08ec3bb10"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 112
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:30.960Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.961Z",
+      "name": "Auto: Universidad gra > -100",
+      "name_en": null,
+      "name_es": "Auto: Universidad gra > -100",
+      "source_axis": 204,
+      "type": "axis_range",
+      "uuid": "4ff0aef0-a07d-44ea-82b7-865a67ca4c31"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 113
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:30.968Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:30.969Z",
+      "name": "Auto: Cultura subvenc < 100",
+      "name_en": null,
+      "name_es": "Auto: Cultura subvenc < 100",
+      "source_axis": 256,
+      "type": "axis_range",
+      "uuid": "6d80a305-c4b3-4d91-a1f5-d1b530daf47e"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 114
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:31.041Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:31.043Z",
+      "name": "Auto: Libertad de exp > -100",
+      "name_en": null,
+      "name_es": "Auto: Libertad de exp > -100",
+      "source_axis": 129,
+      "type": "axis_range",
+      "uuid": "8fe08c4c-34ee-41fc-90ed-bb058b44ffd8"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 115
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:31.086Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:31.088Z",
+      "name": "Auto: Turismo abolido > -100",
+      "name_en": null,
+      "name_es": "Auto: Turismo abolido > -100",
+      "source_axis": 305,
+      "type": "axis_range",
+      "uuid": "17414989-dbab-4aa8-99bf-b6ef4997c5e0"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 116
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 100,
+      "axis_min_value": -99,
+      "created": "2026-01-29T00:06:31.133Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:31.134Z",
+      "name": "Auto: Prohibici\u00f3n de  > -100",
+      "name_en": null,
+      "name_es": "Auto: Prohibici\u00f3n de  > -100",
+      "source_axis": 234,
+      "type": "axis_range",
+      "uuid": "e2aefbb9-7245-48ad-b4ea-b0384530b376"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 117
+  },
+  {
+    "fields": {
+      "accepted_values": [
+        "true",
+        "false"
+      ],
+      "accepted_values_en": [
+        "true",
+        "false"
+      ],
+      "accepted_values_es": [
+        "true",
+        "false"
+      ],
+      "axis_max_value": 99,
+      "axis_min_value": -100,
+      "created": "2026-01-29T00:06:31.184Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:31.185Z",
+      "name": "Auto: Pol\u00edtica hidr\u00e1u < 100",
+      "name_en": null,
+      "name_es": "Auto: Pol\u00edtica hidr\u00e1u < 100",
+      "source_axis": 235,
+      "type": "axis_range",
+      "uuid": "842217ad-7c62-49bc-987d-f95126e07149"
+    },
+    "model": "ideology.ideologyconditioner",
+    "pk": 118
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 4,
+      "created": "2026-01-29T00:04:39.699Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.703Z",
+      "name": "Rule_D_needs_E",
+      "name_en": null,
+      "name_es": "Rule_D_needs_E",
+      "target_conditioner": 5,
+      "uuid": "4015dbbf-e80f-4b9e-aa6a-fb13605bc900"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 9,
+      "created": "2026-01-29T00:04:39.768Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:04:39.771Z",
+      "name": "Rule_I_needs_J",
+      "name_en": null,
+      "name_es": "Rule_I_needs_J",
+      "target_conditioner": 10,
+      "uuid": "68e4ccda-75c1-40f7-b279-692b12fb5bc6"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.212Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.215Z",
+      "name": "Rule: Pa\u00eds de or->ec70ca",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->ec70ca",
+      "target_conditioner": 14,
+      "uuid": "42278b58-342a-4416-8cfe-337bd2884900"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.216Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.219Z",
+      "name": "Rule: Pa\u00eds de or->eb5932",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->eb5932",
+      "target_conditioner": 15,
+      "uuid": "bc88efb1-e141-411a-9c04-0cdd95b0ec65"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 54,
+      "created": "2026-01-29T00:06:29.224Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.227Z",
+      "name": "Rule: Auto: Mona->376f2d",
+      "name_en": null,
+      "name_es": "Rule: Auto: Mona->376f2d",
+      "target_conditioner": 16,
+      "uuid": "db41b790-344d-4b56-8857-97c9f9576ab7"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.228Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.231Z",
+      "name": "Rule: Pa\u00eds de or->315769",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->315769",
+      "target_conditioner": 17,
+      "uuid": "f614ee29-2877-49e8-a43c-dd8cad0d8ee0"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 55,
+      "created": "2026-01-29T00:06:29.236Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.239Z",
+      "name": "Rule: Auto: Mona->27e5a6",
+      "name_en": null,
+      "name_es": "Rule: Auto: Mona->27e5a6",
+      "target_conditioner": 18,
+      "uuid": "228ee16f-7185-4dcf-b765-c47a4a7e13db"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 56,
+      "created": "2026-01-29T00:06:29.243Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.246Z",
+      "name": "Rule: Auto: Esta->794e82",
+      "name_en": null,
+      "name_es": "Rule: Auto: Esta->794e82",
+      "target_conditioner": 19,
+      "uuid": "87a95c91-e35c-4c70-ac01-b295aaf74065"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.248Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.251Z",
+      "name": "Rule: Pa\u00eds de or->3db68c",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->3db68c",
+      "target_conditioner": 20,
+      "uuid": "30c47093-92da-49d1-ba1e-3cdd2863f88e"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.255Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.258Z",
+      "name": "Rule: Auto: Sece->3db68c",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->3db68c",
+      "target_conditioner": 20,
+      "uuid": "01af68b1-8b79-4c61-901f-12d00aa1d3de"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.260Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.263Z",
+      "name": "Rule: Pa\u00eds de or->106c59",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->106c59",
+      "target_conditioner": 21,
+      "uuid": "1aa80bc6-1591-42a0-9630-8aa49733f83e"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.265Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.268Z",
+      "name": "Rule: Auto: Sece->106c59",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->106c59",
+      "target_conditioner": 21,
+      "uuid": "5b2e2ec0-8206-41d0-8d16-18d4323affb0"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.270Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.273Z",
+      "name": "Rule: Pa\u00eds de or->98290d",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->98290d",
+      "target_conditioner": 22,
+      "uuid": "0520f122-4ea4-438c-82a7-1ecf3bf87ed7"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.275Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.278Z",
+      "name": "Rule: Auto: Sece->98290d",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->98290d",
+      "target_conditioner": 22,
+      "uuid": "074c246c-dc31-49c0-876d-9820994b7b4c"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.280Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.282Z",
+      "name": "Rule: Pa\u00eds de or->c5489f",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->c5489f",
+      "target_conditioner": 23,
+      "uuid": "4b5c3e52-3457-4c9f-906d-d05798388cd7"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.285Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.288Z",
+      "name": "Rule: Auto: Sece->c5489f",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->c5489f",
+      "target_conditioner": 23,
+      "uuid": "afb7208c-b9c9-4696-88ad-b5661deacd8a"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.289Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.292Z",
+      "name": "Rule: Pa\u00eds de or->d44705",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->d44705",
+      "target_conditioner": 24,
+      "uuid": "6f3d78e0-a273-4982-885e-819c78e15bb8"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.294Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.297Z",
+      "name": "Rule: Auto: Sece->d44705",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->d44705",
+      "target_conditioner": 24,
+      "uuid": "c8c5b56c-1ad4-4485-87d2-ec439624110a"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.300Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.302Z",
+      "name": "Rule: Auto: Sece->887d41",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->887d41",
+      "target_conditioner": 25,
+      "uuid": "db217c8f-4e77-4277-b807-1307303c4c3a"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 21,
+      "created": "2026-01-29T00:06:29.304Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.307Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "target_conditioner": 25,
+      "uuid": "000bddb4-1c03-4a0e-a42f-fd6081cf587e"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 22,
+      "created": "2026-01-29T00:06:29.308Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.311Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "target_conditioner": 25,
+      "uuid": "bdf415f0-3a61-4296-9160-00ac2981e02a"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 23,
+      "created": "2026-01-29T00:06:29.313Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.315Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "target_conditioner": 25,
+      "uuid": "15af9f16-649d-431c-8e03-231f7a7d8696"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 24,
+      "created": "2026-01-29T00:06:29.317Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.320Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->887d41",
+      "target_conditioner": 25,
+      "uuid": "f9557a75-1126-405e-b6e3-dba0b6cbb12f"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.321Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.324Z",
+      "name": "Rule: Pa\u00eds de or->e00603",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->e00603",
+      "target_conditioner": 26,
+      "uuid": "3a027ae4-0795-4ccb-b4f7-00ec116dcdeb"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.326Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.329Z",
+      "name": "Rule: Auto: Sece->e00603",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->e00603",
+      "target_conditioner": 26,
+      "uuid": "00760d77-4494-4fc7-9862-50bc1f8be31b"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.331Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.334Z",
+      "name": "Rule: Pa\u00eds de or->37bbb9",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->37bbb9",
+      "target_conditioner": 27,
+      "uuid": "87eda9f7-7ce8-419d-81e8-33ab1b9dfcbb"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.336Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.339Z",
+      "name": "Rule: Auto: Sece->37bbb9",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->37bbb9",
+      "target_conditioner": 27,
+      "uuid": "55dee9fe-9eb2-41a7-bce5-c2ceb23a54cf"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.341Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.344Z",
+      "name": "Rule: Pa\u00eds de or->28bd0c",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->28bd0c",
+      "target_conditioner": 28,
+      "uuid": "6c874b65-c4d7-4a56-b1d0-bdecbd221932"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.346Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.349Z",
+      "name": "Rule: Auto: Sece->28bd0c",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->28bd0c",
+      "target_conditioner": 28,
+      "uuid": "50b2c0e8-1aa7-49da-a819-861f5b2d9ec5"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 57,
+      "created": "2026-01-29T00:06:29.351Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.354Z",
+      "name": "Rule: Auto: Sece->6d5746",
+      "name_en": null,
+      "name_es": "Rule: Auto: Sece->6d5746",
+      "target_conditioner": 29,
+      "uuid": "83b63c18-94f8-4237-a34d-34a54a122cc6"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 26,
+      "created": "2026-01-29T00:06:29.356Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.359Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->6d5746",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->6d5746",
+      "target_conditioner": 29,
+      "uuid": "5a29514f-1f69-4a2b-a9ab-3b71672bfa9d"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 27,
+      "created": "2026-01-29T00:06:29.360Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.363Z",
+      "name": "Rule: \u00bfEst\u00e1s a f->6d5746",
+      "name_en": null,
+      "name_es": "Rule: \u00bfEst\u00e1s a f->6d5746",
+      "target_conditioner": 29,
+      "uuid": "58317d66-86b6-48e7-a3e3-378635c90c38"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.365Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.368Z",
+      "name": "Rule: Pa\u00eds de or->96407d",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->96407d",
+      "target_conditioner": 30,
+      "uuid": "2ef59f08-7ae1-48da-87bb-f21f2cebcd66"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.369Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.372Z",
+      "name": "Rule: Pa\u00eds de or->47a93f",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->47a93f",
+      "target_conditioner": 31,
+      "uuid": "4f8eb5c2-7c74-411e-aa43-d6bb178fefd2"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.374Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.376Z",
+      "name": "Rule: Pa\u00eds de or->17ea00",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->17ea00",
+      "target_conditioner": 32,
+      "uuid": "3a18d7fb-7bf8-4015-8128-1954198fc936"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "false"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "false"
+      ],
+      "conditioner": 31,
+      "created": "2026-01-29T00:06:29.378Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.381Z",
+      "name": "Rule: \u00bfDeber\u00eda t->8a4959",
+      "name_en": null,
+      "name_es": "Rule: \u00bfDeber\u00eda t->8a4959",
+      "target_conditioner": 33,
+      "uuid": "8ecf45f0-0a47-4928-a908-8c663ddf064e"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 58,
+      "created": "2026-01-29T00:06:29.385Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.388Z",
+      "name": "Rule: Auto: Aisl->0ec637",
+      "name_en": null,
+      "name_es": "Rule: Auto: Aisl->0ec637",
+      "target_conditioner": 34,
+      "uuid": "639a9203-7a2a-4068-ac3b-54ff64f26422"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.389Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.392Z",
+      "name": "Rule: Pa\u00eds de or->dd0844",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->dd0844",
+      "target_conditioner": 35,
+      "uuid": "0ec737e3-8987-4613-8968-0617683ec92a"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "Espa\u00f1a",
+        "Reino Unido"
+      ],
+      "conditioner": 12,
+      "created": "2026-01-29T00:06:29.393Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.396Z",
+      "name": "Rule: Pa\u00eds de or->043a86",
+      "name_en": null,
+      "name_es": "Rule: Pa\u00eds de or->043a86",
+      "target_conditioner": 36,
+      "uuid": "58c0c92b-4032-4ce9-b30a-2c3bf2594eb1"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 59,
+      "created": "2026-01-29T00:06:29.400Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.403Z",
+      "name": "Rule: Auto: Clas->73f5ab",
+      "name_en": null,
+      "name_es": "Rule: Auto: Clas->73f5ab",
+      "target_conditioner": 38,
+      "uuid": "65fe0dd5-878f-4c5c-81b7-afa3a94772c1"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 60,
+      "created": "2026-01-29T00:06:29.407Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.410Z",
+      "name": "Rule: Auto: Redu->0d387f",
+      "name_en": null,
+      "name_es": "Rule: Auto: Redu->0d387f",
+      "target_conditioner": 39,
+      "uuid": "d72e5321-1bc2-408d-bceb-77b35f0d175c"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 61,
+      "created": "2026-01-29T00:06:29.414Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.417Z",
+      "name": "Rule: Auto: Dere->52cc46",
+      "name_en": null,
+      "name_es": "Rule: Auto: Dere->52cc46",
+      "target_conditioner": 40,
+      "uuid": "c73ae64e-6fbc-4479-b8b8-737cdc518f67"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 62,
+      "created": "2026-01-29T00:06:29.421Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.424Z",
+      "name": "Rule: Auto: Orie->fe52a0",
+      "name_en": null,
+      "name_es": "Rule: Auto: Orie->fe52a0",
+      "target_conditioner": 41,
+      "uuid": "1ddd292d-b6b2-4ae6-a8b5-8868a8924329"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 63,
+      "created": "2026-01-29T00:06:29.428Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.431Z",
+      "name": "Rule: Auto: Libe->669aae",
+      "name_en": null,
+      "name_es": "Rule: Auto: Libe->669aae",
+      "target_conditioner": 42,
+      "uuid": "c7b7de55-2cf1-40c0-8cd7-ffdd05d4a0a3"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 64,
+      "created": "2026-01-29T00:06:29.436Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.438Z",
+      "name": "Rule: Auto: Edad->e4b44f",
+      "name_en": null,
+      "name_es": "Rule: Auto: Edad->e4b44f",
+      "target_conditioner": 43,
+      "uuid": "ea539bc1-296c-4c69-86c3-a510b5bb77e3"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 65,
+      "created": "2026-01-29T00:06:29.443Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.446Z",
+      "name": "Rule: Auto: Proh->82ef28",
+      "name_en": null,
+      "name_es": "Rule: Auto: Proh->82ef28",
+      "target_conditioner": 44,
+      "uuid": "66978210-c016-4a0d-99a3-17e43c769bf7"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 65,
+      "created": "2026-01-29T00:06:29.448Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.451Z",
+      "name": "Rule: Auto: Proh->4ca01a",
+      "name_en": null,
+      "name_es": "Rule: Auto: Proh->4ca01a",
+      "target_conditioner": 45,
+      "uuid": "f7947c49-ba84-43e4-9c28-fc06ab7c0a1c"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "condition_values": [
+        "true"
+      ],
+      "condition_values_en": [],
+      "condition_values_es": [
+        "true"
+      ],
+      "conditioner": 66,
+      "created": "2026-01-29T00:06:29.455Z",
+      "description": null,
+      "description_en": null,
+      "description_es": null,
+      "modified": "2026-01-29T00:06:29.458Z",
+      "name": "Rule: Auto: List->604a22",
+      "name_en": null,
+      "name_es": "Rule: Auto: List->604a22",
+      "target_conditioner": 46,
+      "uuid": "866693d7-beae-4d0b-b9cb-59296e629258"
+    },
+    "model": "ideology.ideologyconditionerconditioner",
+    "pk": 48
+  }
+]
