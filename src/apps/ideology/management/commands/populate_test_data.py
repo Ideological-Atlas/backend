@@ -2,7 +2,6 @@ from typing import Any, Optional
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.utils import translation
 from ideology.factories import (
     IdeologyAbstractionComplexityFactory,
     IdeologyAxisFactory,
@@ -278,12 +277,12 @@ class IdeologySeeder:
 
     @staticmethod
     def _localize_model(obj, **kwargs):
-        with translation.override("es"):
-            for field, value in kwargs.items():
-                setattr(obj, field, f"[TEST-ES] {value}")
-        with translation.override("en"):
-            for field, value in kwargs.items():
-                setattr(obj, field, f"[TEST-EN] {value}")
+        for field, value in kwargs.items():
+            if isinstance(value, str):
+                setattr(obj, f"{field}_es", f"[TEST-ES] {value}")
+                setattr(obj, f"{field}_en", f"[TEST-EN] {value}")
+            else:
+                setattr(obj, field, value)
         obj.save()
 
     def _create_axes_batch(self, section, count, name_prefix) -> list[IdeologyAxis]:
@@ -319,7 +318,7 @@ class IdeologySeeder:
     def _link_conditioners(target, source, trigger_value, rule_name):
         IdeologyConditionerConditioner.objects.create(
             target_conditioner=target,
-            conditioner=source,  # Changed from conditioner
+            conditioner=source,
             name=rule_name,
             condition_values=[trigger_value],
         )
