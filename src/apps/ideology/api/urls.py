@@ -35,6 +35,26 @@ urlpatterns = [
         name="ideology-detail",
     ),
     path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/",
+        views.IdeologyAxisDefinitionListByIdeologyView.as_view(),
+        name="ideology-axis-definitions-list",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/<str:axis_uuid>/",
+        views.UpsertIdeologyAxisDefinitionView.as_view(),
+        name="upsert-ideology-axis-definition",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/",
+        views.IdeologyConditionerDefinitionListByIdeologyView.as_view(),
+        name="ideology-conditioner-definitions-list",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/<str:conditioner_uuid>/",
+        views.UpsertIdeologyConditionerDefinitionView.as_view(),
+        name="upsert-ideology-conditioner-definition",
+    ),
+    path(
         "answers/axis/<str:uuid>/",
         views.UpsertAxisAnswerView.as_view(),
         name="upsert-axis-answer",

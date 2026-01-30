@@ -1,7 +1,7 @@
 from core.factories import UserFactory
 from django.test import RequestFactory, TestCase
-from ideology.api.views.axis_answer_views import UserAxisAnswerListBySectionView
-from ideology.api.views.conditioner_answer_views import (
+from ideology.api.views.user_axis_answer_views import UserAxisAnswerListBySectionView
+from ideology.api.views.user_conditioner_answer_views import (
     UserConditionerAnswerListByComplexityView,
 )
 

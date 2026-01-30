@@ -1,5 +1,5 @@
 from core.helpers import UUIDModelSerializerMixin
-from ideology.models import IdeologyConditionerDefinition, UserConditionerAnswer
+from ideology.models import UserConditionerAnswer
 from rest_framework import serializers
 
 
@@ -34,13 +34,3 @@ class ConditionerAnswerUpsertSerializer(serializers.Serializer):
 
     def to_representation(self, instance):
         return ConditionerAnswerReadSerializer(instance, context=self.context).data
-
-
-class IdeologyConditionerDefinitionSerializer(UUIDModelSerializerMixin):
-    conditioner_uuid = serializers.UUIDField(
-        source="conditioner.uuid", format="hex", read_only=True
-    )
-
-    class Meta:
-        model = IdeologyConditionerDefinition
-        fields = ["uuid", "conditioner_uuid", "answer"]

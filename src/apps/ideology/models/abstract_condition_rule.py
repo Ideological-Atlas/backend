@@ -51,7 +51,6 @@ class BaseConditionRule(TimeStampedUUIDModel):
             )
 
     def _validate_logical_consistency(self):
-        # Conditioner is now guaranteed by the abstract model
         if not self.conditioner or not self.conditioner.accepted_values:
             return
 
