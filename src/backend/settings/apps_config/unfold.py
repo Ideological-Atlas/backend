@@ -23,6 +23,12 @@ LINKS = {
     "completed": reverse_lazy("admin:ideology_completedanswer_changelist"),
     "axis_ans": reverse_lazy("admin:ideology_useraxisanswer_changelist"),
     "cond_ans": reverse_lazy("admin:ideology_userconditioneranswer_changelist"),
+    "ideology_axis_def": reverse_lazy(
+        "admin:ideology_ideologyaxisdefinition_changelist"
+    ),
+    "ideology_cond_def": reverse_lazy(
+        "admin:ideology_ideologyconditionerdefinition_changelist"
+    ),
 }
 
 SIDEBAR_NAVIGATION = [
@@ -39,6 +45,16 @@ SIDEBAR_NAVIGATION = [
         "separator": True,
         "items": [
             {"title": _("Ideologies"), "icon": "flag", "link": LINKS["ideology"]},
+            {
+                "title": _("Axis Definitions"),
+                "icon": "graphic_eq",
+                "link": LINKS["ideology_axis_def"],
+            },
+            {
+                "title": _("Conditioner Definitions"),
+                "icon": "playlist_add_check",
+                "link": LINKS["ideology_cond_def"],
+            },
             {
                 "title": _("Associations"),
                 "icon": "share_location",
@@ -100,11 +116,6 @@ if not PRODUCTION:
             "title": _("Monitoring & Dev"),
             "separator": True,
             "items": [
-                {
-                    "title": _("Silk Profiler"),
-                    "icon": "speed",
-                    "link": reverse_lazy("silk:summary"),
-                },
                 {
                     "title": _("API Schema (Swagger)"),
                     "icon": "api",

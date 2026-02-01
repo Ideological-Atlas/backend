@@ -6,6 +6,7 @@ from .ideology_association_admin import *
 from .ideology_axis_admin import *
 from .ideology_conditioner_admin import *
 from .ideology_admin import *
+from .ideology_definitions_admin import *
 from .ideology_reference_admin import *
 from .ideology_section_admin import *
 from .ideology_tag_admin import *

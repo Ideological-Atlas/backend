@@ -34,6 +34,11 @@ urlpatterns = [
         name="user-affinity",
     ),
     path(
+        "users/affinity/ideology/<str:uuid>/",
+        core_views.UserIdeologyAffinityView.as_view(),
+        name="user-ideology-affinity",
+    ),
+    path(
         "geography/countries/",
         core_views.CountryListView.as_view(),
         name="country-list",

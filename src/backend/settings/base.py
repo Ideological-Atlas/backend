@@ -72,10 +72,8 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "rest_framework_simplejwt",
     "axes",
-    "silk",
     "cities_light",
     "django_json_widget",
-    "drf_api_logger",
 ]
 
 DJANGO_APPS = [
@@ -96,6 +94,7 @@ INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + INTERNAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -105,13 +104,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
-    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
 
-if not PRODUCTION:
-    MIDDLEWARE.insert(0, "silk.middleware.SilkyMiddleware")
 
 TEMPLATES = [
     {

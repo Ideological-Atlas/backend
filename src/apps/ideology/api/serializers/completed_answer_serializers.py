@@ -1,4 +1,4 @@
-from core.api.serializers import SimpleUserSerializer
+from core.api.serializers.base_user_serializers import SimpleUserSerializer
 from core.helpers import UUIDModelSerializerMixin
 from django.utils.translation import gettext_lazy as _
 from ideology.models import CompletedAnswer

@@ -19,7 +19,6 @@ dependencies = [
     "django-extensions==4.1",
     "django-filter==25.2",
     "django-model-utils==5.0.0",
-    "django-silk==5.4.3",
     "django-simple-history==3.11.0",
     "django-storages==1.14.6",
     "django-unfold==0.75.0",
@@ -39,7 +38,6 @@ dependencies = [
     "django-modeltranslation==0.19.19",
     "google-auth==2.47.0",
     "django-json-widget==2.1.1",
-    "drf-api-logger==1.1.21",
 ]
 
 [project.optional-dependencies]

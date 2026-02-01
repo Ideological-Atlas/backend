@@ -63,9 +63,6 @@ class IdeologyListView(ListAPIView):
     filterset_class = IdeologyFilter
     search_fields = [
         "name",
-        "description_supporter",
-        "description_detractor",
-        "description_neutral",
     ]
 
 

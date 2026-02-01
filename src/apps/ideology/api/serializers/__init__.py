@@ -21,15 +21,33 @@ from .user_conditioner_answer_serializers import (
 )
 from .ideology_abstraction_complexity_serializers import (
     IdeologyAbstractionComplexitySerializer,
+    SimpleComplexitySerializer,
 )
 from .ideology_conditioner_conditioner_serializer import (
     IdeologyConditionerConditionerSerializer,
 )
 from .ideology_axis_conditioner_serializers import IdeologyAxisConditionerSerializer
-from .ideology_axis_serializers import IdeologyAxisSerializer
+from .ideology_axis_serializers import (
+    IdeologyAxisSerializer,
+    SimpleAxisSerializer,
+)
 from .ideology_conditioner_serializers import IdeologyConditionerSerializer
 from .ideology_section_conditioner_serializers import (
     IdeologySectionConditionerSerializer,
 )
-from .ideology_section_serializers import IdeologySectionSerializer
-from .ideology_serializers import IdeologyDetailSerializer, IdeologyListSerializer
+from .ideology_section_serializers import (
+    IdeologySectionSerializer,
+    SimpleSectionSerializer,
+)
+from .ideology_serializers import (
+    IdeologyDetailSerializer,
+    IdeologyListSerializer,
+    TargetIdeologySerializer,
+)
+from .affinity_serializers import (
+    AnswerDetailSerializer,
+    AxisBreakdownSerializer,
+    SectionAffinitySerializer,
+    ComplexityAffinitySerializer,
+    IdeologyAffinitySerializer,
+)

@@ -14,22 +14,30 @@ class IdeologyConditionerManager(models.Manager):
                 | Q(
                     ideologyaxisconditioner_rules__axis__section__abstraction_complexity__uuid=complexity_uuid
                 )
+                | Q(source_axis__section__abstraction_complexity__uuid=complexity_uuid)
             ).values_list("id", flat=True)
         )
 
-        current_level_ids = list(relevant_ids)
+        current_pool = list(relevant_ids)
 
-        while current_level_ids:
-            parent_dependencies = IdeologyConditionerConditioner.objects.filter(
-                target_conditioner__id__in=current_level_ids
+        while current_pool:
+            new_ids = set()
+
+            parents = IdeologyConditionerConditioner.objects.filter(
+                target_conditioner__id__in=current_pool
             ).values_list("conditioner_id", flat=True)
 
-            new_parent_ids = set(parent_dependencies) - relevant_ids
+            children = IdeologyConditionerConditioner.objects.filter(
+                conditioner__id__in=current_pool
+            ).values_list("target_conditioner_id", flat=True)
 
-            if not new_parent_ids:
+            potential_new = set(parents) | set(children)
+            new_ids = potential_new - relevant_ids
+
+            if not new_ids:
                 break
 
-            relevant_ids.update(new_parent_ids)
-            current_level_ids = list(new_parent_ids)
+            relevant_ids.update(new_ids)
+            current_pool = list(new_ids)
 
         return self.filter(id__in=relevant_ids).order_by("created")

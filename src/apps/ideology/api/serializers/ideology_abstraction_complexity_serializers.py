@@ -6,3 +6,9 @@ class IdeologyAbstractionComplexitySerializer(UUIDModelSerializerMixin):
     class Meta:
         model = IdeologyAbstractionComplexity
         fields = ["uuid", "name", "description", "complexity"]
+
+
+class SimpleComplexitySerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologyAbstractionComplexity
+        fields = ["uuid", "name", "complexity"]

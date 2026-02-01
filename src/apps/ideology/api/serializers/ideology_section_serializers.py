@@ -1,5 +1,7 @@
 from core.helpers import UUIDModelSerializerMixin
-from ideology.api.serializers import IdeologySectionConditionerSerializer
+from ideology.api.serializers.ideology_section_conditioner_serializers import (
+    IdeologySectionConditionerSerializer,
+)
 from ideology.models import IdeologySection
 
 
@@ -9,3 +11,9 @@ class IdeologySectionSerializer(UUIDModelSerializerMixin):
     class Meta:
         model = IdeologySection
         fields = ["uuid", "name", "description", "icon", "condition_rules"]
+
+
+class SimpleSectionSerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologySection
+        fields = ["uuid", "name", "icon"]

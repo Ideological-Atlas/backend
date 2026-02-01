@@ -42,3 +42,18 @@ class IdeologyDetailSerializer(UUIDModelSerializerMixin):
             "axis_definitions",
             "conditioner_definitions",
         ]
+
+
+class TargetIdeologySerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = Ideology
+        fields = [
+            "uuid",
+            "name",
+            "description_supporter",
+            "description_detractor",
+            "description_neutral",
+            "flag",
+            "background",
+            "color",
+        ]

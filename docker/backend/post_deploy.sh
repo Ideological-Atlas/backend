@@ -19,6 +19,9 @@ python3 manage.py migrate --no-input
 # Load fixtures
 python3 manage.py loaddata 01_complexities 02_sections 03_axes 04_conditioners 05_ideologies
 
+# Load flags
+python3 manage.py import_flags
+
 # Populate Test Data & Init MinIO (Only in Non-Prod)
 if [ "$ENVIRONMENT" != "prod" ] && [ "$ENVIRONMENT" != "production" ]; then
     uv sync --extra dev

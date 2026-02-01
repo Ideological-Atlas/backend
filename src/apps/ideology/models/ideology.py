@@ -87,3 +87,21 @@ class Ideology(TimeStampedUUIDModel):
     class Meta:
         verbose_name = _("Ideology")
         verbose_name_plural = _("Ideologies")
+
+    def get_mapped_for_calculation(self) -> dict[str, dict]:
+        definitions = self.axis_definitions.select_related(
+            "axis", "axis__section", "axis__section__abstraction_complexity"
+        ).all()
+
+        mapped_data = {}
+        for definition in definitions:
+            axis = definition.axis
+            mapped_data[axis.uuid.hex] = {
+                "value": definition.value,
+                "margin_left": definition.margin_left or 0,
+                "margin_right": definition.margin_right or 0,
+                "is_indifferent": definition.is_indifferent,
+                "section_uuid": axis.section.uuid.hex,
+                "complexity_uuid": axis.section.abstraction_complexity.uuid.hex,
+            }
+        return mapped_data

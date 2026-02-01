@@ -401,10 +401,46 @@
   {
     "fields": {
       "accepted_values": [
-        "todas las comunidades aut\u00f3nomas de Espa\u00f1a..."
+        "Andaluc\u00eda",
+        "Arag\u00f3n",
+        "Principado de Asturias",
+        "Illes Balears",
+        "Canarias",
+        "Cantabria",
+        "Castilla y Le\u00f3n",
+        "Castilla-La Mancha",
+        "Catalu\u00f1a",
+        "Comunitat Valenciana",
+        "Extremadura",
+        "Galicia",
+        "Comunidad de Madrid",
+        "Regi\u00f3n de Murcia",
+        "Comunidad Foral de Navarra",
+        "Pa\u00eds Vasco",
+        "La Rioja",
+        "Ceuta",
+        "Melilla"
       ],
       "accepted_values_en": [
-        "all autonomous communities of Spain..."
+        "Andalusia",
+        "Aragon",
+        "Principality of Asturias",
+        "Balearic Islands",
+        "Canary Islands",
+        "Cantabria",
+        "Castile and Leon",
+        "Castile-La Mancha",
+        "Catalonia",
+        "Valencian Community",
+        "Extremadura",
+        "Galicia",
+        "Community of Madrid",
+        "Region of Murcia",
+        "Chartered Community of Navarre",
+        "Basque Country",
+        "La Rioja",
+        "Ceuta",
+        "Melilla"
       ],
       "accepted_values_es": [
         "todas las comunidades aut\u00f3nomas de Espa\u00f1a..."

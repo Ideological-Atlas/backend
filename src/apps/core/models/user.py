@@ -150,15 +150,13 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
         my_data = UserAxisAnswer.objects.get_mapped_for_calculation(self)
         return AffinityCalculator(my_data, target_data).calculate_detailed()
 
-    def calculate_detailed_affinity_with(self, target_answer) -> dict[str, Any]:
+    @staticmethod
+    def _hydrate_affinity_structure(affinity_data: dict[str, Any]) -> dict[str, Any]:
         from ideology.models import (
             IdeologyAbstractionComplexity,
             IdeologyAxis,
             IdeologySection,
         )
-
-        target_data_mapped = target_answer.get_mapped_for_calculation()
-        affinity_data = self.get_affinity_data(target_data_mapped)
 
         complexity_uuids = set()
         section_uuids = set()
@@ -172,35 +170,48 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
                     axis_uuids.add(axis_item["axis_uuid"])
 
         complexities_map = {
-            ideology_abstraction_complexity.uuid.hex: ideology_abstraction_complexity
-            for ideology_abstraction_complexity in IdeologyAbstractionComplexity.objects.filter(
+            c.uuid.hex: c
+            for c in IdeologyAbstractionComplexity.objects.filter(
                 uuid__in=complexity_uuids
             )
         }
         sections_map = {
-            ideology_section.uuid.hex: ideology_section
-            for ideology_section in IdeologySection.objects.filter(
-                uuid__in=section_uuids
-            )
+            s.uuid.hex: s
+            for s in IdeologySection.objects.filter(uuid__in=section_uuids)
         }
         axes_map = {
-            ideology_axis.uuid.hex: ideology_axis
-            for ideology_axis in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
+            a.uuid.hex: a for a in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
         }
 
         for complexity_item in affinity_data["complexities"]:
             complexity_item["complexity"] = complexities_map.get(
                 complexity_item["complexity_uuid"]
             )
-
             for section_item in complexity_item["sections"]:
                 section_item["section"] = sections_map.get(section_item["section_uuid"])
-
                 for axis_item in section_item["axes"]:
                     axis_item["axis"] = axes_map.get(axis_item["axis_uuid"])
 
+        return affinity_data
+
+    def calculate_detailed_affinity_with(self, target_answer) -> dict[str, Any]:
+        target_data_mapped = target_answer.get_mapped_for_calculation()
+        affinity_data = self.get_affinity_data(target_data_mapped)
+        hydrated_data = self._hydrate_affinity_structure(affinity_data)
+
         return {
             "target_user": target_answer.completed_by,
-            "total": affinity_data["total"],
-            "complexities": affinity_data["complexities"],
+            "total": hydrated_data["total"],
+            "complexities": hydrated_data["complexities"],
+        }
+
+    def calculate_ideology_affinity(self, ideology) -> dict[str, Any]:
+        target_data_mapped = ideology.get_mapped_for_calculation()
+        affinity_data = self.get_affinity_data(target_data_mapped)
+        hydrated_data = self._hydrate_affinity_structure(affinity_data)
+
+        return {
+            "target_ideology": ideology,
+            "total": hydrated_data["total"],
+            "complexities": hydrated_data["complexities"],
         }
