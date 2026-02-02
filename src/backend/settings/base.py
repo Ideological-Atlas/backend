@@ -72,7 +72,6 @@ THIRD_PARTY_APPS = [
     "drf_spectacular",
     "rest_framework_simplejwt",
     "axes",
-    "cities_light",
     "django_json_widget",
 ]
 

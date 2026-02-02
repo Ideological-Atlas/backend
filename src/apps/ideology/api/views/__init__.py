@@ -21,8 +21,12 @@ from .ideology_views import IdeologyDetailView, IdeologyListView
 from .ideology_axis_definition_views import (
     IdeologyAxisDefinitionListByIdeologyView,
     UpsertIdeologyAxisDefinitionView,
+    DeleteIdeologyAxisDefinitionView,
 )
 from .ideology_conditioner_definition_views import (
     IdeologyConditionerDefinitionListByIdeologyView,
     UpsertIdeologyConditionerDefinitionView,
+    DeleteIdeologyConditionerDefinitionView,
 )
+from .tag_views import TagListView
+from .religion_views import ReligionListView

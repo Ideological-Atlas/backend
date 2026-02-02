@@ -52,7 +52,7 @@ class Ideology(TimeStampedUUIDModel):
         help_text=_("Ideology Color Image"),
     )
     associated_countries = models.ManyToManyField(
-        "cities_light.Country",
+        "core.Country",
         through="ideology.IdeologyAssociation",
         related_name="ideologies",
         blank=True,
@@ -60,7 +60,7 @@ class Ideology(TimeStampedUUIDModel):
         help_text=_("Countries where this ideology is explicitly present."),
     )
     associated_regions = models.ManyToManyField(
-        "cities_light.Region",
+        "core.Region",
         through="ideology.IdeologyAssociation",
         related_name="ideologies",
         blank=True,

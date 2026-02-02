@@ -30,6 +30,16 @@ urlpatterns = [
         name="ideology-list",
     ),
     path(
+        "ideologies/tags/",
+        views.TagListView.as_view(),
+        name="tag-list",
+    ),
+    path(
+        "ideologies/religions/",
+        views.ReligionListView.as_view(),
+        name="religion-list",
+    ),
+    path(
         "ideologies/<str:uuid>/",
         views.IdeologyDetailView.as_view(),
         name="ideology-detail",
@@ -45,6 +55,11 @@ urlpatterns = [
         name="upsert-ideology-axis-definition",
     ),
     path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/<str:axis_uuid>/delete/",
+        views.DeleteIdeologyAxisDefinitionView.as_view(),
+        name="delete-ideology-axis-definition",
+    ),
+    path(
         "ideologies/<str:ideology_uuid>/definitions/conditioner/",
         views.IdeologyConditionerDefinitionListByIdeologyView.as_view(),
         name="ideology-conditioner-definitions-list",
@@ -53,6 +68,11 @@ urlpatterns = [
         "ideologies/<str:ideology_uuid>/definitions/conditioner/<str:conditioner_uuid>/",
         views.UpsertIdeologyConditionerDefinitionView.as_view(),
         name="upsert-ideology-conditioner-definition",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/<str:conditioner_uuid>/delete/",
+        views.DeleteIdeologyConditionerDefinitionView.as_view(),
+        name="delete-ideology-conditioner-definition",
     ),
     path(
         "answers/axis/<str:uuid>/",

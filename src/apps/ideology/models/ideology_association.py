@@ -13,7 +13,7 @@ class IdeologyAssociation(TimeStampedUUIDModel):
         help_text=_("The ideology being contextualized."),
     )
     country = models.ForeignKey(
-        "cities_light.Country",
+        "core.Country",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -22,7 +22,7 @@ class IdeologyAssociation(TimeStampedUUIDModel):
         help_text=_("The country where this ideology is present or relevant."),
     )
     region = models.ForeignKey(
-        "cities_light.Region",
+        "core.Region",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,

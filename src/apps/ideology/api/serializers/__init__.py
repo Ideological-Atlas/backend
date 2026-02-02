@@ -39,6 +39,8 @@ from .ideology_section_serializers import (
     IdeologySectionSerializer,
     SimpleSectionSerializer,
 )
+from .tag_serializers import TagSerializer
+from .religion_serializers import ReligionSerializer
 from .ideology_serializers import (
     IdeologyDetailSerializer,
     IdeologyListSerializer,

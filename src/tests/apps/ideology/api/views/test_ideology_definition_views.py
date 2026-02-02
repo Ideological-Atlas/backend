@@ -34,6 +34,13 @@ class IdeologyAxisDefinitionViewTestCase(APITestBase):
                 "axis_uuid": self.axis.uuid.hex,
             },
         )
+        self.delete_url = reverse(
+            "ideology:delete-ideology-axis-definition",
+            kwargs={
+                "ideology_uuid": self.ideology.uuid.hex,
+                "axis_uuid": self.axis.uuid.hex,
+            },
+        )
 
     def test_list_axis_definitions(self):
         IdeologyAxisDefinitionFactory(ideology=self.ideology, axis=self.axis)
@@ -49,9 +56,20 @@ class IdeologyAxisDefinitionViewTestCase(APITestBase):
         self.assertEqual(IdeologyAxisDefinition.objects.count(), 1)
 
     def test_upsert_axis_definition_as_normal_user_forbidden(self):
-        # self.user es un usuario normal verificado (definido en APITestBase)
         data = {"value": 50}
         response = self.client.post(self.upsert_url, data=data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_delete_axis_definition_as_admin(self):
+        IdeologyAxisDefinitionFactory(ideology=self.ideology, axis=self.axis)
+        self.client.force_authenticate(user=self.admin_user)
+        response = self.client.delete(self.delete_url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertFalse(IdeologyAxisDefinition.objects.exists())
+
+    def test_delete_axis_definition_as_normal_user_forbidden(self):
+        IdeologyAxisDefinitionFactory(ideology=self.ideology, axis=self.axis)
+        response = self.client.delete(self.delete_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_swagger_fake_view_queryset(self):
@@ -79,6 +97,13 @@ class IdeologyConditionerDefinitionViewTestCase(APITestBase):
                 "conditioner_uuid": self.conditioner.uuid.hex,
             },
         )
+        self.delete_url = reverse(
+            "ideology:delete-ideology-conditioner-definition",
+            kwargs={
+                "ideology_uuid": self.ideology.uuid.hex,
+                "conditioner_uuid": self.conditioner.uuid.hex,
+            },
+        )
 
     def test_list_conditioner_definitions(self):
         IdeologyConditionerDefinitionFactory(
@@ -98,6 +123,22 @@ class IdeologyConditionerDefinitionViewTestCase(APITestBase):
     def test_upsert_conditioner_definition_as_normal_user_forbidden(self):
         data = {"answer": "Option X"}
         response = self.client.post(self.upsert_url, data=data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_delete_conditioner_definition_as_admin(self):
+        IdeologyConditionerDefinitionFactory(
+            ideology=self.ideology, conditioner=self.conditioner
+        )
+        self.client.force_authenticate(user=self.admin_user)
+        response = self.client.delete(self.delete_url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertFalse(IdeologyConditionerDefinition.objects.exists())
+
+    def test_delete_conditioner_definition_as_normal_user_forbidden(self):
+        IdeologyConditionerDefinitionFactory(
+            ideology=self.ideology, conditioner=self.conditioner
+        )
+        response = self.client.delete(self.delete_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_swagger_fake_view_queryset(self):
