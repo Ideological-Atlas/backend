@@ -1,4 +1,5 @@
 from core.helpers import UUIDModelSerializerMixin
+from ideology.api.serializers.base_serializers import BaseAxisAnswerUpsertSerializer
 from ideology.models import UserAxisAnswer
 from rest_framework import serializers
 
@@ -18,18 +19,7 @@ class UserAxisAnswerReadSerializer(UUIDModelSerializerMixin):
         ]
 
 
-class UserAxisAnswerUpsertSerializer(serializers.Serializer):
-    value = serializers.IntegerField(
-        min_value=-100, max_value=100, required=False, allow_null=True
-    )
-    margin_left = serializers.IntegerField(
-        min_value=0, max_value=200, required=False, allow_null=True
-    )
-    margin_right = serializers.IntegerField(
-        min_value=0, max_value=200, required=False, allow_null=True
-    )
-    is_indifferent = serializers.BooleanField(required=False, default=False)
-
+class UserAxisAnswerUpsertSerializer(BaseAxisAnswerUpsertSerializer):
     def create(self, validated_data):
         request = self.context["request"]
         view = self.context["view"]

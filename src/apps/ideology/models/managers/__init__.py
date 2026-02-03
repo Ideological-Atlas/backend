@@ -1,6 +1,11 @@
-from .user_answers_managers import UserAxisAnswerManager, UserConditionerAnswerManager
+from .user_axis_answer_manager import UserAxisAnswerManager
+from .user_conditioner_answer_manager import UserConditionerAnswerManager
 from .ideology_conditioner_managers import IdeologyConditionerManager
 from .completed_answer_manager import CompletedAnswerManager
 from .ideology_abstraction_complexity_managers import (
     IdeologyAbstractionComplexityManager,
+)
+from .ideology_axis_definition_manager import IdeologyAxisDefinitionManager
+from .ideology_conditioner_definition_manager import (
+    IdeologyConditionerDefinitionManager,
 )

@@ -1,5 +1,3 @@
-import random
-
 import factory
 from core.factories import TimeStampedUUIDModelFactory
 from ideology.models import IdeologyAbstractionComplexity
@@ -10,9 +8,9 @@ class IdeologyAbstractionComplexityFactory(TimeStampedUUIDModelFactory):
         model = IdeologyAbstractionComplexity
         django_get_or_create = ("complexity",)
 
-    name = factory.Faker("word")
+    name = factory.Sequence(lambda n: f"Level-{n}")
     description = factory.Faker("sentence")
-    complexity = factory.Sequence(lambda n: n + 1)
+    complexity = factory.Sequence(lambda n: n + 100)
     visible = True
 
     @factory.post_generation
@@ -21,12 +19,6 @@ class IdeologyAbstractionComplexityFactory(TimeStampedUUIDModelFactory):
             return
         from ideology.factories.ideology_section_factory import IdeologySectionFactory
 
-        min_count = kwargs.get("min", 0)
-        max_count = kwargs.get("max", 2)
-        total = kwargs.get("total", None)
-        if total is not None:
-            count = total
-        else:
-            count = random.randint(min_count, max_count)
-        for _ in range(count):
+        total = kwargs.get("total", 0)
+        for _ in range(total):
             IdeologySectionFactory(abstraction_complexity=self)

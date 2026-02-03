@@ -1,5 +1,7 @@
 from core.helpers import UUIDModelSerializerMixin
-from ideology.api.serializers import IdeologyAxisConditionerSerializer
+from ideology.api.serializers.ideology_axis_conditioner_serializers import (
+    IdeologyAxisConditionerSerializer,
+)
 from ideology.models import IdeologyAxis
 
 
@@ -16,3 +18,9 @@ class IdeologyAxisSerializer(UUIDModelSerializerMixin):
             "right_label",
             "condition_rules",
         ]
+
+
+class SimpleAxisSerializer(UUIDModelSerializerMixin):
+    class Meta:
+        model = IdeologyAxis
+        fields = ["uuid", "name", "left_label", "right_label"]

@@ -9,6 +9,8 @@ SITE_NAME = PROJECT_NAME
 LINKS = {
     "users": reverse_lazy("admin:core_user_changelist"),
     "groups": reverse_lazy("admin:auth_group_changelist"),
+    "country": reverse_lazy("admin:core_country_changelist"),
+    "region": reverse_lazy("admin:core_region_changelist"),
     "ideology": reverse_lazy("admin:ideology_ideology_changelist"),
     "association": reverse_lazy("admin:ideology_ideologyassociation_changelist"),
     "religion": reverse_lazy("admin:ideology_religion_changelist"),
@@ -23,6 +25,12 @@ LINKS = {
     "completed": reverse_lazy("admin:ideology_completedanswer_changelist"),
     "axis_ans": reverse_lazy("admin:ideology_useraxisanswer_changelist"),
     "cond_ans": reverse_lazy("admin:ideology_userconditioneranswer_changelist"),
+    "ideology_axis_def": reverse_lazy(
+        "admin:ideology_ideologyaxisdefinition_changelist"
+    ),
+    "ideology_cond_def": reverse_lazy(
+        "admin:ideology_ideologyconditionerdefinition_changelist"
+    ),
 }
 
 SIDEBAR_NAVIGATION = [
@@ -35,10 +43,28 @@ SIDEBAR_NAVIGATION = [
         ],
     },
     {
+        "title": _("Geography"),
+        "separator": True,
+        "items": [
+            {"title": _("Countries"), "icon": "public", "link": LINKS["country"]},
+            {"title": _("Regions"), "icon": "map", "link": LINKS["region"]},
+        ],
+    },
+    {
         "title": _("Ideological Atlas"),
         "separator": True,
         "items": [
             {"title": _("Ideologies"), "icon": "flag", "link": LINKS["ideology"]},
+            {
+                "title": _("Axis Definitions"),
+                "icon": "graphic_eq",
+                "link": LINKS["ideology_axis_def"],
+            },
+            {
+                "title": _("Conditioner Definitions"),
+                "icon": "playlist_add_check",
+                "link": LINKS["ideology_cond_def"],
+            },
             {
                 "title": _("Associations"),
                 "icon": "share_location",
@@ -100,11 +126,6 @@ if not PRODUCTION:
             "title": _("Monitoring & Dev"),
             "separator": True,
             "items": [
-                {
-                    "title": _("Silk Profiler"),
-                    "icon": "speed",
-                    "link": reverse_lazy("silk:summary"),
-                },
                 {
                     "title": _("API Schema (Swagger)"),
                     "icon": "api",
