@@ -4,7 +4,9 @@ from django.urls import reverse
 from ideology.factories import (
     CompletedAnswerFactory,
     IdeologyAbstractionComplexityFactory,
+    IdeologyAxisDefinitionFactory,
     IdeologyAxisFactory,
+    IdeologyFactory,
     IdeologySectionFactory,
     UserAxisAnswerFactory,
 )
@@ -14,13 +16,13 @@ from rest_framework import status
 class MeDetailViewTestCase(APITestBaseNeedAuthorized):
     url = reverse("core:me")
 
-    def test_get_me_detail_200_ok(self):
+    def test_get_me_detail_success(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["uuid"], self.user.uuid.hex)
         self.assertIn("auth_provider", response.data)
 
-    def test_patch_me_detail_200_ok(self):
+    def test_patch_me_detail_success(self):
         data_to_patch = {
             "first_name": "new_first_name",
             "last_name": "new_last_name",
@@ -59,18 +61,22 @@ class UserAffinityViewTestCase(APITestBaseNeedAuthorized):
     def setUp(self):
         super().setUp()
         self.other_user = UserFactory()
-        self.comp = IdeologyAbstractionComplexityFactory(name="Level 1")
-        self.section = IdeologySectionFactory(
-            name="Econ", abstraction_complexity=self.comp
+        self.ideology_abstraction_complexity = IdeologyAbstractionComplexityFactory(
+            name="Level 1"
         )
-        self.axis = IdeologyAxisFactory(name="TestAxis", section=self.section)
+        self.ideology_section = IdeologySectionFactory(
+            name="Econ", abstraction_complexity=self.ideology_abstraction_complexity
+        )
+        self.ideology_axis = IdeologyAxisFactory(
+            name="TestAxis", section=self.ideology_section
+        )
 
         self.completed_answer = CompletedAnswerFactory(
             completed_by=self.other_user,
             answers={
                 "axis": [
                     {
-                        "uuid": self.axis.uuid.hex,
+                        "uuid": self.ideology_axis.uuid.hex,
                         "value": 50,
                         "margin_left": 0,
                         "margin_right": 0,
@@ -83,7 +89,9 @@ class UserAffinityViewTestCase(APITestBaseNeedAuthorized):
         )
 
     def test_get_affinity_with_completed_answer(self):
-        UserAxisAnswerFactory(user=self.user, axis=self.axis, value=50)
+        UserAxisAnswerFactory(
+            user=self.user, axis=self.ideology_axis, value=50, margin_left=0
+        )
 
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -91,16 +99,60 @@ class UserAffinityViewTestCase(APITestBaseNeedAuthorized):
         data = response.data
 
         self.assertIn("complexities", data)
-        comp_data = data["complexities"][0]
-        self.assertEqual(comp_data["complexity"]["name"], "Level 1")
+        complexity_data = data["complexities"][0]
+        self.assertEqual(complexity_data["complexity"]["name"], "Level 1")
 
         self.assertEqual(data["total_affinity"], 100.0)
         self.assertEqual(data["target_user"]["uuid"], self.other_user.uuid.hex)
 
     def test_get_affinity_anonymous_answer(self):
-        anon_answer = CompletedAnswerFactory(completed_by=None, answers={"axis": []})
-        url = reverse("core:user-affinity", kwargs={"uuid": anon_answer.uuid.hex})
+        anonymous_answer = CompletedAnswerFactory(
+            completed_by=None, answers={"axis": []}
+        )
+        url = reverse("core:user-affinity", kwargs={"uuid": anonymous_answer.uuid.hex})
 
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIsNone(response.data["target_user"])
+
+
+class UserIdeologyAffinityViewTestCase(APITestBaseNeedAuthorized):
+    def setUp(self):
+        super().setUp()
+        self.ideology_abstraction_complexity = IdeologyAbstractionComplexityFactory(
+            name="Level 1"
+        )
+        self.ideology_section = IdeologySectionFactory(
+            name="Econ", abstraction_complexity=self.ideology_abstraction_complexity
+        )
+        self.ideology_axis = IdeologyAxisFactory(
+            name="TestAxis", section=self.ideology_section
+        )
+
+        self.ideology = IdeologyFactory(
+            name="TargetIdeology", add_tags__total=0, add_associations__total=0
+        )
+        IdeologyAxisDefinitionFactory(
+            ideology=self.ideology,
+            axis=self.ideology_axis,
+            value=100,
+            margin_left=0,
+            margin_right=0,
+        )
+
+        self.url = reverse(
+            "core:user-ideology-affinity", kwargs={"uuid": self.ideology.uuid.hex}
+        )
+
+    def test_get_ideology_affinity_success(self):
+        UserAxisAnswerFactory(
+            user=self.user, axis=self.ideology_axis, value=100, margin_left=0
+        )
+
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.data
+        self.assertEqual(data["target_ideology"]["name"], "TargetIdeology")
+        self.assertEqual(data["total_affinity"], 100.0)
+        self.assertEqual(len(data["complexities"]), 1)
