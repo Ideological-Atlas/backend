@@ -472,9 +472,9 @@
       "axis_max_value": null,
       "axis_min_value": null,
       "created": "2026-01-29T00:06:28.465Z",
-      "description": "Especifica si la ideolog\u00eda se circunscribe a una comunidad aut\u00f3noma concreta o si aplica al conjunto del estado (Indiferente).",
-      "description_en": "Specifies if the ideology is circumscribed to a specific autonomous community or if it applies to the state as a whole (Indifferent).",
-      "description_es": "Especifica si la ideolog\u00eda se circunscribe a una comunidad aut\u00f3noma concreta o si aplica al conjunto del estado (Indiferente).",
+      "description": "Especifica si consideras que una comunidad aut\u00f3noma es de gran importancia para la definici\u00f3n de tu ideolog\u00eda.",
+      "description_en": "Specify whether you consider an autonomous community to be of great importance in defining your ideology.",
+      "description_es": "Especifica si consideras que una comunidad aut\u00f3noma es de gran importancia para la definici\u00f3n de tu ideolog\u00eda.",
       "modified": "2026-01-29T00:06:28.465Z",
       "name": "Contexto Regional (Espa\u00f1a)",
       "name_en": "Regional Context (Spain)",
@@ -1436,18 +1436,30 @@
   {
     "fields": {
       "accepted_values": [
+        "Todas",
+        "Todas excepto la m\u00eda",
+        "Todas las orientaciones no heterosexuales",
+        "Homosexualidad y Bisexualidad",
         "Heterosexualidad",
         "Homosexualidad",
         "Bisexualidad",
         "Otro"
       ],
       "accepted_values_en": [
+        "All",
+        "All except mine",
+        "All non-heterosexual orientations",
+        "Homosexuality and Bisexuality",
         "Heterosexuality",
         "Homosexuality",
         "Bisexuality",
         "Other"
       ],
       "accepted_values_es": [
+        "Todas",
+        "Todas excepto la m\u00eda",
+        "Todas las orientaciones no heterosexuales",
+        "Homosexualidad y Bisexualidad",
         "Heterosexualidad",
         "Homosexualidad",
         "Bisexualidad",
@@ -1459,7 +1471,7 @@
       "description": "Eval\u00faa el grado de intolerancia estatal y control sobre la vida privada, identificando posturas extremas que criminalizan comportamientos sexuales consensuados.",
       "description_en": "Evaluates the degree of state intolerance and control over private life, identifying extreme stances that criminalize consensual sexual behaviors.",
       "description_es": "Eval\u00faa el grado de intolerancia estatal y control sobre la vida privada, identificando posturas extremas que criminalizan comportamientos sexuales consensuados.",
-      "modified": "2026-01-29T00:06:28.531Z",
+      "modified": "2026-02-03T20:23:15.000Z",
       "name": "\u00bfQu\u00e9 orientaciones sexuales consideras que deber\u00edan perseguirse?",
       "name_en": "What sexual orientations do you consider should be prosecuted?",
       "name_es": "\u00bfQu\u00e9 orientaciones sexuales consideras que deber\u00edan perseguirse?",
@@ -1474,6 +1486,9 @@
     "fields": {
       "accepted_values": [
         "Todas",
+        "Todas excepto la m\u00eda",
+        "Todas las ramas del cristianismo",
+        "Todas las ramas del Islam",
         "Cristianismo Cat\u00f3lico",
         "Cristianismo Ortodoxo",
         "Otra rama del cristianismo",
@@ -1487,6 +1502,9 @@
       ],
       "accepted_values_en": [
         "All",
+        "All except mine",
+        "All branches of Christianity",
+        "All branches of Islam",
         "Catholic Christianity",
         "Orthodox Christianity",
         "Other branch of Christianity",
@@ -1500,6 +1518,9 @@
       ],
       "accepted_values_es": [
         "Todas",
+        "Todas excepto la m\u00eda",
+        "Todas las ramas del cristianismo",
+        "Todas las ramas del Islam",
         "Cristianismo Cat\u00f3lico",
         "Cristianismo Ortodoxo",
         "Otra rama del cristianismo",
@@ -1517,7 +1538,7 @@
       "description": "Mide la libertad religiosa y la persecuci\u00f3n de credos espec\u00edficos, detectando sesgos teocr\u00e1ticos o ate\u00edsmo de estado militante.",
       "description_en": "Measures religious freedom and the persecution of specific creeds, detecting theocratic biases or militant state atheism.",
       "description_es": "Mide la libertad religiosa y la persecuci\u00f3n de credos espec\u00edficos, detectando sesgos teocr\u00e1ticos o ate\u00edsmo de estado militante.",
-      "modified": "2026-01-29T00:06:28.534Z",
+      "modified": "2026-02-03T20:21:49.000Z",
       "name": "\u00bfQu\u00e9 religiones consideras que deber\u00edan perseguirse?",
       "name_en": "What religions do you consider should be prosecuted?",
       "name_es": "\u00bfQu\u00e9 religiones consideras que deber\u00edan perseguirse?",
