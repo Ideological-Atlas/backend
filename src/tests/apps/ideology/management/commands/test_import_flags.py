@@ -48,7 +48,6 @@ class ImportFlagsCommandTestCase(TestCase):
                 "import_flags", stdout=self.standard_output, stderr=self.standard_error
             )
 
-        # Verify execution completed without errors despite the directory
         self.assertEqual(self.standard_error.getvalue(), "")
 
     def test_import_flags_directory_not_found(self):

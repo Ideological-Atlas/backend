@@ -29,7 +29,6 @@ class IdeologyDefinitionManagerTestCase(TestCase):
         self.assertTrue(created)
         self.assertEqual(definition.value, 50)
 
-        # Update case
         data["value"] = 80
         definition, created = IdeologyAxisDefinition.objects.upsert(
             self.ideology.uuid, self.axis.uuid, data
@@ -53,7 +52,6 @@ class IdeologyDefinitionManagerTestCase(TestCase):
         self.assertTrue(created)
         self.assertEqual(definition.answer, "Option A")
 
-        # Update case
         data["answer"] = "Option B"
         definition, created = IdeologyConditionerDefinition.objects.upsert(
             self.ideology.uuid, self.conditioner.uuid, data

@@ -1,3 +1,6 @@
+import sys
+from typing import Any
+
 from ..base import PRODUCTION, env
 
 AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID", default="admin")
@@ -14,7 +17,6 @@ if AWS_S3_PUBLIC_DOMAIN:
 else:
     AWS_S3_CUSTOM_DOMAIN = ""
 
-# 4. Otras configuraciones
 AWS_DEFAULT_ACL = None
 AWS_S3_FILE_OVERWRITE = False
 AWS_QUERYSTRING_AUTH = False
@@ -22,7 +24,7 @@ AWS_QUERYSTRING_AUTH = False
 if not PRODUCTION:
     AWS_S3_URL_PROTOCOL = "http:"
 
-STORAGES = {
+STORAGES: dict[str, Any] = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
     },
@@ -30,3 +32,9 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+if "test" in sys.argv:
+    STORAGES["default"] = {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "OPTIONS": {"location": "/tmp/test_media"},  # nosec
+    }
