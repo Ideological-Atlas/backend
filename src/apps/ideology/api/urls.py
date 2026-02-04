@@ -45,6 +45,11 @@ urlpatterns = [
         name="ideology-detail",
     ),
     path(
+        "ideologies/<str:ideology_uuid>/affinity/",
+        views.IdeologyAffinityView.as_view(),
+        name="ideology-affinity",
+    ),
+    path(
         "ideologies/<str:ideology_uuid>/definitions/axis/",
         views.IdeologyAxisDefinitionListByIdeologyView.as_view(),
         name="ideology-axis-definitions-list",
@@ -118,5 +123,15 @@ urlpatterns = [
         "answers/completed/<str:uuid>/",
         views.RetrieveCompletedAnswerView.as_view(),
         name="completed-answer-detail",
+    ),
+    path(
+        "answers/completed/<str:target_answer_uuid>/affinity/",
+        views.CompletedAnswerAffinityView.as_view(),
+        name="completed-answer-affinity",
+    ),
+    path(
+        "answers/completed/<str:uuid>/copy/",
+        views.CopyCompletedAnswerToUserView.as_view(),
+        name="completed-answer-copy",
     ),
 ]

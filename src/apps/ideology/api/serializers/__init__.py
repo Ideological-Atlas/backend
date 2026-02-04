@@ -14,6 +14,7 @@ from .completed_answer_serializers import (
     CompletedAnswerSerializer,
     AxisAnswerInputSerializer,
     ConditionerAnswerInputSerializer,
+    CopyCompletedAnswerSerializer,
 )
 from .user_conditioner_answer_serializers import (
     ConditionerAnswerReadSerializer,
@@ -52,4 +53,5 @@ from .affinity_serializers import (
     SectionAffinitySerializer,
     ComplexityAffinitySerializer,
     IdeologyAffinitySerializer,
+    AffinitySerializer,
 )

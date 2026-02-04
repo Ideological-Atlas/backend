@@ -1,0 +1,128 @@
+[
+  {
+    "fields": {
+      "code2": "ES",
+      "created": "2026-02-01T15:56:25.547Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.729Z",
+      "name": "Espa\u00f1a",
+      "name_en": "Spain",
+      "name_es": "Espa\u00f1a",
+      "uuid": "8626aa24-49d6-4a3a-b93d-58b0a766f8df"
+    },
+    "model": "core.country",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "code2": "GB",
+      "created": "2026-02-01T15:56:25.551Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.733Z",
+      "name": "Reino Unido",
+      "name_en": "United Kingdom",
+      "name_es": "Reino Unido",
+      "uuid": "df97112d-149b-4ad0-865c-ee4b35a629be"
+    },
+    "model": "core.country",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "code2": "US",
+      "created": "2026-02-01T15:56:25.554Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.737Z",
+      "name": "Estados Unidos",
+      "name_en": "United States",
+      "name_es": "Estados Unidos",
+      "uuid": "ce92a66d-40a5-4076-89b3-8e76ebb1820d"
+    },
+    "model": "core.country",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "code2": "IL",
+      "created": "2026-02-01T15:56:25.557Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.741Z",
+      "name": "Israel",
+      "name_en": "Israel",
+      "name_es": "Israel",
+      "uuid": "fced3723-af69-43c6-863c-557870383526"
+    },
+    "model": "core.country",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T15:56:25.561Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.746Z",
+      "name": "Madrid",
+      "name_en": "Madrid",
+      "name_es": "Madrid",
+      "uuid": "080090a0-9545-4229-bef0-1294eb6aff1f"
+    },
+    "model": "core.region",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T15:56:25.565Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.750Z",
+      "name": "Catalu\u00f1a",
+      "name_en": "Catalonia",
+      "name_es": "Catalu\u00f1a",
+      "uuid": "c454a69d-70d9-453b-8d69-f8a0a2b5e277"
+    },
+    "model": "core.region",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T15:56:25.569Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.754Z",
+      "name": "Pa\u00eds Vasco",
+      "name_en": "Basque Country",
+      "name_es": "Pa\u00eds Vasco",
+      "uuid": "2d66bd26-9d9b-472d-a4ec-d3d2689a59e5"
+    },
+    "model": "core.region",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T15:56:25.573Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.758Z",
+      "name": "Andaluc\u00eda",
+      "name_en": "Andalusia",
+      "name_es": "Andaluc\u00eda",
+      "uuid": "d354ce25-2769-40be-8926-58f90e30ab8d"
+    },
+    "model": "core.region",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T15:56:25.577Z",
+      "flag": "",
+      "modified": "2026-02-01T16:01:06.762Z",
+      "name": "Cantabria",
+      "name_en": "Cantabria",
+      "name_es": "Cantabria",
+      "uuid": "8f2ac95a-8398-48ae-9966-674f55efc889"
+    },
+    "model": "core.region",
+    "pk": 5
+  }
+]

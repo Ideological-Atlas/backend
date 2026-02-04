@@ -9,3 +9,4 @@ from .ideology_axis_definition_manager import IdeologyAxisDefinitionManager
 from .ideology_conditioner_definition_manager import (
     IdeologyConditionerDefinitionManager,
 )
+from .ideology_manager import IdeologyManager

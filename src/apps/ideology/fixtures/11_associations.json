@@ -1,0 +1,928 @@
+[
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.772Z",
+      "ideology": 43,
+      "modified": "2026-02-01T16:01:06.772Z",
+      "tag": 5,
+      "uuid": "7aeffc8f-a00d-4025-995b-2943772305d7"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.786Z",
+      "ideology": 55,
+      "modified": "2026-02-01T16:01:06.786Z",
+      "tag": 5,
+      "uuid": "515ca124-9ba6-4697-9905-e7b376a1a1c5"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.788Z",
+      "ideology": 91,
+      "modified": "2026-02-01T16:01:06.788Z",
+      "tag": 5,
+      "uuid": "5c78dd35-28d1-42d8-8dc2-d5ffb818abcf"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.790Z",
+      "ideology": 56,
+      "modified": "2026-02-01T16:01:06.790Z",
+      "tag": 5,
+      "uuid": "8eacf782-69f8-4053-951b-a42a9c2cd615"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.801Z",
+      "ideology": 84,
+      "modified": "2026-02-01T16:01:06.801Z",
+      "tag": 5,
+      "uuid": "6fb836ed-874e-456f-b3ab-cab821fb346f"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.802Z",
+      "ideology": 86,
+      "modified": "2026-02-01T16:01:06.802Z",
+      "tag": 5,
+      "uuid": "280c2152-4c09-47b4-a154-8fed8bf5c3ef"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.805Z",
+      "ideology": 87,
+      "modified": "2026-02-01T16:01:06.805Z",
+      "tag": 5,
+      "uuid": "da81f080-6f83-494e-a7ac-cdad623aa24f"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.808Z",
+      "ideology": 85,
+      "modified": "2026-02-01T16:01:06.809Z",
+      "tag": 5,
+      "uuid": "131f421a-ceee-419c-9d05-034e63e9b7aa"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.809Z",
+      "ideology": 85,
+      "modified": "2026-02-01T16:01:06.809Z",
+      "tag": 7,
+      "uuid": "086bf3e2-2c6c-474e-9a62-a70abd842302"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.811Z",
+      "ideology": 89,
+      "modified": "2026-02-01T16:01:06.811Z",
+      "tag": 5,
+      "uuid": "37c8e4cc-8884-4b6d-b29d-64df0af6a0f2"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.812Z",
+      "ideology": 88,
+      "modified": "2026-02-01T16:01:06.812Z",
+      "tag": 5,
+      "uuid": "40f66825-b6d5-4a44-8c04-98659fa956c2"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.846Z",
+      "ideology": 14,
+      "modified": "2026-02-01T16:01:06.846Z",
+      "tag": 5,
+      "uuid": "20e7be6e-9111-4a2c-b7de-c44631906a8e"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.851Z",
+      "ideology": 9,
+      "modified": "2026-02-01T16:01:06.851Z",
+      "tag": 7,
+      "uuid": "53eb40fc-8de4-405c-b18f-797240d55168"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.853Z",
+      "ideology": 10,
+      "modified": "2026-02-01T16:01:06.853Z",
+      "tag": 7,
+      "uuid": "b2c8077d-9332-4f86-8259-9b0e239eed97"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.854Z",
+      "ideology": 30,
+      "modified": "2026-02-01T16:01:06.855Z",
+      "tag": 8,
+      "uuid": "b3b145aa-3031-4ec5-8d58-9e978926c04b"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.856Z",
+      "ideology": 31,
+      "modified": "2026-02-01T16:01:06.856Z",
+      "tag": 8,
+      "uuid": "e84d248d-96b0-486b-bfa6-f9df7dfaefc4"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.857Z",
+      "ideology": 125,
+      "modified": "2026-02-01T16:01:06.857Z",
+      "tag": 8,
+      "uuid": "6635abd1-aaea-4afa-9bcd-ed2309649640"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.859Z",
+      "ideology": 108,
+      "modified": "2026-02-01T16:01:06.859Z",
+      "tag": 8,
+      "uuid": "5ef1d406-a112-47d2-85ef-48cf80d6d3c2"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.863Z",
+      "ideology": 109,
+      "modified": "2026-02-01T16:01:06.863Z",
+      "tag": 7,
+      "uuid": "1e6a45ab-eb42-430b-924b-dd16fc2f6546"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.865Z",
+      "ideology": 110,
+      "modified": "2026-02-01T16:01:06.865Z",
+      "tag": 5,
+      "uuid": "69966b65-2b22-4f46-8af6-15f028c358f8"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.865Z",
+      "ideology": 110,
+      "modified": "2026-02-01T16:01:06.866Z",
+      "tag": 7,
+      "uuid": "49fbaa9d-23bd-4444-a424-acb23f6cffe1"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.867Z",
+      "ideology": 104,
+      "modified": "2026-02-01T16:01:06.867Z",
+      "tag": 6,
+      "uuid": "0b2b8000-4f0a-4789-bc5a-f3c1876977c7"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.869Z",
+      "ideology": 103,
+      "modified": "2026-02-01T16:01:06.869Z",
+      "tag": 5,
+      "uuid": "191afc70-5a8b-44c8-9c4c-6ee7704af5ca"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.870Z",
+      "ideology": 36,
+      "modified": "2026-02-01T16:01:06.870Z",
+      "tag": 6,
+      "uuid": "28cb2ea5-ac63-40b7-83e9-ad791ffbdcab"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.872Z",
+      "ideology": 37,
+      "modified": "2026-02-01T16:01:06.872Z",
+      "tag": 5,
+      "uuid": "e273a2f6-7d75-444b-9b46-4d1fdfc9d3f5"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.873Z",
+      "ideology": 35,
+      "modified": "2026-02-01T16:01:06.873Z",
+      "tag": 6,
+      "uuid": "c33b7714-2268-46f7-beac-586b06952b0e"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.874Z",
+      "ideology": 105,
+      "modified": "2026-02-01T16:01:06.874Z",
+      "tag": 6,
+      "uuid": "731edc17-1d78-4f40-b2ae-9fa547ffa3ce"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.876Z",
+      "ideology": 76,
+      "modified": "2026-02-01T16:01:06.876Z",
+      "tag": 5,
+      "uuid": "c3144a5d-f924-4acc-9eaa-fd25e88c84f2"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.877Z",
+      "ideology": 77,
+      "modified": "2026-02-01T16:01:06.877Z",
+      "tag": 5,
+      "uuid": "7d53af62-4475-47d1-9c57-1d1bdd9b6e19"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.878Z",
+      "ideology": 27,
+      "modified": "2026-02-01T16:01:06.878Z",
+      "tag": 6,
+      "uuid": "c51b4bec-8a77-4822-aad6-4464cc62d587"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "created": "2026-02-01T16:01:06.880Z",
+      "ideology": 28,
+      "modified": "2026-02-01T16:01:06.880Z",
+      "tag": 6,
+      "uuid": "72487050-941d-407e-9893-2f4f89ab3e28"
+    },
+    "model": "ideology.ideologytag",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.767Z",
+      "ideology": 50,
+      "modified": "2026-02-01T16:01:06.767Z",
+      "region": null,
+      "religion": null,
+      "uuid": "1bee7dff-1a3d-4919-a33d-d910892f84e5"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.768Z",
+      "ideology": 42,
+      "modified": "2026-02-01T16:01:06.768Z",
+      "region": null,
+      "religion": null,
+      "uuid": "7e05e002-53aa-4500-b41e-6847c12dd196"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.769Z",
+      "ideology": 46,
+      "modified": "2026-02-01T16:01:06.769Z",
+      "region": null,
+      "religion": null,
+      "uuid": "502d9997-c443-412f-94ed-673c88ed73a3"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.771Z",
+      "ideology": 48,
+      "modified": "2026-02-01T16:01:06.771Z",
+      "region": null,
+      "religion": null,
+      "uuid": "1653f7e5-34f2-40f3-8486-f73d90c4a59c"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.772Z",
+      "ideology": 43,
+      "modified": "2026-02-01T16:01:06.772Z",
+      "region": null,
+      "religion": null,
+      "uuid": "18b098b9-060f-4292-8fc5-4ce88d32ae68"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.774Z",
+      "ideology": 41,
+      "modified": "2026-02-01T16:01:06.774Z",
+      "region": null,
+      "religion": null,
+      "uuid": "b3905c3e-afe1-4427-a920-14ffc169dfe7"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.775Z",
+      "ideology": 83,
+      "modified": "2026-02-01T16:01:06.775Z",
+      "region": null,
+      "religion": null,
+      "uuid": "b231dac9-9fbe-4f9c-abc2-9ee88daba3c5"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.776Z",
+      "ideology": 54,
+      "modified": "2026-02-01T16:01:06.777Z",
+      "region": 1,
+      "religion": null,
+      "uuid": "1d884f39-0336-4c1a-b9d1-9b8ed41332bc"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.778Z",
+      "ideology": 97,
+      "modified": "2026-02-01T16:01:06.779Z",
+      "region": 1,
+      "religion": null,
+      "uuid": "d32ea559-9c17-45a6-b801-67c6c3079b01"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.780Z",
+      "ideology": 45,
+      "modified": "2026-02-01T16:01:06.780Z",
+      "region": null,
+      "religion": null,
+      "uuid": "657c5377-b2bb-4e1b-a718-77b3af168ef9"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.781Z",
+      "ideology": 47,
+      "modified": "2026-02-01T16:01:06.782Z",
+      "region": null,
+      "religion": null,
+      "uuid": "8d1cc825-b404-4431-ae76-13102b7335b0"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.783Z",
+      "ideology": 49,
+      "modified": "2026-02-01T16:01:06.783Z",
+      "region": null,
+      "religion": null,
+      "uuid": "138215e6-a340-45d7-ac3e-3fdacdbd872c"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.784Z",
+      "ideology": 82,
+      "modified": "2026-02-01T16:01:06.785Z",
+      "region": null,
+      "religion": null,
+      "uuid": "530c5584-a914-49f3-bf94-8a68d292510c"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.786Z",
+      "ideology": 55,
+      "modified": "2026-02-01T16:01:06.786Z",
+      "region": null,
+      "religion": null,
+      "uuid": "23c66a21-b6a8-4107-aff5-76ea81487adc"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.788Z",
+      "ideology": 91,
+      "modified": "2026-02-01T16:01:06.788Z",
+      "region": null,
+      "religion": null,
+      "uuid": "d2850172-66e5-40e9-9804-249ec8fc2a3b"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.790Z",
+      "ideology": 56,
+      "modified": "2026-02-01T16:01:06.790Z",
+      "region": null,
+      "religion": 1,
+      "uuid": "aceeb119-21b1-40cb-835e-c9495289e855"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.792Z",
+      "ideology": 90,
+      "modified": "2026-02-01T16:01:06.792Z",
+      "region": null,
+      "religion": 1,
+      "uuid": "c936b622-cd99-4513-8e29-1bb69a70b8e4"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.793Z",
+      "ideology": 51,
+      "modified": "2026-02-01T16:01:06.794Z",
+      "region": null,
+      "religion": null,
+      "uuid": "65df804b-4fba-420c-b979-e8f8c233f38a"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.795Z",
+      "ideology": 52,
+      "modified": "2026-02-01T16:01:06.795Z",
+      "region": null,
+      "religion": null,
+      "uuid": "93de4806-16ba-45e9-a932-4f6b969d5198"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.797Z",
+      "ideology": 53,
+      "modified": "2026-02-01T16:01:06.797Z",
+      "region": null,
+      "religion": null,
+      "uuid": "9dac04d5-aad9-4c75-8355-449c20842c1e"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.798Z",
+      "ideology": 44,
+      "modified": "2026-02-01T16:01:06.798Z",
+      "region": null,
+      "religion": null,
+      "uuid": "a300d467-5ad9-4622-8df6-9e36d0709a5c"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.799Z",
+      "ideology": 94,
+      "modified": "2026-02-01T16:01:06.799Z",
+      "region": null,
+      "religion": null,
+      "uuid": "4ea74d01-8839-47a1-af4a-81ea05550652"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.801Z",
+      "ideology": 84,
+      "modified": "2026-02-01T16:01:06.801Z",
+      "region": 2,
+      "religion": null,
+      "uuid": "da8fd852-38ef-4dc8-957a-3847113656f8"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.803Z",
+      "ideology": 86,
+      "modified": "2026-02-01T16:01:06.803Z",
+      "region": 2,
+      "religion": null,
+      "uuid": "8627988a-ddf2-40ed-a931-bbc3a6808f50"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.805Z",
+      "ideology": 87,
+      "modified": "2026-02-01T16:01:06.805Z",
+      "region": 2,
+      "religion": null,
+      "uuid": "c7003d20-d10e-4cfe-993b-61f399cdd0a2"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.807Z",
+      "ideology": 99,
+      "modified": "2026-02-01T16:01:06.807Z",
+      "region": 2,
+      "religion": null,
+      "uuid": "da778fe0-8d81-44ec-8cc2-c5e82b1aab6e"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.809Z",
+      "ideology": 85,
+      "modified": "2026-02-01T16:01:06.809Z",
+      "region": 3,
+      "religion": null,
+      "uuid": "03799577-71fc-4bf4-b839-54501183cbe9"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.811Z",
+      "ideology": 89,
+      "modified": "2026-02-01T16:01:06.811Z",
+      "region": 3,
+      "religion": null,
+      "uuid": "686c7dbc-9779-401f-adcc-a6598a3a11c6"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.813Z",
+      "ideology": 88,
+      "modified": "2026-02-01T16:01:06.813Z",
+      "region": 3,
+      "religion": null,
+      "uuid": "6a371d9a-4a63-4a64-b1ea-9a6c3c9f7155"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.814Z",
+      "ideology": 98,
+      "modified": "2026-02-01T16:01:06.814Z",
+      "region": 4,
+      "religion": null,
+      "uuid": "d09ad566-74d1-4b1d-81da-7d5e7f96a571"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.815Z",
+      "ideology": 96,
+      "modified": "2026-02-01T16:01:06.815Z",
+      "region": 5,
+      "religion": null,
+      "uuid": "81033786-30fe-4690-be7f-35877fade9e4"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.817Z",
+      "ideology": 92,
+      "modified": "2026-02-01T16:01:06.817Z",
+      "region": null,
+      "religion": null,
+      "uuid": "22835dd1-bbe7-4e0a-9c6e-079688997fa9"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.819Z",
+      "ideology": 93,
+      "modified": "2026-02-01T16:01:06.819Z",
+      "region": null,
+      "religion": null,
+      "uuid": "15ba1670-c404-4e1a-bd61-28fae5d61637"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.820Z",
+      "ideology": 95,
+      "modified": "2026-02-01T16:01:06.820Z",
+      "region": null,
+      "religion": null,
+      "uuid": "f907c26a-0aa1-495a-9687-00c7b73c6ce3"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.821Z",
+      "ideology": 100,
+      "modified": "2026-02-01T16:01:06.821Z",
+      "region": null,
+      "religion": null,
+      "uuid": "d4ba0e8d-1ee4-41a8-a823-fdb122b68958"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "country": 1,
+      "created": "2026-02-01T16:01:06.823Z",
+      "ideology": 101,
+      "modified": "2026-02-01T16:01:06.823Z",
+      "region": null,
+      "religion": null,
+      "uuid": "c5d67fec-22ff-482d-9cf5-3eaa08265086"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 81
+  },
+  {
+    "fields": {
+      "country": 2,
+      "created": "2026-02-01T16:01:06.824Z",
+      "ideology": 18,
+      "modified": "2026-02-01T16:01:06.824Z",
+      "region": null,
+      "religion": null,
+      "uuid": "c427738f-b2a6-4648-b805-f1c049962813"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 82
+  },
+  {
+    "fields": {
+      "country": 2,
+      "created": "2026-02-01T16:01:06.825Z",
+      "ideology": 19,
+      "modified": "2026-02-01T16:01:06.826Z",
+      "region": null,
+      "religion": null,
+      "uuid": "7b164711-109e-43f4-8b64-0d7b7fd68ee3"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 83
+  },
+  {
+    "fields": {
+      "country": 2,
+      "created": "2026-02-01T16:01:06.827Z",
+      "ideology": 22,
+      "modified": "2026-02-01T16:01:06.827Z",
+      "region": null,
+      "religion": null,
+      "uuid": "44437f25-d606-4597-befd-653c26761c91"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 84
+  },
+  {
+    "fields": {
+      "country": 2,
+      "created": "2026-02-01T16:01:06.828Z",
+      "ideology": 23,
+      "modified": "2026-02-01T16:01:06.828Z",
+      "region": null,
+      "religion": null,
+      "uuid": "8cae75fb-bd3c-47cc-8e93-2645fb6e26d1"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "country": 2,
+      "created": "2026-02-01T16:01:06.830Z",
+      "ideology": 20,
+      "modified": "2026-02-01T16:01:06.830Z",
+      "region": null,
+      "religion": null,
+      "uuid": "1a7b7c23-73c9-45be-9694-aa6d74634b20"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 86
+  },
+  {
+    "fields": {
+      "country": null,
+      "created": "2026-02-01T16:01:06.851Z",
+      "ideology": 9,
+      "modified": "2026-02-01T16:01:06.852Z",
+      "region": null,
+      "religion": 1,
+      "uuid": "65a9f2b1-8737-4168-ba14-7f0f6c575c63"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 87
+  },
+  {
+    "fields": {
+      "country": null,
+      "created": "2026-02-01T16:01:06.853Z",
+      "ideology": 10,
+      "modified": "2026-02-01T16:01:06.853Z",
+      "region": null,
+      "religion": 1,
+      "uuid": "2ccca35a-d342-434c-b74b-7c4cd656dfb8"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 88
+  },
+  {
+    "fields": {
+      "country": null,
+      "created": "2026-02-01T16:01:06.864Z",
+      "ideology": 109,
+      "modified": "2026-02-01T16:01:06.864Z",
+      "region": null,
+      "religion": 2,
+      "uuid": "35b79c11-2ea1-4ebf-b5fe-d022c2ec3890"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "country": 4,
+      "created": "2026-02-01T16:01:06.866Z",
+      "ideology": 110,
+      "modified": "2026-02-01T16:01:06.866Z",
+      "region": null,
+      "religion": 3,
+      "uuid": "eda9b3d8-5e9e-446a-ba47-fa9863160ab1"
+    },
+    "model": "ideology.ideologyassociation",
+    "pk": 90
+  }
+]

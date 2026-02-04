@@ -132,3 +132,33 @@ class AffinityCalculatorTestCase(TestCase):
     def test_defensive_none_ref_item(self):
         result = AffinityCalculator({"corrupt_uuid": None}, {}).calculate_detailed()  # type: ignore
         self.assertIsNone(result["total"])
+
+    def test_quadratic_affinity_perfect_match(self):
+        UserAxisAnswerFactory(
+            user=self.user_a, axis=self.axis_1, value=50, margin_left=0, margin_right=0
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=50, margin_left=0, margin_right=0
+        )
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 100.0)
+
+    def test_quadratic_affinity_large_gap_zero_score(self):
+        UserAxisAnswerFactory(
+            user=self.user_a,
+            axis=self.axis_1,
+            value=-100,
+            margin_left=0,
+            margin_right=0,
+        )
+        UserAxisAnswerFactory(
+            user=self.user_b, axis=self.axis_1, value=100, margin_left=0, margin_right=0
+        )
+        calc = AffinityCalculator(
+            self._get_data(self.user_a), self._get_data(self.user_b)
+        )
+        result = calc.calculate_detailed()
+        self.assertEqual(result["total"], 0.0)

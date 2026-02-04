@@ -1,3 +1,5 @@
+import uuid
+
 from core.models import TimeStampedUUIDModel, User
 from django.apps import apps
 from django.db import models
@@ -48,7 +50,12 @@ class CompletedAnswer(TimeStampedUUIDModel):
         if not raw_axes:
             return {}
 
-        axis_uuids = [item["uuid"] for item in raw_axes]
+        axis_uuids = []
+        for item in raw_axes:
+            try:
+                axis_uuids.append(uuid.UUID(item["uuid"]))
+            except (ValueError, TypeError, AttributeError):
+                continue
 
         hierarchy_map = {
             ax["uuid"].hex: {
@@ -62,7 +69,13 @@ class CompletedAnswer(TimeStampedUUIDModel):
 
         mapped_data = {}
         for item in raw_axes:
-            clean_uuid = item["uuid"].replace("-", "")
+            try:
+                raw_uuid = item.get("uuid")
+                if not isinstance(raw_uuid, str):
+                    continue
+                clean_uuid = raw_uuid.replace("-", "")
+            except (AttributeError, ValueError):
+                continue
 
             if clean_uuid not in hierarchy_map:
                 continue

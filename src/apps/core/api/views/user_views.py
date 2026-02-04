@@ -1,15 +1,11 @@
-from core.api.permissions import IsVerified
 from core.api.serializers import (
-    AffinitySerializer,
     MeSerializer,
     UserSetPasswordSerializer,
 )
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
-from ideology.api.serializers import IdeologyAffinitySerializer
-from ideology.models import CompletedAnswer, Ideology
 from rest_framework import status
-from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView, UpdateAPIView
+from rest_framework.generics import RetrieveUpdateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -54,45 +50,3 @@ class UserSetPasswordView(UpdateAPIView):
         serializer.save()
 
         return Response(MeSerializer(user).data, status=status.HTTP_200_OK)
-
-
-@extend_schema(
-    tags=["users"],
-    summary=_("Get affinity with a Completed Answer"),
-    description=_(
-        "Calculates the ideological affinity (0-100%) between the current user's active answers "
-        "and a specific CompletedAnswer (identified by UUID). The target might be anonymous."
-    ),
-)
-class UserAffinityView(GenericAPIView):
-    permission_classes = [IsAuthenticated, IsVerified]
-    queryset = CompletedAnswer.objects.all()
-    lookup_field = "uuid"
-    serializer_class = AffinitySerializer
-
-    def get(self, request, *args, **kwargs):
-        target_answer = self.get_object()
-        data = request.user.calculate_detailed_affinity_with(target_answer)
-        serializer = self.get_serializer(data)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-@extend_schema(
-    tags=["users"],
-    summary=_("Get affinity with an Ideology"),
-    description=_(
-        "Calculates the ideological affinity (0-100%) between the current user's active answers "
-        "and the defined values of a specific Ideology (identified by UUID)."
-    ),
-)
-class UserIdeologyAffinityView(GenericAPIView):
-    permission_classes = [IsAuthenticated, IsVerified]
-    queryset = Ideology.objects.all()
-    lookup_field = "uuid"
-    serializer_class = IdeologyAffinitySerializer
-
-    def get(self, request, *args, **kwargs):
-        ideology = self.get_object()
-        data = request.user.calculate_ideology_affinity(ideology)
-        serializer = self.get_serializer(data)
-        return Response(serializer.data, status=status.HTTP_200_OK)

@@ -11,6 +11,4 @@ from .user_serializers import (
     RegisterSerializer,
     UserSetPasswordSerializer,
     UserVerificationSerializer,
-    AffinitySerializer,
-    IdeologyAffinitySerializer,
 )
