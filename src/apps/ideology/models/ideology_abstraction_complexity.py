@@ -1,10 +1,10 @@
-from core.models import TimeStampedUUIDModel
+from core.models import TimeStampedUUIDModel, VisibleMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ideology.models.managers import IdeologyAbstractionComplexityManager
 
 
-class IdeologyAbstractionComplexity(TimeStampedUUIDModel):
+class IdeologyAbstractionComplexity(VisibleMixin, TimeStampedUUIDModel):
     name = models.CharField(
         max_length=128,
         unique=True,
@@ -28,13 +28,7 @@ class IdeologyAbstractionComplexity(TimeStampedUUIDModel):
             "A numerical value used to rank and order the levels of abstraction (e.g., 1 for lowest, 10 for highest)."
         ),
     )
-    visible = models.BooleanField(
-        default=True,
-        verbose_name=_("Visible"),
-        help_text=_(
-            "Boolean to show if the level is visible or not in the frontend. Used to hide a level that is in progress or only available for certain users."
-        ),
-    )
+
     objects = IdeologyAbstractionComplexityManager()
 
     class Meta:

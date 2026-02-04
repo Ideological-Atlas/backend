@@ -70,7 +70,9 @@ class IdeologyListView(ListAPIView):
 
     def get_queryset(self):
         return (
-            Ideology.objects.annotate(definitions_count=Count("axis_definitions"))
+            Ideology.objects.visible.annotate(
+                definitions_count=Count("axis_definitions")
+            )
             .filter(definitions_count__gte=15)
             .select_related()
             .prefetch_related(

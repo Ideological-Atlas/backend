@@ -7,44 +7,12 @@ from core.helpers import UUIDModelSerializerMixin
 from core.models import User
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.utils.translation import gettext_lazy as _
-from ideology.api.serializers import (
-    ComplexityAffinitySerializer,
-    TargetIdeologySerializer,
-)
 from rest_framework import serializers
 from rest_framework.serializers import ErrorDetail
 
-from .base_user_serializers import PublicUserSerializer, SimpleUserSerializer
+from .base_user_serializers import SimpleUserSerializer
 
 logger = logging.getLogger(__name__)
-
-
-class AffinitySerializer(serializers.Serializer):
-    target_user = PublicUserSerializer(read_only=True, allow_null=True)
-    total_affinity = serializers.FloatField(
-        min_value=0.0,
-        max_value=100.0,
-        allow_null=True,
-        source="total",
-        help_text=_("Overall affinity percentage. Null if no common axes."),
-    )
-    complexities = ComplexityAffinitySerializer(
-        many=True, help_text=_("Affinity grouped by abstraction level.")
-    )
-
-
-class IdeologyAffinitySerializer(serializers.Serializer):
-    target_ideology = TargetIdeologySerializer(read_only=True, allow_null=True)
-    total_affinity = serializers.FloatField(
-        min_value=0.0,
-        max_value=100.0,
-        allow_null=True,
-        source="total",
-        help_text=_("Overall affinity percentage. Null if no common axes."),
-    )
-    complexities = ComplexityAffinitySerializer(
-        many=True, help_text=_("Affinity grouped by abstraction level.")
-    )
 
 
 class UserVerificationSerializer(SimpleUserSerializer):

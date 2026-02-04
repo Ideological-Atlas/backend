@@ -1,10 +1,11 @@
 from core.helpers import handle_storage
-from core.models import TimeStampedUUIDModel
+from core.models import TimeStampedUUIDModel, VisibleMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from ideology.models.managers import IdeologyManager
 
 
-class Ideology(TimeStampedUUIDModel):
+class Ideology(VisibleMixin, TimeStampedUUIDModel):
     name = models.CharField(
         max_length=255,
         unique=True,
@@ -83,6 +84,8 @@ class Ideology(TimeStampedUUIDModel):
         verbose_name=_("Tags"),
         help_text=_("Tags associated with this ideology."),
     )
+
+    objects = IdeologyManager()
 
     class Meta:
         verbose_name = _("Ideology")

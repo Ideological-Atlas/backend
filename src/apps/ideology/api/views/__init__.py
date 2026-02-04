@@ -7,6 +7,7 @@ from .completed_answer_views import (
     GenerateCompletedAnswerView,
     LatestCompletedAnswerView,
     RetrieveCompletedAnswerView,
+    CopyCompletedAnswerToUserView,
 )
 from .user_conditioner_answer_views import (
     DeleteConditionerAnswerView,
@@ -30,3 +31,4 @@ from .ideology_conditioner_definition_views import (
 )
 from .tag_views import TagListView
 from .religion_views import ReligionListView
+from .affinity_views import IdeologyAffinityView, CompletedAnswerAffinityView

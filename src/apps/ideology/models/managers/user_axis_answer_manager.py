@@ -30,27 +30,19 @@ class UserAxisAnswerManager(models.Manager):
         queryset = (
             self.filter(user=user)
             .filter(Q(value__isnull=False) | Q(is_indifferent=True))
-            .values(
-                "axis__uuid",
-                "value",
-                "margin_left",
-                "margin_right",
-                "is_indifferent",
-                "axis__section__uuid",
-                "axis__section__abstraction_complexity__uuid",
+            .select_related(
+                "axis", "axis__section", "axis__section__abstraction_complexity"
             )
         )
 
         return {
-            item["axis__uuid"].hex: {
-                "value": item["value"],
-                "margin_left": item["margin_left"] or 0,
-                "margin_right": item["margin_right"] or 0,
-                "is_indifferent": item["is_indifferent"],
-                "section_uuid": item["axis__section__uuid"].hex,
-                "complexity_uuid": item[
-                    "axis__section__abstraction_complexity__uuid"
-                ].hex,
+            answer.axis.uuid.hex: {
+                "value": answer.value,
+                "margin_left": answer.margin_left or 0,
+                "margin_right": answer.margin_right or 0,
+                "is_indifferent": answer.is_indifferent,
+                "section_uuid": answer.axis.section.uuid.hex,
+                "complexity_uuid": answer.axis.section.abstraction_complexity.uuid.hex,
             }
-            for item in queryset
+            for answer in queryset
         }

@@ -29,16 +29,6 @@ urlpatterns = [
     path("me/", core_views.MeDetailView.as_view(), name="me"),
     path("me/password/", core_views.UserSetPasswordView.as_view(), name="set-password"),
     path(
-        "users/affinity/<str:uuid>/",
-        core_views.UserAffinityView.as_view(),
-        name="user-affinity",
-    ),
-    path(
-        "users/affinity/ideology/<str:uuid>/",
-        core_views.UserIdeologyAffinityView.as_view(),
-        name="user-ideology-affinity",
-    ),
-    path(
         "geography/countries/",
         core_views.CountryListView.as_view(),
         name="country-list",

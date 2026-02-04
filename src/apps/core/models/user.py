@@ -1,6 +1,5 @@
 import logging
 import uuid
-from typing import Any
 
 from core.exceptions.user_exceptions import UserAlreadyVerifiedException
 from core.models.managers import CustomUserManager
@@ -142,76 +141,3 @@ class User(AbstractUser, TimeStampedUUIDModel, PermissionsMixin):
             self,
             send_notification,
         )
-
-    def get_affinity_data(self, target_data: dict[str, dict]) -> dict[str, Any]:
-        from core.services.affinity_calculator import AffinityCalculator
-        from ideology.models import UserAxisAnswer
-
-        my_data = UserAxisAnswer.objects.get_mapped_for_calculation(self)
-        return AffinityCalculator(my_data, target_data).calculate_detailed()
-
-    @staticmethod
-    def _hydrate_affinity_structure(affinity_data: dict[str, Any]) -> dict[str, Any]:
-        from ideology.models import (
-            IdeologyAbstractionComplexity,
-            IdeologyAxis,
-            IdeologySection,
-        )
-
-        complexity_uuids = set()
-        section_uuids = set()
-        axis_uuids = set()
-
-        for complexity_item in affinity_data["complexities"]:
-            complexity_uuids.add(complexity_item["complexity_uuid"])
-            for section_item in complexity_item["sections"]:
-                section_uuids.add(section_item["section_uuid"])
-                for axis_item in section_item["axes"]:
-                    axis_uuids.add(axis_item["axis_uuid"])
-
-        complexities_map = {
-            c.uuid.hex: c
-            for c in IdeologyAbstractionComplexity.objects.filter(
-                uuid__in=complexity_uuids
-            )
-        }
-        sections_map = {
-            s.uuid.hex: s
-            for s in IdeologySection.objects.filter(uuid__in=section_uuids)
-        }
-        axes_map = {
-            a.uuid.hex: a for a in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
-        }
-
-        for complexity_item in affinity_data["complexities"]:
-            complexity_item["complexity"] = complexities_map.get(
-                complexity_item["complexity_uuid"]
-            )
-            for section_item in complexity_item["sections"]:
-                section_item["section"] = sections_map.get(section_item["section_uuid"])
-                for axis_item in section_item["axes"]:
-                    axis_item["axis"] = axes_map.get(axis_item["axis_uuid"])
-
-        return affinity_data
-
-    def calculate_detailed_affinity_with(self, target_answer) -> dict[str, Any]:
-        target_data_mapped = target_answer.get_mapped_for_calculation()
-        affinity_data = self.get_affinity_data(target_data_mapped)
-        hydrated_data = self._hydrate_affinity_structure(affinity_data)
-
-        return {
-            "target_user": target_answer.completed_by,
-            "total": hydrated_data["total"],
-            "complexities": hydrated_data["complexities"],
-        }
-
-    def calculate_ideology_affinity(self, ideology) -> dict[str, Any]:
-        target_data_mapped = ideology.get_mapped_for_calculation()
-        affinity_data = self.get_affinity_data(target_data_mapped)
-        hydrated_data = self._hydrate_affinity_structure(affinity_data)
-
-        return {
-            "target_ideology": ideology,
-            "total": hydrated_data["total"],
-            "complexities": hydrated_data["complexities"],
-        }

@@ -3,8 +3,10 @@ from django.urls import reverse
 from ideology.factories import (
     CompletedAnswerFactory,
     IdeologyAxisFactory,
+    IdeologyConditionerFactory,
     UserAxisAnswerFactory,
 )
+from ideology.models import UserAxisAnswer, UserConditionerAnswer
 from rest_framework import status
 
 
@@ -89,3 +91,43 @@ class RetrieveCompletedAnswerViewTestCase(APITestBase):
         )
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+class CopyCompletedAnswerViewTestCase(APITestBaseNeedAuthorized):
+    def setUp(self):
+        super().setUp()
+        self.axis = IdeologyAxisFactory()
+        self.conditioner = IdeologyConditionerFactory()
+        self.completed_answer = CompletedAnswerFactory(
+            answers={
+                "axis": [
+                    {
+                        "uuid": self.axis.uuid.hex,
+                        "value": 75,
+                        "margin_left": 5,
+                        "margin_right": 5,
+                        "is_indifferent": False,
+                    }
+                ],
+                "conditioners": [{"uuid": self.conditioner.uuid.hex, "value": "Yes"}],
+            }
+        )
+        self.url = reverse(
+            "ideology:completed-answer-copy",
+            kwargs={"uuid": self.completed_answer.uuid.hex},
+        )
+
+    def test_copy_completed_answer_to_profile(self):
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Verify axis answer copied
+        axis_ans = UserAxisAnswer.objects.get(user=self.user, axis=self.axis)
+        self.assertEqual(axis_ans.value, 75)
+        self.assertEqual(axis_ans.margin_left, 5)
+
+        # Verify conditioner answer copied
+        cond_ans = UserConditionerAnswer.objects.get(
+            user=self.user, conditioner=self.conditioner
+        )
+        self.assertEqual(cond_ans.answer, "Yes")
