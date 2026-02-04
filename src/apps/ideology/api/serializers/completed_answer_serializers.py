@@ -1,5 +1,6 @@
-from core.api.serializers import SimpleUserSerializer
+from core.api.serializers.base_user_serializers import SimpleUserSerializer
 from core.helpers import UUIDModelSerializerMixin
+from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 from ideology.models import CompletedAnswer
 from rest_framework import serializers
@@ -44,3 +45,34 @@ class CompletedAnswerSerializer(UUIDModelSerializerMixin):
         return CompletedAnswer.objects.generate_snapshot(
             user=self.context["request"].user, input_data=validated_data
         )
+
+
+class CopyCompletedAnswerSerializer(serializers.Serializer):
+    def create(self, validated_data):
+        from ideology.models import UserAxisAnswer, UserConditionerAnswer
+
+        request = self.context["request"]
+        user = request.user
+        completed_answer = self.context["view"].get_object()
+        answers = completed_answer.answers
+
+        with transaction.atomic():
+            for axis_data in answers.get("axis", []):
+                UserAxisAnswer.objects.upsert(
+                    user=user,
+                    axis_uuid=axis_data["uuid"],
+                    validated_data={
+                        "value": axis_data.get("value"),
+                        "margin_left": axis_data.get("margin_left"),
+                        "margin_right": axis_data.get("margin_right"),
+                        "is_indifferent": axis_data.get("is_indifferent", False),
+                    },
+                )
+
+            for cond_data in answers.get("conditioners", []):
+                UserConditionerAnswer.objects.upsert(
+                    user=user,
+                    conditioner_uuid=cond_data["uuid"],
+                    validated_data={"answer": cond_data.get("value")},
+                )
+        return completed_answer

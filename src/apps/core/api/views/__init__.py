@@ -10,4 +10,7 @@ from .auth_views import (
     PasswordResetVerifyTokenView,
 )
 from .geo_views import CountryListView, RegionListView
-from .user_views import MeDetailView, UserSetPasswordView, UserAffinityView
+from .user_views import (
+    MeDetailView,
+    UserSetPasswordView,
+)

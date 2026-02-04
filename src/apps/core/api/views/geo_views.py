@@ -1,5 +1,5 @@
-from cities_light.models import Country, Region
 from core.api.serializers import CountrySerializer, RegionSerializer
+from core.models import Country, Region
 from django.utils.translation import gettext_lazy as _
 from django_filters import rest_framework as filters
 from drf_spectacular.utils import OpenApiParameter, extend_schema

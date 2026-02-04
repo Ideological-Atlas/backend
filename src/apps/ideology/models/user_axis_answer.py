@@ -1,9 +1,9 @@
 from core.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ideology.models.managers import UserAxisAnswerManager, UserConditionerAnswerManager
+from ideology.models.managers import UserAxisAnswerManager
 
-from .abstract_answers import BaseAxisAnswer, BaseConditionerAnswer
+from .abstract_answers import BaseAxisAnswer
 
 
 class UserAxisAnswer(BaseAxisAnswer):
@@ -24,22 +24,3 @@ class UserAxisAnswer(BaseAxisAnswer):
     def __str__(self):
         val = "Indifferent" if self.is_indifferent else str(self.value)
         return f"{self.user.username} - {self.axis.name}: {val}"
-
-
-class UserConditionerAnswer(BaseConditionerAnswer):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="conditioner_answers",
-        verbose_name=_("User"),
-    )
-
-    objects = UserConditionerAnswerManager()
-
-    class Meta:
-        verbose_name = _("User Conditioner Answer")
-        verbose_name_plural = _("User Conditioner Answers")
-        unique_together = ["user", "conditioner"]
-
-    def __str__(self):
-        return f"{self.user.username} - {self.conditioner.name}: {self.answer}"

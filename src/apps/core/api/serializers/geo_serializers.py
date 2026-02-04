@@ -1,11 +1,11 @@
-from cities_light.models import Country, Region
+from core.models import Country, Region
 from rest_framework import serializers
 
 
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
-        fields = ["id", "name", "code2", "continent"]
+        fields = ["id", "name", "code2"]
 
 
 class RegionSerializer(serializers.ModelSerializer):

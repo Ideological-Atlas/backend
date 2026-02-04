@@ -30,9 +30,54 @@ urlpatterns = [
         name="ideology-list",
     ),
     path(
+        "ideologies/tags/",
+        views.TagListView.as_view(),
+        name="tag-list",
+    ),
+    path(
+        "ideologies/religions/",
+        views.ReligionListView.as_view(),
+        name="religion-list",
+    ),
+    path(
         "ideologies/<str:uuid>/",
         views.IdeologyDetailView.as_view(),
         name="ideology-detail",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/affinity/",
+        views.IdeologyAffinityView.as_view(),
+        name="ideology-affinity",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/",
+        views.IdeologyAxisDefinitionListByIdeologyView.as_view(),
+        name="ideology-axis-definitions-list",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/<str:axis_uuid>/",
+        views.UpsertIdeologyAxisDefinitionView.as_view(),
+        name="upsert-ideology-axis-definition",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/axis/<str:axis_uuid>/delete/",
+        views.DeleteIdeologyAxisDefinitionView.as_view(),
+        name="delete-ideology-axis-definition",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/",
+        views.IdeologyConditionerDefinitionListByIdeologyView.as_view(),
+        name="ideology-conditioner-definitions-list",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/<str:conditioner_uuid>/",
+        views.UpsertIdeologyConditionerDefinitionView.as_view(),
+        name="upsert-ideology-conditioner-definition",
+    ),
+    path(
+        "ideologies/<str:ideology_uuid>/definitions/conditioner/<str:conditioner_uuid>/delete/",
+        views.DeleteIdeologyConditionerDefinitionView.as_view(),
+        name="delete-ideology-conditioner-definition",
     ),
     path(
         "answers/axis/<str:uuid>/",
@@ -78,5 +123,15 @@ urlpatterns = [
         "answers/completed/<str:uuid>/",
         views.RetrieveCompletedAnswerView.as_view(),
         name="completed-answer-detail",
+    ),
+    path(
+        "answers/completed/<str:target_answer_uuid>/affinity/",
+        views.CompletedAnswerAffinityView.as_view(),
+        name="completed-answer-affinity",
+    ),
+    path(
+        "answers/completed/<str:uuid>/copy/",
+        views.CopyCompletedAnswerToUserView.as_view(),
+        name="completed-answer-copy",
     ),
 ]

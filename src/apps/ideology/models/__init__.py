@@ -7,8 +7,10 @@ from .ideology_abstraction_complexity import IdeologyAbstractionComplexity
 from .ideology_conditioner import IdeologyConditioner
 from .ideology_section import IdeologySection
 from .ideology_axis import IdeologyAxis
-from .user_axis_answer import UserAxisAnswer, UserConditionerAnswer
-from .ideology_definitions import IdeologyAxisDefinition, IdeologyConditionerDefinition
+from .user_axis_answer import UserAxisAnswer
+from .user_conditioner_answer import UserConditionerAnswer
+from .ideology_axis_definition import IdeologyAxisDefinition
+from .ideology_conditioner_definition import IdeologyConditionerDefinition
 from .completed_answer import CompletedAnswer
 from .ideology_association import IdeologyAssociation
 from .abstract_condition_rule import BaseConditionRule

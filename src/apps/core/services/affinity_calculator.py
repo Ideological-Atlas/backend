@@ -1,4 +1,10 @@
-from typing import Any, Dict
+from typing import Any, Dict, Optional, Set, Tuple
+
+from ideology.models import (
+    IdeologyAbstractionComplexity,
+    IdeologyAxis,
+    IdeologySection,
+)
 
 
 class AffinityCalculator:
@@ -13,146 +19,247 @@ class AffinityCalculator:
         self.data_b = data_b
 
     def calculate_detailed(self) -> Dict[str, Any]:
-        keys_a = set(self.data_a.keys())
-        keys_b = set(self.data_b.keys())
-        all_involved_axes = keys_a | keys_b
-
-        hierarchy_map: Dict[str, Dict[str, Any]] = {}
-        total_global_score = 0.0
-        total_global_count = 0
+        all_involved_axes = set(self.data_a.keys()) | set(self.data_b.keys())
 
         if not all_involved_axes:
             return {"total": None, "complexities": []}
 
-        for axis_id in all_involved_axes:
+        hierarchy_map, global_stats = self._process_axes(all_involved_axes)
+        formatted_complexities = self._format_hierarchy_output(hierarchy_map)
+        total_affinity = self._calculate_average(
+            global_stats["score"], global_stats["count"]
+        )
+
+        return {
+            "total": total_affinity,
+            "complexities": formatted_complexities,
+        }
+
+    def _process_axes(
+        self, axis_ids: Set[str]
+    ) -> Tuple[Dict[str, Any], Dict[str, float]]:
+        hierarchy_map: Dict[str, Any] = {}
+        global_score = 0.0
+        global_count = 0.0
+
+        for axis_id in axis_ids:
             item_a = self.data_a.get(axis_id)
             item_b = self.data_b.get(axis_id)
 
-            ref_item = item_a if item_a else item_b
-            if ref_item is None:
+            reference_item = item_a if item_a else item_b
+            if not reference_item:
                 continue
 
-            comp_uuid = ref_item["complexity_uuid"]
-            sec_uuid = ref_item["section_uuid"]
+            complexity_uuid = reference_item["complexity_uuid"]
+            section_uuid = reference_item["section_uuid"]
 
-            if comp_uuid not in hierarchy_map:
-                hierarchy_map[comp_uuid] = {
-                    "total_score": 0.0,
-                    "count": 0,
-                    "sections": {},
-                }
+            self._ensure_hierarchy_structure(
+                hierarchy_map, complexity_uuid, section_uuid
+            )
 
-            if sec_uuid not in hierarchy_map[comp_uuid]["sections"]:
-                hierarchy_map[comp_uuid]["sections"][sec_uuid] = {
-                    "total_score": 0.0,
-                    "count": 0,
-                    "axes": [],
-                }
+            score = self._calculate_single_axis_score(item_a, item_b)
+            rounded_score = round(score, 2) if score is not None else None
 
-            if item_a and item_b:
-                a_indifferent = (
-                    item_a.get("is_indifferent") or item_a.get("value") is None
-                )
-                b_indifferent = (
-                    item_b.get("is_indifferent") or item_b.get("value") is None
+            if score is not None:
+                global_score += score
+                global_count += 1
+                self._update_node_accumulators(
+                    hierarchy_map, complexity_uuid, section_uuid, score
                 )
 
-                if a_indifferent and b_indifferent:
-                    axis_score = self.MAX_AFFINITY
-                elif a_indifferent or b_indifferent:
-                    axis_score = self.PARTIAL_INDIFFERENCE_SCORE
-                else:
-                    axis_score = self._compute_quadratic_affinity(item_a, item_b)
+            self._append_axis_detail(
+                hierarchy_map,
+                complexity_uuid,
+                section_uuid,
+                axis_id,
+                item_a,
+                item_b,
+                rounded_score,
+            )
 
-                rounded_axis_score = round(axis_score, 2)
+        return hierarchy_map, {"score": global_score, "count": global_count}
 
-                total_global_score += axis_score
-                total_global_count += 1
+    @staticmethod
+    def _ensure_hierarchy_structure(
+        hierarchy_map: Dict[str, Any], complexity_uuid: str, section_uuid: str
+    ):
+        if complexity_uuid not in hierarchy_map:
+            hierarchy_map[complexity_uuid] = {
+                "total_score": 0.0,
+                "count": 0,
+                "sections": {},
+            }
 
-                hierarchy_map[comp_uuid]["total_score"] += axis_score
-                hierarchy_map[comp_uuid]["count"] += 1
+        if section_uuid not in hierarchy_map[complexity_uuid]["sections"]:
+            hierarchy_map[complexity_uuid]["sections"][section_uuid] = {
+                "total_score": 0.0,
+                "count": 0,
+                "axes": [],
+            }
 
-                sec_node = hierarchy_map[comp_uuid]["sections"][sec_uuid]
-                sec_node["total_score"] += axis_score
-                sec_node["count"] += 1
+    @staticmethod
+    def _update_node_accumulators(
+        hierarchy_map: Dict[str, Any],
+        complexity_uuid: str,
+        section_uuid: str,
+        score: float,
+    ):
+        complexity_node = hierarchy_map[complexity_uuid]
+        complexity_node["total_score"] += score
+        complexity_node["count"] += 1
 
-                final_axis_affinity = rounded_axis_score
-            else:
-                final_axis_affinity = None
+        section_node = complexity_node["sections"][section_uuid]
+        section_node["total_score"] += score
+        section_node["count"] += 1
 
-            sec_node = hierarchy_map[comp_uuid]["sections"][sec_uuid]
-            sec_node["axes"].append(
+    @staticmethod
+    def _append_axis_detail(
+        hierarchy_map: Dict[str, Any],
+        complexity_uuid: str,
+        section_uuid: str,
+        axis_uuid: str,
+        item_a: Optional[Dict],
+        item_b: Optional[Dict],
+        affinity: Optional[float],
+    ):
+        section_node = hierarchy_map[complexity_uuid]["sections"][section_uuid]
+        section_node["axes"].append(
+            {
+                "axis_uuid": axis_uuid,
+                "user_a": item_a,
+                "user_b": item_b,
+                "affinity": affinity,
+            }
+        )
+
+    def _calculate_single_axis_score(
+        self, item_a: Optional[Dict], item_b: Optional[Dict]
+    ) -> Optional[float]:
+        if not item_a or not item_b:
+            return None
+
+        is_indifferent_a = item_a.get("is_indifferent") or item_a.get("value") is None
+        is_indifferent_b = item_b.get("is_indifferent") or item_b.get("value") is None
+
+        if is_indifferent_a and is_indifferent_b:
+            return self.MAX_AFFINITY
+
+        if is_indifferent_a or is_indifferent_b:
+            return self.PARTIAL_INDIFFERENCE_SCORE
+
+        return self._compute_quadratic_affinity(item_a, item_b)
+
+    def _format_hierarchy_output(
+        self, hierarchy_map: Dict[str, Any]
+    ) -> list[Dict[str, Any]]:
+        formatted_complexities = []
+
+        for complexity_uuid, complexity_data in hierarchy_map.items():
+            formatted_sections = []
+
+            for section_uuid, section_data in complexity_data["sections"].items():
+                section_average = self._calculate_average(
+                    section_data["total_score"], section_data["count"]
+                )
+                formatted_sections.append(
+                    {
+                        "section_uuid": section_uuid,
+                        "affinity": section_average,
+                        "axes": section_data["axes"],
+                    }
+                )
+
+            complexity_average = self._calculate_average(
+                complexity_data["total_score"], complexity_data["count"]
+            )
+
+            formatted_complexities.append(
                 {
-                    "axis_uuid": axis_id,
-                    "user_a": item_a,
-                    "user_b": item_b,
-                    "affinity": final_axis_affinity,
+                    "complexity_uuid": complexity_uuid,
+                    "affinity": complexity_average,
+                    "sections": formatted_sections,
                 }
             )
 
-        final_complexities_list = []
-        for c_uuid, c_data in hierarchy_map.items():
-            sections_list = []
-            for s_uuid, s_data in c_data["sections"].items():
-                s_avg = None
-                if s_data["count"] > 0:
-                    s_avg = round(s_data["total_score"] / s_data["count"], 2)
+        return formatted_complexities
 
-                sections_list.append(
-                    {"section_uuid": s_uuid, "affinity": s_avg, "axes": s_data["axes"]}
-                )
-
-            c_avg = None
-            if c_data["count"] > 0:
-                c_avg = round(c_data["total_score"] / c_data["count"], 2)
-
-            final_complexities_list.append(
-                {
-                    "complexity_uuid": c_uuid,
-                    "affinity": c_avg,
-                    "sections": sections_list,
-                }
-            )
-
-        average_global_affinity = None
-        if total_global_count > 0:
-            average_global_affinity = round(total_global_score / total_global_count, 2)
-
-        return {
-            "total": average_global_affinity,
-            "complexities": final_complexities_list,
-        }
+    @staticmethod
+    def _calculate_average(total_score: float, count: float) -> Optional[float]:
+        if count > 0:
+            return round(total_score / count, 2)
+        return None
 
     def _compute_quadratic_affinity(self, data_a: dict, data_b: dict) -> float:
-        v1 = float(data_a["value"])
-        l1 = float(data_a["margin_left"])
-        r1 = float(data_a["margin_right"])
-        min1, max1 = v1 - l1, v1 + r1
+        value_1 = float(data_a["value"])
+        left_margin_1 = float(data_a["margin_left"])
+        right_margin_1 = float(data_a["margin_right"])
+        min_range_1, max_range_1 = value_1 - left_margin_1, value_1 + right_margin_1
 
-        v2 = float(data_b["value"])
-        l2 = float(data_b["margin_left"])
-        r2 = float(data_b["margin_right"])
-        min2, max2 = v2 - l2, v2 + r2
+        value_2 = float(data_b["value"])
+        left_margin_2 = float(data_b["margin_left"])
+        right_margin_2 = float(data_b["margin_right"])
+        min_range_2, max_range_2 = value_2 - left_margin_2, value_2 + right_margin_2
 
         gap = 0.0
-        if min1 > max2:
-            gap = min1 - max2
-        elif min2 > max1:
-            gap = min2 - max1
+        if min_range_1 > max_range_2:
+            gap = min_range_1 - max_range_2
+        elif min_range_2 > max_range_1:
+            gap = min_range_2 - max_range_1
 
         if gap > 0:
             ratio = min(gap / self.MAX_POSSIBLE_GAP, 1.0)
             return 50.0 * ((1.0 - ratio) ** 2)
 
-        dist = abs(v1 - v2)
+        dist = abs(value_1 - value_2)
 
-        if v1 < v2:
-            max_contact_dist = r1 + l2
+        if value_1 < value_2:
+            max_contact_dist = right_margin_1 + left_margin_2
         else:
-            max_contact_dist = r2 + l1
+            max_contact_dist = right_margin_2 + left_margin_1
 
         if dist == 0:
             return 100.0
 
         ratio = min(dist / max_contact_dist, 1.0)
         return 50.0 + (50.0 * ((1.0 - ratio) ** 2))
+
+    @staticmethod
+    def hydrate_affinity_structure(affinity_data: Dict[str, Any]) -> Dict[str, Any]:
+        complexity_uuids = set()
+        section_uuids = set()
+        axis_uuids = set()
+
+        for complexity_item in affinity_data["complexities"]:
+            complexity_uuids.add(complexity_item["complexity_uuid"])
+            for section_item in complexity_item["sections"]:
+                section_uuids.add(section_item["section_uuid"])
+                for axis_item in section_item["axes"]:
+                    axis_uuids.add(axis_item["axis_uuid"])
+
+        complexities_map = {
+            ideology_abstraction_complexity.uuid.hex: ideology_abstraction_complexity
+            for ideology_abstraction_complexity in IdeologyAbstractionComplexity.objects.filter(
+                uuid__in=complexity_uuids
+            )
+        }
+        sections_map = {
+            ideology_section.uuid.hex: ideology_section
+            for ideology_section in IdeologySection.objects.filter(
+                uuid__in=section_uuids
+            )
+        }
+        axes_map = {
+            ideology_axis.uuid.hex: ideology_axis
+            for ideology_axis in IdeologyAxis.objects.filter(uuid__in=axis_uuids)
+        }
+
+        for complexity_item in affinity_data["complexities"]:
+            complexity_item["complexity"] = complexities_map.get(
+                complexity_item["complexity_uuid"]
+            )
+            for section_item in complexity_item["sections"]:
+                section_item["section"] = sections_map.get(section_item["section_uuid"])
+                for axis_item in section_item["axes"]:
+                    axis_item["axis"] = axes_map.get(axis_item["axis_uuid"])
+
+        return affinity_data

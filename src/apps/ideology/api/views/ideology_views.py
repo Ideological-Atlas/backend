@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.utils.translation import gettext_lazy as _
 from django_filters import rest_framework as filters
 from drf_spectacular.utils import OpenApiParameter, extend_schema
@@ -23,7 +24,7 @@ class IdeologyFilter(filters.FilterSet):
     tags=["ideologies"],
     summary=_("List all ideologies"),
     description=_(
-        "Returns a paginated list of ideologies. Supports filtering by related entities and text search."
+        "Returns a paginated list of ideologies with at least 15 axis definitions. Supports filtering by related entities and text search."
     ),
     parameters=[
         OpenApiParameter(
@@ -58,7 +59,6 @@ class IdeologyFilter(filters.FilterSet):
 class IdeologyListView(ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = IdeologyListSerializer
-    queryset = Ideology.objects.all().order_by("name").distinct()
     filter_backends = [filters.DjangoFilterBackend, SearchFilter]
     filterset_class = IdeologyFilter
     search_fields = [
@@ -67,6 +67,23 @@ class IdeologyListView(ListAPIView):
         "description_detractor",
         "description_neutral",
     ]
+
+    def get_queryset(self):
+        return (
+            Ideology.objects.visible.annotate(
+                definitions_count=Count("axis_definitions")
+            )
+            .filter(definitions_count__gte=15)
+            .select_related()
+            .prefetch_related(
+                "tags",
+                "associated_countries",
+                "associated_regions",
+                "associated_religions",
+            )
+            .order_by("name")
+            .distinct()
+        )
 
 
 @extend_schema(
@@ -79,5 +96,12 @@ class IdeologyListView(ListAPIView):
 class IdeologyDetailView(RetrieveAPIView):
     permission_classes = [AllowAny]
     serializer_class = IdeologyDetailSerializer
-    queryset = Ideology.objects.all()
+    queryset = Ideology.objects.prefetch_related(
+        "axis_definitions__axis",
+        "conditioner_definitions__conditioner",
+        "tags",
+        "associated_countries",
+        "associated_regions",
+        "associated_religions",
+    ).all()
     lookup_field = "uuid"

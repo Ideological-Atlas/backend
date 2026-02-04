@@ -2,6 +2,7 @@ import logging
 import uuid
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from model_utils import models as model_utils_models
 
 logger = logging.getLogger(__name__)
@@ -24,5 +25,16 @@ class UUIDModel(models.Model):
 
 
 class TimeStampedUUIDModel(UUIDModel, model_utils_models.TimeStampedModel):
+    class Meta:
+        abstract = True
+
+
+class VisibleMixin(models.Model):
+    visible = models.BooleanField(
+        default=True,
+        verbose_name=_("Visible"),
+        help_text=_("Boolean to show if the item is visible or not in the frontend."),
+    )
+
     class Meta:
         abstract = True

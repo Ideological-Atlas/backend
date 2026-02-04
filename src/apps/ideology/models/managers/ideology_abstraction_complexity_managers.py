@@ -1,11 +1,6 @@
+from core.models.managers import VisibleManagerMixin
 from django.db import models
 
 
-class IdeologyAbstractionComplexityManager(models.Manager):
-    @property
-    def visible(self):
-        return self.filter(visible=True)
-
-    @property
-    def not_visible(self):
-        return self.filter(visible=False)
+class IdeologyAbstractionComplexityManager(VisibleManagerMixin, models.Manager):
+    pass
