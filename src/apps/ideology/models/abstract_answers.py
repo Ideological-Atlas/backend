@@ -67,6 +67,8 @@ class BaseAxisAnswer(TimeStampedUUIDModel):
 
 
 class BaseConditionerAnswer(TimeStampedUUIDModel):
+    INDIFFERENT_TERMS = {"indifferent", "indiferente", "indifférent"}
+
     conditioner = models.ForeignKey(
         "ideology.IdeologyConditioner",
         on_delete=models.CASCADE,
@@ -80,3 +82,9 @@ class BaseConditionerAnswer(TimeStampedUUIDModel):
 
     class Meta:
         abstract = True
+
+    @property
+    def is_indifferent_answer(self) -> bool:
+        if not self.answer:
+            return False
+        return self.answer.strip().lower() in self.INDIFFERENT_TERMS

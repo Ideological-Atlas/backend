@@ -27,6 +27,6 @@ class IdeologyModelTestCase(TestCase):
         mapped_data = ideology.get_mapped_for_calculation()
         axis_data = mapped_data[ideology_axis.uuid.hex]
 
-        self.assertEqual(axis_data["value"], 50)
-        self.assertEqual(axis_data["margin_left"], 0)
-        self.assertEqual(axis_data["margin_right"], 0)
+        self.assertEqual(axis_data.value, 50)
+        self.assertEqual(axis_data.margin_left, 0)
+        self.assertEqual(axis_data.margin_right, 0)
