@@ -6,15 +6,15 @@ from ideology.services.calculation_dto import CalculationItem
 class AffinityCalculator:
     MAX_AFFINITY = 100.0
     MIN_AFFINITY = 0.0
-    PARTIAL_INDIFFERENCE_SCORE = 50.0
+    PARTIAL_INDIFFERENCE_SCORE = 51.0
     MAX_POSSIBLE_GAP = 200.0
 
     COND_MATCH_BONUS = 5.0
     COND_INDIFFERENT_BONUS = 2.5
     COND_MISMATCH_PENALTY = 5.0
 
-    MAX_COND_POSITIVE_CAP = 20.0
-    MAX_COND_NEGATIVE_CAP = 25.0
+    MAX_COND_POSITIVE_CAP = 15.0
+    MAX_COND_NEGATIVE_CAP = 20.0
 
     def __init__(
         self, data_a: Dict[str, CalculationItem], data_b: Dict[str, CalculationItem]
