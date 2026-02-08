@@ -131,6 +131,7 @@ DATABASES = {
         "PASSWORD": env("POSTGRES_PASSWORD", default=""),
         "HOST": env("POSTGRES_HOST", default="postgres"),
         "PORT": env("POSTGRES_PORT", default=""),
+        "CONN_MAX_AGE": env.int("CONN_MAX_AGE", default=1000),
         "DISABLE_SERVER_SIDE_CURSORS": True,
         "TEST": {
             "NAME": "testing_database",

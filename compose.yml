@@ -5,6 +5,7 @@ services:
     hostname: postgres
     restart: always
     env_file: .env
+    command: ["postgres", "-c", "max_connections=500"]
     healthcheck:
       test: pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
       interval: 5s
