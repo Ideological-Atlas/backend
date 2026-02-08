@@ -71,10 +71,10 @@ class UserAnswersManagerTestCase(TestCase):
         self.assertIn(str(axis_1.uuid.hex), result)
 
         self.assertIn(str(axis_2.uuid.hex), result)
-        self.assertTrue(result[str(axis_2.uuid.hex)]["is_indifferent"])
+        self.assertTrue(result[str(axis_2.uuid.hex)].is_indifferent)
 
         self.assertNotIn(str(axis_3.uuid.hex), result)
 
         entry = result[str(axis_1.uuid.hex)]
-        self.assertEqual(entry["value"], 10)
-        self.assertEqual(entry["margin_left"], 5)
+        self.assertEqual(entry.value, 10)
+        self.assertEqual(entry.margin_left, 5)
