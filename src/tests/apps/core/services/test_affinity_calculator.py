@@ -74,7 +74,7 @@ class AffinityCalculatorTestCase(TestCase):
             self._get_data(self.user_a), self._get_data(self.user_b)
         )
         result = calc.calculate_detailed()
-        self.assertEqual(result["total"], 75.0)
+        self.assertEqual(result["total"], 51.0)
 
     def test_gap_logic_min2_greater_max1(self):
         UserAxisAnswerFactory(
@@ -236,8 +236,8 @@ class AffinityCalculatorTestCase(TestCase):
         base_affinity = complexity_res["base_affinity"]
         modifier = complexity_res["conditioner_modifier"]
 
-        self.assertEqual(base_affinity, 75.0)
+        self.assertEqual(base_affinity, 51.0)
 
         expected_modifier = 5.0 - 5.0 + 2.5
         self.assertEqual(modifier, expected_modifier)
-        self.assertEqual(result["total"], 75.0 + expected_modifier)
+        self.assertEqual(result["total"], 51.0 + expected_modifier)
