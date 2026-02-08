@@ -1,8 +1,15 @@
+from typing import Dict
+
 from core.helpers import handle_storage
 from core.models import TimeStampedUUIDModel, VisibleMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ideology.models.managers import IdeologyManager
+from ideology.services.calculation_dto import CalculationItem
+from ideology.services.mapping_helpers import (
+    format_mapped_item,
+    get_conditioner_complexity_annotation,
+)
 
 
 class Ideology(VisibleMixin, TimeStampedUUIDModel):
@@ -91,20 +98,44 @@ class Ideology(VisibleMixin, TimeStampedUUIDModel):
         verbose_name = _("Ideology")
         verbose_name_plural = _("Ideologies")
 
-    def get_mapped_for_calculation(self) -> dict[str, dict]:
+    def get_mapped_for_calculation(self) -> Dict[str, CalculationItem]:
+        return {**self._map_axis_definitions(), **self._map_conditioner_definitions()}
+
+    def _map_axis_definitions(self) -> Dict[str, CalculationItem]:
         definitions = self.axis_definitions.select_related(
             "axis", "axis__section", "axis__section__abstraction_complexity"
         ).all()
 
-        mapped_data = {}
-        for definition in definitions:
-            axis = definition.axis
-            mapped_data[axis.uuid.hex] = {
-                "value": definition.value,
-                "margin_left": definition.margin_left or 0,
-                "margin_right": definition.margin_right or 0,
-                "is_indifferent": definition.is_indifferent,
-                "section_uuid": axis.section.uuid.hex,
-                "complexity_uuid": axis.section.abstraction_complexity.uuid.hex,
-            }
-        return mapped_data
+        return {
+            definition.axis.uuid.hex: format_mapped_item(
+                item_type="axis",
+                value=definition.value,
+                complexity_uuid=definition.axis.section.abstraction_complexity.uuid.hex,
+                is_indifferent=definition.is_indifferent,
+                section_uuid=definition.axis.section.uuid.hex,
+                margin_left=definition.margin_left or 0,
+                margin_right=definition.margin_right or 0,
+            )
+            for definition in definitions
+        }
+
+    def _map_conditioner_definitions(self) -> Dict[str, CalculationItem]:
+        definitions = self.conditioner_definitions.select_related(
+            "conditioner"
+        ).annotate(
+            inferred_complexity=get_conditioner_complexity_annotation("conditioner")
+        )
+
+        return {
+            definition.conditioner.uuid.hex: format_mapped_item(
+                item_type="conditioner",
+                value=definition.answer,
+                complexity_uuid=(
+                    definition.inferred_complexity.hex
+                    if definition.inferred_complexity
+                    else None
+                ),
+                is_indifferent=definition.is_indifferent_answer,
+            )
+            for definition in definitions
+        }

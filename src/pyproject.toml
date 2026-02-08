@@ -37,6 +37,7 @@ dependencies = [
     "django-modeltranslation==0.19.19",
     "google-auth==2.48.0",
     "django-json-widget==2.1.1",
+    "pydantic==2.12.5",
 ]
 
 [project.optional-dependencies]
