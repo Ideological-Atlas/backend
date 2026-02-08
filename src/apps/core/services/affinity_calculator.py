@@ -6,7 +6,7 @@ from ideology.services.calculation_dto import CalculationItem
 class AffinityCalculator:
     MAX_AFFINITY = 100.0
     MIN_AFFINITY = 0.0
-    PARTIAL_INDIFFERENCE_SCORE = 75.0
+    PARTIAL_INDIFFERENCE_SCORE = 50.0
     MAX_POSSIBLE_GAP = 200.0
 
     COND_MATCH_BONUS = 5.0
