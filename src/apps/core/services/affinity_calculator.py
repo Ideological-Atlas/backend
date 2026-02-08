@@ -10,7 +10,7 @@ from ideology.models import (
 class AffinityCalculator:
     MAX_AFFINITY = 100.0
     MIN_AFFINITY = 0.0
-    PARTIAL_INDIFFERENCE_SCORE = 75.0
+    PARTIAL_INDIFFERENCE_SCORE = 50.0
     RANGE_SPAN = MAX_AFFINITY - MIN_AFFINITY
     MAX_POSSIBLE_GAP = 200.0
 

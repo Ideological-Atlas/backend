@@ -71,7 +71,7 @@ class AffinityCalculatorTestCase(TestCase):
             self._get_data(self.user_a), self._get_data(self.user_b)
         )
         result = calc.calculate_detailed()
-        self.assertEqual(result["total"], 75.0)
+        self.assertEqual(result["total"], 50.0)
 
     def test_gap_logic_min2_greater_max1(self):
         UserAxisAnswerFactory(
