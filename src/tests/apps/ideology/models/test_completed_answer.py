@@ -58,8 +58,9 @@ class CompletedAnswerModelTestCase(TestCase):
                 "axis": [
                     {"uuid": 12345, "value": 10},
                     {"uuid": None, "value": 20},
-                    {"uuid": [], "value": 30},
-                ]
+                    {"value": 30},
+                ],
+                "conditioners": [{"uuid": 12345, "value": "A"}, {"no_uuid": "B"}],
             }
         )
         mapped = completed_answer.get_mapped_for_calculation()
@@ -75,9 +76,22 @@ class CompletedAnswerModelTestCase(TestCase):
         self.assertEqual(mapped_empty, {})
 
     def test_get_mapped_handles_non_dict_items_in_list(self):
-        # This triggers AttributeError on item.get("uuid") covering the last missing lines
         completed_answer = CompletedAnswerFactory(
             answers={"axis": [123, "string_item", None, ["list_item"]]}
+        )
+        mapped = completed_answer.get_mapped_for_calculation()
+        self.assertEqual(mapped, {})
+
+    def test_get_mapped_conditioners_dirty_data(self):
+        completed_answer = CompletedAnswerFactory(
+            answers={
+                "conditioners": [
+                    {"uuid": "invalid-uuid", "value": "A"},
+                    {"value": "B"},
+                    123,
+                    None,
+                ]
+            }
         )
         mapped = completed_answer.get_mapped_for_calculation()
         self.assertEqual(mapped, {})

@@ -3,7 +3,12 @@ from core.services.affinity_calculator import AffinityCalculator
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from ideology.api.serializers import AffinitySerializer, IdeologyAffinitySerializer
-from ideology.models import CompletedAnswer, Ideology, UserAxisAnswer
+from ideology.models import (
+    CompletedAnswer,
+    Ideology,
+    UserAxisAnswer,
+    UserConditionerAnswer,
+)
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny
@@ -24,7 +29,13 @@ class BaseAffinityView(GenericAPIView):
                 raise NotFoundException(_("Source Completed Answer not found."))
 
         if self.request.user.is_authenticated:
-            return UserAxisAnswer.objects.get_mapped_for_calculation(self.request.user)
+            axis_data = UserAxisAnswer.objects.get_mapped_for_calculation(
+                self.request.user
+            )
+            conditioner_data = UserConditionerAnswer.objects.get_mapped_for_calculation(
+                self.request.user
+            )
+            return {**axis_data, **conditioner_data}
 
         raise BadRequestException(
             _(
@@ -35,8 +46,6 @@ class BaseAffinityView(GenericAPIView):
     def process_affinity_request(
         self, target_object, target_key, target_value=None, explicit_value=False
     ):
-        # If explicit_value is True, we use target_value even if it is None (e.g. Anonymous user).
-        # Otherwise, fallback to target_object (default behavior for Ideologies).
         final_target_value = (
             target_value if explicit_value or target_value else target_object
         )

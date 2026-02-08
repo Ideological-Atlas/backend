@@ -3977,7 +3977,7 @@
       "conditioner": 41,
       "created": "2026-02-03T19:10:08.767Z",
       "ideology": 25,
-      "modified": "2026-02-03T19:19:45.000Z",
+      "modified": "2026-02-03T19:19:45Z",
       "uuid": "6d3ed226-4616-425e-9ff1-a30a99d8ad3e"
     },
     "model": "ideology.ideologyconditionerdefinition",
@@ -10510,5 +10510,5609 @@
     },
     "model": "ideology.ideologyconditionerdefinition",
     "pk": 1965
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:08:56.684Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.684Z",
+      "uuid": "a0ae6c21-b1ef-4304-b8c9-2b9477208707"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1966
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:08:56.690Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.690Z",
+      "uuid": "03e0e097-8dfd-4750-9153-c1a32658992e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1967
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:08:56.696Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.696Z",
+      "uuid": "3dfa5b0c-4d7a-4edd-873a-bb204191ecb4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1968
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:08:56.702Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.702Z",
+      "uuid": "1230e001-a2c2-43cb-88a9-5fad0ad2ea05"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1969
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:08:56.708Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.708Z",
+      "uuid": "7c358a23-0777-4765-991d-ea2bddaae2c8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1970
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:08:56.714Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.714Z",
+      "uuid": "f2880ef8-a3a7-40f4-aa65-652e1959f44e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1971
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:08:56.720Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.720Z",
+      "uuid": "bde84beb-4727-48d4-9ff4-f914481f26ca"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1972
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:08:56.726Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.726Z",
+      "uuid": "3b8b59c2-7fdd-4e50-9485-56ad0fe01ddc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1973
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:08:56.732Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.732Z",
+      "uuid": "c7d4b1ad-ecd6-4bd8-abbe-9e229c18f946"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1974
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:08:56.738Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.738Z",
+      "uuid": "021e5344-3821-4e59-954b-e9498452372c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1975
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:08:56.744Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.744Z",
+      "uuid": "fec1805f-06c4-493b-bb57-9b9557da57f1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1976
+  },
+  {
+    "fields": {
+      "answer": "Cristianismo Cat\u00f3lico",
+      "conditioner": 13,
+      "created": "2026-02-07T17:08:56.750Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.750Z",
+      "uuid": "513b0d69-2530-48cb-85a1-a2860d1a46ab"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1977
+  },
+  {
+    "fields": {
+      "answer": "['Unitario Descentralizado', 'Federal']",
+      "conditioner": 19,
+      "created": "2026-02-07T17:08:56.785Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:56.785Z",
+      "uuid": "7577d3c3-2da4-4b0d-adf9-d75bb8ce75b1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1983
+  },
+  {
+    "fields": {
+      "answer": "Soluci\u00f3n de dos estados",
+      "conditioner": 34,
+      "created": "2026-02-07T17:08:57.236Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.236Z",
+      "uuid": "a5d2cb85-baff-4595-acf2-b63fd7829f4e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 1998
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:08:57.261Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.261Z",
+      "uuid": "fcd7e53e-f9c4-4404-977d-f97b2a691313"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2001
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:08:57.267Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.267Z",
+      "uuid": "1c01ffa6-18f7-4a9b-acdc-710594d63c70"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2002
+  },
+  {
+    "fields": {
+      "answer": "[35-40)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:08:57.273Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.273Z",
+      "uuid": "70e59549-2c4b-4bf3-9c6d-a72bc8bfc864"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2003
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli e Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:08:57.280Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.280Z",
+      "uuid": "f9e476c5-15e9-4beb-8c71-50393506eab7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2004
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 41,
+      "created": "2026-02-07T17:08:57.286Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.286Z",
+      "uuid": "f26b72d4-869b-4fe2-9525-e00983d02bd8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2005
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:08:57.299Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.299Z",
+      "uuid": "4464ad11-2f28-4709-b2f4-21a9bc8356e9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2007
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:08:57.305Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.305Z",
+      "uuid": "943d4e11-5e99-456c-854c-e6f6e6556549"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2008
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:08:57.311Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.311Z",
+      "uuid": "afbd1759-c483-4e60-9b0a-bfa612ab94cf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2009
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 46,
+      "created": "2026-02-07T17:08:57.318Z",
+      "ideology": 75,
+      "modified": "2026-02-07T17:08:57.318Z",
+      "uuid": "b034ea87-ee70-4601-9287-6bad7218855d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2010
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:00.392Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.392Z",
+      "uuid": "b70810ae-c51e-47e9-939a-cdf2f96eaebd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2011
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:00.397Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.397Z",
+      "uuid": "185f85cf-09a7-4d67-aba7-fb041e840349"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2012
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:00.403Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.403Z",
+      "uuid": "5d9e3c92-fea4-40a2-a7fa-acdcc3ff17f0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2013
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:00.409Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.409Z",
+      "uuid": "65b94fec-5524-47c6-9072-fcf77548dc41"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2014
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:00.414Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.414Z",
+      "uuid": "0bab3c76-e21e-41d1-a63a-694f1c45b39c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2015
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:00.420Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.420Z",
+      "uuid": "ae8ec3e5-c76a-4a65-abea-58fd2d241180"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2016
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:00.426Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.426Z",
+      "uuid": "840140e5-a5cb-43c3-84ea-dd8a10db4728"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2017
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:00.432Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.432Z",
+      "uuid": "b865f94b-191c-458a-a888-0c3a31e95c24"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2018
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:00.438Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.438Z",
+      "uuid": "855b0be4-3d93-4a51-9958-93e06fada637"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2019
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:00.444Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.444Z",
+      "uuid": "0c0b5a7a-b07d-4860-a8cb-a93a9c7b1894"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2020
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:00.450Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.450Z",
+      "uuid": "8365a99f-d7f0-426e-88ed-f6743eda390f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2021
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:00.456Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.456Z",
+      "uuid": "0f6337ff-5cdb-49af-8eac-0a5095571256"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2022
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:00.486Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.486Z",
+      "uuid": "629f7a18-750e-4207-a599-66f8ecf681f6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2027
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:00.492Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.492Z",
+      "uuid": "a2498b2f-1b5f-48ac-a4d2-9fc4f107d76e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2028
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:00.581Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.581Z",
+      "uuid": "ba440069-a107-4bf0-9a5f-58071c98ff62"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2043
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:00.599Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.599Z",
+      "uuid": "aafd84a7-b68e-4795-bef3-46ceb7b12dc9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2046
+  },
+  {
+    "fields": {
+      "answer": "['Ruso', 'Chino']",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:00.605Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.605Z",
+      "uuid": "755f3a65-8570-4155-9e63-aa45102abf90"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2047
+  },
+  {
+    "fields": {
+      "answer": "['[45-50)', '[50-55)', '[55-60)', '[60-65)', '[65-70)', '[70-75)', '[75-80)', '>80']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:00.611Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.611Z",
+      "uuid": "28e9564b-6fee-4171-b7fd-ea8df89137c4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2048
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:00.617Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.617Z",
+      "uuid": "2f4efabb-b949-4f2e-b889-77d36d6ac2b6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2049
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:00.623Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.623Z",
+      "uuid": "f6c5717a-91f1-4286-9f22-7fdb823b6556"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2050
+  },
+  {
+    "fields": {
+      "answer": "Todas",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:00.629Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.629Z",
+      "uuid": "41a98c3d-de8f-4b35-868f-8a4e9fb8afd1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2051
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:00.635Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.635Z",
+      "uuid": "dc1925b9-14fb-46f6-904d-9cfa171d118f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2052
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:00.642Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.642Z",
+      "uuid": "66bd9663-a3b9-4eeb-b493-c51c3ab76cbc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2053
+  },
+  {
+    "fields": {
+      "answer": ">30",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:00.648Z",
+      "ideology": 64,
+      "modified": "2026-02-07T17:09:00.648Z",
+      "uuid": "40fb9f6e-d4ef-4265-9369-3eaee55d7cd9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2054
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:03.572Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.572Z",
+      "uuid": "48abd1e2-6941-4d7d-abc3-43ad39abc924"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2056
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:03.578Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.578Z",
+      "uuid": "882316da-9542-4b05-b679-6fa985ec9e5a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2057
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:03.584Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.584Z",
+      "uuid": "ff83a428-e4c8-497b-a905-88fac826bfbb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2058
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:03.590Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.590Z",
+      "uuid": "e284df82-d484-47b1-80b7-88824182dbd6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2059
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:03.596Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.596Z",
+      "uuid": "2e19b915-bc34-4884-9f89-af2b999b6a1a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2060
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:03.602Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.602Z",
+      "uuid": "0986178b-88dc-417e-bc85-0ec8e5a598c9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2061
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:03.608Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.608Z",
+      "uuid": "0b6efdc9-2c70-4d3d-bc4a-f2b7e747c651"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2062
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:03.614Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.614Z",
+      "uuid": "07cbb8b3-7988-4610-b9b8-846bd0d09f30"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2063
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:03.619Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.620Z",
+      "uuid": "4b8e639a-bc95-417c-ab1f-d08caf59d8ea"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2064
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:03.625Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.625Z",
+      "uuid": "214e000d-6a1b-4d0d-b008-68e07cb8b5a8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2065
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:03.631Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.631Z",
+      "uuid": "b3fa7f72-72d7-4b36-96b9-57397eca7b4f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2066
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:03.638Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.638Z",
+      "uuid": "5b503802-1585-4a14-90c3-db2c61740595"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2067
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Parlamentaria']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:03.669Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.669Z",
+      "uuid": "170f9e91-6faf-45a2-acb6-1c222f5bfcf4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2072
+  },
+  {
+    "fields": {
+      "answer": "Confederal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:03.675Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.675Z",
+      "uuid": "5e34518e-da3c-4a27-8d9e-c19e514bee9a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2073
+  },
+  {
+    "fields": {
+      "answer": "Soluci\u00f3n de dos estados",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:03.769Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.769Z",
+      "uuid": "7124e010-2575-4d00-9c0d-46d69eb3f9f4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2088
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:03.788Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.788Z",
+      "uuid": "36587ea6-94fa-498b-a444-438aeeddcca8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2091
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:03.799Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.799Z",
+      "uuid": "c9386642-038c-4bd8-b23e-0fc0a4762adb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2092
+  },
+  {
+    "fields": {
+      "answer": "[35-40)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:03.810Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.810Z",
+      "uuid": "7e7e4b70-9f26-4d7f-92be-ed57b7f31771"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2093
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:03.821Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.821Z",
+      "uuid": "6d9b1d4d-2098-4955-b0c4-d8b5367f3e8e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2094
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:03.848Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.848Z",
+      "uuid": "9e1410af-3cc2-4003-ad41-fac6c1d41226"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2097
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:03.853Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.853Z",
+      "uuid": "3b49e192-43aa-4ea2-87b8-7b0ec22160bf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2098
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:03.858Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.858Z",
+      "uuid": "299bbe11-0b43-4705-b3f6-5bc2363161ec"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2099
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:03.863Z",
+      "ideology": 76,
+      "modified": "2026-02-07T17:09:03.863Z",
+      "uuid": "32cb8641-e89b-4ccc-b468-9e774cdd519f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2100
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:06.537Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.537Z",
+      "uuid": "b1fa367c-8650-42ee-997e-7ddc4362a93c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2101
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:06.543Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.543Z",
+      "uuid": "3748eab9-c991-41f5-9b94-8060d32b4294"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2102
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:06.549Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.549Z",
+      "uuid": "516498b0-d2e8-4604-bd77-c6490192eb4a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2103
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:06.555Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.555Z",
+      "uuid": "c861ebf4-420a-4e18-ba0b-f57f246c509a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2104
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:06.561Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.561Z",
+      "uuid": "237eadbc-9850-4cdf-a550-555e658cf5a4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2105
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:06.567Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.567Z",
+      "uuid": "74bcb0c6-a938-4618-be30-752ba31c51e4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2106
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:06.573Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.573Z",
+      "uuid": "76263aa6-2de8-4d65-b6f9-0a62f503eccd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2107
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:06.579Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.579Z",
+      "uuid": "bb7b3398-c38d-4204-b667-c70d4fa1b2bd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2108
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:06.585Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.585Z",
+      "uuid": "34ff6f3f-8e9a-41d7-bf60-e23be0991f8c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2109
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:06.591Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.591Z",
+      "uuid": "63706b25-680c-44ee-8449-55f0714c2557"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2110
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:06.597Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.597Z",
+      "uuid": "741bde58-0409-47ce-97e6-8fadde2297d5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2111
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:06.603Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.603Z",
+      "uuid": "da56ddcd-45b4-45c3-98b9-aa209e76649e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2112
+  },
+  {
+    "fields": {
+      "answer": "Presidencialista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:06.633Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.633Z",
+      "uuid": "cc48cb4d-520d-4b92-b4a4-8bad467925ea"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2117
+  },
+  {
+    "fields": {
+      "answer": "['Federal', 'Confederal']",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:06.639Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.639Z",
+      "uuid": "46fe509d-4df0-4021-a936-cc977d4adb8e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2118
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:06.729Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.729Z",
+      "uuid": "903ced29-afdd-44f2-ab12-0e048922eb3e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2133
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:06.748Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.748Z",
+      "uuid": "cca1ce8b-da32-4cca-899c-a92152a516d2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2136
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:06.754Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.754Z",
+      "uuid": "6ffce6af-8264-45a2-aefd-02baf07f268f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2137
+  },
+  {
+    "fields": {
+      "answer": "['[0-5)', '[5-10)', '[10-15)', '[15-20)', '[20-25)', '[25-30)', '[30-35)', '[35-40)', '[40-45)', '[45-50)', '[50-55)', '[55-60)', '[60-65)', '[65-70)', '[70-75)', '[75-80)', '>80']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:06.760Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.760Z",
+      "uuid": "fafe488a-28f4-49d7-8cbd-6e85dea1ca69"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2138
+  },
+  {
+    "fields": {
+      "answer": "Solicitud libre",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:06.767Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.767Z",
+      "uuid": "c31d407a-8908-4474-8d1b-9f02026b3018"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2139
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:06.786Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.786Z",
+      "uuid": "814c732d-c24a-4390-89a9-8ceac1cd57d3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2142
+  },
+  {
+    "fields": {
+      "answer": "(0-3)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:06.792Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.792Z",
+      "uuid": "febc6874-409e-499a-bb33-171411c8ddb5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2143
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:06.798Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.798Z",
+      "uuid": "1c8efb53-6b62-4f08-8f20-c3f985a24e19"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2144
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:06.804Z",
+      "ideology": 68,
+      "modified": "2026-02-07T17:09:06.805Z",
+      "uuid": "f5a74ab4-b7d5-4fc1-8e2c-81fce502aa68"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2145
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:09.447Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.447Z",
+      "uuid": "b422b900-6711-4315-87c4-f3217c6d70b2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2146
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:09.452Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.452Z",
+      "uuid": "29d64f83-af74-4364-ad4b-7ed1cd32a4c5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2147
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:09.458Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.458Z",
+      "uuid": "d0cb0f9a-c9c0-407c-bf3c-f00a55239061"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2148
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:09.463Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.463Z",
+      "uuid": "371bf70a-82cf-438b-85eb-0d78025a470a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2149
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:09.468Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.468Z",
+      "uuid": "1ffc2b2e-effd-4abc-9132-57809f6ca71a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2150
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:09.473Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.474Z",
+      "uuid": "dcd06431-8cb8-4973-82d7-a985c0cb56c9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2151
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:09.479Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.479Z",
+      "uuid": "d20b8a74-d22d-4c4c-a47d-3c9f1e31215f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2152
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:09.484Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.484Z",
+      "uuid": "68522d3e-9a43-426e-b504-6e29909de5c1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2153
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:09.489Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.489Z",
+      "uuid": "8d767f37-891c-4b4a-9b8f-492953282702"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2154
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:09.494Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.494Z",
+      "uuid": "74920359-ec3e-44b5-9780-cc0dbb62d688"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2155
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:09.500Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.500Z",
+      "uuid": "59e2b864-f0e9-4d92-ba5f-ab6379a2a60a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2156
+  },
+  {
+    "fields": {
+      "answer": "Cristianismo Cat\u00f3lico",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:09.505Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.505Z",
+      "uuid": "d8499abe-2f42-43df-a5fa-be00f9058ef8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2157
+  },
+  {
+    "fields": {
+      "answer": "Federal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:09.538Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.538Z",
+      "uuid": "f46f060a-b2b2-44e8-8fdf-49d6f198a8be"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2163
+  },
+  {
+    "fields": {
+      "answer": "Soluci\u00f3n de dos estados",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:09.620Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.620Z",
+      "uuid": "b45e8998-e96d-4d51-ad34-9a48482510a9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2178
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:09.637Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.637Z",
+      "uuid": "f7d715f1-d221-443b-9813-feec29c50ecd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2181
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:09.642Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.642Z",
+      "uuid": "a0a765b9-dd58-48a9-8fd7-dd45dcd463e0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2182
+  },
+  {
+    "fields": {
+      "answer": "['[30-35)', '[35-40)']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:09.648Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.648Z",
+      "uuid": "21e2f5ae-de40-45ac-a6d8-67eaebcdb5b5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2183
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli e Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:09.653Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.653Z",
+      "uuid": "b1431286-47de-4c59-89d4-2ba0ba560115"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2184
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:09.659Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.659Z",
+      "uuid": "a32442e1-bb93-4cbe-8cfe-a7998dfdbd5d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2185
+  },
+  {
+    "fields": {
+      "answer": "[]",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:09.664Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.665Z",
+      "uuid": "e055326b-99e7-488b-8ac7-b959d205fd9b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2186
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:09.670Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.670Z",
+      "uuid": "d150efef-da9b-4ae8-a005-23c7ffbc08e1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2187
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:09.680Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.680Z",
+      "uuid": "f0b98261-1ab2-4e9c-af60-2cdee9507f41"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2188
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:09.686Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.686Z",
+      "uuid": "29353d7f-1217-441c-9643-6d6d119463ba"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2189
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:09.692Z",
+      "ideology": 74,
+      "modified": "2026-02-07T17:09:09.692Z",
+      "uuid": "70de0a61-e165-45e1-91b3-624eed629354"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2190
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:12.294Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.294Z",
+      "uuid": "2cce7628-0503-4039-9a23-3335beda45a2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2191
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:12.300Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.300Z",
+      "uuid": "8ec70465-e145-42a2-9b1e-a90beb86c3e1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2192
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:12.305Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.305Z",
+      "uuid": "8f878a92-9ed6-49ee-b2f6-4449dbdffa52"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2193
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:12.311Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.311Z",
+      "uuid": "5950f712-7ddd-42d4-ae95-efe4e19be1b9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2194
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:12.317Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.317Z",
+      "uuid": "cd49dc29-a665-412d-9063-8fa932ccbb00"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2195
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:12.322Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.323Z",
+      "uuid": "6502e549-c0f9-4992-b9ec-96a85a54fb8a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2196
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:12.328Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.328Z",
+      "uuid": "424ef1cd-a1c4-4c5d-99a5-022290353722"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2197
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:12.334Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.334Z",
+      "uuid": "a1d68c47-9972-43e8-83d4-a2c1580a1a4d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2198
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:12.339Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.339Z",
+      "uuid": "80859111-5693-4641-b5b6-26e62eb6efaa"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2199
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:12.345Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.345Z",
+      "uuid": "8c51a442-b04c-41c4-8501-256d15db40d2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2200
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:12.350Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.350Z",
+      "uuid": "512cbc32-7000-4b1e-8e99-60c60a594560"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2201
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:12.356Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.356Z",
+      "uuid": "4718f313-e674-45e6-96c1-6a3364a19db3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2202
+  },
+  {
+    "fields": {
+      "answer": "Electiva aristocr\u00e1tica",
+      "conditioner": 16,
+      "created": "2026-02-07T17:09:12.377Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.377Z",
+      "uuid": "4f819d5f-d7bb-420d-8a58-3e6ed1ef275c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2205
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:12.388Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.388Z",
+      "uuid": "31dd610d-90b9-4d81-9c77-fdd9c6854e76"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2207
+  },
+  {
+    "fields": {
+      "answer": "Confederal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:12.394Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.394Z",
+      "uuid": "a1b558c1-cf8e-4395-aa44-29e9dc268ac7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2208
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:12.483Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.484Z",
+      "uuid": "f10df75c-e5fd-43d0-83b8-5ebd77749a5f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2223
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:12.502Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.502Z",
+      "uuid": "7f7dbab8-a5f5-46e5-a350-c1e62aae9f43"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2226
+  },
+  {
+    "fields": {
+      "answer": "['Ingl\u00e9s', 'Chino']",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:12.508Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.508Z",
+      "uuid": "4cb31a41-ed16-4afc-a4e9-74be995e6ffc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2227
+  },
+  {
+    "fields": {
+      "answer": "[0-5)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:12.514Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.514Z",
+      "uuid": "99e9b753-d121-4a91-9a2b-40db913d26ce"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2228
+  },
+  {
+    "fields": {
+      "answer": "Solicitud libre",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:12.519Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.520Z",
+      "uuid": "f6138ef2-e00b-4627-a30e-597a46216d2d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2229
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:12.537Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.537Z",
+      "uuid": "e7cfeb4e-9842-473c-b419-bc297b675915"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2232
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:12.543Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.543Z",
+      "uuid": "b2094942-6660-4eb7-8d2b-3c93b495b58f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2233
+  },
+  {
+    "fields": {
+      "answer": "(0-3)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:12.549Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.549Z",
+      "uuid": "784a4b00-1ebf-457a-b3d3-2f8791bcad49"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2234
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:12.555Z",
+      "ideology": 67,
+      "modified": "2026-02-07T17:09:12.555Z",
+      "uuid": "9390830c-69fb-4c55-a451-d7ff7afb061f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2235
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:15.043Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.043Z",
+      "uuid": "63d06197-e7f0-452e-9344-ad74ab48f5b6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2236
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:15.049Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.049Z",
+      "uuid": "dc9044ab-cf71-4a0e-9edb-c210cb78061a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2237
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:15.054Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.055Z",
+      "uuid": "8fadbe4a-18be-4221-b97a-b18321d1e47d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2238
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:15.060Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.060Z",
+      "uuid": "0323e1ff-7229-4a0a-8b61-b8dd9e089d64"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2239
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:15.066Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.066Z",
+      "uuid": "33eb1a8f-2f61-48e7-965d-34aacbe3844d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2240
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:15.072Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.072Z",
+      "uuid": "d8d9a78e-2db9-4441-999e-2d9381c52fe2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2241
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:15.077Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.077Z",
+      "uuid": "57521704-5db0-421b-857c-9117893c5edf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2242
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:15.083Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.083Z",
+      "uuid": "c1df9cb7-8690-456a-a4c8-6552e1dc6590"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2243
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:15.088Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.089Z",
+      "uuid": "a2d6c805-fce9-4f03-9b59-5e221f7ab440"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2244
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:15.094Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.094Z",
+      "uuid": "22e247fa-2521-407f-bd0e-f7097efd2236"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2245
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:15.100Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.100Z",
+      "uuid": "3002c63d-3334-4371-b54f-172019a8da2a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2246
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:15.106Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.106Z",
+      "uuid": "15df78d6-c2a1-46f1-bdde-b490e974692f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2247
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:15.138Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.138Z",
+      "uuid": "8eb7f9db-7afc-4ed5-928d-90838b8172aa"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2252
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:15.144Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.144Z",
+      "uuid": "54e568e9-f7aa-4516-a809-5cca906ca96c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2253
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:15.236Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.236Z",
+      "uuid": "5cfe2fed-8bf7-4c92-bc8e-a3458b4f4b79"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2268
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:15.254Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.254Z",
+      "uuid": "7bd6d8c9-2350-4382-aedf-89fef16badac"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2271
+  },
+  {
+    "fields": {
+      "answer": "Ruso",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:15.260Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.260Z",
+      "uuid": "f120faf3-20f2-467b-8128-c11f0188a37a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2272
+  },
+  {
+    "fields": {
+      "answer": "[35-40)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:15.266Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.266Z",
+      "uuid": "17d33b63-3e1c-40b2-a69c-cdb42a7b4d3b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2273
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:15.272Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.272Z",
+      "uuid": "8aafa353-212d-420a-8bf4-a1c7f796831c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2274
+  },
+  {
+    "fields": {
+      "answer": "Todas",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:15.285Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.285Z",
+      "uuid": "3dcce0a0-0555-46f2-932c-a1bfbebecd8b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2276
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:15.291Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.291Z",
+      "uuid": "2bf2b2cd-70d9-4289-8e00-dff174f4375a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2277
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:15.297Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.297Z",
+      "uuid": "fcc0d243-0f8b-4771-966e-af53c5fadcbc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2278
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:15.303Z",
+      "ideology": 72,
+      "modified": "2026-02-07T17:09:15.303Z",
+      "uuid": "484609e6-5485-4d45-93a2-849932ee592c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2279
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:17.977Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:17.977Z",
+      "uuid": "68d0de21-d6d9-4f20-8bb8-2d35c6a0189a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2281
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:17.984Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:17.984Z",
+      "uuid": "09a15f45-e13a-46d0-bd35-65e050066479"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2282
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:17.990Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:17.991Z",
+      "uuid": "aab834d3-ece3-40cf-a648-048225efbd4f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2283
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:17.997Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:17.998Z",
+      "uuid": "04102d68-6cdd-420f-b406-fc49b8400247"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2284
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:18.004Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.005Z",
+      "uuid": "d86c484d-dbc0-4826-b2b5-6669fa5ad446"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2285
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:18.011Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.011Z",
+      "uuid": "a67107da-2747-4b30-925f-64cdb44281a7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2286
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:18.018Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.018Z",
+      "uuid": "f53860a0-c745-4a0c-a72a-efc59fe68470"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2287
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:18.024Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.024Z",
+      "uuid": "b4b0e07c-58b9-4513-830a-681ee690cc2e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2288
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:18.031Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.031Z",
+      "uuid": "f85fe755-a7e4-4bc4-8ce9-8f8b7da3ce19"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2289
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:18.038Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.038Z",
+      "uuid": "815fb681-32e9-4cff-a0dc-899dca604953"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2290
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:18.092Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.092Z",
+      "uuid": "2a7b780d-10f4-4ae3-8e64-75c8d041631f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2291
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:18.098Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.098Z",
+      "uuid": "0a9422d2-b836-4f4a-b46e-790e69bbfabf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2292
+  },
+  {
+    "fields": {
+      "answer": "Parlamentaria",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:18.125Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.125Z",
+      "uuid": "26cac236-063a-40ed-855c-29212a2517dc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2297
+  },
+  {
+    "fields": {
+      "answer": "Confederal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:18.130Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.130Z",
+      "uuid": "dcccb580-15f3-40d6-b73e-959504f4e442"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2298
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:18.210Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.211Z",
+      "uuid": "fea0cb84-e9f2-4dd9-839e-3ef7c7a41d5a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2313
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:18.226Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.226Z",
+      "uuid": "2e381ec4-24c6-40f1-a551-259cf39c5c41"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2316
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:18.231Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.231Z",
+      "uuid": "79452113-4b1d-49b1-b335-bd958423acce"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2317
+  },
+  {
+    "fields": {
+      "answer": "[35-40)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:18.237Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.237Z",
+      "uuid": "6e9efc06-b8e2-4dcb-9d1f-28dcb7f8d2ff"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2318
+  },
+  {
+    "fields": {
+      "answer": "Solicitud libre",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:18.242Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.242Z",
+      "uuid": "82382d62-865f-46b6-9a0e-564e327c23fa"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2319
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:18.259Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.259Z",
+      "uuid": "a101291a-3c86-4646-b5bd-956f8f4b3d67"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2322
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:18.264Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.265Z",
+      "uuid": "5d320b4a-cb0d-4896-98d2-86967b9f4ef3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2323
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:18.270Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.270Z",
+      "uuid": "6cdca590-2474-45cb-a5fe-c2285e1211b3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2324
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:18.276Z",
+      "ideology": 69,
+      "modified": "2026-02-07T17:09:18.276Z",
+      "uuid": "9ec61191-4f50-46b4-ae5a-2b11ac44e940"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2325
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:20.841Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.841Z",
+      "uuid": "47524aad-0554-4c47-b328-b828f0783209"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2326
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:20.847Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.847Z",
+      "uuid": "ead7f22d-0325-4db5-b53a-d56fe37ec93f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2327
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:20.853Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.853Z",
+      "uuid": "b7c3433d-94e0-4da5-af22-9e6df5191bcc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2328
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:20.859Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.859Z",
+      "uuid": "1e8ddfd2-ae08-430d-8f05-13e8c3fdd39b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2329
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:20.864Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.865Z",
+      "uuid": "63a85469-29d5-4a87-ace7-109df1646375"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2330
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:20.871Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.871Z",
+      "uuid": "ad856996-c774-4259-b12b-ddc7a2decbe3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2331
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:20.876Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.876Z",
+      "uuid": "362fffaa-6da9-4051-864c-a74a8430685f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2332
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:20.882Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.882Z",
+      "uuid": "99ebc28c-2479-4ed6-a60e-e68f7a9c578c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2333
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:20.888Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.888Z",
+      "uuid": "026829e2-7772-41e9-90c8-5a9065fdade1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2334
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:20.894Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.894Z",
+      "uuid": "a22c5f01-0c2e-40cd-bb37-603ba388d61b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2335
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:20.900Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.900Z",
+      "uuid": "ce608be7-fc5e-4f23-b870-a7117943e5ac"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2336
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:20.906Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.906Z",
+      "uuid": "82876894-0b4e-4009-b7f0-1feaf4ec26f0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2337
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Semipresidencialista', 'Parlamentaria']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:20.941Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.941Z",
+      "uuid": "a32e673d-556c-4046-8a7f-f46c95efc0b8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2342
+  },
+  {
+    "fields": {
+      "answer": "Unitario Descentralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:20.948Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:20.948Z",
+      "uuid": "3d81a4b3-dc4b-40f1-97d3-fe1605b33f4e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2343
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:21.230Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.230Z",
+      "uuid": "9a200987-036b-4008-8446-e7529ecf01a4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2358
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:21.246Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.246Z",
+      "uuid": "d99c1270-20bd-4169-9528-d70aea18b46e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2361
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:21.251Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.251Z",
+      "uuid": "035c5d16-6c1b-4458-8649-6feda96f012f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2362
+  },
+  {
+    "fields": {
+      "answer": "[40-45)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:21.257Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.257Z",
+      "uuid": "059a58b7-717c-427b-bee0-ee7fd89e5355"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2363
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:21.262Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.262Z",
+      "uuid": "4a37f841-2a88-4f9f-9117-26d0f1ef5323"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2364
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:21.278Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.278Z",
+      "uuid": "e6af1d94-f03a-4948-99ee-eb5a4e4fd2a9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2367
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:21.284Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.284Z",
+      "uuid": "ff28fe59-29a9-45f4-9aa3-1841a0710b4e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2368
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:21.289Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.289Z",
+      "uuid": "67708b69-d8d4-4bae-8f68-229c46ece362"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2369
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:21.295Z",
+      "ideology": 66,
+      "modified": "2026-02-07T17:09:21.295Z",
+      "uuid": "2b83cedc-60c4-4b52-b4e2-4189ffafae82"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2370
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:23.757Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.758Z",
+      "uuid": "8509af16-17b6-4aaa-b90e-a1af2d040f77"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2371
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:23.764Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.764Z",
+      "uuid": "b9737409-8ba5-420d-afe1-51d192f0a3e8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2372
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:23.770Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.770Z",
+      "uuid": "777bd384-595f-4ac5-ba60-ddbd8a7bc528"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2373
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:23.777Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.777Z",
+      "uuid": "61bff3fb-84f1-4f51-a358-2afa33ce5e4a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2374
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:23.783Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.783Z",
+      "uuid": "fb27d22c-abb9-46d5-ab88-6d4e77b51b7e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2375
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:23.789Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.789Z",
+      "uuid": "f93b457a-895f-40ad-98ce-8eac1a7b9917"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2376
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:23.796Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.796Z",
+      "uuid": "64a5247a-9522-496e-9f48-806516ad6970"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2377
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:23.802Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.802Z",
+      "uuid": "ea98273e-9f17-421b-8797-d98e979bd18d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2378
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:23.808Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.809Z",
+      "uuid": "4185fe6a-ee17-4eb3-88e6-9cb256caebfe"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2379
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:23.815Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.815Z",
+      "uuid": "94f66dc8-bcba-417d-8914-0a2072067a6a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2380
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:23.828Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.828Z",
+      "uuid": "6c81f409-e4a8-4eab-8c35-16cb7b78c094"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2381
+  },
+  {
+    "fields": {
+      "answer": "Cristianismo Cat\u00f3lico",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:23.834Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.834Z",
+      "uuid": "0b19701c-da44-4843-8302-2294b0ba2d51"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2382
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:23.866Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.866Z",
+      "uuid": "57d7878b-4e9f-48cc-b11f-7082b3fd942c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2388
+  },
+  {
+    "fields": {
+      "answer": "Soluci\u00f3n de dos estados",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:23.948Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.948Z",
+      "uuid": "a36b672e-a66a-438d-b2ca-d3c384225d69"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2403
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:23.965Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.965Z",
+      "uuid": "8f5a9f57-c8ba-4562-9686-ddec901ebdac"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2406
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:23.971Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.971Z",
+      "uuid": "935fe93c-8bdd-4cc4-ab0f-f5eef7f5b30d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2407
+  },
+  {
+    "fields": {
+      "answer": "[40-45)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:23.977Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.977Z",
+      "uuid": "a0b38629-e854-4890-ae26-cfb76d70db11"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2408
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:23.982Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.982Z",
+      "uuid": "4352b197-01f2-45bf-a991-5532bef21db7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2409
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:23.988Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.988Z",
+      "uuid": "da49801f-4211-4fe2-b463-add107ded627"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2410
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:23.994Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.994Z",
+      "uuid": "227df10d-b65c-48b8-a91c-f50a805df259"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2411
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:23.999Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:23.999Z",
+      "uuid": "b1e074fe-a020-41a1-b6e1-5bbd9942bf18"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2412
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:24.005Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:24.005Z",
+      "uuid": "0849df3f-4366-4805-b061-485e501f833b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2413
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:24.011Z",
+      "ideology": 63,
+      "modified": "2026-02-07T17:09:24.011Z",
+      "uuid": "93ad8cf4-601e-476c-911b-9f9a3807667a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2414
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:26.735Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.735Z",
+      "uuid": "b24fcfd1-946d-4d0c-9bb8-973de6cd990b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2416
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:26.740Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.740Z",
+      "uuid": "80559dab-169f-4a3d-b9fc-38d5c9f198de"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2417
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:26.745Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.745Z",
+      "uuid": "f8639e55-3d7f-4182-89a0-b1cbbf865207"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2418
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:26.750Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.751Z",
+      "uuid": "794214bd-94dc-42f0-952a-a1f107754488"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2419
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:26.756Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.756Z",
+      "uuid": "0c8d94ad-67a4-403c-b0ac-879fea0605f2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2420
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:26.761Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.761Z",
+      "uuid": "4e8dd6d2-ee6d-4f8b-913e-56f46004bcbe"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2421
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:26.767Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.767Z",
+      "uuid": "6e8bf85b-5869-49d3-a627-bbbbf6143331"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2422
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:26.772Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.772Z",
+      "uuid": "c71a84a1-b866-4db8-94c9-744528afbb0e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2423
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:26.778Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.778Z",
+      "uuid": "c11a5bbe-3134-4a0e-83df-e9084cf4e035"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2424
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:26.783Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.783Z",
+      "uuid": "b4fd126a-b2bd-47e7-9102-2f7b8b162236"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2425
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:26.788Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.789Z",
+      "uuid": "d3e4a53e-4cd2-4545-ad30-d387f3046a46"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2426
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:26.794Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.794Z",
+      "uuid": "0da55133-9e1e-4765-817d-91c57fb6954a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2427
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Unipartidista']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:26.821Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.821Z",
+      "uuid": "8e90e0c5-a7b5-4365-b2e7-01c1f9f5fd9b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2432
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:26.827Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.827Z",
+      "uuid": "9a95eae2-135d-4db0-be33-bf3bb2a5f35d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2433
+  },
+  {
+    "fields": {
+      "answer": "Soluci\u00f3n de dos estados",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:26.912Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.912Z",
+      "uuid": "15f38671-ae91-4a5c-88a8-e5f333fd30ec"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2448
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:26.929Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.929Z",
+      "uuid": "73d4ed79-c103-46fb-b1b2-14ae4f93effa"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2451
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:26.936Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.936Z",
+      "uuid": "f5438b17-fc3c-41df-a388-74ee165b3511"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2452
+  },
+  {
+    "fields": {
+      "answer": "['[30-35)', '[35-40)']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:26.942Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.942Z",
+      "uuid": "41ff251c-f538-44d6-9975-15baf1e8292d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2453
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli e Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:26.947Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.947Z",
+      "uuid": "6a03d215-5334-4bb0-8874-aa1293b84239"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2454
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:26.965Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.965Z",
+      "uuid": "d1ea2bc2-d8d0-472c-b90d-b7783857acf3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2457
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:26.971Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.971Z",
+      "uuid": "27766abd-9959-4273-9192-22775bb39175"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2458
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:26.977Z",
+      "ideology": 57,
+      "modified": "2026-02-07T17:09:26.977Z",
+      "uuid": "d2a194db-8f3d-4da5-9ae1-0a1d14b9c621"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2459
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:29.651Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.651Z",
+      "uuid": "e718b614-4afe-4b4b-aa19-2dd679475858"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2461
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:29.657Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.658Z",
+      "uuid": "db27c4d0-880a-4618-b6e6-e35d27191f49"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2462
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:29.664Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.664Z",
+      "uuid": "e6d5d15b-1306-4d6f-8181-b901247e9b71"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2463
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:29.670Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.670Z",
+      "uuid": "9e4bc3c1-acf3-4670-9376-447bd03e8afe"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2464
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:29.676Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.676Z",
+      "uuid": "1b96c213-a2a1-4231-a104-8efd0003a15e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2465
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:29.682Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.682Z",
+      "uuid": "d4905c48-e4a1-4cc1-bc8e-b7ae9190cefa"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2466
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:29.689Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.689Z",
+      "uuid": "f6524b94-186d-4550-9daf-7c9ec8064b67"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2467
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:29.695Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.695Z",
+      "uuid": "f8d50a25-74f4-4370-99c5-d4c42f41603f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2468
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:29.701Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.701Z",
+      "uuid": "923b30bb-d08d-4e81-b031-a3a0b65655d6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2469
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:29.707Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.707Z",
+      "uuid": "b6aad070-ddac-4027-9fd8-2bd1b510bf19"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2470
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:29.714Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.714Z",
+      "uuid": "c4a60c1d-8d10-42b7-93f7-1069d39bbc78"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2471
+  },
+  {
+    "fields": {
+      "answer": "['Ate\u00edsmo', 'Agnosticismo', 'Indiferente']",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:29.720Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.721Z",
+      "uuid": "f505c848-1ac9-4d96-a7b9-c8d65b11899f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2472
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Semipresidencialista', 'Parliamentaria']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:29.753Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.754Z",
+      "uuid": "02655b77-0f7a-459d-a89c-b3ff1f4e070a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2477
+  },
+  {
+    "fields": {
+      "answer": "Federal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:29.760Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.760Z",
+      "uuid": "d3cc5f39-5c28-47e5-afe1-7aecad35a509"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2478
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:29.858Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.858Z",
+      "uuid": "57c30f59-5683-4541-819c-cf6c2506eff9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2493
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:29.893Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.893Z",
+      "uuid": "4b990c46-29ca-4cec-a636-2ea0469ffe0c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2496
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:29.904Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.904Z",
+      "uuid": "da9df564-682c-4ad9-b816-6b8d4552d5b5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2497
+  },
+  {
+    "fields": {
+      "answer": "[0-5)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:29.915Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.915Z",
+      "uuid": "4a4d7ff5-c19e-43a4-bd61-83e19a5ac13d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2498
+  },
+  {
+    "fields": {
+      "answer": "Solicitud libre",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:29.926Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.926Z",
+      "uuid": "b5b8d63f-99e6-4259-bf6a-ff85f35f72b3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2499
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:29.942Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.942Z",
+      "uuid": "677182bd-077f-48c5-9ec2-1ecc5e9cc320"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2502
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:29.947Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.947Z",
+      "uuid": "95bd5533-8054-4a4f-b549-2716352e6fb5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2503
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:29.953Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.953Z",
+      "uuid": "3c894edf-c221-40fb-90c6-5b635bd75558"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2504
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:29.958Z",
+      "ideology": 60,
+      "modified": "2026-02-07T17:09:29.958Z",
+      "uuid": "516f242b-360e-4e02-828f-a0430e32d293"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2505
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:32.696Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.696Z",
+      "uuid": "429fb881-74f7-482e-94a7-6d480587a54c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2506
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:32.702Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.703Z",
+      "uuid": "e3ccff96-aec7-45c6-89fd-3dd451e2002b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2507
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:32.709Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.709Z",
+      "uuid": "c8a958b3-727a-4d48-9989-1f1bb439e696"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2508
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:32.715Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.715Z",
+      "uuid": "30cebe97-dc00-48d6-8c09-41bb8cc9e0d7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2509
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:32.722Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.722Z",
+      "uuid": "348a8413-dd0a-4eac-9356-3358ce0ba826"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2510
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:32.728Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.728Z",
+      "uuid": "54f156d6-8c3e-4874-9e76-612f67a9e9fb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2511
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:32.734Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.735Z",
+      "uuid": "9873edee-705c-417e-8923-ad556aaab9f0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2512
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:32.741Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.741Z",
+      "uuid": "8e2c1ce4-f9dd-4a73-aab3-6040c7424062"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2513
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:32.748Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.748Z",
+      "uuid": "e791f986-d826-4f4e-a316-c458c4e05acf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2514
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:32.754Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.754Z",
+      "uuid": "dd94af0a-359f-4c1b-af67-6e3645b3fa62"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2515
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:32.761Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.761Z",
+      "uuid": "b7765047-9e8f-4939-b435-141456285a0b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2516
+  },
+  {
+    "fields": {
+      "answer": "['Indiferente', 'Agnosticismo', 'Ate\u00edsmo']",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:32.768Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.768Z",
+      "uuid": "e8d663cb-f23b-420a-9eab-4a76ce633f68"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2517
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Semipresidencialista', 'Parlamentaria']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:32.804Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.804Z",
+      "uuid": "330a4b1f-e923-4248-bb30-1f10eb28397b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2522
+  },
+  {
+    "fields": {
+      "answer": "['Unitario Descentralizado', 'Federal']",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:32.811Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.811Z",
+      "uuid": "ba6f6581-3594-4005-97e2-fef8d13725e4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2523
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:32.921Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.921Z",
+      "uuid": "254bf0aa-e435-4f5d-b5e8-d415c21c8219"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2538
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:32.953Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.954Z",
+      "uuid": "06d2b146-e3b3-4a0c-95e5-3c46662c1453"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2541
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:32.959Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.959Z",
+      "uuid": "eb69fa54-671c-43b6-9b95-a2ac024f2a3a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2542
+  },
+  {
+    "fields": {
+      "answer": "['[30-35)', '[35-40)']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:32.964Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.964Z",
+      "uuid": "633e6d08-6f15-435d-8976-f8655631b77c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2543
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:32.969Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.969Z",
+      "uuid": "ecfe9d43-1146-481f-9a98-5299d45f90e2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2544
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:32.986Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.986Z",
+      "uuid": "c686bda4-9211-4c86-b6c2-94583dd765f1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2547
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:32.991Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.992Z",
+      "uuid": "cb19bcde-2520-46c8-a474-50b7f45d8586"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2548
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:32.997Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:32.997Z",
+      "uuid": "bce675a6-c0e1-4fa9-b678-ada19e4b8341"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2549
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:33.003Z",
+      "ideology": 58,
+      "modified": "2026-02-07T17:09:33.003Z",
+      "uuid": "33aaba40-09c1-455c-8b7a-cde946a47a1f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2550
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:35.613Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.613Z",
+      "uuid": "450e6e6e-896d-42b0-9089-67d7d7a3bfb4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2551
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:35.619Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.619Z",
+      "uuid": "6e794ddc-ea40-4a98-821b-d9e8af11bfb0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2552
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:35.625Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.625Z",
+      "uuid": "9d7aba21-4e0a-451c-a007-7aad7b2bdbdd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2553
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:35.631Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.631Z",
+      "uuid": "6e292347-e511-4689-b1d2-cdfd5537ae16"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2554
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:35.637Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.637Z",
+      "uuid": "aa72feb9-f5da-49bd-8b61-b4668873f535"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2555
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:35.643Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.643Z",
+      "uuid": "796c5b42-bae4-43c3-bc19-58fbce94d073"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2556
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:35.650Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.650Z",
+      "uuid": "31f51aa2-485f-41c8-87ce-1c435d5597e5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2557
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:35.656Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.656Z",
+      "uuid": "04f95a92-a0ee-49b7-b620-07b10a87a632"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2558
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:35.662Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.662Z",
+      "uuid": "118ab2d2-7325-40ed-86b8-93c568190b7a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2559
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:35.669Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.669Z",
+      "uuid": "01c7fa11-dd6f-4df3-b0f1-f1d60617e6d6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2560
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:35.675Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.675Z",
+      "uuid": "d17913c4-4a86-4ef5-816e-7b3df0a6c19f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2561
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:35.682Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.682Z",
+      "uuid": "6ebee0ae-c928-4db3-9b12-ed90374e0854"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2562
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:35.719Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.719Z",
+      "uuid": "090c70a8-b663-4297-a7df-a2989210270d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2567
+  },
+  {
+    "fields": {
+      "answer": "Federal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:35.731Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.731Z",
+      "uuid": "8d7e636f-cace-45df-9f17-2f42d7bc9612"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2568
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:35.831Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.831Z",
+      "uuid": "afe026e4-2e21-411f-95ea-77526567d05d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2583
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:35.848Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.848Z",
+      "uuid": "115ce9db-d5de-47d3-8e6d-af317553a86b"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2586
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:35.853Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.853Z",
+      "uuid": "0745b43b-6a99-467c-b7bc-b28755920505"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2587
+  },
+  {
+    "fields": {
+      "answer": "[30-35)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:35.858Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.858Z",
+      "uuid": "a1efc5ef-8252-4601-86be-26da8a7584c3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2588
+  },
+  {
+    "fields": {
+      "answer": "Solicitud libre",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:35.864Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.864Z",
+      "uuid": "a9b8fc89-585c-472c-97cd-422d945a245e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2589
+  },
+  {
+    "fields": {
+      "answer": "[15-18)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:35.881Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.881Z",
+      "uuid": "9d135a69-a1e1-4b71-b9ff-f8bf607b3ddc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2592
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:35.886Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.886Z",
+      "uuid": "fad98040-dfde-41dc-9382-707066047553"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2593
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:35.892Z",
+      "ideology": 70,
+      "modified": "2026-02-07T17:09:35.892Z",
+      "uuid": "fb48b61c-b800-47ee-ab02-b1c74939ba22"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2594
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:38.409Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.409Z",
+      "uuid": "21cfee7b-89ea-4198-91bc-6434499f586e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2596
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:38.415Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.415Z",
+      "uuid": "579e697f-e799-47c5-af88-5bbcc7ec1da5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2597
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:38.422Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.422Z",
+      "uuid": "23daae96-e21d-4449-947b-ef1b5f453132"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2598
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:38.429Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.429Z",
+      "uuid": "689d1ebe-e421-4556-8244-fb608036e2cf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2599
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:38.435Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.435Z",
+      "uuid": "c77923b8-6d91-4a5b-b6dc-31dff0836d0a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2600
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:38.442Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.442Z",
+      "uuid": "de5a895f-df15-45ec-979a-e687e6d0f1b4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2601
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:38.448Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.448Z",
+      "uuid": "ab03a2f3-01bb-4831-a528-f0df5a4f368c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2602
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:38.455Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.455Z",
+      "uuid": "eda27e54-289e-47e9-83e3-911cc8b3a04a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2603
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:38.461Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.461Z",
+      "uuid": "8dd16217-0716-47a7-992e-a46d5f12d96e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2604
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:38.468Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.468Z",
+      "uuid": "44b4240c-5f3a-4f59-bd3f-9611f551cdb3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2605
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:38.474Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.474Z",
+      "uuid": "79ecaf25-0892-4796-818a-b87b5f267ee1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2606
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:38.481Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.481Z",
+      "uuid": "839db035-a92e-403b-8fb5-bdd304f6edcc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2607
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:38.514Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.514Z",
+      "uuid": "496b5fb4-7300-4b18-85d8-421a711d5d36"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2612
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:38.521Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.521Z",
+      "uuid": "72fc2f83-6b8c-4e6b-966d-79b4d845227c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2613
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:38.788Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.788Z",
+      "uuid": "fa525400-757f-4e05-ad06-8cfd2051a5ab"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2628
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:38.805Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.805Z",
+      "uuid": "579b0d9e-d9ea-493b-83db-cef1aae34b03"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2631
+  },
+  {
+    "fields": {
+      "answer": "Chino",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:38.810Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.810Z",
+      "uuid": "c24a1ca1-2812-4e4c-83a7-c6d150a483f7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2632
+  },
+  {
+    "fields": {
+      "answer": "[45-50)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:38.815Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.815Z",
+      "uuid": "fa2b9421-5038-4be2-9952-8bac707f0e53"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2633
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:38.821Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.821Z",
+      "uuid": "ad538c01-8fdf-4af6-b7d6-3d039ba5a9a1"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2634
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:38.826Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.826Z",
+      "uuid": "971e1187-74e7-4993-9f4d-c367a06a9b9e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2635
+  },
+  {
+    "fields": {
+      "answer": "Todas",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:38.832Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.832Z",
+      "uuid": "a73a870d-fdcb-4400-8738-e86be4ed7473"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2636
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:38.837Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.837Z",
+      "uuid": "f5b72117-c583-4101-9b77-a9ecc027cbcb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2637
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:38.842Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.842Z",
+      "uuid": "be9e3265-7ae2-402a-b152-c3026ce5a8fd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2638
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:38.847Z",
+      "ideology": 73,
+      "modified": "2026-02-07T17:09:38.847Z",
+      "uuid": "d3d7759e-e0d6-4edc-aec7-192860e9c846"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2639
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:41.380Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.380Z",
+      "uuid": "14105311-a04c-4007-aeb0-8d384ecb2b4f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2641
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:41.386Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.386Z",
+      "uuid": "d66cb629-2716-47a4-b813-3530bb32de80"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2642
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:41.391Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.392Z",
+      "uuid": "01fbaf8f-1d51-4707-b263-418a16cf25c9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2643
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:41.397Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.397Z",
+      "uuid": "9afa2542-526b-4c2d-91c6-e87bdb9ca989"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2644
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:41.403Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.403Z",
+      "uuid": "42bc936a-245d-4d72-bf19-900109257e26"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2645
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:41.409Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.409Z",
+      "uuid": "c3593f7d-3943-4234-91d2-644402253064"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2646
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:41.415Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.415Z",
+      "uuid": "b712d9af-5040-493e-98c1-e07da0d5ae70"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2647
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:41.420Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.421Z",
+      "uuid": "ce2c31f7-beaf-482c-9c5d-b1cb7d12b066"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2648
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:41.426Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.426Z",
+      "uuid": "76dd7ed3-23a9-4b6f-a4c1-49705f8c3ed6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2649
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:41.432Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.432Z",
+      "uuid": "8801b9dd-7ec1-40fe-9234-22d6e7a53dce"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2650
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:41.438Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.438Z",
+      "uuid": "6dc66c77-3cba-4117-8f26-242140685557"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2651
+  },
+  {
+    "fields": {
+      "answer": "Ate\u00edsmo",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:41.443Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.443Z",
+      "uuid": "5c8dc0a6-ec16-43d2-844a-a1d6b23fdca4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2652
+  },
+  {
+    "fields": {
+      "answer": "Unipartidista",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:41.509Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.509Z",
+      "uuid": "f3bd640f-bcee-4e36-bd5a-f5ce4f8b06e5"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2657
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:41.515Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.515Z",
+      "uuid": "ef770ba0-4979-4acc-a078-9d34bdb8e079"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2658
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:41.607Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.607Z",
+      "uuid": "ca286018-6caf-402a-a66f-ba6202509407"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2673
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:41.624Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.625Z",
+      "uuid": "1bfef09d-0a75-4bde-a05e-88202e101c7d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2676
+  },
+  {
+    "fields": {
+      "answer": "Ruso",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:41.630Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.631Z",
+      "uuid": "f04e0862-f137-4acd-a04d-dcb8738a343c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2677
+  },
+  {
+    "fields": {
+      "answer": "[45-50)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:41.636Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.636Z",
+      "uuid": "8b46561a-1734-4398-9d5e-03f80f2054f4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2678
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli e Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:41.642Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.642Z",
+      "uuid": "bfdc4b0b-e1fb-427c-ae71-b3580a3e8965"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2679
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:41.648Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.648Z",
+      "uuid": "e8c288fe-b89a-4265-9d04-451435c7bca4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2680
+  },
+  {
+    "fields": {
+      "answer": "Todas",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:41.655Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.655Z",
+      "uuid": "26520ddb-008a-437a-b627-819a3bafe2d6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2681
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:41.661Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.661Z",
+      "uuid": "610cca13-6529-4d25-9ade-a4cef62af6c6"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2682
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:41.667Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.667Z",
+      "uuid": "409f4aa0-6f59-4fcb-8b72-1aa4ad5843e7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2683
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:41.673Z",
+      "ideology": 71,
+      "modified": "2026-02-07T17:09:41.673Z",
+      "uuid": "ad7b7750-7a3f-4203-b2f0-57867f747669"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2684
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:44.370Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.370Z",
+      "uuid": "c6813d2b-c4e8-41a8-9162-9f41cf45cfa2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2686
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:44.377Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.377Z",
+      "uuid": "60c67d96-828f-42f7-8556-69da83c4b380"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2687
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:44.383Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.383Z",
+      "uuid": "8328ae17-a684-47d0-b7b9-6234e61f267e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2688
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:44.393Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.394Z",
+      "uuid": "2636a1a4-9bed-4bd1-ad25-5d5387d9e187"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2689
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:44.400Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.400Z",
+      "uuid": "263fac70-ec41-494a-a7fa-ec315a9c0012"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2690
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:44.406Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.406Z",
+      "uuid": "f4d1bde0-7899-47aa-9d40-830d6ce19d75"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2691
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:44.413Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.413Z",
+      "uuid": "85557bea-8689-4505-884d-4055a9d31fee"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2692
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:44.419Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.419Z",
+      "uuid": "2b5e23b8-ccef-4f1d-9109-7b3c9a765893"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2693
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:44.426Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.426Z",
+      "uuid": "eed5c8b7-b576-4909-b6aa-4697647af985"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2694
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:44.432Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.432Z",
+      "uuid": "1576c855-0edd-4f3b-b9f8-e4bc70f17c1c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2695
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:44.439Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.439Z",
+      "uuid": "9ef1c900-286d-47bb-83b8-bd8dbbf05743"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2696
+  },
+  {
+    "fields": {
+      "answer": "['Cristianismo Cat\u00f3lico', 'Cristianismo Ortodoxo']",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:44.445Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.445Z",
+      "uuid": "5f959a1b-fcbd-4bd1-b5f1-46f3bc87d63f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2697
+  },
+  {
+    "fields": {
+      "answer": "Primogenitura s\u00e1lica",
+      "conditioner": 16,
+      "created": "2026-02-07T17:09:44.465Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.465Z",
+      "uuid": "c62d555e-6ef5-427f-8d49-a805c009d5eb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2700
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:44.484Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.484Z",
+      "uuid": "80e533b6-74d4-4029-b2f8-95acaf24de2a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2703
+  },
+  {
+    "fields": {
+      "answer": "['Sionismo/Pro-Israel', 'Pro-Palestina/Antisionismo']",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:44.592Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.592Z",
+      "uuid": "fe7113ca-e409-4985-91ce-ebc9a2c39440"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2718
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:44.608Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.608Z",
+      "uuid": "4297b908-5446-4616-976c-0e917df84895"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2721
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:44.614Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.614Z",
+      "uuid": "ad6e84d3-d68f-4175-be76-b33074746346"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2722
+  },
+  {
+    "fields": {
+      "answer": "['[45-50)', '[50-55)', '[55-60)']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:44.619Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.619Z",
+      "uuid": "a2c71768-3722-4e20-a387-d0aa7e3e9a23"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2723
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:44.624Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.624Z",
+      "uuid": "6dc8d52d-1d57-4380-a585-66f2b65178fd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2724
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:44.629Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.629Z",
+      "uuid": "d0853172-9f5f-4a6a-b5bf-dc5221da5902"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2725
+  },
+  {
+    "fields": {
+      "answer": "Todas excepto la m\u00eda",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:44.635Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.635Z",
+      "uuid": "19d78258-06f0-4730-b4be-db2491ed05c8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2726
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:44.640Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.640Z",
+      "uuid": "a65ba151-3416-4d73-97b2-656f6fb366e4"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2727
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:44.646Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.646Z",
+      "uuid": "4e5fa936-6f72-4974-abc8-02f7195d65bb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2728
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:44.651Z",
+      "ideology": 59,
+      "modified": "2026-02-07T17:09:44.651Z",
+      "uuid": "d6fda716-b2ac-4924-9dba-b5a583355378"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2729
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:47.304Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.305Z",
+      "uuid": "3aa0c1f1-8109-48af-b6e7-73d5cfa5761e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2731
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:47.310Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.310Z",
+      "uuid": "15fcc9ae-9712-4448-8b3a-3d9380484210"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2732
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:47.315Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.315Z",
+      "uuid": "9c60716d-0371-4535-951a-4985b58d6962"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2733
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:47.320Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.321Z",
+      "uuid": "cbbdfc86-9795-435d-b049-69d51610421c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2734
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:47.326Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.326Z",
+      "uuid": "873c3d93-6500-4a7a-9278-31dd3be5d0bd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2735
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:47.331Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.331Z",
+      "uuid": "b386c5ba-b926-46d1-b87c-c1dd97019751"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2736
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:47.337Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.337Z",
+      "uuid": "7552a257-0037-4e36-be8b-fafbd8c10719"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2737
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:47.342Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.342Z",
+      "uuid": "f0a18e34-dd95-44c6-a7e7-74f09a06c91e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2738
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:47.347Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.347Z",
+      "uuid": "e08b1c8c-7d51-4e49-b2a6-03017df72614"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2739
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:47.352Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.352Z",
+      "uuid": "1e2a0949-8939-43c5-8f57-feb03598b675"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2740
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:47.358Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.358Z",
+      "uuid": "ff00691b-4606-4bd5-bd33-63bfc316c6ce"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2741
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:47.363Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.363Z",
+      "uuid": "f9390159-ddfc-4bcc-9f3a-1bc429065403"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2742
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Parlamentaria']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:47.390Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.390Z",
+      "uuid": "15449bc2-7b6b-4a70-99e6-f76d778e9c63"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2747
+  },
+  {
+    "fields": {
+      "answer": "['Federal', 'Unitario Descentralizado']",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:47.395Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.395Z",
+      "uuid": "a4fe16eb-0c39-4a18-83ee-fde868dd1c83"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2748
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:47.478Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.478Z",
+      "uuid": "7f471ac6-7301-425a-a278-d8754011bccd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2763
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:47.495Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.495Z",
+      "uuid": "72bb397d-2c89-4655-9b9d-8f4741b91f04"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2766
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:47.500Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.500Z",
+      "uuid": "f12e4740-bc79-4ef6-b785-5e65edcda368"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2767
+  },
+  {
+    "fields": {
+      "answer": "[40-45)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:47.506Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.506Z",
+      "uuid": "4fe91271-0092-4898-ac05-a1eb28208a20"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2768
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:47.512Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.512Z",
+      "uuid": "c5b6f889-baff-42ae-83dc-ae622432e526"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2769
+  },
+  {
+    "fields": {
+      "answer": "Otro",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:47.518Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.518Z",
+      "uuid": "622620de-0bd6-4e5b-9ce7-f6396bae7d7f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2770
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:47.529Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.529Z",
+      "uuid": "06e36cf6-c2f7-4cbc-b71b-8960bffd9b36"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2772
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:47.535Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.535Z",
+      "uuid": "49bead1a-363f-4332-8203-125d9c3beb07"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2773
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:47.540Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.540Z",
+      "uuid": "e0043083-70ac-49ec-9392-c2a1e7c0a940"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2774
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:47.546Z",
+      "ideology": 61,
+      "modified": "2026-02-07T17:09:47.546Z",
+      "uuid": "23095f37-d4a5-41d4-8352-1244d5b4c687"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2775
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:50.252Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.252Z",
+      "uuid": "833fb64e-8b48-4410-8867-78ee9e15a0f9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2776
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:50.258Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.258Z",
+      "uuid": "98f51c6a-c460-4147-a45d-a5382572c73f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2777
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:50.264Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.264Z",
+      "uuid": "84bbdd1c-47a8-4d50-91c7-06c19d9f5c00"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2778
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:50.270Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.270Z",
+      "uuid": "2ec30583-b2cc-4c23-907a-e0a81d4981bc"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2779
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:50.276Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.276Z",
+      "uuid": "39283c19-af4a-4339-a897-db15646427a9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2780
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:50.282Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.282Z",
+      "uuid": "8c440748-83e3-4833-b63f-13255ba5235d"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2781
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:50.288Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.288Z",
+      "uuid": "1095c2b9-67b6-4faa-9317-3c02842fedf7"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2782
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:50.293Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.294Z",
+      "uuid": "47d95376-2a27-4e7a-8258-087478995c80"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2783
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:50.299Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.299Z",
+      "uuid": "8c67a042-9682-4f24-a6cf-075cec7abad8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2784
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:50.305Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.305Z",
+      "uuid": "4897597f-8e76-4ffa-85bc-51536de681ae"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2785
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:50.311Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.311Z",
+      "uuid": "72f03d51-f27b-49c6-a721-195c76698e5f"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2786
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:50.317Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.317Z",
+      "uuid": "3cbcb7cc-f3a4-48fd-9cd5-fa2362a0a17c"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2787
+  },
+  {
+    "fields": {
+      "answer": "Parlamentaria",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:50.346Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.346Z",
+      "uuid": "9868bdd8-cd3f-42eb-955d-f75dea977185"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2792
+  },
+  {
+    "fields": {
+      "answer": "Confederal",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:50.352Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.352Z",
+      "uuid": "ec8dbf55-560e-41be-a44c-e50ed5684cfb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2793
+  },
+  {
+    "fields": {
+      "answer": "Pro-Palestina/Antisionismo",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:50.442Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.442Z",
+      "uuid": "f9673c5b-d7e8-49db-81ee-5b153ef3a1ba"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2808
+  },
+  {
+    "fields": {
+      "answer": "false",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:50.462Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.462Z",
+      "uuid": "471feec4-47f2-40a2-8b93-23b6b5a76d09"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2811
+  },
+  {
+    "fields": {
+      "answer": "Ingl\u00e9s",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:50.468Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.468Z",
+      "uuid": "3a6bf413-4aeb-40ae-8f14-d08e8a4be68e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2812
+  },
+  {
+    "fields": {
+      "answer": "['[30-35)', '[35-40)']",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:50.474Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.474Z",
+      "uuid": "e8588b69-e292-468b-9773-2db5ef3d6241"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2813
+  },
+  {
+    "fields": {
+      "answer": "Jus Soli",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:50.481Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.481Z",
+      "uuid": "49486384-d24f-4b4c-ae46-222be8e24669"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2814
+  },
+  {
+    "fields": {
+      "answer": "['[15-18)', '[18-21)']",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:50.501Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.501Z",
+      "uuid": "061091a9-64a6-4d90-b6c0-fb36beb68834"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2817
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:50.507Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.507Z",
+      "uuid": "0e1f97e3-4f31-44d9-bbfc-ecc98ec518b2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2818
+  },
+  {
+    "fields": {
+      "answer": "[18-21)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:50.514Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.514Z",
+      "uuid": "74d55c79-3def-4474-9963-43b3e4cefebd"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2819
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 46,
+      "created": "2026-02-07T17:09:50.520Z",
+      "ideology": 62,
+      "modified": "2026-02-07T17:09:50.520Z",
+      "uuid": "5074dbaa-5661-414f-9a4a-1ece6500ae34"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2820
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 1,
+      "created": "2026-02-07T17:09:53.214Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.214Z",
+      "uuid": "57bcd463-99f3-417f-baf3-0ca3f98bb7ee"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2821
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 2,
+      "created": "2026-02-07T17:09:53.219Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.219Z",
+      "uuid": "1b02caf1-79e2-4f89-9c39-a02382f0f1e3"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2822
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 3,
+      "created": "2026-02-07T17:09:53.225Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.225Z",
+      "uuid": "c7626a9d-de79-481a-9373-7638b979e622"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2823
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 4,
+      "created": "2026-02-07T17:09:53.230Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.230Z",
+      "uuid": "a04f6823-d630-44e1-986e-4bf22d0a9249"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2824
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 5,
+      "created": "2026-02-07T17:09:53.236Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.236Z",
+      "uuid": "80858f97-0499-43f0-9725-0a80a9ec7d06"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2825
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 6,
+      "created": "2026-02-07T17:09:53.241Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.241Z",
+      "uuid": "d1377cce-5246-44d1-8155-5d4e616d1dfb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2826
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 7,
+      "created": "2026-02-07T17:09:53.246Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.246Z",
+      "uuid": "aa13affc-c6b6-4aad-8c1e-ab31616e06f0"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2827
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 8,
+      "created": "2026-02-07T17:09:53.252Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.252Z",
+      "uuid": "2b6393aa-ddd1-44f8-8680-2b9ab56fcfe8"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2828
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 9,
+      "created": "2026-02-07T17:09:53.257Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.257Z",
+      "uuid": "68ba80d8-e0fa-40f2-a979-f97122f7c5cf"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2829
+  },
+  {
+    "fields": {
+      "answer": "Option A",
+      "conditioner": 10,
+      "created": "2026-02-07T17:09:53.262Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.262Z",
+      "uuid": "63d4c4b8-5af8-44cf-b80b-3b52f0c4b1ea"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2830
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 12,
+      "created": "2026-02-07T17:09:53.268Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.268Z",
+      "uuid": "78095406-f65c-4cd6-a58b-b1d6c72d2071"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2831
+  },
+  {
+    "fields": {
+      "answer": "Indiferente",
+      "conditioner": 13,
+      "created": "2026-02-07T17:09:53.274Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.274Z",
+      "uuid": "df126a7f-db17-44f9-a7cf-3833b6a9f877"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2832
+  },
+  {
+    "fields": {
+      "answer": "['Primogenitura', 'Electiva militar']",
+      "conditioner": 16,
+      "created": "2026-02-07T17:09:53.291Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.291Z",
+      "uuid": "45106ef5-374a-4449-bf07-10e3a3e3cef2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2835
+  },
+  {
+    "fields": {
+      "answer": "['Presidencialista', 'Unipartidista']",
+      "conditioner": 18,
+      "created": "2026-02-07T17:09:53.302Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.302Z",
+      "uuid": "c7f22010-552e-4360-90b3-e968760514cb"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2837
+  },
+  {
+    "fields": {
+      "answer": "Unitario Centralizado",
+      "conditioner": 19,
+      "created": "2026-02-07T17:09:53.308Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.308Z",
+      "uuid": "3d6b1115-5a6b-438b-8c52-9185612f5556"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2838
+  },
+  {
+    "fields": {
+      "answer": "Neutralidad estricta",
+      "conditioner": 34,
+      "created": "2026-02-07T17:09:53.436Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.436Z",
+      "uuid": "5468a30c-ada8-47aa-8d5a-42dc835c8049"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2853
+  },
+  {
+    "fields": {
+      "answer": "true",
+      "conditioner": 37,
+      "created": "2026-02-07T17:09:53.454Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.454Z",
+      "uuid": "062b1d0c-65fb-4b7a-9adf-2c78bdfbbce2"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2856
+  },
+  {
+    "fields": {
+      "answer": "['Chino', 'Ruso']",
+      "conditioner": 38,
+      "created": "2026-02-07T17:09:53.460Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.460Z",
+      "uuid": "16e61f7c-7a2e-42a4-ab50-3a36ba3b1d8a"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2857
+  },
+  {
+    "fields": {
+      "answer": "[45-50)",
+      "conditioner": 39,
+      "created": "2026-02-07T17:09:53.466Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.467Z",
+      "uuid": "c55f2407-b87b-4422-96d7-64a66b2cae87"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2858
+  },
+  {
+    "fields": {
+      "answer": "Ius Sanguinis",
+      "conditioner": 40,
+      "created": "2026-02-07T17:09:53.473Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.473Z",
+      "uuid": "bbad9ded-5f4e-430d-9484-c5b4efa2ee37"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2859
+  },
+  {
+    "fields": {
+      "answer": "Todas las orientaciones no heterosexuales",
+      "conditioner": 41,
+      "created": "2026-02-07T17:09:53.478Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.478Z",
+      "uuid": "447d3358-4468-4a7a-bd7c-73de285bd5f9"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2860
+  },
+  {
+    "fields": {
+      "answer": "Todas excepto la m\u00eda",
+      "conditioner": 42,
+      "created": "2026-02-07T17:09:53.484Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.484Z",
+      "uuid": "d6e8f7f6-7b76-452a-b30e-b5b7827ad605"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2861
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 43,
+      "created": "2026-02-07T17:09:53.490Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.490Z",
+      "uuid": "38bf770e-ade1-4986-a15f-d908942f244e"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2862
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 44,
+      "created": "2026-02-07T17:09:53.496Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.496Z",
+      "uuid": "eaed78d3-00f1-44a9-8698-b87b34464e35"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2863
+  },
+  {
+    "fields": {
+      "answer": "[21-24)",
+      "conditioner": 45,
+      "created": "2026-02-07T17:09:53.502Z",
+      "ideology": 65,
+      "modified": "2026-02-07T17:09:53.502Z",
+      "uuid": "1f0b3c67-b569-4992-8634-0de4f4681682"
+    },
+    "model": "ideology.ideologyconditionerdefinition",
+    "pk": 2864
   }
 ]
