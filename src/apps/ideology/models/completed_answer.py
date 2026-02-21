@@ -69,14 +69,17 @@ class CompletedAnswer(TimeStampedUUIDModel):
             if not clean_uuid or clean_uuid not in hierarchy_map:
                 continue
 
+            margin_left = axis.get("margin_left")
+            margin_right = axis.get("margin_right")
+
             mapped_axes[clean_uuid] = format_mapped_item(
                 item_type="axis",
                 value=axis.get("value"),
                 complexity_uuid=hierarchy_map[clean_uuid]["complexity_uuid"],
                 is_indifferent=axis.get("is_indifferent", False),
                 section_uuid=hierarchy_map[clean_uuid]["section_uuid"],
-                margin_left=axis.get("margin_left", 0),
-                margin_right=axis.get("margin_right", 0),
+                margin_left=margin_left if margin_left is not None else 0,
+                margin_right=margin_right if margin_right is not None else 0,
             )
         return mapped_axes
 
